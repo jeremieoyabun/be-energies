@@ -11,7 +11,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Op maat geinstalleerde zonnepanelen, gedimensioneerd door een voormalig inspecteur om uw zelfconsumptie te maximaliseren.",
     icon: "solar",
-    heroImage: "/images/services/panneaux-photovoltaiques.webp",
+    heroImage: "/img/services/panneaux.jpg",
     pieges: [
       "retour-investissement-gonfle",
       "installation-gratuite",
@@ -32,7 +32,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Slimme opslag om uw zelfconsumptie te maximaliseren. We verkopen alleen een batterij als het rendabel is voor u.",
     icon: "battery",
-    heroImage: "/images/services/batteries-domestiques.webp",
+    heroImage: "/img/realisations/batteries-crisnee.webp",
     pieges: [
       "surdimensionnement",
       "devis-sans-visite",
@@ -50,7 +50,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Installatie van laadpalen aan huis, geintegreerd met uw zonne-installatie om tegen de laagste kosten op te laden.",
     icon: "ev-charging",
-    heroImage: "/images/services/bornes-de-recharge.webp",
+    heroImage: "/img/realisations/borne-riemst.webp",
     pieges: ["devis-sans-visite"],
     relatedServices: ["panneaux-photovoltaiques", "batteries-domestiques"],
   },
@@ -64,7 +64,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Conformiteit door een voormalig inspecteur. Uw installatie is klaar voor de eerste keuring.",
     icon: "compliance",
-    heroImage: "/images/services/conformite-electrique.webp",
+    heroImage: "/img/services/electricite.jpg",
     pieges: ["devis-sans-visite", "installation-non-conforme"],
     relatedServices: ["panneaux-photovoltaiques", "pompes-a-chaleur"],
   },
@@ -78,7 +78,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Professionele dakreiniging en schilderwerk om uw investering te beschermen en het rendement van uw panelen te optimaliseren.",
     icon: "roof",
-    heroImage: "/images/services/nettoyage-toiture.webp",
+    heroImage: "/img/realisations/engis-03.webp",
     pieges: [],
     relatedServices: ["panneaux-photovoltaiques"],
   },
@@ -92,7 +92,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Hoogwaardige verwarming en airconditioning, gedimensioneerd voor uw woning en geintegreerd in uw energiesysteem.",
     icon: "heat-pump",
-    heroImage: "/images/services/pompes-a-chaleur.webp",
+    heroImage: "/img/services/climatisation.jpg",
     pieges: ["devis-sans-visite"],
     relatedServices: [
       "panneaux-photovoltaiques",

@@ -16,8 +16,8 @@ export const realizations: Realization[] = [
     description:
       "Installation de 32 panneaux SunPower Maxeon 6 avec optimiseurs SolarEdge sur une toiture en tuiles orientée sud-ouest à Riemst. Le dimensionnement a été calculé pour couvrir la consommation du ménage, y compris la recharge d'un véhicule électrique. Taux d'autoconsommation estimé à 62%, avec un retour sur investissement projeté à 7 ans sous le régime actuel du tarif prosommateur en Flandre.",
     images: [
-      "/images/realizations/riemst-pv-01.webp",
-      "/images/realizations/riemst-pv-02.webp",
+      "/img/realisations/riemst.webp",
+      "/img/realisations/panneaux-tongres.webp",
     ],
     caseStudy: {
       challenge:
@@ -49,8 +49,8 @@ export const realizations: Realization[] = [
     description:
       "Installation combinée panneaux photovoltaïques et batterie Huawei LUNA 10 kWh pour un ménage de 4 personnes à Liège. Le système a été dimensionné pour maximiser l'autoconsommation face au tarif prosommateur wallon. La batterie couvre les pics de consommation en soirée et réduit l'injection sur le réseau. Autoconsommation mesurée à 78% après trois mois de fonctionnement.",
     images: [
-      "/images/realizations/liege-pv-batterie-01.webp",
-      "/images/realizations/liege-pv-batterie-02.webp",
+      "/img/realisations/batteries-crisnee.webp",
+      "/img/realisations/batterie-maison.webp",
     ],
     caseStudy: {
       challenge:
@@ -79,7 +79,10 @@ export const realizations: Realization[] = [
     category: "standard",
     description:
       "Installation d'une borne Wallbox Pulsar Plus 22 kW en monophasé chez un particulier à Namur. La borne a été connectée à l'installation photovoltaïque existante de 6 kWc, avec programmation pour privilégier la recharge solaire en journée. Le tableau électrique a été adapté pour supporter la charge sans risque de surcharge.",
-    images: ["/images/realizations/namur-borne-01.webp"],
+    images: [
+      "/img/realisations/borne.webp",
+      "/img/realisations/borne-chaudfontaine.webp",
+    ],
     caseStudy: {
       challenge:
         "Le client venait d'acheter un véhicule électrique et souhaitait une borne rapide. Son installation électrique datait de 2008 et le différentiel 300mA n'était pas adapté. Un concurrent proposait d'installer la borne sans modifier le tableau.",
@@ -107,8 +110,7 @@ export const realizations: Realization[] = [
     description:
       "Reprise complète du tableau électrique et mise en conformité d'une maison des années 70 à Charleroi, après un refus de contrôle initial par un autre installateur. Remplacement du coffret, ajout des différentiels manquants, reprise du câblage non conforme et mise à la terre. Contrôle passé sans aucune remarque au deuxième passage.",
     images: [
-      "/images/realizations/charleroi-conformite-01.webp",
-      "/images/realizations/charleroi-conformite-02.webp",
+      "/img/Be-energies_conformite_mobile.webp",
     ],
     caseStudy: {
       challenge:
@@ -142,8 +144,8 @@ export const realizations: Realization[] = [
     description:
       "Installation combinée de 16 panneaux Longi et d'une batterie Huawei LUNA 5 kWh pour un couple à Charleroi, dans le cadre du nouveau régime tarifaire wallon. Le système a été spécifiquement dimensionné pour lisser les pics de prélèvement et réduire l'impact du tarif capacitaire (pointe quart-horaire). La batterie se décharge automatiquement lors des pics de consommation détectés par le compteur communicant.",
     images: [
-      "/images/realizations/charleroi-batterie-pv-01.webp",
-      "/images/realizations/charleroi-batterie-pv-02.webp",
+      "/img/realisations/batterie-maison.webp",
+      "/img/Be-energies_batteries-02.webp",
     ],
     caseStudy: {
       challenge:
@@ -175,8 +177,8 @@ export const realizations: Realization[] = [
     description:
       "Installation couplée d'une pompe à chaleur air-eau Daikin Altherma 3 et de 24 panneaux photovoltaïques Longi sur une maison 4 façades à Namur. Le dimensionnement de la PAC a été calculé sur base d'une étude thermique réelle, pas d'une estimation au m2. L'objectif : couvrir 65% des besoins électriques de la PAC par la production solaire sur l'année.",
     images: [
-      "/images/realizations/namur-pac-pv-01.webp",
-      "/images/realizations/namur-pac-pv-02.webp",
+      "/img/realisations/engis.webp",
+      "/img/realisations/engis-01.webp",
     ],
     caseStudy: {
       challenge:
@@ -207,7 +209,7 @@ export const realizations: Realization[] = [
     description:
       "Installation d'une borne Wallbox Commander 2 en triphasé 22 kW dans une maison de maître à Bruxelles. L'enjeu technique principal : intégrer la borne à une installation photovoltaïque existante de 5 kWc équipée de micro-onduleurs Enphase, sans dépasser la capacité du raccordement Sibelga. Le pilotage dynamique de charge évite les dépassements de puissance souscrite.",
     images: [
-      "/images/realizations/bruxelles-borne-triphase-01.webp",
+      "/img/realisations/borne-riemst.webp",
     ],
     caseStudy: {
       challenge:
@@ -238,8 +240,8 @@ export const realizations: Realization[] = [
     description:
       "Nettoyage complet d'une toiture en tuiles béton colonisée par de la mousse sur une maison à Mons. L'intervention a été couplée à une inspection visuelle et électrique des 18 panneaux SunPower installés 8 ans plus tôt. Deux connecteurs MC4 présentaient des signes d'oxydation et ont été remplacés. Le rendement des panneaux a été mesuré avant et après nettoyage : gain de 12% de production récupéré.",
     images: [
-      "/images/realizations/mons-nettoyage-toiture-01.webp",
-      "/images/realizations/mons-nettoyage-toiture-02.webp",
+      "/img/realisations/engis-02.webp",
+      "/img/realisations/engis-03.webp",
     ],
     caseStudy: {
       challenge:
@@ -269,8 +271,7 @@ export const realizations: Realization[] = [
     description:
       "Intervention de sauvetage sur une installation électrique à Liège après un premier contrôle RGIE échoué réalisé par un autre installateur. Le rapport d'infraction listait 9 non-conformités, dont 3 critiques. Benoît a repris le chantier, corrigé les défauts réels et identifié deux faux positifs dans le rapport initial. Contrôle repassé avec succès en 10 jours ouvrables.",
     images: [
-      "/images/realizations/liege-conformite-rescue-01.webp",
-      "/images/realizations/liege-conformite-rescue-02.webp",
+      "/img/Be-energies_conformite_mobile.webp",
     ],
     caseStudy: {
       challenge:
@@ -303,9 +304,8 @@ export const realizations: Realization[] = [
     description:
       "Installation haut de gamme de 28 panneaux SunPower Maxeon 6 avec micro-onduleurs Enphase IQ8+ sur une villa à Wavre. La toiture présentait deux orientations différentes (sud et est), ce qui imposait un système capable de gérer des productions asymétriques. Le choix des micro-onduleurs Enphase permet à chaque panneau de fonctionner indépendamment, sans perte liée à l'effet de chaîne.",
     images: [
-      "/images/realizations/wavre-pv-premium-01.webp",
-      "/images/realizations/wavre-pv-premium-02.webp",
-      "/images/realizations/wavre-pv-premium-03.webp",
+      "/img/realisations/panneaux-tongres.webp",
+      "/img/realisations/panneaux-tongres-02.webp",
     ],
     caseStudy: {
       challenge:
@@ -339,8 +339,8 @@ export const realizations: Realization[] = [
     description:
       "Installation de 60 panneaux Longi Hi-MO 6 sur le toit plat d'un entrepôt PME à Nivelles. Le système de 30 kWc est équipé de deux onduleurs Huawei SUN2000-15KTL en cascade et d'un système de monitoring avancé pour le suivi de production. L'installation est dimensionnée pour couvrir 70% de la consommation de l'activité en journée, où la production solaire correspond aux heures d'exploitation.",
     images: [
-      "/images/realizations/nivelles-pme-pv-01.webp",
-      "/images/realizations/nivelles-pme-pv-02.webp",
+      "/img/realisations/plateforme.webp",
+      "/img/realisations/pharmacie.webp",
     ],
     caseStudy: {
       challenge:
@@ -373,8 +373,8 @@ export const realizations: Realization[] = [
     description:
       "Reprise complète d'une installation photovoltaïque de 14 panneaux à Tournai, initialement posée par un concurrent aujourd'hui en faillite. L'installation présentait des défauts graves : câblage DC non protégé, onduleur sous-dimensionné, fixations non conformes et absence de mise à la terre des cadres. Benoît a corrigé l'ensemble et fait passer le contrôle de conformité qui n'avait jamais été réalisé.",
     images: [
-      "/images/realizations/tournai-correction-pv-01.webp",
-      "/images/realizations/tournai-correction-pv-02.webp",
+      "/img/realisations/engis-01.webp",
+      "/img/realisations/engis-02.webp",
     ],
     caseStudy: {
       challenge:

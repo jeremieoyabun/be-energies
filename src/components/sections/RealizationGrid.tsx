@@ -44,7 +44,7 @@ export function RealizationGrid({
             >
               <div className="aspect-[16/10] bg-ivory relative overflow-hidden">
                 <Image
-                  src={r.images[0] ?? "/images/placeholder.webp"}
+                  src={r.images[0] ?? "/img/misc/realisation-hero.jpg"}
                   alt={r.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"

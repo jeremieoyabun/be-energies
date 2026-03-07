@@ -19,7 +19,7 @@ export function FounderCredibility({
       <div className="flex items-center gap-4 bg-ivory border border-cloud rounded-xl p-4">
         <div className="w-14 h-14 rounded-full bg-slate/20 shrink-0 overflow-hidden">
           <Image
-            src="/images/benoit-dezso.webp"
+            src="/img/misc/worker.webp"
             alt={founder.name}
             width={56}
             height={56}
@@ -43,7 +43,7 @@ export function FounderCredibility({
       <div className="flex items-center gap-4 bg-ivory border border-cloud rounded-xl p-4">
         <div className="w-14 h-14 rounded-full bg-slate/20 shrink-0 overflow-hidden">
           <Image
-            src="/images/benoit-dezso.webp"
+            src="/img/misc/worker.webp"
             alt={founder.name}
             width={56}
             height={56}
@@ -69,7 +69,7 @@ export function FounderCredibility({
             <div className="aspect-[3/4] rounded-xl bg-midnight relative overflow-hidden">
               <div className="absolute inset-0 hatch-pattern opacity-30" />
               <Image
-                src="/images/benoit-dezso.webp"
+                src="/img/misc/worker.webp"
                 alt={founder.name}
                 width={560}
                 height={747}
