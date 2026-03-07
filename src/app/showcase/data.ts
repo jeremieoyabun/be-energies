@@ -129,7 +129,7 @@ export const services = [
   {
     title: "Conformite electrique",
     description:
-      "Mise en conformite, preparation au controle, ancien inspecteur RESCERT.",
+      "Mise en conformite, preparation au controle, ancien inspecteur certifie RESCERT.",
     icon: "compliance",
   },
   {

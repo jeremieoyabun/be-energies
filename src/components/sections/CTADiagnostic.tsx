@@ -10,8 +10,8 @@ interface CTADiagnosticProps {
 }
 
 export function CTADiagnostic({
-  title = "Diagnostic energetique gratuit",
-  description = "Benoit analyse votre consommation, votre toiture, et votre reseau electrique. Vous recevez un calcul de rentabilite reel base sur les tarifs 2026.",
+  title = "Diagnostic énergétique gratuit",
+  description = "Benoît analyse votre consommation, votre toiture, et votre réseau électrique. Vous recevez un calcul de rentabilité réel basé sur les tarifs 2026.",
   ctaLabel = "Demander mon diagnostic gratuit",
   ctaHref = "/contact/",
   variant = "default",

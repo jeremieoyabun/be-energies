@@ -120,7 +120,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-charcoal flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-steel">
-            &copy; {new Date().getFullYear()} {siteConfig.name} SARL. Tous droits reserves.
+            &copy; {new Date().getFullYear()} {siteConfig.name} SARL. Tous droits réservés.
           </p>
           <p className="text-xs text-steel italic font-[family-name:var(--font-heading)]">
             {siteConfig.tagline}

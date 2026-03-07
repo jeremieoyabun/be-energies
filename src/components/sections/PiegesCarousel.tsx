@@ -26,12 +26,12 @@ export function PiegesCarousel({
     <section className="section-padding bg-midnight relative overflow-hidden">
       <div className="absolute inset-0 hatch-pattern" />
       <div className="container-be relative z-10">
-        <SectionLabel>Pieges a eviter</SectionLabel>
+        <SectionLabel>Pièges à éviter</SectionLabel>
         <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-white">
-          Ce que Benoit a constate sur le terrain
+          Ce que Benoît a constaté sur le terrain
         </h2>
         <p className="mt-3 text-silver max-w-xl mb-10">
-          Les erreurs les plus frequentes identifiees pendant ses inspections.
+          Les erreurs les plus fréquentes identifiées pendant ses inspections.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -70,7 +70,7 @@ export function PiegesCarousel({
               href="/pieges-a-eviter/"
               className="inline-flex items-center gap-2 text-amber hover:text-amber-light font-medium transition-colors"
             >
-              Voir tous les pieges a eviter
+              Voir tous les pièges à éviter
               <ArrowRightIcon size={16} />
             </Link>
           </div>

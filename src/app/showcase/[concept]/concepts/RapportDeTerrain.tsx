@@ -69,7 +69,7 @@ export default function RapportDeTerrain() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-[#06b6d4]/30 bg-[#06b6d4]/5 mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-[#06b6d4] animate-pulse" />
               <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#06b6d4]">
-                Ancien inspecteur RESCERT
+                Ancien inspecteur | Certifie RESCERT
               </span>
             </div>
 
@@ -335,7 +335,7 @@ export default function RapportDeTerrain() {
                   </span>
                 </div>
                 <p className="text-sm text-[#2a3444] leading-relaxed">
-                  En tant qu&apos;inspecteur RESCERT, j&apos;ai recale des dizaines
+                  En tant qu&apos;ancien inspecteur certifie RESCERT, j&apos;ai recale des dizaines
                   d&apos;installations pour des erreurs evitables : sections de cable
                   inadaptees, protections manquantes, mises a la terre defaillantes.
                   Aujourd&apos;hui, chaque installation que je concois est pensee pour

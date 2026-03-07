@@ -63,7 +63,7 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
   const localFaqs = generateLocalFaq(city, service, "nl");
 
   const headline = getLocalHeadline(service, city.name, "nl");
-  const subheadline = `Installatie van ${service.titleNl.toLowerCase()} in ${city.name} (${city.province}) door Be'energies. Benoit Dezso, voormalig RESCERT inspecteur.`;
+  const subheadline = `Installatie van ${service.titleNl.toLowerCase()} in ${city.name} (${city.province}) door Be'energies. Benoît Dezso, voormalig inspecteur, RESCERT-gecertificeerd.`;
 
   return (
     <>

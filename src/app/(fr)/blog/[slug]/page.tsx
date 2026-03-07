@@ -57,12 +57,30 @@ export default async function BlogArticlePage({ params }: BlogPageProps) {
 
       <article className="section-padding">
         <div className="container-be max-w-3xl">
-          <header className="mb-10">
-            <h1 className="text-3xl md:text-4xl font-[family-name:var(--font-heading)] text-midnight leading-tight">
+          {/* Article header */}
+          <header className="mb-12 pb-10 border-b border-cloud">
+            <div className="flex flex-wrap gap-2 mb-6">
+              {article.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="bg-cyan/10 text-cyan-dark text-xs font-[family-name:var(--font-data)] font-medium px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-[family-name:var(--font-heading)] text-midnight leading-tight">
               {article.title}
             </h1>
-            <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-steel">
-              <span>Par {article.author}</span>
+            <p className="mt-5 text-lg text-steel leading-relaxed max-w-2xl">
+              {article.excerpt}
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-steel">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-midnight text-white flex items-center justify-center text-xs font-semibold">BD</div>
+                <span className="font-medium text-midnight">{article.author}</span>
+              </div>
+              <span className="text-cloud">&middot;</span>
               <time dateTime={article.date}>
                 {new Date(article.date).toLocaleDateString("fr-BE", {
                   year: "numeric",
@@ -70,29 +88,21 @@ export default async function BlogArticlePage({ params }: BlogPageProps) {
                   day: "numeric",
                 })}
               </time>
-              <span>{article.readingTime} min de lecture</span>
-            </div>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {article.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-ivory text-steel text-xs font-medium px-2.5 py-1 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
+              <span className="text-cloud">&middot;</span>
+              <span className="data-figure">{article.readingTime} min</span>
             </div>
           </header>
 
+          {/* Article body */}
           {article.body ? (
             <div
-              className="prose prose-lg max-w-none text-charcoal"
+              className="article-prose"
               dangerouslySetInnerHTML={{ __html: article.body }}
             />
           ) : (
-            <div className="prose prose-lg max-w-none text-charcoal">
+            <div className="article-prose">
               <p className="lead">{article.excerpt}</p>
-              <p>Contenu en cours de redaction.</p>
+              <p>Contenu en cours de r&eacute;daction.</p>
             </div>
           )}
         </div>

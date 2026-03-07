@@ -11,6 +11,7 @@ interface HeroSectionProps {
   variant?: "identity" | "service" | "local" | "compact";
   image?: string;
   badge?: string;
+  video?: string;
 }
 
 export function HeroSection({
@@ -22,6 +23,7 @@ export function HeroSection({
   variant = "identity",
   image,
   badge,
+  video,
 }: HeroSectionProps) {
   const isCompact = variant === "compact";
   const isIdentity = variant === "identity";
@@ -63,12 +65,39 @@ export function HeroSection({
   return (
     <section
       className="relative overflow-hidden py-16 md:py-24 lg:py-32"
-      style={{
-        background: "linear-gradient(135deg, var(--brand-midnight) 0%, var(--brand-slate) 50%, var(--brand-charcoal) 100%)",
-      }}
+      style={
+        video
+          ? { background: "var(--brand-midnight)" }
+          : {
+              background:
+                "linear-gradient(135deg, var(--brand-midnight) 0%, var(--brand-slate) 50%, var(--brand-charcoal) 100%)",
+            }
+      }
     >
+      {/* Video background */}
+      {video && (
+        <>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-hidden="true"
+          >
+            <source src={video} type="video/webm" />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div
+            className="absolute inset-0 bg-midnight/70"
+            aria-hidden="true"
+          />
+        </>
+      )}
+
       {/* Hatch pattern overlay */}
-      <div className="absolute inset-0 hatch-pattern" aria-hidden="true" />
+      {!video && <div className="absolute inset-0 hatch-pattern" aria-hidden="true" />}
 
       {/* Radial amber accent */}
       <div
@@ -80,11 +109,11 @@ export function HeroSection({
       />
 
       <div className="container-be relative z-10">
-        <div className={isIdentity && image ? "grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center" : ""}>
-          <div className="max-w-3xl">
+        <div className={isIdentity && image && !video ? "grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center" : ""}>
+          <div className={video ? "max-w-3xl mx-auto text-center" : "max-w-3xl"}>
             {/* Badge */}
             {badge && (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-cyan/30 bg-cyan/5 mb-8">
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded border border-cyan/30 bg-cyan/5 mb-8 ${video ? "" : ""}`}>
                 <div className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse" />
                 <span className="text-[10px] font-[family-name:var(--font-data)] tracking-[0.2em] uppercase text-cyan">
                   {badge}
@@ -95,10 +124,10 @@ export function HeroSection({
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-[family-name:var(--font-heading)] text-white leading-tight">
               {headline}
             </h1>
-            <p className="mt-4 md:mt-6 text-lg md:text-xl leading-relaxed max-w-2xl text-silver">
+            <p className={`mt-4 md:mt-6 text-lg md:text-xl leading-relaxed ${video ? "max-w-2xl mx-auto" : "max-w-2xl"} text-silver`}>
               {subheadline}
             </p>
-            <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4">
+            <div className={`mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 ${video ? "justify-center" : ""}`}>
               <Link
                 href={ctaHref}
                 className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-8 py-4 rounded-lg transition-colors text-base"
@@ -117,8 +146,8 @@ export function HeroSection({
             </div>
           </div>
 
-          {/* Right side: image */}
-          {isIdentity && image && (
+          {/* Right side: image (only when no video) */}
+          {isIdentity && image && !video && (
             <div className="hidden lg:block">
               <div className="relative rounded-xl overflow-hidden border border-white/10">
                 <Image

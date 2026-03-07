@@ -5,9 +5,9 @@ import { CheckIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
-  title: "Guide gratuit -- Les 7 pieges a eviter avant de signer",
+  title: "Guide gratuit -- Les 7 pièges à éviter avant de signer",
   description:
-    "Telechargez le guide gratuit par Benoit Dezso, ancien inspecteur RESCERT. 7 pieges concrets, la checklist des 10 questions a poser, et les vrais chiffres 2026. PDF immediat.",
+    "Téléchargez le guide gratuit par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. 7 pièges concrets, la checklist des 10 questions à poser, et les vrais chiffres 2026. PDF immédiat.",
   path: "/guide-pieges-a-eviter/",
 });
 
@@ -15,37 +15,37 @@ const guideFaq: FAQItem[] = [
   {
     question: "Pourquoi ce guide est-il gratuit ?",
     answer:
-      "Parce qu'un client bien informe fait de meilleurs choix. Et parce que les installateurs qui surfacturent ou dimensionnent mal ne supportent pas qu'on explique leurs pratiques. Ce guide est notre meilleure carte de visite.",
+      "Parce qu'un client bien informé fait de meilleurs choix. Et parce que les installateurs qui surfacturent ou dimensionnent mal ne supportent pas qu'on explique leurs pratiques. Ce guide est notre meilleure carte de visite.",
   },
   {
-    question: "Qui a redige ce guide ?",
+    question: "Qui a rédigé ce guide ?",
     answer:
-      "Benoit Dezso, fondateur de Be'energies et ancien inspecteur en conformite electrique certifie RESCERT. Il a constate ces 7 pieges sur le terrain, dans des centaines d'installations qu'il a inspectees.",
+      "Benoît Dezso, fondateur de Be'energies, ancien inspecteur en installation électrique et certifié RESCERT. Il a constaté ces 7 pièges sur le terrain, dans des centaines d'installations qu'il a inspectées.",
   },
   {
     question: "Est-ce que je vais recevoir du spam ?",
     answer:
-      "Non. Vous recevez le guide par email, puis eventuellement 2-3 conseils complementaires. Desinscription en un clic a tout moment. On ne revend pas vos donnees.",
+      "Non. Vous recevez le guide par email, puis éventuellement 2-3 conseils complémentaires. Désinscription en un clic à tout moment. On ne revend pas vos données.",
   },
 ];
 
 export default function LeadMagnetPage() {
   const piegesPreviews = [
-    { number: 1, title: "Le retour sur investissement en 2 ans", teaser: "Mathematiquement impossible en 2026. Voici pourquoi." },
-    { number: 2, title: "L'installation gratuite", teaser: "Un financement predatoire deguise en cadeau." },
+    { number: 1, title: "Le retour sur investissement en 2 ans", teaser: "Mathématiquement impossible en 2026. Voici pourquoi." },
+    { number: 2, title: "L'installation gratuite", teaser: "Un financement prédatoire déguisé en cadeau." },
     { number: 3, title: "Le surdimensionnement", teaser: "Plus de panneaux = plus de marge pour l'installateur, pas pour vous." },
-    { number: 4, title: "Le devis sans visite technique", teaser: "Un devis par telephone est une devinette, pas une proposition." },
-    { number: 5, title: "L'onduleur sous-dimensionne", teaser: "10-20% de production perdue sans que vous le sachiez." },
-    { number: 6, title: "La batterie dont vous n'avez pas besoin", teaser: "5 000 a 8 000 EUR pour un equipement parfois non rentable." },
+    { number: 4, title: "Le devis sans visite technique", teaser: "Un devis par téléphone est une devinette, pas une proposition." },
+    { number: 5, title: "L'onduleur sous-dimensionné", teaser: "10-20% de production perdue sans que vous le sachiez." },
+    { number: 6, title: "La batterie dont vous n'avez pas besoin", teaser: "5 000 à 8 000 EUR pour un équipement parfois non rentable." },
     { number: 7, title: "L'installation non conforme", teaser: "Le risque invisible qui annule votre assurance." },
   ];
 
   const guideIncludes = [
-    "Les 7 pieges detailles avec exemples reels",
-    "La checklist des 10 questions a poser a votre installateur",
-    "Les vrais chiffres de rentabilite 2026 (tarifs prosumer, injection, autoconsommation)",
+    "Les 7 pièges détaillés avec exemples réels",
+    "La checklist des 10 questions à poser à votre installateur",
+    "Les vrais chiffres de rentabilité 2026 (tarifs prosumer, injection, autoconsommation)",
     "Le comparatif des pratiques courantes vs. les bonnes pratiques",
-    "Les signaux d'alerte a detecter dans un devis",
+    "Les signaux d'alerte à détecter dans un devis",
   ];
 
   return (
@@ -65,15 +65,15 @@ export default function LeadMagnetPage() {
           <div className="grid md:grid-cols-5 gap-10 items-center">
             <div className="md:col-span-3">
               <p className="text-amber text-sm font-semibold uppercase tracking-wider mb-3">
-                Guide gratuit — PDF immediat
+                Guide gratuit — PDF immédiat
               </p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-white leading-tight">
-                Les 7 pieges a eviter avant de signer avec un installateur
+                Les 7 pièges à éviter avant de signer avec un installateur
               </h1>
               <p className="mt-5 text-lg text-silver leading-relaxed">
-                Redige par Benoit Dezso, ancien inspecteur en conformite electrique
-                certifie RESCERT. Il a constate ces 7 erreurs des centaines de fois
-                sur le terrain. Ce guide vous montre exactement quoi verifier
+                Rédigé par Benoît Dezso, ancien inspecteur en installation électrique,
+                certifié RESCERT. Il a constaté ces 7 erreurs des centaines de fois
+                sur le terrain. Ce guide vous montre exactement quoi vérifier
                 avant de signer quoi que ce soit.
               </p>
               <ul className="mt-6 space-y-2">
@@ -97,12 +97,12 @@ export default function LeadMagnetPage() {
                 </p>
                 <form className="space-y-3">
                   <div>
-                    <label htmlFor="lead-name" className="sr-only">Prenom</label>
+                    <label htmlFor="lead-name" className="sr-only">Prénom</label>
                     <input
                       type="text"
                       id="lead-name"
                       name="name"
-                      placeholder="Votre prenom"
+                      placeholder="Votre prénom"
                       className="w-full border border-cloud rounded-lg px-4 py-3 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors"
                     />
                   </div>
@@ -121,10 +121,10 @@ export default function LeadMagnetPage() {
                     type="submit"
                     className="w-full bg-amber hover:bg-amber-dark text-midnight font-semibold py-3.5 rounded-lg transition-colors text-sm"
                   >
-                    Telecharger le guide gratuit
+                    Télécharger le guide gratuit
                   </button>
                   <p className="text-xs text-steel text-center">
-                    Pas de spam. Desinscription en un clic.
+                    Pas de spam. Désinscription en un clic.
                   </p>
                 </form>
               </div>
@@ -133,16 +133,16 @@ export default function LeadMagnetPage() {
         </div>
       </section>
 
-      {/* 7 pieges preview */}
+      {/* 7 pièges preview */}
       <section className="section-padding">
         <div className="container-be max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight text-center mb-3">
-            Ce que vous allez decouvrir
+            Ce que vous allez découvrir
           </h2>
           <p className="text-steel text-center mb-10 max-w-xl mx-auto">
-            7 pratiques courantes dans le marche belge du photovoltaique.
-            Certaines sont des erreurs honnetes, d&apos;autres sont deliberees.
-            Les deux vous coutent cher.
+            7 pratiques courantes dans le marché belge du photovoltaïque.
+            Certaines sont des erreurs honnêtes, d&apos;autres sont délibérées.
+            Les deux vous coûtent cher.
           </p>
           <div className="space-y-4">
             {piegesPreviews.map((piege) => (
@@ -176,18 +176,18 @@ export default function LeadMagnetPage() {
             </div>
             <div>
               <h2 className="text-xl font-[family-name:var(--font-heading)] text-midnight mb-2">
-                Pourquoi j&apos;ai ecrit ce guide
+                Pourquoi j&apos;ai écrit ce guide
               </h2>
               <p className="text-charcoal leading-relaxed">
-                Pendant mes annees d&apos;inspection, j&apos;ai vu des installations
-                surdimensionnees, des calculs de rentabilite gonfles, des onduleurs
-                sous-dimensionnes, et des tableaux electriques non conformes. Les
-                proprietaires ne savaient pas quoi verifier. Ce guide contient
+                Pendant mes années d&apos;inspection, j&apos;ai vu des installations
+                surdimensionnées, des calculs de rentabilité gonflés, des onduleurs
+                sous-dimensionnés, et des tableaux électriques non conformes. Les
+                propriétaires ne savaient pas quoi vérifier. Ce guide contient
                 exactement ce que j&apos;aurais voulu que chaque client lise avant
                 de signer.
               </p>
               <p className="text-steel text-sm mt-2">
-                — Benoit Dezso, ancien inspecteur RESCERT, fondateur de Be&apos;energies
+                — Benoît Dezso, ancien inspecteur, certifié RESCERT, fondateur de Be&apos;energies
               </p>
             </div>
           </div>
@@ -198,7 +198,7 @@ export default function LeadMagnetPage() {
       <section className="section-padding">
         <div className="container-be max-w-md text-center">
           <h2 className="text-2xl font-[family-name:var(--font-heading)] text-midnight mb-4">
-            Pret a eviter les erreurs qui coutent cher ?
+            Prêt à éviter les erreurs qui coûtent cher ?
           </h2>
           <form className="space-y-3">
             <div>
@@ -219,7 +219,7 @@ export default function LeadMagnetPage() {
               Recevoir le guide gratuit
             </button>
             <p className="text-xs text-steel">
-              Gratuit. 12 pages. PDF immediat. Pas de spam.
+              Gratuit. 12 pages. PDF immédiat. Pas de spam.
             </p>
           </form>
         </div>

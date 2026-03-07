@@ -90,11 +90,11 @@ export function generateLocalPageMetadata(
 ): Metadata {
   const isFr = locale === "fr-BE";
   const title = overrides?.titleOverride ?? (isFr
-    ? `${service.title} a ${city.name} -- Installateur certifie`
+    ? `${service.title} à ${city.name} -- Installateur certifié`
     : `${service.title} in ${city.name} -- Gecertificeerd installateur`);
   const description = overrides?.descriptionOverride ?? (isFr
-    ? `Installation de ${service.title.toLowerCase()} a ${city.name} (${city.province}) par Be'energies. Benoit Dezso, ancien inspecteur RESCERT. Diagnostic gratuit.`
-    : `Installatie van ${service.title.toLowerCase()} in ${city.name} (${city.province}) door Be'energies. Benoit Dezso, voormalig RESCERT inspecteur. Gratis diagnose.`);
+    ? `Installation de ${service.title.toLowerCase()} à ${city.name} (${city.province}) par Be'energies. Benoît Dezso, ancien inspecteur, certifié RESCERT. Diagnostic gratuit.`
+    : `Installatie van ${service.title.toLowerCase()} in ${city.name} (${city.province}) door Be'energies. Benoit Dezso, voormalig inspecteur, RESCERT-gecertificeerd. Gratis diagnose.`);
 
   const frPath = `/${service.slug}/${city.slug}/`;
   const nlPath = `/nl/${service.slugNl}/${city.slug}/`;

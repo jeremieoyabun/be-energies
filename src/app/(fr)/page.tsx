@@ -29,7 +29,7 @@ import { MapPinIcon } from "@/lib/icons";
 export const metadata = generatePageMetadata({
   title: "Be'energies -- Panneaux solaires, batteries, bornes de recharge en Belgique",
   description:
-    "Installation de panneaux solaires, batteries domestiques, bornes de recharge, pompes a chaleur et conformite electrique en Belgique. Fonde par Benoit Dezso, ancien inspecteur RESCERT. Retour en 5-7 ans. Diagnostic gratuit.",
+    "Installation de panneaux solaires, batteries domestiques, bornes de recharge, pompes à chaleur et conformité électrique en Belgique. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Retour en 5-7 ans. Diagnostic gratuit.",
   path: "/",
   alternates: { fr: "/", nl: "/nl/" },
 });
@@ -49,13 +49,13 @@ export default function HomePage() {
 
       {/* 1. HERO -- Identity-led with real photography */}
       <HeroSection
-        headline="J'ai inspecte des centaines d'installations. Aujourd'hui, je les construis."
-        subheadline="Benoit Dezso, ancien inspecteur certifie RESCERT. Panneaux solaires, batteries, bornes de recharge, pompes a chaleur, conformite electrique. Un seul interlocuteur pour votre systeme energetique."
-        ctaLabel="Diagnostic energetique gratuit"
+        headline="J'ai inspecté des centaines d'installations. Aujourd'hui, je les construis."
+        subheadline="Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Panneaux solaires, batteries, bornes de recharge, pompes à chaleur, conformité électrique. Un seul interlocuteur pour votre système énergétique."
+        ctaLabel="Diagnostic énergétique gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Nos services", href: "/services/" }}
-        badge="Ancien inspecteur RESCERT"
-        image="/img/Be-energies_video_header.png"
+        badge="Ancien inspecteur | Certifié RESCERT"
+        video="/vds/Be-energies_video_header.webm"
       />
 
       {/* 2. TRUST BAR -- Compressed social proof */}
@@ -103,7 +103,7 @@ export default function HomePage() {
             {[
               {
                 region: "Wallonie",
-                cities: "Liege, Namur, Mons, Charleroi, Waremme, Ans, Nivelles",
+                cities: "Liège, Namur, Mons, Charleroi, Waremme, Ans, Nivelles",
               },
               { region: "Bruxelles", cities: "Toutes les communes" },
               {
@@ -127,7 +127,7 @@ export default function HomePage() {
           </div>
           <p className="mt-6 text-center text-sm text-steel">
             <span className="data-figure">{siteConfig.contact.address.postalCode}</span>{" "}
-            {siteConfig.contact.address.city} &mdash; Deplacements dans toute la Belgique
+            {siteConfig.contact.address.city} &mdash; Déplacements dans toute la Belgique
           </p>
         </div>
       </section>
@@ -135,7 +135,7 @@ export default function HomePage() {
       {/* 12. FAQ + FAQPage schema */}
       <FAQSection
         items={homepageFaq}
-        title="Questions frequentes"
+        title="Questions fréquentes"
       />
 
       {/* 13. BLOG PREVIEW -- Fresh content + internal links */}
@@ -143,8 +143,8 @@ export default function HomePage() {
 
       {/* 14. FINAL CTA -- Dark full-width closer */}
       <CTADiagnostic
-        title="Votre diagnostic energetique, par un ancien inspecteur"
-        description="Benoit se deplace chez vous, analyse votre installation, et vous remet un rapport personnalise. Devis detaille sous 48h. Pas une estimation generique — les vrais tarifs 2026 de votre gestionnaire de reseau."
+        title="Votre diagnostic énergétique, par un ancien inspecteur certifié RESCERT"
+        description="Benoît se déplace chez vous, analyse votre installation, et vous remet un rapport personnalisé. Devis détaillé sous 48h. Pas une estimation générique — les vrais tarifs 2026 de votre gestionnaire de réseau."
         ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
         variant="dark"

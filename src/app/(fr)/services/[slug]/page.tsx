@@ -56,9 +56,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   const processSteps = [
     { name: "Diagnostic sur site", text: "Visite technique de votre installation et analyse de consommation." },
-    { name: "Proposition detaillee", text: "Devis avec calcul de rentabilite base sur les tarifs 2026 reels." },
-    { name: "Installation professionnelle", text: "Installation par notre equipe, concue pour passer le controle." },
-    { name: "Suivi et maintenance", text: "Verification de conformite, mise en service, suivi inclus." },
+    { name: "Proposition détaillée", text: "Devis avec calcul de rentabilité basé sur les tarifs 2026 réels." },
+    { name: "Installation professionnelle", text: "Installation par notre équipe, conçue pour passer le contrôle." },
+    { name: "Suivi et maintenance", text: "Vérification de conformité, mise en service, suivi inclus." },
   ];
 
   return (
@@ -111,15 +111,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <section className="section-padding">
           <div className="container-be max-w-3xl">
             <div className="prose prose-lg max-w-none text-charcoal">
-              <h2>Pourquoi {service.title.toLowerCase()} avec Be&apos;energies ?</h2>
+              <h2>Pourquoi {service.title.toLowerCase()} avec Be&apos;énergies ?</h2>
               <p>
-                En tant qu&apos;ancien inspecteur en conformite electrique, Benoit concoit chaque
+                En tant qu&apos;ancien inspecteur en conformité électrique, Benoît conçoit chaque
                 installation de {service.title.toLowerCase()} pour qu&apos;elle soit conforme,
-                correctement dimensionnee, et rentable sur le long terme.
+                correctement dimensionnée, et rentable sur le long terme.
               </p>
               <p>
-                Pas de promesses en l&apos;air, pas de calculs gonfles. Les vrais chiffres,
-                bases sur les tarifs 2026 reels de votre GRD.
+                Pas de promesses en l&apos;air, pas de calculs gonflés. Les vrais chiffres,
+                basés sur les tarifs 2026 réels de votre GRD.
               </p>
             </div>
           </div>

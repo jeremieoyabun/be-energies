@@ -3,14 +3,15 @@ export const siteConfig = {
   url: "https://be-energies.be",
   locale: "fr-BE",
   localeNl: "nl-BE",
-  tagline: "L'installateur qui a d'abord ete l'inspecteur.",
+  tagline: "L'installateur qui a d'abord été l'inspecteur.",
   description:
-    "Be'energies : panneaux solaires, batteries, bornes de recharge, pompes a chaleur, conformite electrique et nettoyage toiture en Belgique. Fonde par Benoit Dezso, ancien inspecteur RESCERT.",
+    "Be'energies : panneaux solaires, batteries, bornes de recharge, pompes à chaleur, conformité électrique et nettoyage toiture en Belgique. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
   founder: {
-    name: "Benoit Dezso",
-    role: "Fondateur, ancien inspecteur en conformite electrique",
-    roleNl: "Oprichter, voormalig inspecteur elektrische conformiteit",
-    credential: "Certifie RESCERT",
+    name: "Benoît Dezso",
+    role: "Fondateur, ancien inspecteur en installation électrique",
+    roleNl: "Oprichter, voormalig inspecteur elektrotechnische installaties",
+    credential: "certifié RESCERT",
+    credentialShort: "RESCERT",
   },
   contact: {
     phone: "+32 12 39 42 37",

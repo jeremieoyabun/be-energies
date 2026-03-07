@@ -103,7 +103,7 @@ export default function ControleTechnique() {
 
               <p className="mt-6 text-[#a1a1aa] leading-relaxed max-w-xl text-lg">
                 Be&apos;energies applique les standards de controle qualite d&apos;un
-                ancien inspecteur RESCERT a chaque installation. Chaque cable, chaque
+                ancien inspecteur certifie RESCERT a chaque installation. Chaque cable, chaque
                 connexion, chaque dimensionnement est verifie.
               </p>
 
@@ -359,7 +359,7 @@ export default function ControleTechnique() {
                   Protocole inspecteur
                 </div>
                 <p className="text-sm text-[#a1a1aa] leading-relaxed">
-                  En tant qu&apos;inspecteur RESCERT, Benoit a recale des installations
+                  En tant qu&apos;ancien inspecteur certifie RESCERT, Benoit a recale des installations
                   pour des sections de cable inadaptees, des protections manquantes, des
                   mises a la terre defaillantes. Aujourd&apos;hui, il concoit chaque
                   installation pour passer le controle — parce qu&apos;il sait exactement
@@ -612,7 +612,7 @@ export default function ControleTechnique() {
             <span className="text-[#06b6d4]">diagnostic technique</span>
           </h2>
           <p className="text-lg text-[#a1a1aa] mb-10 max-w-xl mx-auto">
-            Audit complet de votre installation par un ancien inspecteur RESCERT.
+            Audit complet de votre installation par un ancien inspecteur, certifie RESCERT.
             Rapport personnalise et devis detaille sous 48h.
           </p>
 

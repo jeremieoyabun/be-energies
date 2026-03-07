@@ -32,12 +32,12 @@ export async function generateMetadata({ params }: RealizationPageProps) {
 const categoryLabels: Record<string, string> = {
   standard: "Installation standard",
   correction: "Correction / reprise",
-  renovation: "Renovation",
+  renovation: "Rénovation",
   premium: "Installation premium",
 };
 
 const clientTypeLabels: Record<string, string> = {
-  residential: "Residentiel",
+  residential: "Résidentiel",
   professional: "Professionnel",
 };
 
@@ -63,7 +63,7 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
       <Breadcrumbs
         items={[
           { name: "Accueil", href: "/" },
-          { name: "Realisations", href: "/realisations/" },
+          { name: "Réalisations", href: "/realisations/" },
           { name: realization.title },
         ]}
       />
@@ -121,7 +121,7 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
               {/* Challenge */}
               <div className="border-l-4 border-amber pl-6">
                 <h2 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight mb-3">
-                  Le defi
+                  Le défi
                 </h2>
                 <p className="text-charcoal leading-relaxed">
                   {realization.caseStudy.challenge}
@@ -141,7 +141,7 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
               {/* Result */}
               <div className="border-l-4 border-sky-600 pl-6">
                 <h2 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight mb-3">
-                  Le resultat
+                  Le résultat
                 </h2>
                 <p className="text-charcoal leading-relaxed">
                   {realization.caseStudy.result}
@@ -153,7 +153,7 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
                 realization.caseStudy.technicalDetails.length > 0 && (
                   <div className="bg-midnight/5 rounded-2xl p-6 md:p-8">
                     <h3 className="text-lg font-[family-name:var(--font-heading)] text-midnight mb-4">
-                      Details techniques
+                      Détails techniques
                     </h3>
                     <ul className="space-y-2">
                       {realization.caseStudy.technicalDetails.map(
@@ -186,7 +186,7 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
         </div>
       </section>
 
-      <RelatedServices services={relatedServices} title="Service associe" />
+      <RelatedServices services={relatedServices} title="Service associé" />
 
       <CTADiagnostic variant="dark" />
     </>

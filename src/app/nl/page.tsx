@@ -10,7 +10,7 @@ import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
 export const metadata = generatePageMetadata({
   title: "Be'energies -- Uw gecertificeerde installateur",
   description:
-    "Zonnepanelen, thuisbatterijen, laadpalen, warmtepompen en elektrische conformiteit in Limburg. Benoit Dezso, voormalig RESCERT inspecteur.",
+    "Zonnepanelen, thuisbatterijen, laadpalen, warmtepompen en elektrische conformiteit in Limburg. Benoît Dezso, voormalig inspecteur, RESCERT-gecertificeerd.",
   path: "/nl/",
   locale: "nl-BE",
   alternates: { fr: "/", nl: "/nl/" },
@@ -28,7 +28,7 @@ export default function NlHomePage() {
 
       <HeroSection
         headline="Ik heb honderden installaties geinspecteerd. Vandaag bouw ik ze."
-        subheadline="Benoit Dezso, voormalig RESCERT-gecertificeerd inspecteur. Zonnepanelen, thuisbatterijen, laadpalen, warmtepompen, elektrische conformiteit."
+        subheadline="Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd. Zonnepanelen, thuisbatterijen, laadpalen, warmtepompen, elektrische conformiteit."
         ctaLabel="Gratis energiediagnose"
         ctaHref="/nl/contact/"
         secondaryCta={{ label: "Onze diensten", href: "/nl/diensten/" }}
@@ -43,7 +43,7 @@ export default function NlHomePage() {
 
       <CTADiagnostic
         title="Gratis energiediagnose"
-        description="Benoit analyseert uw verbruik, uw dak en uw elektrisch netwerk. U ontvangt een realistische berekening op basis van de tarieven van 2026."
+        description="Benoît analyseert uw verbruik, uw dak en uw elektrisch netwerk. U ontvangt een realistische berekening op basis van de tarieven van 2026."
         ctaLabel="Vraag uw gratis diagnose aan"
         ctaHref="/nl/contact/"
         variant="dark"

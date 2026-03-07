@@ -9,7 +9,7 @@ import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon } from "@/lib/icons";
 export const metadata = generatePageMetadata({
   title: "Contact -- Gratis energiediagnose",
   description:
-    "Neem contact op met Be'energies voor een gratis energiediagnose. Benoit Dezso antwoordt persoonlijk.",
+    "Neem contact op met Be'energies voor een gratis energiediagnose. Benoît Dezso antwoordt persoonlijk.",
   path: "/nl/contact/",
   locale: "nl-BE",
   alternates: { fr: "/contact/", nl: "/nl/contact/" },
@@ -29,7 +29,7 @@ export default function NlContactPage() {
 
       <HeroSection
         headline="Laten we praten over uw project"
-        subheadline="Benoit antwoordt persoonlijk. Gratis energiediagnose, zonder verplichting."
+        subheadline="Benoît antwoordt persoonlijk. Gratis energiediagnose, zonder verplichting."
         ctaLabel="Nu bellen"
         ctaHref={`tel:${siteConfig.contact.phoneRaw}`}
         variant="compact"

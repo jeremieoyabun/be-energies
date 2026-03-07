@@ -3,11 +3,11 @@ import type { Testimonial } from "@/lib/types";
 export const testimonials: Testimonial[] = [
   {
     name: "Marie D.",
-    city: "Liege",
+    city: "Liège",
     service: "panneaux-photovoltaiques",
     quote:
-      "Depuis l'installation de nos panneaux par Be'energies, notre facture est passee de 185 EUR a 38 EUR par mois. Et l'installation a passe le controle du premier coup.",
-    outcome: "Facture : de 185 EUR a 38 EUR/mois",
+      "Depuis l'installation de nos panneaux par Be'energies, notre facture est passée de 185 EUR à 38 EUR par mois. Et l'installation a passé le contrôle du premier coup.",
+    outcome: "Facture : de 185 EUR à 38 EUR/mois",
     rating: 5,
   },
   {
@@ -15,7 +15,7 @@ export const testimonials: Testimonial[] = [
     city: "Namur",
     service: "panneaux-photovoltaiques",
     quote:
-      "Benoit a pris le temps de tout verifier avant de proposer quoi que ce soit. Pas de pression, pas de promesses en l'air. Un vrai professionnel.",
+      "Benoît a pris le temps de tout vérifier avant de proposer quoi que ce soit. Pas de pression, pas de promesses en l'air. Un vrai professionnel.",
     rating: 5,
   },
   {
@@ -23,7 +23,7 @@ export const testimonials: Testimonial[] = [
     city: "Wavre",
     service: "batteries-domestiques",
     quote:
-      "Benoit nous a clairement explique qu'une batterie n'etait pas rentable pour notre profil. Quel installateur fait ca ? On a finalement optimise notre autoconsommation autrement.",
+      "Benoît nous a clairement expliqué qu'une batterie n'était pas rentable pour notre profil. Quel installateur fait ça ? On a finalement optimisé notre autoconsommation autrement.",
     rating: 5,
   },
   {
@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
     city: "Riemst",
     service: "panneaux-photovoltaiques",
     quote:
-      "32 panelen geinstalleerd, alles perfect afgewerkt. Benoit kent zijn vak als geen ander.",
+      "32 panelen geïnstalleerd, alles perfect afgewerkt. Benoît kent zijn vak als geen ander.",
     outcome: "32 panneaux, 11.36 kWc",
     rating: 5,
   },
@@ -40,7 +40,7 @@ export const testimonials: Testimonial[] = [
     city: "Charleroi",
     service: "conformite-electrique",
     quote:
-      "Apres un refus de conformite par un autre installateur, Benoit a repris le chantier et tout remis en ordre. Le controle est passe sans remarque.",
+      "Après un refus de conformité par un autre installateur, Benoît a repris le chantier et tout remis en ordre. Le contrôle est passé sans remarque.",
     rating: 5,
   },
   {
@@ -48,8 +48,8 @@ export const testimonials: Testimonial[] = [
     city: "Bruxelles",
     service: "bornes-de-recharge",
     quote:
-      "Installation de la borne integree a nos panneaux solaires. On recharge gratuitement en journee. Le calcul etait exact.",
-    outcome: "Recharge gratuite en journee",
+      "Installation de la borne intégrée à nos panneaux solaires. On recharge gratuitement en journée. Le calcul était exact.",
+    outcome: "Recharge gratuite en journée",
     rating: 5,
   },
 ];

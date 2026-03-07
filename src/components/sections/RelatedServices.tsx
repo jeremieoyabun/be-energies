@@ -11,7 +11,7 @@ interface RelatedServicesProps {
 export function RelatedServices({
   services,
   locale = "fr",
-  title = "Services complementaires",
+  title = "Services complémentaires",
 }: RelatedServicesProps) {
   if (services.length === 0) return null;
 

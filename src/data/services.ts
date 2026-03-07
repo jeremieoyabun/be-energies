@@ -4,10 +4,10 @@ export const services: Service[] = [
   {
     slug: "panneaux-photovoltaiques",
     slugNl: "zonnepanelen",
-    title: "Panneaux photovoltaiques",
+    title: "Panneaux photovoltaïques",
     titleNl: "Zonnepanelen",
     shortDescription:
-      "Installation sur mesure de panneaux solaires, dimensionnee par un ancien inspecteur pour maximiser votre autoconsommation.",
+      "Installation sur mesure de panneaux solaires, dimensionnée par un ancien inspecteur en conformité électrique, certifié RESCERT pour maximiser votre autoconsommation.",
     shortDescriptionNl:
       "Op maat geinstalleerde zonnepanelen, gedimensioneerd door een voormalig inspecteur om uw zelfconsumptie te maximaliseren.",
     icon: "solar",
@@ -46,7 +46,7 @@ export const services: Service[] = [
     title: "Bornes de recharge",
     titleNl: "Laadpalen",
     shortDescription:
-      "Installation de bornes de recharge a domicile, integree a votre installation solaire pour recharger au cout le plus bas.",
+      "Installation de bornes de recharge à domicile, intégrée à votre installation solaire pour recharger au coût le plus bas.",
     shortDescriptionNl:
       "Installatie van laadpalen aan huis, geintegreerd met uw zonne-installatie om tegen de laagste kosten op te laden.",
     icon: "ev-charging",
@@ -57,10 +57,10 @@ export const services: Service[] = [
   {
     slug: "conformite-electrique",
     slugNl: "elektrische-conformiteit",
-    title: "Conformite electrique",
+    title: "Conformité électrique",
     titleNl: "Elektrische conformiteit",
     shortDescription:
-      "Mise en conformite par un ancien inspecteur. Votre installation sera prete pour le controle du premier coup.",
+      "Mise en conformité par un ancien inspecteur en conformité électrique, certifié RESCERT. Votre installation sera prête pour le contrôle du premier coup.",
     shortDescriptionNl:
       "Conformiteit door een voormalig inspecteur. Uw installatie is klaar voor de eerste keuring.",
     icon: "compliance",
@@ -74,7 +74,7 @@ export const services: Service[] = [
     title: "Nettoyage et peinture toiture",
     titleNl: "Dakreiniging en schilderwerk",
     shortDescription:
-      "Nettoyage professionnel et peinture de toiture pour proteger votre investissement et optimiser le rendement de vos panneaux.",
+      "Nettoyage professionnel et peinture de toiture pour protéger votre investissement et optimiser le rendement de vos panneaux.",
     shortDescriptionNl:
       "Professionele dakreiniging en schilderwerk om uw investering te beschermen en het rendement van uw panelen te optimaliseren.",
     icon: "roof",
@@ -85,10 +85,10 @@ export const services: Service[] = [
   {
     slug: "pompes-a-chaleur",
     slugNl: "warmtepompen",
-    title: "Pompes a chaleur et climatisation",
+    title: "Pompes à chaleur et climatisation",
     titleNl: "Warmtepompen en airconditioning",
     shortDescription:
-      "Chauffage et climatisation haute performance, dimensionnes pour votre habitation et integres a votre systeme energetique.",
+      "Chauffage et climatisation haute performance, dimensionnés pour votre habitation et intégrés à votre système énergétique.",
     shortDescriptionNl:
       "Hoogwaardige verwarming en airconditioning, gedimensioneerd voor uw woning en geintegreerd in uw energiesysteem.",
     icon: "heat-pump",

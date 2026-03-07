@@ -28,10 +28,10 @@ export function FounderCredibility({
         </div>
         <div>
           <p className="font-semibold text-midnight text-sm">
-            Votre installateur a {cityName} :
+            Votre installateur à {cityName} :
           </p>
           <p className="text-sm text-charcoal">
-            {founder.name}, ancien inspecteur {founder.credential}
+            {founder.name}, ancien inspecteur, {founder.credential}
           </p>
         </div>
       </div>
@@ -90,22 +90,22 @@ export function FounderCredibility({
 
             <div className="mt-6 space-y-4 text-charcoal leading-relaxed">
               <p>
-                Pendant plus de 10 ans, Benoit a inspecte des installations electriques
-                et photovoltaiques a travers la Belgique pour le compte d&apos;organismes agrees.
-                Il a constate, documente, et corrige les erreurs les plus frequentes du secteur.
+                Pendant plus de 10 ans, Benoît a inspecté des installations électriques
+                et photovoltaïques à travers la Belgique pour le compte d&apos;organismes agréés.
+                Il a constaté, documenté, et corrigé les erreurs les plus fréquentes du secteur.
               </p>
               <p>
                 Il fonde Be&apos;energies avec une conviction simple : chaque installation
-                merite le niveau de rigueur qu&apos;il exigeait en tant qu&apos;inspecteur.
+                mérite le niveau de rigueur qu&apos;il exigeait en tant qu&apos;inspecteur.
               </p>
             </div>
 
             <div className="mt-6">
               <InspectorInsight>
-                En tant qu&apos;inspecteur, j&apos;ai recale des installations pour des
-                sections de cable inadaptees, des protections manquantes, des mises a la
-                terre defaillantes. Aujourd&apos;hui, chaque installation que je concois
-                est pensee pour le controle avant d&apos;etre pensee pour la vente.
+                En tant qu&apos;inspecteur, j&apos;ai recalé des installations pour des
+                sections de câble inadaptées, des protections manquantes, des mises à la
+                terre défaillantes. Aujourd&apos;hui, chaque installation que je conçois
+                est pensée pour le contrôle avant d&apos;être pensée pour la vente.
               </InspectorInsight>
             </div>
           </div>

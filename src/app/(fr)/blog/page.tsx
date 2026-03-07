@@ -4,9 +4,9 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { BlogPreview } from "@/components/sections/BlogPreview";
 
 export const metadata = generatePageMetadata({
-  title: "Blog -- Actualites energie en Belgique",
+  title: "Blog -- Actualités énergie en Belgique",
   description:
-    "Articles sur le photovoltaique, les batteries, les bornes de recharge, et la reglementation energetique en Belgique. Par Benoit Dezso.",
+    "Articles sur le photovoltaïque, les batteries, les bornes de recharge, et la réglementation énergétique en Belgique. Par Benoît Dezso.",
   path: "/blog/",
 });
 
@@ -21,7 +21,7 @@ export default function BlogIndexPage() {
       />
       <HeroSection
         headline="Blog"
-        subheadline="Les vrais chiffres, les vraies analyses. Articles sur l'energie en Belgique par un ancien inspecteur."
+        subheadline="Les vrais chiffres, les vraies analyses. Articles sur l'énergie en Belgique par un ancien inspecteur."
         ctaLabel="Diagnostic gratuit"
         ctaHref="/contact/"
         variant="compact"

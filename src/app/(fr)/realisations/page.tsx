@@ -7,8 +7,8 @@ import { realizations } from "@/data/realizations";
 
 export const metadata = generatePageMetadata({
   title:
-    "Nos realisations | Installations solaires, batteries et bornes en Belgique",
-  description: `Plus de ${realizations.length} projets realises en Wallonie, a Bruxelles et en Flandre. Panneaux photovoltaiques, batteries, bornes de recharge, pompes a chaleur et mises en conformite. Decouvrez le travail de terrain de Be'energies.`,
+    "Nos réalisations | Installations solaires, batteries et bornes en Belgique",
+  description: `Plus de ${realizations.length} projets réalisés en Wallonie, à Bruxelles et en Flandre. Panneaux photovoltaïques, batteries, bornes de recharge, pompes à chaleur et mises en conformité. Découvrez le travail de terrain de Be'énergies.`,
   path: "/realisations/",
 });
 
@@ -22,12 +22,12 @@ export default function RealizationsPage() {
       <Breadcrumbs
         items={[
           { name: "Accueil", href: "/" },
-          { name: "Realisations" },
+          { name: "Réalisations" },
         ]}
       />
       <HeroSection
-        headline="Nos realisations sur le terrain"
-        subheadline={`${realizations.length} projets documentes a travers la Belgique. Des installations neuves, des corrections d\u0027installations defaillantes, des mises en conformite apres controle echoue. Chaque chantier est concu pour passer le controle du premier coup -- parce que notre fondateur sait exactement ce que les controleurs verifient.`}
+        headline="Nos réalisations sur le terrain"
+        subheadline={`${realizations.length} projets documentés à travers la Belgique. Des installations neuves, des corrections d\u0027installations défaillantes, des mises en conformité après contrôle échoué. Chaque chantier est conçu pour passer le contrôle du premier coup -- parce que notre fondateur sait exactement ce que les contrôleurs vérifient.`}
         ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         variant="compact"
@@ -68,7 +68,7 @@ export default function RealizationsPage() {
               )
             </span>
             <span className="bg-ivory/60 px-3 py-1.5 rounded-full">
-              Conformite (
+              Conformité (
               {
                 realizations.filter(
                   (r) => r.service === "conformite-electrique"
@@ -77,7 +77,7 @@ export default function RealizationsPage() {
               )
             </span>
             <span className="bg-ivory/60 px-3 py-1.5 rounded-full">
-              Pompes a chaleur (
+              Pompes à chaleur (
               {
                 realizations.filter(
                   (r) => r.service === "pompes-a-chaleur"
@@ -98,8 +98,8 @@ export default function RealizationsPage() {
           {correctionCount > 0 && (
             <p className="mt-4 text-sm text-steel/80">
               Dont {correctionCount} corrections d&apos;installations
-              defaillantes realisees par d&apos;autres entreprises -- un travail
-              que seul un ancien controleur sait diagnostiquer avec precision.
+              défaillantes réalisées par d&apos;autres entreprises -- un travail
+              que seul un ancien contrôleur sait diagnostiquer avec précision.
             </p>
           )}
         </div>
@@ -108,7 +108,7 @@ export default function RealizationsPage() {
       <RealizationGrid realizations={realizations} />
 
       <CTADiagnostic
-        title="Votre projet merite le meme niveau d'exigence"
+        title="Votre projet mérite le même niveau d'exigence"
         variant="dark"
       />
     </>

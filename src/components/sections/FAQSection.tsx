@@ -12,7 +12,7 @@ interface FAQSectionProps {
 
 export function FAQSection({
   items,
-  title = "Questions frequentes",
+  title = "Questions fréquentes",
 }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 

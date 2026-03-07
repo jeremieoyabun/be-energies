@@ -6,15 +6,15 @@ export function RentabilityProof() {
   return (
     <section className="section-padding">
       <div className="container-be">
-        <SectionLabel>Rentabilite 2026</SectionLabel>
+        <SectionLabel>Rentabilité 2026</SectionLabel>
 
         <div className="mb-10 max-w-2xl">
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight">
-            Le photovoltaique en 2026 : toujours rentable
+            Le photovoltaïque en 2026 : toujours rentable
           </h2>
           <p className="mt-3 text-steel">
             Les subventions ont disparu parce que les panneaux sont devenus 5 fois
-            moins chers. Le solaire n&apos;a jamais ete aussi rentable.
+            moins chers. Le solaire n&apos;a jamais été aussi rentable.
           </p>
         </div>
 
@@ -23,8 +23,8 @@ export function RentabilityProof() {
           {[
             { value: "5-7", unit: "ans", label: "retour sur investissement" },
             { value: "~12", unit: "%", label: "rendement annuel" },
-            { value: "38", unit: "c", label: "economises par kWh autoconsomme" },
-            { value: "25", unit: "+", label: "ans de duree de vie" },
+            { value: "38", unit: "c", label: "économisés par kWh autoconsommé" },
+            { value: "25", unit: "+", label: "ans de durée de vie" },
           ].map((stat) => (
             <div
               key={stat.label}
@@ -54,14 +54,14 @@ export function RentabilityProof() {
                 Le chiffre que votre installateur devrait vous montrer
               </p>
               <p className="text-white text-lg md:text-xl leading-relaxed">
-                Chaque kWh que vous consommez vous-meme vous fait economiser{" "}
+                Chaque kWh que vous consommez vous-même vous fait économiser{" "}
                 <strong className="text-amber data-figure">38 centimes</strong>. Chaque kWh
-                revendu au reseau vous rapporte{" "}
-                <strong className="text-amber data-figure">1 a 6 centimes</strong>.
+                revendu au réseau vous rapporte{" "}
+                <strong className="text-amber data-figure">1 à 6 centimes</strong>.
               </p>
               <p className="text-silver mt-3 text-sm">
-                L&apos;autoconsommation vaut 7 a 46 fois plus que l&apos;injection.
-                C&apos;est pour ca qu&apos;on dimensionne pour maximiser ce que vous
+                L&apos;autoconsommation vaut 7 à 46 fois plus que l&apos;injection.
+                C&apos;est pour ça qu&apos;on dimensionne pour maximiser ce que vous
                 consommez, pas ce que vous injectez.
               </p>
             </div>

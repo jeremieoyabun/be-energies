@@ -15,33 +15,33 @@ interface ComparisonTableProps {
 const defaultRows: ComparisonRow[] = [
   {
     aspect: "Visite technique",
-    others: "Devis par telephone ou en ligne",
+    others: "Devis par téléphone ou en ligne",
     beEnergies: "Visite sur site obligatoire",
   },
   {
-    aspect: "Calcul de rentabilite",
-    others: "Estimations generiques, ROI gonfle",
-    beEnergies: "Tarifs 2026 reels de votre GRD",
+    aspect: "Calcul de rentabilité",
+    others: "Estimations génériques, ROI gonflé",
+    beEnergies: "Tarifs 2026 réels de votre GRD",
   },
   {
     aspect: "Dimensionnement",
     others: "Maximum de panneaux pour maximiser la facture",
-    beEnergies: "Optimise pour l'autoconsommation",
+    beEnergies: "Optimisé pour l'autoconsommation",
   },
   {
-    aspect: "Conformite",
-    others: "Pas toujours verifiee avant le controle",
-    beEnergies: "Concue par un ancien inspecteur",
+    aspect: "Conformité",
+    others: "Pas toujours vérifiée avant le contrôle",
+    beEnergies: "Conçue par un ancien inspecteur, certifié RESCERT",
   },
   {
     aspect: "Suivi post-installation",
-    others: "Support limite apres la vente",
+    others: "Support limité après la vente",
     beEnergies: "Suivi et maintenance inclus",
   },
   {
     aspect: "Conseil batterie",
-    others: "Toujours recommandee (marge plus elevee)",
-    beEnergies: "Recommandee seulement si rentable",
+    others: "Toujours recommandée (marge plus élevée)",
+    beEnergies: "Recommandée seulement si rentable",
   },
 ];
 

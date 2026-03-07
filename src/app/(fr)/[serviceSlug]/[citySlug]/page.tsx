@@ -69,7 +69,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
   const localFaqs = generateLocalFaq(city, service, "fr");
 
   const headline = getLocalHeadline(service, city.name, "fr");
-  const subheadline = `Installation de ${service.title.toLowerCase()} a ${city.name} (${city.province}) par Be'energies. Benoit Dezso, ancien inspecteur RESCERT. Diagnostic energetique gratuit.`;
+  const subheadline = `Installation de ${service.title.toLowerCase()} à ${city.name} (${city.province}) par Be'énergies. Benoît Dezso, ancien inspecteur, certifié RESCERT. Diagnostic énergétique gratuit.`;
 
   return (
     <>
@@ -87,7 +87,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
       <HeroSection
         headline={headline}
         subheadline={subheadline}
-        ctaLabel={`Diagnostic gratuit a ${city.name}`}
+        ctaLabel={`Diagnostic gratuit à ${city.name}`}
         ctaHref="/contact/"
         variant="local"
       />
@@ -100,16 +100,16 @@ export default async function LocalPage({ params }: LocalPageProps) {
 
           {/* City-specific intro (unique per city x service) */}
           <div className="prose prose-lg max-w-none text-charcoal">
-            <h2>{localContent?.whyTitle(city.name) ?? `${service.title} a ${city.name}`}</h2>
+            <h2>{localContent?.whyTitle(city.name) ?? `${service.title} à ${city.name}`}</h2>
             <p>{cityIntro}</p>
             {localContent && (
               <p>{localContent.whyBody(city, grd)}</p>
             )}
             {grd && grd.prosumerEurPerKweYear > 0 && serviceSlug === "panneaux-photovoltaiques" && (
               <p>
-                En tant qu&apos;ancien inspecteur en conformite electrique, Benoit
-                concoit chaque installation pour qu&apos;elle passe le controle du
-                premier coup. Pas de surprises, pas de frais supplementaires.
+                En tant qu&apos;ancien inspecteur en conformité électrique, Benoît
+                conçoit chaque installation pour qu&apos;elle passe le contrôle du
+                premier coup. Pas de surprises, pas de frais supplémentaires.
               </p>
             )}
           </div>
@@ -129,7 +129,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
       {localFaqs.length > 0 && (
         <FAQSection
           items={localFaqs}
-          title={`Questions frequentes : ${service.title.toLowerCase()} a ${city.name}`}
+          title={`Questions fréquentes : ${service.title.toLowerCase()} à ${city.name}`}
         />
       )}
 
@@ -137,7 +137,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
       <section className="section-padding bg-ivory">
         <div className="container-be max-w-3xl">
           <h2 className="text-xl font-semibold text-midnight mb-4">
-            {localContent?.crossServiceHeading(city.name) ?? `Autres services a ${city.name} :`}
+            {localContent?.crossServiceHeading(city.name) ?? `Autres services à ${city.name} :`}
           </h2>
           <div className="flex flex-wrap gap-3">
             {otherServices.slice(0, 3).map((s) => (
@@ -146,7 +146,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
                 href={`/${s.slug}/${city.slug}/`}
                 className="inline-flex items-center gap-1 bg-white border border-cloud rounded-lg px-4 py-2.5 text-sm font-medium text-charcoal hover:border-amber hover:text-midnight transition-colors"
               >
-                {s.title} a {city.name}
+                {s.title} à {city.name}
                 <ArrowRightIcon size={14} className="text-amber" />
               </Link>
             ))}
@@ -159,7 +159,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
         <section className="section-padding">
           <div className="container-be max-w-3xl">
             <h2 className="text-xl font-semibold text-midnight mb-4">
-              Nous intervenons aussi a :
+              Nous intervenons aussi à :
             </h2>
             <div className="flex flex-wrap gap-3">
               {nearbyCities.map((nc) => (
@@ -168,7 +168,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
                   href={`/${service.slug}/${nc.slug}/`}
                   className="inline-flex items-center gap-1 bg-white border border-cloud rounded-lg px-4 py-2.5 text-sm font-medium text-charcoal hover:border-amber hover:text-midnight transition-colors"
                 >
-                  {service.title} a {nc.name}
+                  {service.title} à {nc.name}
                   <ArrowRightIcon size={14} className="text-amber" />
                 </Link>
               ))}
@@ -178,7 +178,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
       )}
 
       <CTADiagnostic
-        title={`Diagnostic energetique gratuit a ${city.name}`}
+        title={`Diagnostic énergétique gratuit à ${city.name}`}
         variant="dark"
       />
     </>
