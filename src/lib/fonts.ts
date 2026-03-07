@@ -1,10 +1,10 @@
-import { DM_Serif_Display, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 
-// Heading: DM Serif Display -- distinctive editorial serif
-// Not Inter, not Roboto -- a bold serif that feels premium and expert
-export const fontHeading = DM_Serif_Display({
+// Heading: Space Grotesk -- technical geometric sans, bold, highly legible
+// Distinctive without being decorative. Precision feel matching inspector brand.
+export const fontHeading = Space_Grotesk({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600", "700"],
   variable: "--font-heading",
   display: "swap",
 });

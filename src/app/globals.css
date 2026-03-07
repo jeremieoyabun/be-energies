@@ -118,9 +118,9 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), system-ui, sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   margin-top: 0.5em;
   margin-bottom: 0.75em;
 }
