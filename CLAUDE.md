@@ -22,6 +22,68 @@ The website must strongly communicate:
 - local expertise
 - premium seriousness without corporate coldness
 
+## Regulatory context and customer objections
+The current website is partially outdated regarding the Belgian photovoltaic context.
+The new website must explicitly reflect the current reality around:
+- the Wallonia prosumer tariff
+- smart meters
+- compensation rules
+- current photovoltaic profitability in Belgium
+- customer fears and objections linked to these topics
+Many homeowners now hesitate to invest in photovoltaic panels because they believe:
+- panels are no longer profitable
+- smart meters make self-consumption unattractive
+- the prosumer tariff cancels out the financial benefit
+- the regulatory environment has become too unclear or unstable
+The new website must address these fears clearly, honestly, and pedagogically.
+Be'energies should turn this market confusion into a strategic trust advantage.
+Benoît's technical background must be used to explain what changed, what remains true, what depends on the customer's situation, and how to make better decisions.
+This topic must appear across:
+- homepage messaging
+- photovoltaic service page
+- FAQ content
+- editorial blog content
+- selected local landing pages
+Any regulatory, financial, or profitability-related claim must be researched and updated before publication.
+
+## Realizations strategy
+
+Be'energies has completed far more projects than what is currently shown on the website.
+The existing portfolio is outdated and significantly under-represents the company's real activity, credibility, and field experience.
+
+The new website should not try to display every project in a flat or overwhelming gallery.
+Instead, it should use a layered realizations system:
+
+- a curated homepage selection of the most convincing projects
+- a filterable realizations index that can showcase a large volume of projects
+- a smaller number of detailed case study pages for the strongest and most instructive projects
+
+The realizations system should help achieve several goals at once:
+- strengthen trust quickly
+- prove real field experience at scale
+- support local SEO and local landing pages
+- highlight technical expertise and problem-solving ability
+- avoid overwhelming visitors with too much content at once
+
+The homepage should only feature a limited number of strong projects.
+The main realizations page should make it easy to browse many projects through filters such as:
+- service type
+- location
+- residential vs professional
+- standard installation vs correction / renovation / compliance work
+
+Not every project needs a full detail page.
+Only the most strategic, photogenic, technically interesting, or locally relevant projects should become detailed case studies.
+
+Each project card in the realizations index should stay concise and useful, with structured proof such as:
+- service type
+- city or area
+- short project context
+- one key technical figure or result
+- one image
+
+The site must communicate that Be'energies has extensive real-world experience, without forcing users to browse an endless gallery.
+
 ## Main USP
 The content pillar "Pièges à éviter" is a major strategic asset.
 It must be transformed into:

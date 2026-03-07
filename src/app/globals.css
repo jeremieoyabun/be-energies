@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand colors */
+  --brand-midnight: #0c1220;
+  --brand-slate: #1a2332;
+  --brand-charcoal: #2a3444;
+  --brand-steel: #64748b;
+  --brand-silver: #94a3b8;
+  --brand-cloud: #e2e8f0;
+  --brand-ivory: #f8fafc;
+  --brand-white: #ffffff;
+
+  /* Accent: Warm amber — energy, warmth, action */
+  --brand-amber: #f59e0b;
+  --brand-amber-light: #fbbf24;
+  --brand-amber-dark: #d97706;
+  --brand-amber-glow: rgba(245, 158, 11, 0.15);
+
+  /* Secondary accent: Electric blue — trust, tech, precision */
+  --brand-electric: #3b82f6;
+  --brand-electric-light: #60a5fa;
+  --brand-electric-dark: #2563eb;
+
+  /* Tertiary accent: Cyan — from logo, data, inspector authority */
+  --brand-cyan: #06b6d4;
+  --brand-cyan-light: #22d3ee;
+  --brand-cyan-dark: #0891b2;
+
+  /* Semantic */
+  --brand-success: #10b981;
+  --brand-warning: #f59e0b;
+  --brand-danger: #ef4444;
+
+  /* Severity badges */
+  --severity-critique: #ef4444;
+  --severity-important: #f59e0b;
+  --severity-attention: #3b82f6;
+
+  /* Layout */
+  --background: var(--brand-white);
+  --foreground: var(--brand-midnight);
+  --muted: var(--brand-steel);
+  --border: var(--brand-cloud);
+  --surface: var(--brand-ivory);
+
+  /* Typography scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  /* Spacing */
+  --section-padding: 5rem;
+  --container-max: 1280px;
+  --container-padding: 1.5rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-amber: var(--brand-amber);
+  --color-amber-light: var(--brand-amber-light);
+  --color-amber-dark: var(--brand-amber-dark);
+  --color-electric: var(--brand-electric);
+  --color-electric-light: var(--brand-electric-light);
+  --color-electric-dark: var(--brand-electric-dark);
+  --color-midnight: var(--brand-midnight);
+  --color-slate: var(--brand-slate);
+  --color-charcoal: var(--brand-charcoal);
+  --color-steel: var(--brand-steel);
+  --color-silver: var(--brand-silver);
+  --color-cloud: var(--brand-cloud);
+  --color-ivory: var(--brand-ivory);
+  --color-cyan: var(--brand-cyan);
+  --color-cyan-light: var(--brand-cyan-light);
+  --color-cyan-dark: var(--brand-cyan-dark);
+  --color-success: var(--brand-success);
+  --color-warning: var(--brand-warning);
+  --color-danger: var(--brand-danger);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-data: var(--font-data);
+}
+
+/* Base typography */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--brand-midnight);
+}
+
+/* Utility: container */
+.container-be {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Utility: section spacing */
+.section-padding {
+  padding-block: var(--section-padding);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 3rem;
+    --container-padding: 1rem;
+  }
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--brand-amber);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--brand-amber-glow);
+  color: var(--brand-midnight);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Severity badge styles */
+.badge-critique { background: var(--severity-critique); color: white; }
+.badge-important { background: var(--severity-important); color: white; }
+.badge-attention { background: var(--severity-attention); color: white; }
+
+/* Staggered reveal animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s var(--transition-slow) both;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Data figure styling — monospace for stats, prices, measurements */
+.data-figure {
+  font-family: var(--font-data), 'JetBrains Mono', ui-monospace, monospace;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.02em;
+}
+
+/* Section label — Rapport de Terrain style */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.section-label::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brand-cyan);
+  flex-shrink: 0;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: color-mix(in srgb, var(--brand-cyan) 20%, transparent);
+}
+.section-label span {
+  font-family: var(--font-data), 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--brand-cyan);
+  flex-shrink: 0;
+}
+
+/* Diagonal hatch pattern */
+.hatch-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(6, 182, 212, 0.05) 10px,
+    rgba(6, 182, 212, 0.05) 11px
+  );
+}
+
+/* Inspector insight callout */
+.inspector-insight {
+  border-left: 4px solid var(--brand-cyan);
+  background: color-mix(in srgb, var(--brand-cyan) 5%, transparent);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+/* Amber glow on CTA hover */
+.cta-glow {
+  transition: box-shadow var(--transition-base), background-color var(--transition-base);
+}
+.cta-glow:hover {
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+}
+
+/* Enhanced card lift on hover */
+.card-lift {
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-base);
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -12px rgba(12, 18, 32, 0.12);
+}
+
+/* Dotted separator — cyan dashes */
+.dotted-line {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--brand-cyan) 0,
+    var(--brand-cyan) 4px,
+    transparent 4px,
+    transparent 12px
+  );
+  height: 1px;
+}
