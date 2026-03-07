@@ -112,9 +112,10 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-[1fr_400px] gap-12">
             {/* Form */}
             <div>
-              <h2 className="text-2xl font-[family-name:var(--font-heading)] text-midnight mb-6">
+              <h2 className="text-2xl font-[family-name:var(--font-heading)] text-midnight mb-2">
                 Demandez votre diagnostic gratuit
               </h2>
+              <p className="text-steel mb-8">Remplissez le formulaire et Benoît vous recontacte personnellement sous 24h.</p>
               <form className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
@@ -126,6 +127,7 @@ export default function ContactPage() {
                       id="name"
                       name="name"
                       required
+                      placeholder="Jean Dupont"
                       className="w-full border border-cloud rounded-lg px-4 py-3 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors"
                     />
                   </div>
@@ -138,6 +140,7 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       required
+                      placeholder="jean@exemple.be"
                       className="w-full border border-cloud rounded-lg px-4 py-3 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors"
                     />
                   </div>
@@ -151,6 +154,7 @@ export default function ContactPage() {
                       type="tel"
                       id="phone"
                       name="phone"
+                      placeholder="+32 4XX XX XX XX"
                       className="w-full border border-cloud rounded-lg px-4 py-3 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors"
                     />
                   </div>
@@ -162,6 +166,7 @@ export default function ContactPage() {
                       type="text"
                       id="city"
                       name="city"
+                      placeholder="Liège, Namur, Bruxelles..."
                       className="w-full border border-cloud rounded-lg px-4 py-3 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors"
                     />
                   </div>
@@ -192,6 +197,7 @@ export default function ContactPage() {
                     id="message"
                     name="message"
                     rows={5}
+                    placeholder="Décrivez votre projet : type de logement, surface, consommation actuelle, ce qui vous intéresse..."
                     className="w-full border border-cloud rounded-lg px-4 py-3 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors resize-y"
                   />
                 </div>
@@ -214,7 +220,7 @@ export default function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full sm:w-auto bg-amber hover:bg-amber-dark text-midnight font-semibold px-8 py-4 rounded-lg transition-colors"
+                  className="w-full sm:w-auto cta-glow bg-amber hover:bg-amber-dark text-midnight font-semibold px-8 py-4 rounded-lg transition-colors text-base"
                 >
                   Envoyer ma demande
                 </button>
@@ -225,28 +231,28 @@ export default function ContactPage() {
             <div className="space-y-6">
               <FounderCredibility variant="compact" />
 
-              <div className="bg-ivory border border-cloud rounded-xl p-6 space-y-4">
-                <h3 className="font-semibold text-midnight">Contact direct</h3>
+              <div className="bg-midnight border border-cloud rounded-xl p-6 space-y-4">
+                <h3 className="font-semibold text-white">Contact direct</h3>
                 <ul className="space-y-3">
                   <li>
-                    <a href={`tel:${siteConfig.contact.phoneRaw}`} className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight transition-colors">
+                    <a href={`tel:${siteConfig.contact.phoneRaw}`} className="flex items-center gap-3 text-sm text-silver hover:text-white transition-colors">
                       <PhoneIcon size={18} className="text-amber" />
                       {siteConfig.contact.phone}
                     </a>
                   </li>
                   <li>
-                    <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight transition-colors">
+                    <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-3 text-sm text-silver hover:text-white transition-colors">
                       <MailIcon size={18} className="text-amber" />
                       {siteConfig.contact.email}
                     </a>
                   </li>
                   <li>
-                    <a href={siteConfig.contact.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight transition-colors">
+                    <a href={siteConfig.contact.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-silver hover:text-white transition-colors">
                       <WhatsAppIcon size={18} className="text-amber" />
                       WhatsApp
                     </a>
                   </li>
-                  <li className="flex items-start gap-3 text-sm text-charcoal">
+                  <li className="flex items-start gap-3 text-sm text-silver">
                     <MapPinIcon size={18} className="text-amber shrink-0 mt-0.5" />
                     <span>
                       {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
@@ -305,7 +311,7 @@ export default function ContactPage() {
             {reassuranceItems.map((item) => (
               <div
                 key={item.text}
-                className="flex items-start gap-3 p-5 bg-ivory border border-cloud rounded-xl"
+                className="flex items-start gap-3 p-5 bg-white border border-cloud/60 shadow-sm rounded-2xl"
               >
                 <CheckIcon size={20} className="text-amber shrink-0 mt-0.5" />
                 <div>

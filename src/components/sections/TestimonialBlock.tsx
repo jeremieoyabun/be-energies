@@ -12,7 +12,7 @@ export function TestimonialBlock({
   title = "Ce que nos clients disent",
 }: TestimonialBlockProps) {
   return (
-    <section className="section-padding bg-ivory">
+    <section className="section-padding bg-ivory/50">
       <div className="container-be">
         <SectionLabel>Temoignages verifies</SectionLabel>
         <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-10">
@@ -22,7 +22,7 @@ export function TestimonialBlock({
           {testimonials.map((t, index) => (
             <blockquote
               key={index}
-              className="bg-white border border-cloud rounded-xl p-6 flex flex-col card-lift"
+              className="bg-white border border-cloud/80 shadow-sm rounded-2xl p-6 flex flex-col card-lift"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-4">
@@ -32,7 +32,7 @@ export function TestimonialBlock({
               </div>
 
               {/* Quote */}
-              <p className="text-charcoal leading-relaxed text-sm flex-1">
+              <p className="text-charcoal leading-relaxed text-[15px] flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
@@ -49,7 +49,7 @@ export function TestimonialBlock({
               {/* Attribution */}
               <div className="mt-4 pt-4 border-t border-cloud flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-midnight/5 flex items-center justify-center text-xs font-bold text-steel">
+                  <div className="w-8 h-8 rounded-full bg-amber/10 text-amber flex items-center justify-center text-xs font-bold">
                     {t.name.charAt(0)}
                   </div>
                   <div>

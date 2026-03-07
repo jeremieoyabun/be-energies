@@ -16,9 +16,7 @@ import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { RealizationGrid } from "@/components/sections/RealizationGrid";
 import { FAQSection } from "@/components/sections/FAQSection";
-import { BlogPreview } from "@/components/sections/BlogPreview";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
-import { SectionLabel } from "@/components/sections/SectionLabel";
 import { pieges } from "@/data/pieges";
 import { testimonials } from "@/data/testimonials";
 import { realizations } from "@/data/realizations";
@@ -70,20 +68,20 @@ export default function HomePage() {
       {/* 5. FOUNDER CREDIBILITY -- Full bio with Inspector Insight */}
       <FounderCredibility variant="full" />
 
-      {/* 6. PIEGES PREVIEW -- 3 traps, drives pillar page traffic */}
-      <PiegesCarousel pieges={pieges.slice(0, 3)} />
-
-      {/* 7. COMPARISON TABLE -- Us vs market practices */}
+      {/* 6. COMPARISON TABLE -- Flows from founder story, us vs market */}
       <ComparisonTable />
 
-      {/* 8. TESTIMONIALS -- Outcome-based social proof */}
+      {/* 7. PIEGES PREVIEW -- 3 traps, drives pillar page traffic */}
+      <PiegesCarousel pieges={pieges.slice(0, 3)} />
+
+      {/* 8. PROCESS TIMELINE -- 4 steps to de-risk the journey */}
+      <ProcessTimeline />
+
+      {/* 9. TESTIMONIALS -- Outcome-based social proof after process */}
       <TestimonialBlock
         testimonials={heroTestimonials}
         title="Ils nous ont fait confiance"
       />
-
-      {/* 9. PROCESS TIMELINE -- 4 steps to de-risk the journey */}
-      <ProcessTimeline />
 
       {/* 10. REALIZATIONS -- Real projects, real numbers */}
       <RealizationGrid
@@ -95,7 +93,7 @@ export default function HomePage() {
       {/* 11. LOCAL COVERAGE */}
       <section className="section-padding bg-ivory">
         <div className="container-be">
-          <SectionLabel>Zone d&apos;intervention</SectionLabel>
+          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-4">Zone d&apos;intervention</p>
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-8">
             Wallonie, Bruxelles, Limbourg
           </h2>
@@ -137,9 +135,6 @@ export default function HomePage() {
         items={homepageFaq}
         title="Questions fréquentes"
       />
-
-      {/* 13. BLOG PREVIEW -- Fresh content + internal links */}
-      <BlogPreview />
 
       {/* 14. FINAL CTA -- Dark full-width closer */}
       <CTADiagnostic

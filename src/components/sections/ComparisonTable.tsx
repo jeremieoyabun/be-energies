@@ -56,17 +56,17 @@ export function ComparisonTable({
         <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-10">
           {title}
         </h2>
-        <div className="overflow-x-auto rounded-xl border border-cloud">
+        <div className="overflow-x-auto rounded-2xl border border-cloud/80 shadow-sm overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-cloud bg-ivory">
-                <th className="text-left py-3 px-4 text-steel font-medium w-1/4">
+              <tr className="border-b border-cloud bg-midnight">
+                <th className="text-left py-3 px-4 text-silver font-medium w-1/4">
                   Aspect
                 </th>
-                <th className="text-left py-3 px-4 text-steel font-medium w-[37.5%] border-l border-cloud">
+                <th className="text-left py-3 px-4 font-medium text-silver w-[37.5%] border-l border-cloud/30">
                   Pratique courante
                 </th>
-                <th className="text-left py-3 px-4 font-semibold text-midnight w-[37.5%] border-l border-cloud">
+                <th className="text-left py-3 px-4 font-bold text-amber w-[37.5%] border-l border-cloud/30">
                   Be&apos;energies
                 </th>
               </tr>
@@ -89,7 +89,7 @@ export function ComparisonTable({
                       {row.others}
                     </span>
                   </td>
-                  <td className="py-4 px-4 text-midnight border-l border-cloud">
+                  <td className="py-4 px-4 text-midnight bg-success/3 border-l border-cloud">
                     <span className="flex items-start gap-2">
                       <CheckIcon
                         size={14}

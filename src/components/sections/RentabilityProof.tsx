@@ -28,10 +28,10 @@ export function RentabilityProof() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="bg-ivory border border-cloud rounded-xl p-5 card-lift"
+              className="bg-white border border-cloud/80 shadow-sm rounded-xl p-5 card-lift text-center flex flex-col items-center"
             >
               <div className="flex items-baseline gap-0.5">
-                <span className="text-3xl md:text-4xl font-bold text-midnight data-figure">
+                <span className="text-4xl md:text-5xl font-bold text-midnight data-figure">
                   {stat.value}
                 </span>
                 <span className="text-lg font-bold text-amber data-figure">
@@ -46,7 +46,7 @@ export function RentabilityProof() {
         </div>
 
         {/* The key insight */}
-        <div className="mt-8 max-w-3xl bg-midnight rounded-xl p-6 md:p-8 relative overflow-hidden">
+        <div className="mt-8 max-w-3xl bg-midnight rounded-2xl shadow-2xl p-6 md:p-8 relative overflow-hidden">
           <div className="absolute inset-0 hatch-pattern opacity-50" />
           <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-1">

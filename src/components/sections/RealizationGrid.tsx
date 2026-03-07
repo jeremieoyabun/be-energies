@@ -20,10 +20,10 @@ export function RealizationGrid({
   return (
     <section className="section-padding">
       <div className="container-be">
-        <SectionLabel>Realisations</SectionLabel>
+        <SectionLabel>Réalisations</SectionLabel>
         <div className="flex items-end justify-between mb-10">
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight">
-            Projets verifies, documentes
+            Projets vérifiés, documentés
           </h2>
           {showViewAll && (
             <Link
@@ -40,9 +40,9 @@ export function RealizationGrid({
             <Link
               key={r.slug}
               href={`/realisations/${r.slug}/`}
-              className="group bg-white border border-cloud rounded-xl overflow-hidden card-lift hover:border-amber/30"
+              className="group bg-white border border-cloud/60 shadow-sm rounded-2xl overflow-hidden card-lift hover:border-amber/30"
             >
-              <div className="aspect-[16/10] bg-ivory relative overflow-hidden">
+              <div className="aspect-[4/3] bg-ivory relative overflow-hidden">
                 <Image
                   src={r.images[0] ?? "/img/misc/realisation-hero.jpg"}
                   alt={r.title}
@@ -50,16 +50,17 @@ export function RealizationGrid({
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute top-3 left-3 px-2 py-1 rounded text-[10px] font-[family-name:var(--font-data)] bg-white/90 text-midnight backdrop-blur tracking-wider">
+                <div className="absolute inset-0 bg-gradient-to-t from-midnight/40 via-transparent to-transparent" />
+                <div className="absolute top-3 left-3 px-2 py-1 rounded text-[10px] font-[family-name:var(--font-data)] bg-amber text-midnight font-semibold tracking-wider">
                   {r.service}
                 </div>
               </div>
               <div className="p-5">
-                <div className="flex items-center gap-1.5 text-xs text-steel mb-1">
+                <div className="flex items-center gap-1.5 text-xs text-steel font-medium uppercase tracking-wider mb-1">
                   <MapPinIcon size={12} />
                   {r.city}
                 </div>
-                <h3 className="font-semibold text-midnight group-hover:text-amber-dark transition-colors">
+                <h3 className="text-lg font-semibold text-midnight group-hover:text-amber-dark transition-colors">
                   {r.title}
                 </h3>
                 <div className="mt-2 flex items-center gap-3 text-xs text-steel">
@@ -76,7 +77,7 @@ export function RealizationGrid({
               href="/realisations/"
               className="inline-flex items-center gap-2 text-amber hover:text-amber-dark font-medium transition-colors"
             >
-              Voir toutes nos realisations
+              Voir toutes nos réalisations
               <ArrowRightIcon size={16} />
             </Link>
           </div>
