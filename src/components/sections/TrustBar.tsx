@@ -35,7 +35,7 @@ export function TrustBar({ citySpecificStat }: TrustBarProps) {
               alt="Certification RESCERT — Renewable Energy Systems — Numéro 07717"
               width={360}
               height={180}
-              className="h-auto w-[240px] object-contain"
+              className="h-auto w-[200px] object-contain"
             />
             <div className="hidden sm:block text-sm border-l border-charcoal pl-5">
               <span className="text-white font-semibold">{siteConfig.founder.name}</span>

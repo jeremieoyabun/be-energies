@@ -11,7 +11,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Op maat geinstalleerde zonnepanelen, gedimensioneerd door een voormalig inspecteur om uw zelfconsumptie te maximaliseren.",
     icon: "solar",
-    heroImage: "/img/services/panneaux.jpg",
+    heroImage: "/img/Be-energies_Panneaux_photovoltaiques.webp",
     pieges: [
       "retour-investissement-gonfle",
       "installation-gratuite",

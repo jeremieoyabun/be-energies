@@ -96,6 +96,25 @@ export function HeroSection({
         </>
       )}
 
+      {/* Image background (service pages) */}
+      {!video && image && !isIdentity && (
+        <>
+          <Image
+            src={image}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(180deg, rgba(12,18,32,0.7) 0%, rgba(12,18,32,0.85) 100%)" }}
+            aria-hidden="true"
+          />
+        </>
+      )}
+
       {/* Subtle radial glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-[0.07]"

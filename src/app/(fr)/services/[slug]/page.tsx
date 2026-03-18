@@ -123,23 +123,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Hero image placeholder */}
-      {service.heroImage && (
-        <section className="container-be -mt-2 mb-8">
-          <div className="rounded-2xl overflow-hidden border border-cloud shadow-sm aspect-[21/9] relative bg-ivory">
-            <Image
-              src={service.heroImage}
-              alt={`${service.title} — Be'energies`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 1280px"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-midnight/20 via-transparent to-transparent" />
-          </div>
-        </section>
-      )}
-
       {/* Deep content sections — with alternating backgrounds */}
       {content?.sections.map((section, index) => (
         <section
