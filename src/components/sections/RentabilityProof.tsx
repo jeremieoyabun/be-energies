@@ -6,74 +6,62 @@ export function RentabilityProof() {
   return (
     <section className="section-padding">
       <div className="container-be">
-        <SectionLabel>Rentabilité 2026</SectionLabel>
+        <SectionLabel>Rentabilite 2026</SectionLabel>
 
-        <div className="mb-10 max-w-2xl">
-          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight">
-            Le photovoltaïque en 2026 : toujours rentable
-          </h2>
-          <p className="mt-3 text-steel">
-            Les subventions ont disparu parce que les panneaux sont devenus 5 fois
-            moins chers. Le solaire n&apos;a jamais été aussi rentable.
-          </p>
-        </div>
-
-        {/* Key stats grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl">
-          {[
-            { value: "5-7", unit: "ans", label: "retour sur investissement" },
-            { value: "~12", unit: "%", label: "rendement annuel" },
-            { value: "38", unit: "c", label: "économisés par kWh autoconsommé" },
-            { value: "25", unit: "+", label: "ans de durée de vie" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="bg-white border border-cloud/80 shadow-sm rounded-xl p-5 card-lift text-center flex flex-col items-center"
+        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-center">
+          {/* Left: message */}
+          <div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+              Le photovoltaique est plus rentable que jamais
+            </h2>
+            <p className="mt-4 text-charcoal leading-relaxed">
+              Les subventions ont disparu parce que les panneaux sont devenus 5 fois
+              moins chers. Chaque kWh autoconsomme vous fait economiser{" "}
+              <strong className="text-midnight">38 centimes</strong>. Chaque kWh
+              revendu ne rapporte que <strong className="text-midnight">1 a 6 centimes</strong>.
+            </p>
+            <p className="mt-3 text-steel text-[15px]">
+              C&apos;est pour ca qu&apos;on dimensionne pour maximiser ce que vous
+              consommez, pas ce que vous injectez.
+            </p>
+            <Link
+              href="/services/panneaux-photovoltaiques/"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-amber-dark hover:text-amber transition-colors"
             >
-              <div className="flex items-baseline gap-0.5">
-                <span className="text-4xl md:text-5xl font-bold text-midnight data-figure">
-                  {stat.value}
-                </span>
-                <span className="text-lg font-bold text-amber data-figure">
-                  {stat.unit}
-                </span>
-              </div>
-              <div className="text-xs text-steel mt-2 font-medium leading-snug">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
+              Voir le calcul complet
+              <ArrowRightIcon size={15} />
+            </Link>
+          </div>
 
-        {/* The key insight */}
-        <div className="mt-8 max-w-3xl bg-midnight rounded-2xl shadow-2xl p-6 md:p-8 relative overflow-hidden">
-          <div className="absolute inset-0 hatch-pattern opacity-50" />
-          <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
-            <div className="flex-1">
-              <p className="text-[11px] font-[family-name:var(--font-data)] uppercase tracking-[0.15em] text-cyan mb-3">
-                Le chiffre que votre installateur devrait vous montrer
-              </p>
-              <p className="text-white text-lg md:text-xl leading-relaxed">
-                Chaque kWh que vous consommez vous-même vous fait économiser{" "}
-                <strong className="text-amber data-figure">38 centimes</strong>. Chaque kWh
-                revendu au réseau vous rapporte{" "}
-                <strong className="text-amber data-figure">1 à 6 centimes</strong>.
-              </p>
-              <p className="text-silver mt-3 text-sm">
-                L&apos;autoconsommation vaut 7 à 46 fois plus que l&apos;injection.
-                C&apos;est pour ça qu&apos;on dimensionne pour maximiser ce que vous
-                consommez, pas ce que vous injectez.
-              </p>
-            </div>
-            <div className="shrink-0">
-              <Link
-                href="/services/panneaux-photovoltaiques/"
-                className="cta-glow inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-6 py-3 rounded-lg transition-colors text-sm whitespace-nowrap"
+          {/* Right: stat cards */}
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { value: "5-7", unit: "ans", label: "Retour sur investissement", accent: true },
+              { value: "~12", unit: "%", label: "Rendement annuel", accent: false },
+              { value: "38", unit: "c/kWh", label: "Economies par kWh autoconsomme", accent: false },
+              { value: "25", unit: "+ ans", label: "Duree de vie garantie", accent: false },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className={`rounded-xl p-5 md:p-6 ${
+                  stat.accent
+                    ? "bg-midnight text-white"
+                    : "bg-ivory border border-cloud"
+                }`}
               >
-                Voir le calcul complet
-                <ArrowRightIcon size={16} />
-              </Link>
-            </div>
+                <div className="flex items-baseline gap-1">
+                  <span className={`stat-value text-3xl md:text-4xl font-bold ${stat.accent ? "text-amber" : "text-midnight"}`}>
+                    {stat.value}
+                  </span>
+                  <span className={`stat-value text-base font-semibold ${stat.accent ? "text-amber-light" : "text-amber-dark"}`}>
+                    {stat.unit}
+                  </span>
+                </div>
+                <div className={`text-xs mt-2 font-medium leading-snug ${stat.accent ? "text-silver" : "text-steel"}`}>
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

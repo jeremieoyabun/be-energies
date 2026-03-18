@@ -15,58 +15,82 @@ interface ComparisonTableProps {
 const defaultRows: ComparisonRow[] = [
   {
     aspect: "Visite technique",
-    others: "Devis par téléphone ou en ligne",
+    others: "Devis par telephone ou en ligne",
     beEnergies: "Visite sur site obligatoire",
   },
   {
-    aspect: "Calcul de rentabilité",
-    others: "Estimations génériques, ROI gonflé",
-    beEnergies: "Tarifs 2026 réels de votre GRD",
+    aspect: "Calcul de rentabilite",
+    others: "Estimations generiques, ROI gonfle",
+    beEnergies: "Tarifs 2026 reels de votre GRD",
   },
   {
     aspect: "Dimensionnement",
     others: "Maximum de panneaux pour maximiser la facture",
-    beEnergies: "Optimisé pour l'autoconsommation",
+    beEnergies: "Optimise pour l'autoconsommation",
   },
   {
-    aspect: "Conformité",
-    others: "Pas toujours vérifiée avant le contrôle",
-    beEnergies: "Conçue par un ancien inspecteur, certifié RESCERT",
+    aspect: "Conformite",
+    others: "Pas toujours verifiee avant le controle",
+    beEnergies: "Conçue par un ancien inspecteur, certifie RESCERT",
   },
   {
     aspect: "Suivi post-installation",
-    others: "Support limité après la vente",
+    others: "Support limite apres la vente",
     beEnergies: "Suivi et maintenance inclus",
   },
   {
     aspect: "Conseil batterie",
-    others: "Toujours recommandée (marge plus élevée)",
-    beEnergies: "Recommandée seulement si rentable",
+    others: "Toujours recommandee (marge plus elevee)",
+    beEnergies: "Recommandee seulement si rentable",
   },
 ];
 
 export function ComparisonTable({
   rows = defaultRows,
-  title = "Ce que d'autres font vs. ce que Be'energies fait",
+  title = "Pourquoi Be'energies fait la difference",
 }: ComparisonTableProps) {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-ivory">
       <div className="container-be max-w-4xl">
         <SectionLabel>Comparaison</SectionLabel>
-        <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-10">
+        <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-3 text-balance">
           {title}
         </h2>
-        <div className="overflow-x-auto rounded-2xl border border-cloud/80 shadow-sm overflow-hidden">
+        <p className="text-steel mb-10 max-w-xl">
+          Ce que la plupart des installateurs font, et ce que nous faisons differemment.
+        </p>
+
+        {/* Mobile: stacked cards */}
+        <div className="md:hidden space-y-4">
+          {rows.map((row, index) => (
+            <div key={index} className="card p-5">
+              <p className="font-semibold text-midnight text-sm mb-3">{row.aspect}</p>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2 text-sm">
+                  <CloseIcon size={14} className="text-danger shrink-0 mt-0.5" />
+                  <span className="text-steel">{row.others}</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <CheckIcon size={14} className="text-success shrink-0 mt-0.5" />
+                  <span className="text-midnight font-medium">{row.beEnergies}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: table */}
+        <div className="hidden md:block rounded-2xl overflow-hidden border border-cloud shadow-sm">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-cloud bg-midnight">
-                <th className="text-left py-3 px-4 text-silver font-medium w-1/4">
-                  Aspect
+              <tr className="bg-midnight">
+                <th className="text-left py-4 px-5 text-silver/80 font-medium text-xs uppercase tracking-wider w-[22%]">
+                  Critere
                 </th>
-                <th className="text-left py-3 px-4 font-medium text-silver w-[37.5%] border-l border-cloud/30">
+                <th className="text-left py-4 px-5 font-medium text-silver/80 text-xs uppercase tracking-wider w-[39%] border-l border-white/10">
                   Pratique courante
                 </th>
-                <th className="text-left py-3 px-4 font-bold text-amber w-[37.5%] border-l border-cloud/30">
+                <th className="text-left py-4 px-5 font-bold text-amber text-xs uppercase tracking-wider w-[39%] border-l border-white/10">
                   Be&apos;energies
                 </th>
               </tr>
@@ -75,22 +99,22 @@ export function ComparisonTable({
               {rows.map((row, index) => (
                 <tr
                   key={index}
-                  className="border-b border-cloud last:border-0 hover:bg-ivory/50 transition-colors"
+                  className="border-b border-cloud/60 last:border-0 group"
                 >
-                  <td className="py-4 px-4 font-medium text-midnight">
+                  <td className="py-4 px-5 font-semibold text-midnight text-[13px]">
                     {row.aspect}
                   </td>
-                  <td className="py-4 px-4 text-steel border-l border-cloud">
-                    <span className="flex items-start gap-2">
+                  <td className="py-4 px-5 text-steel border-l border-cloud/60">
+                    <span className="flex items-start gap-2.5">
                       <CloseIcon
                         size={14}
-                        className="text-danger shrink-0 mt-0.5"
+                        className="text-danger/70 shrink-0 mt-0.5"
                       />
                       {row.others}
                     </span>
                   </td>
-                  <td className="py-4 px-4 text-midnight bg-success/3 border-l border-cloud">
-                    <span className="flex items-start gap-2">
+                  <td className="py-4 px-5 text-midnight font-medium bg-amber/[0.03] border-l border-cloud/60">
+                    <span className="flex items-start gap-2.5">
                       <CheckIcon
                         size={14}
                         className="text-success shrink-0 mt-0.5"

@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
-import { CheckIcon, StarIcon } from "@/lib/icons";
 
 interface TrustBarProps {
   citySpecificStat?: string;
@@ -8,50 +8,62 @@ interface TrustBarProps {
 export function TrustBar({ citySpecificStat }: TrustBarProps) {
   const stats = [
     {
-      value: siteConfig.founder.credential,
-      icon: <CheckIcon size={14} className="text-cyan" />,
-      isData: false,
+      value: siteConfig.stats.installations + "+",
+      label: "installations",
+      isHighlight: true,
     },
     {
-      value: `${siteConfig.stats.installations}+ installations`,
-      icon: <CheckIcon size={14} className="text-cyan" />,
-      isData: true,
+      value: siteConfig.stats.yearsExperience + " ans",
+      label: "d'experience terrain",
+      isHighlight: false,
     },
     {
-      value: `${siteConfig.stats.yearsExperience} ans d'experience`,
-      icon: <CheckIcon size={14} className="text-cyan" />,
-      isData: true,
-    },
-    {
-      value: `Retour en ${siteConfig.stats.paybackYears} ans`,
-      icon: <CheckIcon size={14} className="text-cyan" />,
-      isData: true,
+      value: siteConfig.stats.paybackYears + " ans",
+      label: "retour moyen",
+      isHighlight: false,
     },
   ];
 
-  if (citySpecificStat) {
-    stats.push({
-      value: citySpecificStat,
-      icon: <StarIcon size={14} className="text-cyan" />,
-      isData: false,
-    });
-  }
-
   return (
-    <section className="bg-midnight">
-      <div className="container-be py-5">
-        <div className="flex flex-wrap justify-center md:justify-between gap-x-8 gap-y-3 md:divide-x md:divide-charcoal">
-          {stats.map((stat) => (
-            <div
-              key={stat.value}
-              className="flex items-center gap-2 text-sm font-medium text-silver md:px-6 first:md:pl-0 last:md:pr-0"
-            >
-              {stat.icon}
-              <span className={stat.isData ? "data-figure text-white" : ""}>
-                {stat.value}
-              </span>
+    <section className="relative bg-midnight border-b border-charcoal">
+      <div className="container-be py-5 md:py-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+          {/* Credential */}
+          <div className="flex items-center gap-3">
+            <Image
+              src="/RESCERT.png"
+              alt="Certification RESCERT"
+              width={36}
+              height={36}
+              className="h-9 w-9 object-contain"
+            />
+            <div className="text-sm">
+              <span className="text-white font-medium">{siteConfig.founder.name}</span>
+              <span className="text-silver"> · </span>
+              <span className="text-silver text-[13px]">{siteConfig.founder.credential}</span>
             </div>
-          ))}
+          </div>
+
+          {/* Stats */}
+          <div className="flex items-center gap-6 md:gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className={`stat-value text-lg font-bold ${stat.isHighlight ? "text-amber" : "text-white"}`}>
+                  {stat.value}
+                </div>
+                <div className="text-[11px] text-silver/70 tracking-wide uppercase">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+            {citySpecificStat && (
+              <div className="text-center">
+                <div className="text-[11px] text-amber tracking-wide uppercase font-medium">
+                  {citySpecificStat}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

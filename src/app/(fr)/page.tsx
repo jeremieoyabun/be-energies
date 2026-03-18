@@ -27,7 +27,7 @@ import { MapPinIcon } from "@/lib/icons";
 export const metadata = generatePageMetadata({
   title: "Be'energies -- Panneaux solaires, batteries, bornes de recharge en Belgique",
   description:
-    "Installation de panneaux solaires, batteries domestiques, bornes de recharge, pompes à chaleur et conformité électrique en Belgique. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Retour en 5-7 ans. Diagnostic gratuit.",
+    "Installation de panneaux solaires, batteries domestiques, bornes de recharge, pompes a chaleur et conformite electrique en Belgique. Fonde par Benoit Dezso, ancien inspecteur en installation electrique, certifie RESCERT. Retour en 5-7 ans. Diagnostic gratuit.",
   path: "/",
   alternates: { fr: "/", nl: "/nl/" },
 });
@@ -45,63 +45,63 @@ export default function HomePage() {
       <JsonLd data={localBusinessSchema()} />
       <JsonLd data={webSiteSchema()} />
 
-      {/* 1. HERO -- Identity-led with real photography */}
+      {/* 1. HERO */}
       <HeroSection
-        headline="J'ai inspecté des centaines d'installations. Aujourd'hui, je les construis."
-        subheadline="Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Panneaux solaires, batteries, bornes de recharge, pompes à chaleur, conformité électrique. Un seul interlocuteur pour votre système énergétique."
-        ctaLabel="Diagnostic énergétique gratuit"
+        headline="J'ai inspecte des centaines d'installations. Aujourd'hui, je les construis."
+        subheadline="Benoit Dezso, ancien inspecteur en installation electrique, certifie RESCERT. Un seul interlocuteur pour vos panneaux solaires, batteries, bornes, et conformite."
+        ctaLabel="Diagnostic energetique gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Nos services", href: "/services/" }}
-        badge="Ancien inspecteur | Certifié RESCERT"
+        badge="Ancien inspecteur | Certifie RESCERT"
         video="/vds/Be-energies_video_header.webm"
       />
 
-      {/* 2. TRUST BAR -- Compressed social proof */}
+      {/* 2. TRUST BAR */}
       <TrustBar />
 
-      {/* 3. RENTABILITY PROOF -- Kill fear #1 */}
+      {/* 3. RENTABILITY PROOF */}
       <RentabilityProof />
 
-      {/* 4. SERVICES GRID -- 6 services, one partner */}
+      {/* 4. SERVICES */}
       <ServiceCardGrid />
 
-      {/* 5. FOUNDER CREDIBILITY -- Full bio with Inspector Insight */}
+      {/* 5. FOUNDER */}
       <FounderCredibility variant="full" />
 
-      {/* 6. COMPARISON TABLE -- Flows from founder story, us vs market */}
+      {/* 6. COMPARISON + PIEGES back to back for trust momentum */}
       <ComparisonTable />
-
-      {/* 7. PIEGES PREVIEW -- 3 traps, drives pillar page traffic */}
       <PiegesCarousel pieges={pieges.slice(0, 3)} />
 
-      {/* 8. PROCESS TIMELINE -- 4 steps to de-risk the journey */}
+      {/* 7. PROCESS */}
       <ProcessTimeline />
 
-      {/* 9. TESTIMONIALS -- Outcome-based social proof after process */}
+      {/* 8. TESTIMONIALS + REALIZATIONS */}
       <TestimonialBlock
         testimonials={heroTestimonials}
         title="Ils nous ont fait confiance"
       />
 
-      {/* 10. REALIZATIONS -- Real projects, real numbers */}
       <RealizationGrid
         realizations={realizations}
         maxItems={4}
         showViewAll
+        featured
       />
 
-      {/* 11. LOCAL COVERAGE */}
+      {/* 9. LOCAL COVERAGE */}
       <section className="section-padding bg-ivory">
         <div className="container-be">
-          <p className="text-xs font-semibold uppercase tracking-widest text-amber mb-4">Zone d&apos;intervention</p>
-          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-8">
-            Wallonie, Bruxelles, Limbourg
+          <div className="section-label">
+            <span>Zone d&apos;intervention</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-8 text-balance">
+            Wallonie, Bruxelles, Limbourg flamand
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-5">
             {[
               {
                 region: "Wallonie",
-                cities: "Liège, Namur, Mons, Charleroi, Waremme, Ans, Nivelles",
+                cities: "Liege, Namur, Mons, Charleroi, Waremme, Ans, Nivelles",
               },
               { region: "Bruxelles", cities: "Toutes les communes" },
               {
@@ -111,10 +111,10 @@ export default function HomePage() {
             ].map((zone) => (
               <div
                 key={zone.region}
-                className="rounded-xl border border-cloud bg-white p-6 card-lift"
+                className="card p-5"
               >
                 <h3 className="font-semibold text-midnight mb-2 flex items-center gap-2">
-                  <MapPinIcon size={16} className="text-amber" />
+                  <MapPinIcon size={15} className="text-amber" />
                   {zone.region}
                 </h3>
                 <p className="text-sm text-steel leading-relaxed">
@@ -124,22 +124,22 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-6 text-center text-sm text-steel">
-            <span className="data-figure">{siteConfig.contact.address.postalCode}</span>{" "}
-            {siteConfig.contact.address.city} &mdash; Déplacements dans toute la Belgique
+            <span className="data-figure font-semibold text-charcoal">{siteConfig.contact.address.postalCode}</span>{" "}
+            {siteConfig.contact.address.city} &mdash; Deplacements dans toute la Belgique
           </p>
         </div>
       </section>
 
-      {/* 12. FAQ + FAQPage schema */}
+      {/* 10. FAQ */}
       <FAQSection
         items={homepageFaq}
-        title="Questions fréquentes"
+        title="Questions frequentes"
       />
 
-      {/* 14. FINAL CTA -- Dark full-width closer */}
+      {/* 11. FINAL CTA */}
       <CTADiagnostic
-        title="Votre diagnostic énergétique, par un ancien inspecteur certifié RESCERT"
-        description="Benoît se déplace chez vous, analyse votre installation, et vous remet un rapport personnalisé. Devis détaillé sous 48h. Pas une estimation générique — les vrais tarifs 2026 de votre gestionnaire de réseau."
+        title="Votre diagnostic energetique, par un ancien inspecteur certifie RESCERT"
+        description="Benoit se deplace chez vous, analyse votre installation, et vous remet un rapport personnalise. Devis detaille sous 48h. Pas une estimation generique -- les vrais tarifs 2026 de votre gestionnaire de reseau."
         ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
         variant="dark"

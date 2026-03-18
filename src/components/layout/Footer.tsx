@@ -6,7 +6,7 @@ import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon } from "@/lib/icons";
 export function Footer() {
   return (
     <footer className="bg-midnight text-silver relative overflow-hidden" role="contentinfo">
-      <div className="absolute inset-0 hatch-pattern opacity-30" />
+      <div className="absolute inset-0 texture-dots" />
       <div className="container-be section-padding relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Services */}

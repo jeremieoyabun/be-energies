@@ -12,17 +12,17 @@ export function TestimonialBlock({
   title = "Ce que nos clients disent",
 }: TestimonialBlockProps) {
   return (
-    <section className="section-padding bg-ivory/50">
+    <section className="section-padding bg-warm-gradient">
       <div className="container-be">
         <SectionLabel>Temoignages verifies</SectionLabel>
-        <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-10">
+        <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-10 text-balance">
           {title}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, index) => (
             <blockquote
               key={index}
-              className="bg-white border border-cloud/80 shadow-sm rounded-2xl p-6 flex flex-col card-lift"
+              className="card p-6 flex flex-col"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-4">
@@ -38,7 +38,7 @@ export function TestimonialBlock({
 
               {/* Outcome badge */}
               {t.outcome && (
-                <div className="mt-4 inline-flex self-start items-center gap-1.5 bg-success/10 text-success text-xs font-medium px-3 py-1.5 rounded-full">
+                <div className="mt-4 inline-flex self-start items-center gap-1.5 bg-success/8 text-success text-xs font-semibold px-3 py-1.5 rounded-full border border-success/15">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
@@ -47,13 +47,13 @@ export function TestimonialBlock({
               )}
 
               {/* Attribution */}
-              <div className="mt-4 pt-4 border-t border-cloud flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-amber/10 text-amber flex items-center justify-center text-xs font-bold">
+              <div className="mt-5 pt-4 border-t border-cloud flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-midnight text-amber flex items-center justify-center text-xs font-bold">
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-midnight">{t.name}</p>
+                    <p className="text-sm font-semibold text-midnight">{t.name}</p>
                     <p className="text-xs text-steel flex items-center gap-1">
                       <MapPinIcon size={10} />
                       {t.city}
@@ -61,7 +61,7 @@ export function TestimonialBlock({
                   </div>
                 </div>
                 {t.service && (
-                  <span className="text-[10px] font-[family-name:var(--font-data)] text-cyan tracking-wider uppercase">
+                  <span className="text-[10px] font-[family-name:var(--font-data)] text-steel/70 tracking-wider uppercase">
                     {t.service}
                   </span>
                 )}
