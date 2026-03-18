@@ -4,6 +4,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://be-energies.be"),
+  icons: {
+    icon: "/logos/Favicon_Be-energies.webp",
+    apple: "/logos/Favicon_Be-energies.webp",
+  },
 };
 
 export default function RootLayout({
