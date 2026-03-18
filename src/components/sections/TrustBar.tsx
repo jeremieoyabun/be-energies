@@ -19,27 +19,27 @@ export function TrustBar({ citySpecificStat }: TrustBarProps) {
     },
     {
       value: siteConfig.stats.paybackYears + " ans",
-      label: "retour moyen",
+      label: "retour panneaux solaires",
       isHighlight: false,
     },
   ];
 
   return (
     <section className="relative bg-midnight border-b border-charcoal">
-      <div className="container-be py-4 md:py-5">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
-          {/* Credential with large RESCERT */}
-          <div className="flex items-center gap-4">
+      <div className="container-be py-5 md:py-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-8">
+          {/* RESCERT certification — large and prominent */}
+          <div className="flex items-center gap-5 shrink-0">
             <Image
-              src="/RESCERT.png"
-              alt="Certification RESCERT"
-              width={160}
-              height={160}
-              className="h-[100px] w-[100px] object-contain"
+              src="/img/branding/certificat-rescert.png"
+              alt="Certification RESCERT — Renewable Energy Systems — Numéro 07717"
+              width={360}
+              height={180}
+              className="h-auto w-[240px] object-contain"
             />
-            <div className="text-sm">
+            <div className="hidden sm:block text-sm border-l border-charcoal pl-5">
               <span className="text-white font-semibold">{siteConfig.founder.name}</span>
-              <p className="text-silver text-[13px]">{siteConfig.founder.credential}</p>
+              <p className="text-silver/80 text-[13px]">Ancien inspecteur · Installateur agréé</p>
             </div>
           </div>
 

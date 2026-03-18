@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, articleSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -427,6 +428,15 @@ export default function PiegesPage() {
       <section className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(245,158,11,0.08),transparent_60%)]" />
         <div className="container-be max-w-4xl relative section-padding">
+          <div className="mb-6">
+            <Image
+              src="/img/branding/certificat-rescert.png"
+              alt="Certification RESCERT — Numéro 07717"
+              width={360}
+              height={180}
+              className="h-auto w-[220px] object-contain"
+            />
+          </div>
           <p className="text-amber text-sm font-semibold uppercase tracking-wider mb-4">
             Guide par un ancien inspecteur, certifié RESCERT
           </p>
@@ -460,7 +470,16 @@ export default function PiegesPage() {
       {/* Who wrote this */}
       <section className="section-padding">
         <div className="container-be max-w-3xl">
-          <FounderCredibility variant="compact" />
+          <div className="flex flex-col sm:flex-row items-center gap-6 bg-ivory border border-cloud rounded-2xl p-6 mb-8">
+            <Image
+              src="/RESCERT.png"
+              alt="RESCERT"
+              width={120}
+              height={120}
+              className="h-[80px] w-[80px] object-contain shrink-0"
+            />
+            <FounderCredibility variant="compact" />
+          </div>
           <div className="mt-8 prose prose-lg max-w-none text-charcoal">
             <p>
               Ce guide n&apos;est pas une liste de peurs. C&apos;est un outil de décision.
