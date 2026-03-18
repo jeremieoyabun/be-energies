@@ -6,22 +6,22 @@ export function RentabilityProof() {
   return (
     <section className="section-padding">
       <div className="container-be">
-        <SectionLabel>Rentabilite 2026</SectionLabel>
+        <SectionLabel>Rentabilité 2026</SectionLabel>
 
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-center">
           {/* Left: message */}
           <div>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
-              Le photovoltaique est plus rentable que jamais
+              Le photovoltaïque est plus rentable que jamais
             </h2>
             <p className="mt-4 text-charcoal leading-relaxed">
               Les subventions ont disparu parce que les panneaux sont devenus 5 fois
-              moins chers. Chaque kWh autoconsomme vous fait economiser{" "}
+              moins chers. Chaque kWh autoconsommé vous fait économiser{" "}
               <strong className="text-midnight">38 centimes</strong>. Chaque kWh
-              revendu ne rapporte que <strong className="text-midnight">1 a 6 centimes</strong>.
+              revendu ne rapporte que <strong className="text-midnight">1 à 6 centimes</strong>.
             </p>
             <p className="mt-3 text-steel text-[15px]">
-              C&apos;est pour ca qu&apos;on dimensionne pour maximiser ce que vous
+              C&apos;est pour ça qu&apos;on dimensionne pour maximiser ce que vous
               consommez, pas ce que vous injectez.
             </p>
             <Link
@@ -38,8 +38,8 @@ export function RentabilityProof() {
             {[
               { value: "5-7", unit: "ans", label: "Retour sur investissement", accent: true },
               { value: "~12", unit: "%", label: "Rendement annuel", accent: false },
-              { value: "38", unit: "c/kWh", label: "Economies par kWh autoconsomme", accent: false },
-              { value: "25", unit: "+ ans", label: "Duree de vie garantie", accent: false },
+              { value: "38", unit: "c/kWh", label: "Économies par kWh autoconsommé", accent: false },
+              { value: "25", unit: "+ ans", label: "Durée de vie garantie", accent: false },
             ].map((stat) => (
               <div
                 key={stat.label}

@@ -11,8 +11,8 @@ const serviceFilters = [
   { slug: "panneaux-photovoltaiques", label: "Panneaux solaires" },
   { slug: "batteries-domestiques", label: "Batteries" },
   { slug: "bornes-de-recharge", label: "Bornes de recharge" },
-  { slug: "conformite-electrique", label: "Conformite" },
-  { slug: "pompes-a-chaleur", label: "Pompes a chaleur" },
+  { slug: "conformite-electrique", label: "Conformité" },
+  { slug: "pompes-a-chaleur", label: "Pompes à chaleur" },
   { slug: "nettoyage-toiture", label: "Nettoyage toiture" },
 ];
 
@@ -60,8 +60,8 @@ export function RealizationsClient({ realizations }: RealizationsClientProps) {
       {correctionCount > 0 && activeFilter === "all" && (
         <p className="mb-8 text-sm text-steel bg-ivory rounded-xl p-4 border border-cloud">
           Dont <strong className="text-midnight">{correctionCount} corrections</strong> d&apos;installations
-          defaillantes realisees par d&apos;autres entreprises -- un travail
-          que seul un ancien controleur sait diagnostiquer avec precision.
+          défaillantes réalisées par d&apos;autres entreprises — un travail
+          que seul un ancien contrôleur sait diagnostiquer avec précision.
         </p>
       )}
 

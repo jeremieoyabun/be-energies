@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { services, getServiceBySlugFr, getRelatedServices } from "@/data/services";
 import { getPiegesForService } from "@/data/pieges";
 import { getTestimonialsForService } from "@/data/testimonials";
@@ -20,6 +21,8 @@ import { RealizationGrid } from "@/components/sections/RealizationGrid";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { RelatedServices } from "@/components/sections/RelatedServices";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
+import { siteConfig } from "@/lib/site-config";
+import { CheckIcon } from "@/lib/icons";
 import Link from "next/link";
 
 interface ServicePageProps {
@@ -80,26 +83,76 @@ export default async function ServicePage({ params }: ServicePageProps) {
         ctaLabel="Diagnostic gratuit"
         ctaHref="/contact/"
         variant="service"
+        image={service.heroImage}
       />
 
       <TrustBar />
 
-      {/* Founder credibility + intro */}
-      <section className="section-padding">
-        <div className="container-be max-w-3xl">
-          <FounderCredibility variant="compact" />
+      {/* RESCERT Credibility Bar — highly visible */}
+      <section className="section-padding-sm bg-warm-gradient">
+        <div className="container-be">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <div className="flex items-center gap-4 shrink-0">
+              <Image
+                src="/RESCERT.png"
+                alt="Certification RESCERT"
+                width={72}
+                height={72}
+                className="h-[72px] w-[72px] object-contain"
+              />
+              <div>
+                <p className="font-semibold text-midnight">{siteConfig.founder.name}</p>
+                <p className="text-sm text-amber-dark font-medium">{siteConfig.founder.credential}</p>
+              </div>
+            </div>
+            <div className="h-px md:h-12 md:w-px bg-cloud w-full md:w-auto" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 flex-1">
+              {[
+                "Visite technique obligatoire",
+                "Calcul de rentabilité réel",
+                "Conçu pour passer le contrôle",
+                "Suivi post-installation inclus",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-2 text-sm text-charcoal">
+                  <CheckIcon size={15} className="text-success shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Deep content sections */}
-      {content?.sections.map((section) => (
-        <section key={section.id} id={section.id} className="section-padding">
+      {/* Hero image placeholder */}
+      {service.heroImage && (
+        <section className="container-be -mt-2 mb-8">
+          <div className="rounded-2xl overflow-hidden border border-cloud shadow-sm aspect-[21/9] relative bg-ivory">
+            <Image
+              src={service.heroImage}
+              alt={`${service.title} — Be'energies`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1280px"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-midnight/20 via-transparent to-transparent" />
+          </div>
+        </section>
+      )}
+
+      {/* Deep content sections — with alternating backgrounds */}
+      {content?.sections.map((section, index) => (
+        <section
+          key={section.id}
+          id={section.id}
+          className={`section-padding ${index % 2 === 1 ? "bg-ivory" : ""}`}
+        >
           <div className="container-be max-w-3xl">
             <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6">
               {section.title}
             </h2>
             <div
-              className="prose prose-lg max-w-none text-charcoal prose-headings:text-midnight prose-headings:font-[family-name:var(--font-heading)] prose-strong:text-midnight prose-td:text-sm prose-th:text-sm prose-th:text-left prose-th:font-semibold prose-table:border-collapse prose-td:border prose-td:border-cloud prose-td:px-3 prose-td:py-2 prose-th:border prose-th:border-cloud prose-th:px-3 prose-th:py-2 prose-th:bg-ivory"
+              className="article-prose"
               dangerouslySetInnerHTML={{ __html: section.body }}
             />
           </div>
@@ -110,8 +163,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
       {!content && (
         <section className="section-padding">
           <div className="container-be max-w-3xl">
-            <div className="prose prose-lg max-w-none text-charcoal">
-              <h2>Pourquoi {service.title.toLowerCase()} avec Be&apos;énergies ?</h2>
+            <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6">
+              Pourquoi {service.title.toLowerCase()} avec Be&apos;energies ?
+            </h2>
+            <div className="space-y-4 text-charcoal leading-relaxed">
               <p>
                 En tant qu&apos;ancien inspecteur en conformité électrique, Benoît conçoit chaque
                 installation de {service.title.toLowerCase()} pour qu&apos;elle soit conforme,
@@ -125,6 +180,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
         </section>
       )}
+
+      {/* Mid-page CTA */}
+      <CTADiagnostic
+        title={`Diagnostic ${service.title.toLowerCase()} gratuit`}
+        description={`Benoît se déplace chez vous pour analyser votre situation. Devis détaillé sous 48h avec les vrais tarifs 2026.`}
+        variant="default"
+      />
 
       {servicePieges.length > 0 && (
         <PiegesCarousel pieges={servicePieges} maxItems={3} />

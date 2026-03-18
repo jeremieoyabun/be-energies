@@ -6,8 +6,8 @@ import { realizations } from "@/data/realizations";
 
 export const metadata = generatePageMetadata({
   title:
-    "Nos realisations | Installations solaires, batteries et bornes en Belgique",
-  description: `Plus de ${realizations.length} projets realises en Wallonie, a Bruxelles et en Flandre. Panneaux photovoltaiques, batteries, bornes de recharge, pompes a chaleur et mises en conformite. Decouvrez le travail de terrain de Be'energies.`,
+    "Nos réalisations | Installations solaires, batteries et bornes en Belgique",
+  description: `Plus de ${realizations.length} projets réalisés en Wallonie, à Bruxelles et en Flandre. Panneaux photovoltaïques, batteries, bornes de recharge, pompes à chaleur et mises en conformité. Découvrez le travail de terrain de Be'energies.`,
   path: "/realisations/",
 });
 
@@ -17,7 +17,7 @@ export default function RealizationsPage() {
       <Breadcrumbs
         items={[
           { name: "Accueil", href: "/" },
-          { name: "Realisations" },
+          { name: "Réalisations" },
         ]}
       />
 
@@ -26,12 +26,12 @@ export default function RealizationsPage() {
         <div className="container-be">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance">
-              Nos realisations sur le terrain
+              Nos réalisations sur le terrain
             </h1>
             <p className="mt-4 text-lg text-charcoal leading-relaxed">
-              {realizations.length} projets documentes a travers la Belgique. Installations neuves,
-              corrections d&apos;installations defaillantes, mises en conformite. Chaque chantier
-              est conçu pour passer le controle du premier coup.
+              {realizations.length} projets documentés à travers la Belgique. Installations neuves,
+              corrections d&apos;installations défaillantes, mises en conformité. Chaque chantier
+              est conçu pour passer le contrôle du premier coup.
             </p>
           </div>
         </div>
@@ -45,7 +45,7 @@ export default function RealizationsPage() {
       </section>
 
       <CTADiagnostic
-        title="Votre projet merite le meme niveau d'exigence"
+        title="Votre projet mérite le même niveau d'exigence"
         variant="dark"
       />
     </>

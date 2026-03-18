@@ -110,9 +110,9 @@ export function Footer() {
             <img
               src="/img/Logo_Be-energies-w.png"
               alt="Be'energies"
-              width={120}
-              height={30}
-              className="mt-6 h-7 w-auto opacity-60"
+              width={180}
+              height={45}
+              className="mt-6 h-10 w-auto"
             />
           </div>
         </div>

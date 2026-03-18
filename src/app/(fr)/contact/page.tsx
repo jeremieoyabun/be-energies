@@ -11,9 +11,9 @@ import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon, CheckIcon } from "@/lib/
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
-  title: "Contact -- Diagnostic energetique gratuit",
+  title: "Contact — Diagnostic énergétique gratuit",
   description:
-    "Contactez Benoit Dezso pour un diagnostic energetique gratuit en Belgique. Reponse personnelle, visite sur site, devis detaille sous 48h. Ancien inspecteur, certifie RESCERT.",
+    "Contactez Benoît Dezso pour un diagnostic énergétique gratuit en Belgique. Réponse personnelle, visite sur site, devis détaillé sous 48h. Ancien inspecteur, certifié RESCERT.",
   path: "/contact/",
   alternates: { fr: "/contact/", nl: "/nl/contact/" },
 });
@@ -22,27 +22,27 @@ const contactFAQ: FAQItem[] = [
   {
     question: "Le diagnostic est-il vraiment gratuit ?",
     answer:
-      "Oui, le diagnostic energetique est 100 % gratuit et sans engagement. Il comprend une visite sur site, une analyse de votre situation et un rapport personnalise. Aucun frais cache, aucune obligation de signer quoi que ce soit. C\u2019est notre façon de vous montrer notre serieux avant meme de commencer.",
+      "Oui, le diagnostic énergétique est 100 % gratuit et sans engagement. Il comprend une visite sur site, une analyse de votre situation et un rapport personnalisé. Aucun frais caché, aucune obligation de signer quoi que ce soit. C\u2019est notre façon de vous montrer notre sérieux avant même de commencer.",
   },
   {
-    question: "Qui me repondra ?",
+    question: "Qui me répondra ?",
     answer:
-      "Benoit Dezso lui-meme. Pas un call center, pas un sous-traitant commercial. Quand vous appelez ou envoyez un message, c\u2019est le fondateur -- ancien inspecteur en installation electrique, certifie RESCERT -- qui prend en charge votre demande du debut a la fin.",
+      "Benoît Dezso lui-même. Pas un call center, pas un sous-traitant commercial. Quand vous appelez ou envoyez un message, c\u2019est le fondateur — ancien inspecteur en installation électrique, certifié RESCERT — qui prend en charge votre demande du début à la fin.",
   },
   {
     question: "Combien de temps pour recevoir un devis ?",
     answer:
-      "Maximum 48 heures apres la visite technique sur site. Votre devis sera detaille, avec les tarifs reels, les marques et modeles recommandes, les specifications techniques et une estimation du retour sur investissement adaptee a votre situation.",
+      "Maximum 48 heures après la visite technique sur site. Votre devis sera détaillé, avec les tarifs réels, les marques et modèles recommandés, les spécifications techniques et une estimation du retour sur investissement adaptée à votre situation.",
   },
   {
-    question: "Intervenez-vous dans ma region ?",
+    question: "Intervenez-vous dans ma région ?",
     answer:
-      "Nous intervenons dans toute la Wallonie, a Bruxelles, et dans le Limbourg flamand : Riemst, Tongeren, Hasselt, Bilzen et les communes environnantes. Contactez-nous pour confirmer votre zone -- dans la grande majorite des cas, nous couvrons votre secteur.",
+      "Nous intervenons dans toute la Wallonie, à Bruxelles, et dans le Limbourg flamand : Riemst, Tongeren, Hasselt, Bilzen et les communes environnantes. Contactez-nous pour confirmer votre zone — dans la grande majorité des cas, nous couvrons votre secteur.",
   },
   {
-    question: "Que comprend le diagnostic energetique ?",
+    question: "Que comprend le diagnostic énergétique ?",
     answer:
-      "Le diagnostic comprend : une analyse de votre consommation electrique actuelle, une evaluation de votre toiture (orientation, inclinaison, ombrage), un controle de votre tableau electrique et de la tension reseau, et un calcul de rentabilite personnalise base sur vos donnees reelles -- pas sur des moyennes generiques.",
+      "Le diagnostic comprend : une analyse de votre consommation électrique actuelle, une évaluation de votre toiture (orientation, inclinaison, ombrage), un contrôle de votre tableau électrique et de la tension réseau, et un calcul de rentabilité personnalisé basé sur vos données réelles — pas sur des moyennes génériques.",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
               Parlons de votre projet
             </h1>
             <p className="mt-4 text-lg text-charcoal leading-relaxed">
-              Benoit vous repond personnellement. Diagnostic energetique gratuit, sans engagement.
+              Benoît vous répond personnellement. Diagnostic énergétique gratuit, sans engagement.
             </p>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
               <h2 className="text-xl font-[family-name:var(--font-heading)] text-midnight mb-1">
                 Demandez votre diagnostic gratuit
               </h2>
-              <p className="text-sm text-steel mb-8">Benoit vous recontacte personnellement sous 24h.</p>
+              <p className="text-sm text-steel mb-8">Benoît vous recontacte personnellement sous 24h.</p>
 
               <form className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -115,7 +115,7 @@ export default function ContactPage() {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="phone" className="form-label">
-                      Telephone
+                      Téléphone
                     </label>
                     <input
                       type="tel"
@@ -133,21 +133,21 @@ export default function ContactPage() {
                       type="text"
                       id="city"
                       name="city"
-                      placeholder="Liege, Namur, Bruxelles..."
+                      placeholder="Liège, Namur, Bruxelles..."
                       className="form-input"
                     />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="service" className="form-label">
-                    Service souhaite
+                    Service souhaité
                   </label>
                   <select
                     id="service"
                     name="service"
                     className="form-input"
                   >
-                    <option value="">Selectionnez un service</option>
+                    <option value="">Sélectionnez un service</option>
                     {services.map((s) => (
                       <option key={s.slug} value={s.slug}>
                         {s.title}
@@ -164,7 +164,7 @@ export default function ContactPage() {
                     id="message"
                     name="message"
                     rows={5}
-                    placeholder="Decrivez votre projet : type de logement, surface, consommation actuelle..."
+                    placeholder="Décrivez votre projet : type de logement, surface, consommation actuelle..."
                     className="form-input resize-y"
                   />
                 </div>
@@ -177,9 +177,9 @@ export default function ContactPage() {
                     className="mt-1 accent-amber"
                   />
                   <label htmlFor="gdpr" className="text-xs text-steel leading-relaxed">
-                    J&apos;accepte que mes donnees soient utilisees pour me recontacter dans le cadre de ma demande.{" "}
+                    J&apos;accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande.{" "}
                     <Link href="/politique-de-confidentialite/" className="underline hover:text-midnight">
-                      Politique de confidentialite
+                      Politique de confidentialité
                     </Link>
                   </label>
                 </div>
@@ -189,7 +189,7 @@ export default function ContactPage() {
                 >
                   Envoyer ma demande
                 </button>
-                <p className="text-xs text-steel">Reponse personnelle sous 24h. Pas de call center.</p>
+                <p className="text-xs text-steel">Réponse personnelle sous 24h. Pas de call center.</p>
               </form>
             </div>
 
@@ -233,9 +233,9 @@ export default function ContactPage() {
               <div className="space-y-3">
                 {[
                   "Diagnostic gratuit, sans engagement",
-                  "Devis detaille sous 48h",
-                  "Ancien inspecteur, certifie RESCERT",
-                  "Un seul interlocuteur du debut a la fin",
+                  "Devis détaillé sous 48h",
+                  "Ancien inspecteur, certifié RESCERT",
+                  "Un seul interlocuteur du début à la fin",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2.5 text-sm text-charcoal">
                     <CheckIcon size={15} className="text-success shrink-0" />
@@ -254,8 +254,8 @@ export default function ContactPage() {
                   className="h-9 w-9 object-contain"
                 />
                 <div>
-                  <p className="text-xs font-semibold text-midnight">Certifie RESCERT</p>
-                  <p className="text-[11px] text-steel">Installateur agree</p>
+                  <p className="text-xs font-semibold text-midnight">Certifié RESCERT</p>
+                  <p className="text-[11px] text-steel">Installateur agréé</p>
                 </div>
               </div>
             </div>

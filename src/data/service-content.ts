@@ -24,13 +24,13 @@ export interface ServicePageContent {
 
 export const serviceContent: Record<string, ServicePageContent> = {
   "panneaux-photovoltaiques": {
-    seoTitle: "Panneaux solaires en Wallonie 2026 | Be&apos;energies",
+    seoTitle: "Panneaux solaires en Wallonie 2026 | Be'energies",
     metaDescription:
       "Installation photovoltaïque par un ancien inspecteur en conformité électrique, certifié RESCERT. Calcul de rentabilité réel, tarif prosumer démystifié, retour en 5-7 ans. Diagnostic gratuit.",
     headline:
       "Panneaux photovoltaïques en 2026 : le guide honnête par un ancien inspecteur",
     subheadline:
-      "Benoît Dezso a inspecté des centaines d&apos;installations avant de fonder Be&apos;energies. Chaque système est dimensionné pour maximiser votre autoconsommation, pas pour gonfler un devis.",
+      "Benoît Dezso a inspecté des centaines d&apos;installations avant de fonder Be'energies. Chaque système est dimensionné pour maximiser votre autoconsommation, pas pour gonfler un devis.",
     sections: [
       {
         id: "rentabilite-2026",
@@ -187,7 +187,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "batteries-domestiques": {
-    seoTitle: "Batterie domestique en Belgique 2026 | Be&apos;energies",
+    seoTitle: "Batterie domestique en Belgique 2026 | Be'energies",
     metaDescription:
       "Batterie domestique : quand c&apos;est rentable et quand ça ne l&apos;est pas. Conseil honnête par un ancien inspecteur. 5 000-8 000 EUR. Diagnostic gratuit.",
     headline:
@@ -292,7 +292,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "bornes-de-recharge": {
-    seoTitle: "Borne de recharge domicile Belgique | Be&apos;energies",
+    seoTitle: "Borne de recharge domicile Belgique | Be'energies",
     metaDescription:
       "Installation de bornes de recharge à domicile par un ancien inspecteur. Intégration solaire, recharge 10h-16h, conformité garantie. Diagnostic gratuit.",
     headline:
@@ -344,7 +344,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
 <li><strong>Batterie domestique</strong> : stocke le surplus solaire pour la consommation du soir (plage PIC 17h-22h)</li>
 <li><strong>Tarif IMPACT</strong> : recharge en plage ECO, consommation batterie en plage PIC</li>
 </ul>
-<p>Coordonner quatre entreprises différentes pour obtenir ce résultat, c&apos;est un parcours du combattant. Chez Be&apos;energies, un seul interlocuteur maîtrise l&apos;ensemble du système.</p>`,
+<p>Coordonner quatre entreprises différentes pour obtenir ce résultat, c&apos;est un parcours du combattant. Chez Be'energies, un seul interlocuteur maîtrise l&apos;ensemble du système.</p>`,
       },
       {
         id: "conformite-borne",
@@ -403,7 +403,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "conformite-electrique": {
-    seoTitle: "Conformité électrique Belgique | Be&apos;energies",
+    seoTitle: "Conformité électrique Belgique | Be'energies",
     metaDescription:
       "Mise en conformité électrique par un ancien inspecteur en installation électrique, certifié RESCERT. Il a rédigé des rapports de non-conformité pendant des années. Diagnostic gratuit.",
     headline:
@@ -434,7 +434,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
 <li><strong>Sections de câbles inadaptées</strong> : câbles sous-dimensionnés pour la charge réelle</li>
 <li><strong>Circuits mélangés</strong> : éclairage et prises sur le même disjoncteur, dépassant la charge admissible</li>
 </ol>
-<p>Chacun de ces points fait l&apos;objet d&apos;une vérification systématique lors de chaque intervention Be&apos;energies. Pas parce que c&apos;est une procédure : parce que Benoît les a vus provoquer des refus de contrôle des centaines de fois.</p>`,
+<p>Chacun de ces points fait l&apos;objet d&apos;une vérification systématique lors de chaque intervention Be'energies. Pas parce que c&apos;est une procédure : parce que Benoît les a vus provoquer des refus de contrôle des centaines de fois.</p>`,
       },
       {
         id: "quand-conformite",
@@ -451,7 +451,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
       {
         id: "processus-conformite",
         title: "Notre processus : du diagnostic au rapport vierge",
-        body: `<p>Be&apos;energies applique une méthodologie structurée, directement issue de l&apos;expérience d&apos;inspection de Benoît :</p>
+        body: `<p>Be'energies applique une méthodologie structurée, directement issue de l&apos;expérience d&apos;inspection de Benoît :</p>
 <ol>
 <li><strong>Diagnostic complet</strong> : inspection visuelle et mesures (résistance de terre, impédance de boucle, vérification des différentiels, contrôle des sections). On identifie chaque écart par rapport aux normes.</li>
 <li><strong>Rapport de pré-inspection</strong> : vous recevez un document détaillant chaque point non conforme, avec la priorité, le coût estimé, et l&apos;explication technique.</li>
@@ -512,7 +512,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "nettoyage-toiture": {
-    seoTitle: "Nettoyage et peinture toiture Belgique | Be&apos;energies",
+    seoTitle: "Nettoyage et peinture toiture Belgique | Be'energies",
     metaDescription:
       "Nettoyage et peinture de toiture professionnels. Protégez vos panneaux solaires et votre investissement. Inspection incluse. Devis gratuit.",
     headline:
@@ -546,7 +546,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
       },
       {
         id: "inspection-panneaux",
-        title: "L&apos;avantage Be&apos;energies : nettoyage de toiture + inspection de panneaux",
+        title: "L&apos;avantage Be'energies : nettoyage de toiture + inspection de panneaux",
         body: `<p>Quand on est sur votre toit pour nettoyer, on inspecte aussi vos panneaux. C&apos;est un avantage unique lié à notre double compétence.</p>
 <p><strong>Ce que Benoît vérifie pendant le nettoyage :</strong></p>
 <ul>
@@ -596,7 +596,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "pompes-a-chaleur": {
-    seoTitle: "Pompe à chaleur Belgique 2026 | Be&apos;energies",
+    seoTitle: "Pompe à chaleur Belgique 2026 | Be'energies",
     metaDescription:
       "Pompe à chaleur air-eau et air-air intégrée à vos panneaux solaires. Dimensionnement par un ancien inspecteur. Tarif IMPACT optimisé. Diagnostic gratuit.",
     headline:
@@ -659,7 +659,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
 <li><strong>Mise à la terre de l&apos;unité extérieure</strong> : obligatoire et souvent négligée</li>
 <li><strong>Schéma unifilaire mis à jour</strong> : l&apos;ajout de la PAC doit figurer sur le schéma pour que l&apos;installation reste conforme</li>
 </ul>
-<p>En tant qu&apos;ancien inspecteur, Benoît a constaté de nombreuses installations de pompes à chaleur raccordées de manière non conforme : câbles sous-dimensionnés, absence de protection dédiée, schémas non mis à jour. Chaque installation Be&apos;energies intègre la conformité dès la conception, pas comme un ajout après-coup.</p>`,
+<p>En tant qu&apos;ancien inspecteur, Benoît a constaté de nombreuses installations de pompes à chaleur raccordées de manière non conforme : câbles sous-dimensionnés, absence de protection dédiée, schémas non mis à jour. Chaque installation Be'energies intègre la conformité dès la conception, pas comme un ajout après-coup.</p>`,
       },
     ],
     comparisonRows: [

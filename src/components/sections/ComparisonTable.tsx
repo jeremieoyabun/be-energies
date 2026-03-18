@@ -15,39 +15,39 @@ interface ComparisonTableProps {
 const defaultRows: ComparisonRow[] = [
   {
     aspect: "Visite technique",
-    others: "Devis par telephone ou en ligne",
+    others: "Devis par téléphone ou en ligne",
     beEnergies: "Visite sur site obligatoire",
   },
   {
-    aspect: "Calcul de rentabilite",
-    others: "Estimations generiques, ROI gonfle",
-    beEnergies: "Tarifs 2026 reels de votre GRD",
+    aspect: "Calcul de rentabilité",
+    others: "Estimations génériques, ROI gonflé",
+    beEnergies: "Tarifs 2026 réels de votre GRD",
   },
   {
     aspect: "Dimensionnement",
     others: "Maximum de panneaux pour maximiser la facture",
-    beEnergies: "Optimise pour l'autoconsommation",
+    beEnergies: "Optimisé pour l'autoconsommation",
   },
   {
-    aspect: "Conformite",
-    others: "Pas toujours verifiee avant le controle",
-    beEnergies: "Conçue par un ancien inspecteur, certifie RESCERT",
+    aspect: "Conformité",
+    others: "Pas toujours vérifiée avant le contrôle",
+    beEnergies: "Conçue par un ancien inspecteur, certifié RESCERT",
   },
   {
     aspect: "Suivi post-installation",
-    others: "Support limite apres la vente",
+    others: "Support limité après la vente",
     beEnergies: "Suivi et maintenance inclus",
   },
   {
     aspect: "Conseil batterie",
-    others: "Toujours recommandee (marge plus elevee)",
-    beEnergies: "Recommandee seulement si rentable",
+    others: "Toujours recommandée (marge plus élevée)",
+    beEnergies: "Recommandée seulement si rentable",
   },
 ];
 
 export function ComparisonTable({
   rows = defaultRows,
-  title = "Pourquoi Be'energies fait la difference",
+  title = "Pourquoi Be'energies fait la différence",
 }: ComparisonTableProps) {
   return (
     <section className="section-padding bg-ivory">
@@ -57,7 +57,7 @@ export function ComparisonTable({
           {title}
         </h2>
         <p className="text-steel mb-10 max-w-xl">
-          Ce que la plupart des installateurs font, et ce que nous faisons differemment.
+          Ce que la plupart des installateurs font, et ce que nous faisons différemment.
         </p>
 
         {/* Mobile: stacked cards */}
@@ -85,7 +85,7 @@ export function ComparisonTable({
             <thead>
               <tr className="bg-midnight">
                 <th className="text-left py-4 px-5 text-silver/80 font-medium text-xs uppercase tracking-wider w-[22%]">
-                  Critere
+                  Critère
                 </th>
                 <th className="text-left py-4 px-5 font-medium text-silver/80 text-xs uppercase tracking-wider w-[39%] border-l border-white/10">
                   Pratique courante

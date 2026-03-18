@@ -26,12 +26,12 @@ export function RealizationGrid({
       <div className="container-be">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <SectionLabel>Realisations</SectionLabel>
+            <SectionLabel>Réalisations</SectionLabel>
             <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight text-balance">
-              Projets verifies, documentes
+              Projets vérifiés, documentés
             </h2>
             <p className="mt-2 text-steel text-sm">
-              Chaque chantier est conçu pour passer le controle du premier coup.
+              Chaque chantier est conçu pour passer le contrôle du premier coup.
             </p>
           </div>
           {showViewAll && (
@@ -129,7 +129,7 @@ export function RealizationGrid({
               href="/realisations/"
               className="inline-flex items-center gap-2 text-amber-dark hover:text-amber font-semibold transition-colors"
             >
-              Voir toutes nos realisations
+              Voir toutes nos réalisations
               <ArrowRightIcon size={16} />
             </Link>
           </div>

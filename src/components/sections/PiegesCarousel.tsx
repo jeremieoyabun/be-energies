@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { AlertTriangleIcon, ArrowRightIcon } from "@/lib/icons";
-import { SectionLabel } from "@/components/sections/SectionLabel";
 import type { Piege } from "@/lib/types";
 
 interface PiegesCarouselProps {
@@ -27,13 +26,13 @@ export function PiegesCarousel({
       <div className="absolute inset-0 texture-dots" aria-hidden="true" />
       <div className="container-be relative z-10">
         <div className="section-label section-label-dark">
-          <span>Pieges a eviter</span>
+          <span>Pièges à éviter</span>
         </div>
         <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-white text-balance">
-          Ce que Benoit a constate sur le terrain
+          Ce que Benoît a constaté sur le terrain
         </h2>
         <p className="mt-3 text-silver max-w-xl mb-10">
-          Les erreurs les plus frequentes identifiees pendant ses inspections.
+          Les erreurs les plus fréquentes identifiées pendant ses inspections.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -72,7 +71,7 @@ export function PiegesCarousel({
               href="/pieges-a-eviter/"
               className="inline-flex items-center gap-2 text-amber hover:text-amber-light font-semibold transition-colors"
             >
-              Voir tous les pieges a eviter
+              Voir tous les pièges à éviter
               <ArrowRightIcon size={16} />
             </Link>
           </div>

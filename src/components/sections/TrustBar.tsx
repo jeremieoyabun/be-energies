@@ -14,7 +14,7 @@ export function TrustBar({ citySpecificStat }: TrustBarProps) {
     },
     {
       value: siteConfig.stats.yearsExperience + " ans",
-      label: "d'experience terrain",
+      label: "d'expérience terrain",
       isHighlight: false,
     },
     {
@@ -28,19 +28,18 @@ export function TrustBar({ citySpecificStat }: TrustBarProps) {
     <section className="relative bg-midnight border-b border-charcoal">
       <div className="container-be py-5 md:py-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
-          {/* Credential */}
-          <div className="flex items-center gap-3">
+          {/* Credential with large RESCERT */}
+          <div className="flex items-center gap-4">
             <Image
               src="/RESCERT.png"
               alt="Certification RESCERT"
-              width={36}
-              height={36}
-              className="h-9 w-9 object-contain"
+              width={56}
+              height={56}
+              className="h-14 w-14 object-contain"
             />
             <div className="text-sm">
-              <span className="text-white font-medium">{siteConfig.founder.name}</span>
-              <span className="text-silver"> · </span>
-              <span className="text-silver text-[13px]">{siteConfig.founder.credential}</span>
+              <span className="text-white font-semibold">{siteConfig.founder.name}</span>
+              <p className="text-silver text-[13px]">{siteConfig.founder.credential}</p>
             </div>
           </div>
 

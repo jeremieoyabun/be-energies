@@ -10,8 +10,8 @@ interface CTADiagnosticProps {
 }
 
 export function CTADiagnostic({
-  title = "Diagnostic energetique gratuit",
-  description = "Benoit analyse votre consommation, votre toiture, et votre reseau electrique. Vous recevez un calcul de rentabilite reel base sur les tarifs 2026.",
+  title = "Diagnostic énergétique gratuit",
+  description = "Benoît analyse votre consommation, votre toiture, et votre réseau électrique. Vous recevez un calcul de rentabilité réel basé sur les tarifs 2026.",
   ctaLabel = "Demander mon diagnostic gratuit",
   ctaHref = "/contact/",
   variant = "default",
@@ -29,7 +29,7 @@ export function CTADiagnostic({
         {isDark && (
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 mb-6">
             <span className="text-[11px] font-semibold tracking-[0.12em] text-amber-light uppercase">
-              Gratuit &middot; Sans engagement
+              Gratuit · Sans engagement
             </span>
           </div>
         )}
@@ -55,7 +55,7 @@ export function CTADiagnostic({
           <ArrowRightIcon size={18} />
         </Link>
         <div className={`mt-5 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm ${isDark ? "text-silver/60" : "text-steel"}`}>
-          <span>Reponse sous 24h</span>
+          <span>Réponse sous 24h</span>
           <span>Visite gratuite</span>
           <span>Devis sous 48h</span>
         </div>

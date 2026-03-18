@@ -5,28 +5,28 @@ const steps = [
     number: "01",
     title: "Diagnostic",
     description:
-      "Visite technique sur site. Analyse de votre consommation, toiture, et reseau electrique.",
+      "Visite technique sur site. Analyse de votre consommation, toiture, et réseau électrique.",
     detail: "Gratuit, sans engagement",
   },
   {
     number: "02",
     title: "Proposition",
     description:
-      "Devis detaille avec calcul de rentabilite base sur les tarifs 2026 reels de votre GRD.",
+      "Devis détaillé avec calcul de rentabilité basé sur les tarifs 2026 réels de votre GRD.",
     detail: "Sous 48h",
   },
   {
     number: "03",
     title: "Installation",
     description:
-      "Installation professionnelle par notre equipe. Chaque etape conçue pour passer le controle.",
-    detail: "Equipe interne",
+      "Installation professionnelle par notre équipe. Chaque étape conçue pour passer le contrôle.",
+    detail: "Équipe interne",
   },
   {
     number: "04",
     title: "Suivi",
     description:
-      "Verification de conformite, mise en service, et suivi post-installation inclus.",
+      "Vérification de conformité, mise en service, et suivi post-installation inclus.",
     detail: "Inclus",
   },
 ];

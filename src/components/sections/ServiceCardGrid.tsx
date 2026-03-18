@@ -16,11 +16,11 @@ export function ServiceCardGrid({ locale = "fr" }: ServiceCardGridProps) {
           {locale === "fr" ? "Nos expertises" : "Onze expertises"}
         </SectionLabel>
         <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight">
-          {locale === "fr" ? "Un interlocuteur, six expertises" : "Een aanspreekpunt, zes expertises"}
+          {locale === "fr" ? "Un interlocuteur, six expertises" : "Eén aanspreekpunt, zes expertises"}
         </h2>
         <p className="mt-3 text-steel max-w-xl mb-10">
           {locale === "fr"
-            ? "Chaque installation est conçue pour la conformite, la performance et la duree."
+            ? "Chaque installation est conçue pour la conformité, la performance et la durée."
             : "Elke installatie is ontworpen voor conformiteit, prestaties en duurzaamheid."}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

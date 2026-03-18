@@ -14,7 +14,7 @@ export function TestimonialBlock({
   return (
     <section className="section-padding bg-warm-gradient">
       <div className="container-be">
-        <SectionLabel>Temoignages verifies</SectionLabel>
+        <SectionLabel>Témoignages vérifiés</SectionLabel>
         <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-10 text-balance">
           {title}
         </h2>

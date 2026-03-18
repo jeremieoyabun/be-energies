@@ -20,7 +20,7 @@ export const services: Service[] = [
       "onduleur-sous-dimensionne",
       "installation-non-conforme",
     ],
-    relatedServices: ["batteries-domestiques", "bornes-de-recharge"],
+    relatedServices: ["batteries-domestiques", "bornes-de-recharge", "conformite-electrique"],
   },
   {
     slug: "batteries-domestiques",
@@ -38,7 +38,7 @@ export const services: Service[] = [
       "devis-sans-visite",
       "batterie-inutile",
     ],
-    relatedServices: ["panneaux-photovoltaiques", "pompes-a-chaleur"],
+    relatedServices: ["panneaux-photovoltaiques", "pompes-a-chaleur", "bornes-de-recharge"],
   },
   {
     slug: "bornes-de-recharge",
@@ -52,7 +52,7 @@ export const services: Service[] = [
     icon: "ev-charging",
     heroImage: "/img/realisations/borne-riemst.webp",
     pieges: ["devis-sans-visite"],
-    relatedServices: ["panneaux-photovoltaiques", "batteries-domestiques"],
+    relatedServices: ["panneaux-photovoltaiques", "batteries-domestiques", "conformite-electrique"],
   },
   {
     slug: "conformite-electrique",
@@ -66,7 +66,7 @@ export const services: Service[] = [
     icon: "compliance",
     heroImage: "/img/services/electricite.jpg",
     pieges: ["devis-sans-visite", "installation-non-conforme"],
-    relatedServices: ["panneaux-photovoltaiques", "pompes-a-chaleur"],
+    relatedServices: ["panneaux-photovoltaiques", "pompes-a-chaleur", "batteries-domestiques"],
   },
   {
     slug: "nettoyage-toiture",
@@ -80,7 +80,7 @@ export const services: Service[] = [
     icon: "roof",
     heroImage: "/img/realisations/engis-03.webp",
     pieges: [],
-    relatedServices: ["panneaux-photovoltaiques"],
+    relatedServices: ["panneaux-photovoltaiques", "conformite-electrique"],
   },
   {
     slug: "pompes-a-chaleur",
