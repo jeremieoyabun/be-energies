@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
-import { PhoneIcon, MenuIcon, CloseIcon, ChevronDownIcon } from "@/lib/icons";
+import { PhoneIcon, MenuIcon, CloseIcon, ChevronDownIcon, getServiceIcon } from "@/lib/icons";
 import type { NavItem } from "@/data/navigation";
 
 interface HeaderProps {
@@ -69,15 +69,23 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
                     onMouseEnter={() => setOpenDropdown(item.href)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-2.5 text-sm text-charcoal hover:bg-ivory hover:text-midnight transition-colors"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    {item.children.map((child) => {
+                      const Icon = child.icon ? getServiceIcon(child.icon) : null;
+                      return (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:bg-ivory hover:text-midnight transition-colors"
+                        >
+                          {Icon && (
+                            <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-midnight/5 text-amber-dark shrink-0">
+                              <Icon size={15} />
+                            </span>
+                          )}
+                          {child.label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </>
               ) : (
@@ -154,16 +162,24 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
                       <ChevronDownIcon size={16} className="transition-transform group-open:rotate-180" />
                     </summary>
                     <div className="pl-4 pb-2 space-y-1">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block py-2.5 px-3 text-sm text-charcoal hover:text-midnight rounded-lg hover:bg-ivory transition-colors"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      {item.children.map((child) => {
+                        const Icon = child.icon ? getServiceIcon(child.icon) : null;
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="flex items-center gap-3 py-2.5 px-3 text-sm text-charcoal hover:text-midnight rounded-lg hover:bg-ivory transition-colors"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {Icon && (
+                              <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-midnight/5 text-amber-dark shrink-0">
+                                <Icon size={15} />
+                              </span>
+                            )}
+                            {child.label}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </details>
                 ) : (

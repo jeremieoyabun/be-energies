@@ -26,16 +26,16 @@ export function TrustBar({ citySpecificStat }: TrustBarProps) {
 
   return (
     <section className="relative bg-midnight border-b border-charcoal">
-      <div className="container-be py-5 md:py-6">
+      <div className="container-be py-4 md:py-5">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
           {/* Credential with large RESCERT */}
           <div className="flex items-center gap-4">
             <Image
               src="/RESCERT.png"
               alt="Certification RESCERT"
-              width={56}
-              height={56}
-              className="h-14 w-14 object-contain"
+              width={160}
+              height={160}
+              className="h-[100px] w-[100px] object-contain"
             />
             <div className="text-sm">
               <span className="text-white font-semibold">{siteConfig.founder.name}</span>

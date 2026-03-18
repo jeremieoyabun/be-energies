@@ -249,9 +249,9 @@ export default function ContactPage() {
                 <Image
                   src="/RESCERT.png"
                   alt="Certification RESCERT"
-                  width={36}
-                  height={36}
-                  className="h-9 w-9 object-contain"
+                  width={100}
+                  height={100}
+                  className="h-16 w-16 object-contain"
                 />
                 <div>
                   <p className="text-xs font-semibold text-midnight">Certifié RESCERT</p>

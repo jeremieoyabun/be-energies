@@ -96,9 +96,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <Image
                 src="/RESCERT.png"
                 alt="Certification RESCERT"
-                width={72}
-                height={72}
-                className="h-[72px] w-[72px] object-contain"
+                width={200}
+                height={200}
+                className="h-[120px] w-[120px] object-contain"
               />
               <div>
                 <p className="font-semibold text-midnight">{siteConfig.founder.name}</p>

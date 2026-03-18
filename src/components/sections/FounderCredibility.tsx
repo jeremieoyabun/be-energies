@@ -57,9 +57,9 @@ export function FounderCredibility({
         <Image
           src="/RESCERT.png"
           alt="RESCERT"
-          width={28}
-          height={28}
-          className="h-7 w-7 object-contain ml-auto opacity-70"
+          width={80}
+          height={80}
+          className="h-16 w-16 object-contain ml-auto"
         />
       </div>
     );
@@ -92,9 +92,9 @@ export function FounderCredibility({
               <Image
                 src="/RESCERT.png"
                 alt="Certification RESCERT"
-                width={40}
-                height={40}
-                className="h-10 w-10 object-contain"
+                width={120}
+                height={120}
+                className="h-[72px] w-[72px] object-contain"
               />
               <div>
                 <p className="text-xs font-semibold text-midnight">Certifié RESCERT</p>
