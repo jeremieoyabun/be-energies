@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Internal design-system playground — not deployed, not indexed,
+    // not part of the production funnel.
+    "src/app/showcase/**",
   ]),
 ]);
 

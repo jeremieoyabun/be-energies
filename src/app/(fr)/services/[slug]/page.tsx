@@ -12,7 +12,6 @@ import { JsonLd, serviceSchema, howToSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
-import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { PiegesCarousel } from "@/components/sections/PiegesCarousel";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { ComparisonTable } from "@/components/sections/ComparisonTable";
@@ -21,6 +20,8 @@ import { RealizationGrid } from "@/components/sections/RealizationGrid";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { RelatedServices } from "@/components/sections/RelatedServices";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
+import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
+import { DataSources } from "@/components/sections/DataSources";
 import { siteConfig } from "@/lib/site-config";
 import { CheckIcon } from "@/lib/icons";
 import Link from "next/link";
@@ -63,6 +64,49 @@ export default async function ServicePage({ params }: ServicePageProps) {
     { name: "Installation professionnelle", text: "Installation par notre équipe, conçue pour passer le contrôle." },
     { name: "Suivi et maintenance", text: "Vérification de conformité, mise en service, suivi inclus." },
   ];
+
+  // Service-specific mid-page CTA (avoid repeating "Diagnostic gratuit" everywhere)
+  const ctaByService: Record<string, { title: string; description: string; label: string }> = {
+    "panneaux-photovoltaiques": {
+      title: "Vérifier la rentabilité réelle de votre projet solaire",
+      description: "Visite technique, mesure d'ombrage, calcul basé sur votre consommation réelle et les tarifs 2026 de votre GRD. Vous repartez avec des chiffres défendables, pas une promesse.",
+      label: "Vérifier la rentabilité de mon projet",
+    },
+    "batteries-domestiques": {
+      title: "Avant d'acheter une batterie, vérifions si elle est rentable",
+      description: "On ne vend une batterie que quand le calcul tient debout. Analyse de votre profil d'autoconsommation, de votre tarif, de votre installation actuelle.",
+      label: "Recevoir un avis avant devis",
+    },
+    "bornes-de-recharge": {
+      title: "Une borne pensée avec votre installation, pas à côté",
+      description: "Intégration au tableau, conformité, optimisation solaire si vous avez des panneaux. Visite technique avant devis.",
+      label: "Faire analyser mon installation",
+    },
+    "conformite-electrique": {
+      title: "Préparez le contrôle avant qu'il ne vous tombe dessus",
+      description: "Pré-audit de votre installation, plan de mise en conformité, accompagnement jusqu'au passage du contrôle.",
+      label: "Faire analyser mon installation",
+    },
+    "pompes-a-chaleur": {
+      title: "Un dimensionnement sérieux avant l'investissement",
+      description: "Calcul de déperditions, compatibilité émetteurs existants, intégration solaire. Évitez la pompe qui tourne à l'appoint électrique tout l'hiver.",
+      label: "Vérifier la rentabilité de mon projet",
+    },
+    "nettoyage-toiture": {
+      title: "Toiture en bon état, panneaux qui produisent",
+      description: "Inspection toiture, nettoyage, traitement et — si pertinent — peinture. Une visite suffit pour évaluer.",
+      label: "Demander un devis nettoyage",
+    },
+  };
+
+  const midCta = ctaByService[slug] ?? {
+    title: `Avis technique sur votre projet ${service.title.toLowerCase()}`,
+    description: "Visite sur site, dimensionnement réel, devis détaillé sous 48 h avec les tarifs 2026 de votre GRD.",
+    label: "Parler à un expert",
+  };
+  const midCtaTitle = midCta.title;
+  const midCtaDescription = midCta.description;
+  const midCtaLabel = midCta.label;
 
   return (
     <>
@@ -138,6 +182,14 @@ export default async function ServicePage({ params }: ServicePageProps) {
               className="article-prose"
               dangerouslySetInnerHTML={{ __html: section.body }}
             />
+            {/* Sources only after the last content section, for chiffrée services */}
+            {content.sections.length > 0 &&
+              index === content.sections.length - 1 &&
+              (slug === "panneaux-photovoltaiques" ||
+                slug === "batteries-domestiques" ||
+                slug === "bornes-de-recharge" ||
+                slug === "pompes-a-chaleur" ||
+                slug === "conformite-electrique") && <DataSources />}
           </div>
         </section>
       ))}
@@ -166,13 +218,22 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       {/* Mid-page CTA */}
       <CTADiagnostic
-        title={`Diagnostic ${service.title.toLowerCase()} gratuit`}
-        description={`Benoît se déplace chez vous pour analyser votre situation. Devis détaillé sous 48h avec les vrais tarifs 2026.`}
+        title={midCtaTitle}
+        description={midCtaDescription}
+        ctaLabel={midCtaLabel}
         variant="default"
       />
 
       {servicePieges.length > 0 && (
         <PiegesCarousel pieges={servicePieges} maxItems={3} />
+      )}
+
+      {/* Pre-signature analysis (only relevant on services where the user shops around) */}
+      {(slug === "panneaux-photovoltaiques" ||
+        slug === "batteries-domestiques" ||
+        slug === "bornes-de-recharge" ||
+        slug === "conformite-electrique") && (
+        <QuoteCheckCTA variant="light" />
       )}
 
       <ProcessTimeline />
@@ -216,9 +277,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <RelatedServices services={related} />
 
       <CTADiagnostic
-        title={content?.ctaTitle ?? `Diagnostic ${service.title.toLowerCase()} gratuit`}
-        description={content?.ctaDescription}
-        ctaLabel={content?.ctaLabel ?? "Demander mon diagnostic gratuit"}
+        title={content?.ctaTitle ?? midCta.title}
+        description={content?.ctaDescription ?? midCta.description}
+        ctaLabel={content?.ctaLabel ?? midCta.label}
         variant="dark"
       />
     </>

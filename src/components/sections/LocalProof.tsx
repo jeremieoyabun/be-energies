@@ -16,13 +16,14 @@ export function LocalProof({ city, locale = "fr" }: LocalProofProps) {
   const grd = getGrdTariff(city.grd);
 
   const isFr = locale === "fr";
+  const { installations } = siteConfig.stats;
 
   return (
     <div className="bg-ivory border border-cloud rounded-2xl p-6">
       <div className="flex items-center gap-2 mb-4">
         <MapPinIcon size={20} className="text-amber" />
         <h3 className="text-lg font-semibold text-midnight">
-          Be&apos;energies {isFr ? "a" : "in"} {city.name}
+          Be&apos;energies {isFr ? "à" : "in"} {city.name}
         </h3>
       </div>
 
@@ -30,14 +31,17 @@ export function LocalProof({ city, locale = "fr" }: LocalProofProps) {
         <div className="flex items-center gap-2 text-sm text-charcoal">
           <CheckIcon size={14} className="text-success shrink-0" />
           <span>
-            {siteConfig.stats.installations} installations {isFr ? "dans la province de" : "in de provincie"}{" "}
-            {city.province}
+            {installations.verified
+              ? `${installations.value} installations ${isFr ? "dans la province de" : "in de provincie"} ${city.province}`
+              : isFr
+                ? `Installations résidentielles et professionnelles en province de ${city.province}`
+                : `Residentiële en professionele installaties in de provincie ${city.province}`}
           </span>
         </div>
         <div className="flex items-center gap-2 text-sm text-charcoal">
           <CheckIcon size={14} className="text-success shrink-0" />
           <span>
-            {isFr ? "Gestionnaire de reseau" : "Netbeheerder"} : {city.grd}
+            {isFr ? "Gestionnaire de réseau" : "Netbeheerder"} : {city.grd}
           </span>
         </div>
 
@@ -69,7 +73,7 @@ export function LocalProof({ city, locale = "fr" }: LocalProofProps) {
       {hasRealizations && (
         <div className="mt-4 pt-4 border-t border-cloud">
           <p className="text-sm font-medium text-midnight mb-2">
-            {isFr ? "Realisation recente :" : "Recente realisatie:"}
+            {isFr ? "Réalisation récente :" : "Recente realisatie :"}
           </p>
           <Link
             href={`${isFr ? "" : "/nl"}/realisations/${cityRealizations[0].slug}/`}

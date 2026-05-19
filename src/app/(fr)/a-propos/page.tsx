@@ -30,8 +30,8 @@ export default function AboutPage() {
 
       <HeroSection
         headline="L&apos;installateur qui a d&apos;abord été l&apos;inspecteur"
-        subheadline="Benoît Dezso a passé plus de 10 ans à inspecter des installations électriques et photovoltaïques en Belgique. Il a vu ce qui casse, ce qui brûle, ce qui coûte cher. Aujourd&apos;hui, il installe ce qu&apos;il aurait approuvé."
-        ctaLabel="Diagnostic gratuit"
+        subheadline="Benoît Dezso a inspecté des installations électriques et photovoltaïques en Belgique avant de devenir installateur. Il a vu ce qui casse, ce qui brûle, ce qui coûte cher. Aujourd&apos;hui, il installe ce qu&apos;il aurait approuvé."
+        ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
         variant="compact"
       />
@@ -44,12 +44,12 @@ export default function AboutPage() {
           <h2>D&apos;inspecteur à installateur : pourquoi Benoît a changé de camp</h2>
 
           <p>
-            Pendant plus de dix ans, Benoît Dezso a travaillé comme inspecteur en
-            conformité électrique pour des organismes agréés en Belgique. Son
-            métier : vérifier que les installations électriques et photovoltaïques
-            respectaient les normes de sécurité. Chaque jour, il entrait dans des
-            maisons, ouvrait des coffrets, analysait des schémas, et rédigeait des
-            rapports. Conformes ou non conformes.
+            Avant de fonder Be&apos;energies, Benoît Dezso a travaillé comme
+            inspecteur en conformité électrique pour des organismes agréés en
+            Belgique. Son métier : vérifier que les installations électriques et
+            photovoltaïques respectaient les normes de sécurité. Chaque jour, il
+            entrait dans des maisons, ouvrait des coffrets, analysait des schémas
+            et rédigeait des rapports. Conformes ou non conformes.
           </p>
 
           <p>

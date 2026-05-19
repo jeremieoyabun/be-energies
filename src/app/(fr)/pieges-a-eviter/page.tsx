@@ -6,13 +6,15 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
+import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
+import { DataSources } from "@/components/sections/DataSources";
 import { AlertTriangleIcon, CheckIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
-  title: "Pièges à éviter avant d'installer | Guide par un ancien inspecteur",
+  title: "10 pièges à éviter avant un devis solaire | Guide par un ancien inspecteur",
   description:
-    "10 pièges à éviter avant d'installer des panneaux solaires, une batterie, une borne ou une pompe à chaleur. Guide complet par Benoît Dezso, ancien inspecteur, certifié RESCERT. Checklists incluses.",
+    "Panneaux solaires, batterie, borne, pompe à chaleur : les 10 pièges à vérifier avant de signer un devis en Wallonie. Checklists et 10 questions à poser. Guide par Benoît Dezso, certifié RESCERT.",
   path: "/pieges-a-eviter/",
 });
 
@@ -89,7 +91,7 @@ const chapters: Chapter[] = [
       "Demander un document écrit détaillant exactement ce qui est couvert",
     ],
     founderInsight:
-      "Chez Be'énergies, on ne promet pas 25 ans de garantie pour disparaître dans 3 ans. On détaille par écrit ce qui est garanti, par qui, et pendant combien de temps. Et on est là depuis le début.",
+      "Chez Be'energies, on ne promet pas 25 ans de garantie pour disparaître dans 3 ans. On détaille par écrit ce qui est garanti, par qui, et pendant combien de temps. Et on est là depuis le début.",
   },
   {
     id: "devis-non-equivalents",
@@ -216,7 +218,7 @@ const chapters: Chapter[] = [
     title: "Documentation technique : ce que vous devez recevoir (et que beaucoup ne fournissent pas)",
     severity: "important",
     service: "all",
-    body: `<p>Apres une installation, vous devez recevoir un ensemble de documents techniques qui sont a la fois une obligation legale et une protection pour vous. Sans ces documents, votre installation est incomplete, meme si elle fonctionne.</p>
+    body: `<p>Après une installation, vous devez recevoir un ensemble de documents techniques qui sont à la fois une obligation légale et une protection pour vous. Sans ces documents, votre installation est incomplète, même si elle fonctionne.</p>
 <p><strong>Documents obligatoires :</strong></p>
 <ul>
 <li><strong>Schéma unifilaire :</strong> le plan complet de votre installation électrique, mis à jour avec les nouveaux équipements (panneaux, onduleur, batterie, borne). Ce schéma est exigé lors de tout contrôle de conformité.</li>
@@ -599,6 +601,13 @@ export default function PiegesPage() {
         </section>
       ))}
 
+      {/* Sources for chiffrée content (prosumer, injection, prix) */}
+      <section className="pt-2 pb-8">
+        <div className="container-be max-w-3xl">
+          <DataSources />
+        </div>
+      </section>
+
       {/* 10 questions */}
       <section className="section-padding bg-midnight">
         <div className="container-be max-w-3xl">
@@ -692,12 +701,15 @@ export default function PiegesPage() {
         </div>
       </section>
 
+      {/* Pre-signature quote check (primary conversion block) */}
+      <QuoteCheckCTA variant="dark" />
+
       {/* Final CTA */}
       <CTADiagnostic
-        title="Benoît peut analyser votre devis gratuitement"
-        description="Vous avez reçu un devis d'un autre installateur ? Envoyez-le nous. Benoît l'analyse et vous donne son avis honnête, sans engagement. Pas de pression. Juste un regard d'ancien inspecteur."
-        ctaLabel="Envoyer mon devis pour analyse"
-        variant="dark"
+        title="Pas encore de devis ? Commencez par un diagnostic."
+        description="Visite technique sur site, analyse de votre toiture et de votre consommation, calcul de rentabilité réaliste basé sur les tarifs réels de votre GRD. Gratuit, sans engagement."
+        ctaLabel="Demander mon diagnostic gratuit"
+        variant="default"
       />
     </>
   );

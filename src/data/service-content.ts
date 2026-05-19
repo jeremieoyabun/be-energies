@@ -24,7 +24,7 @@ export interface ServicePageContent {
 
 export const serviceContent: Record<string, ServicePageContent> = {
   "panneaux-photovoltaiques": {
-    seoTitle: "Panneaux solaires en Wallonie 2026 | Be'energies",
+    seoTitle: "Panneaux photovoltaïques en Wallonie | Installation rentable et conforme",
     metaDescription:
       "Installation photovoltaïque par un ancien inspecteur en conformité électrique, certifié RESCERT. Calcul de rentabilité réel, tarif prosumer démystifié, retour en 5-7 ans. Diagnostic gratuit.",
     headline:
@@ -187,7 +187,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "batteries-domestiques": {
-    seoTitle: "Batterie domestique en Belgique 2026 | Be'energies",
+    seoTitle: "Batterie domestique en Wallonie | Quand c'est rentable, quand ça ne l'est pas",
     metaDescription:
       "Batterie domestique : quand c&apos;est rentable et quand ça ne l&apos;est pas. Conseil honnête par un ancien inspecteur. 5 000-8 000 EUR. Diagnostic gratuit.",
     headline:
@@ -292,7 +292,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "bornes-de-recharge": {
-    seoTitle: "Borne de recharge domicile Belgique | Be'energies",
+    seoTitle: "Borne de recharge en Wallonie | Installation à domicile et entreprise",
     metaDescription:
       "Installation de bornes de recharge à domicile par un ancien inspecteur. Intégration solaire, recharge 10h-16h, conformité garantie. Diagnostic gratuit.",
     headline:
@@ -403,7 +403,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "conformite-electrique": {
-    seoTitle: "Conformité électrique Belgique | Be'energies",
+    seoTitle: "Conformité électrique en Wallonie | Contrôle, mise en conformité et rapport",
     metaDescription:
       "Mise en conformité électrique par un ancien inspecteur en installation électrique, certifié RESCERT. Il a rédigé des rapports de non-conformité pendant des années. Diagnostic gratuit.",
     headline:
@@ -596,7 +596,7 @@ export const serviceContent: Record<string, ServicePageContent> = {
   },
 
   "pompes-a-chaleur": {
-    seoTitle: "Pompe à chaleur Belgique 2026 | Be'energies",
+    seoTitle: "Pompe à chaleur en Wallonie | Dimensionnement et intégration solaire",
     metaDescription:
       "Pompe à chaleur air-eau et air-air intégrée à vos panneaux solaires. Dimensionnement par un ancien inspecteur. Tarif IMPACT optimisé. Diagnostic gratuit.",
     headline:

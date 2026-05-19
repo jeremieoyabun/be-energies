@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
+import { DataSources } from "@/components/sections/DataSources";
 
 export function RentabilityProof() {
   return (
@@ -12,17 +13,20 @@ export function RentabilityProof() {
           {/* Left: message */}
           <div>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
-              Le photovoltaïque est plus rentable que jamais
+              Le photovoltaïque reste un investissement défendable
             </h2>
             <p className="mt-4 text-charcoal leading-relaxed">
-              Les subventions ont disparu parce que les panneaux sont devenus 5 fois
-              moins chers. Chaque kWh autoconsommé vous fait économiser{" "}
-              <strong className="text-midnight">38 centimes</strong>. Chaque kWh
-              revendu ne rapporte que <strong className="text-midnight">1 à 6 centimes</strong>.
+              Les subventions ont disparu parce que les panneaux sont devenus
+              bien moins chers. Chaque kWh autoconsommé vous fait économiser{" "}
+              <strong className="text-midnight">~38 centimes</strong>. Chaque
+              kWh revendu ne rapporte que{" "}
+              <strong className="text-midnight">1 à 6 centimes</strong>. Le
+              ratio favorise massivement l&apos;autoconsommation.
             </p>
             <p className="mt-3 text-steel text-[15px]">
-              C&apos;est pour ça qu&apos;on dimensionne pour maximiser ce que vous
-              consommez, pas ce que vous injectez.
+              C&apos;est pour ça que nous dimensionnons en fonction de votre
+              consommation réelle — pas du nombre de panneaux qui rentrent sur
+              votre toit.
             </p>
             <Link
               href="/services/panneaux-photovoltaiques/"
@@ -36,10 +40,10 @@ export function RentabilityProof() {
           {/* Right: stat cards */}
           <div className="grid grid-cols-2 gap-4">
             {[
-              { value: "5-7", unit: "ans", label: "Retour sur investissement", accent: true },
-              { value: "~12", unit: "%", label: "Rendement annuel", accent: false },
-              { value: "38", unit: "c/kWh", label: "Économies par kWh autoconsommé", accent: false },
-              { value: "25", unit: "+ ans", label: "Durée de vie garantie", accent: false },
+              { value: "5-7", unit: "ans", label: "Retour estimé selon votre consommation", accent: true },
+              { value: "~12", unit: "%", label: "Rendement annualisé estimé", accent: false },
+              { value: "~38", unit: "c/kWh", label: "Économies par kWh autoconsommé", accent: false },
+              { value: "25", unit: "+ ans", label: "Durée de vie attendue du système", accent: false },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -64,6 +68,8 @@ export function RentabilityProof() {
             ))}
           </div>
         </div>
+
+        <DataSources className="mx-auto max-w-3xl" />
       </div>
     </section>
   );

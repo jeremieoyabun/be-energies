@@ -31,7 +31,7 @@ const defaultRows: ComparisonRow[] = [
   {
     aspect: "Conformité",
     others: "Pas toujours vérifiée avant le contrôle",
-    beEnergies: "Conçue par un ancien inspecteur, certifié RESCERT",
+    beEnergies: "Pensée dès la conception pour passer le contrôle",
   },
   {
     aspect: "Suivi post-installation",

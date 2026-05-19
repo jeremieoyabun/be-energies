@@ -1,19 +1,18 @@
-import Link from "next/link";
 import Image from "next/image";
 import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, localBusinessSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { FAQSection } from "@/components/sections/FAQSection";
+import { ContactForm } from "@/components/sections/ContactForm";
 import { siteConfig } from "@/lib/site-config";
-import { services } from "@/data/services";
 import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon, CheckIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
-  title: "Contact — Diagnostic énergétique gratuit",
+  title: "Contact | Diagnostic énergétique gratuit en Wallonie",
   description:
-    "Contactez Benoît Dezso pour un diagnostic énergétique gratuit en Belgique. Réponse personnelle, visite sur site, devis détaillé sous 48h. Ancien inspecteur, certifié RESCERT.",
+    "Diagnostic énergétique gratuit en Wallonie : visite technique sur site, devis détaillé sous 48 h. Réponse personnelle de Benoît Dezso, certifié RESCERT. Pas de call center, pas de pression commerciale.",
   path: "/contact/",
   alternates: { fr: "/contact/", nl: "/nl/contact/" },
 });
@@ -81,116 +80,11 @@ export default function ContactPage() {
               <h2 className="text-xl font-[family-name:var(--font-heading)] text-midnight mb-1">
                 Demandez votre diagnostic gratuit
               </h2>
-              <p className="text-sm text-steel mb-8">Benoît vous recontacte personnellement sous 24h.</p>
+              <p className="text-sm text-steel mb-8">
+                Quelques précisions nous permettent de préparer un rendez-vous utile. Comptez moins de 2 minutes.
+              </p>
 
-              <form className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="name" className="form-label">
-                      Nom complet <span className="text-amber">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      placeholder="Jean Dupont"
-                      className="form-input"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="form-label">
-                      Email <span className="text-amber">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      placeholder="jean@exemple.be"
-                      className="form-input"
-                    />
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="phone" className="form-label">
-                      Téléphone
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      placeholder="+32 4XX XX XX XX"
-                      className="form-input"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="city" className="form-label">
-                      Ville
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      placeholder="Liège, Namur, Bruxelles..."
-                      className="form-input"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="service" className="form-label">
-                    Service souhaité
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="form-input"
-                  >
-                    <option value="">Sélectionnez un service</option>
-                    {services.map((s) => (
-                      <option key={s.slug} value={s.slug}>
-                        {s.title}
-                      </option>
-                    ))}
-                    <option value="autre">Autre</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="form-label">
-                    Votre projet
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="Décrivez votre projet : type de logement, surface, consommation actuelle..."
-                    className="form-input resize-y"
-                  />
-                </div>
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="gdpr"
-                    name="gdpr"
-                    required
-                    className="mt-1 accent-amber"
-                  />
-                  <label htmlFor="gdpr" className="text-xs text-steel leading-relaxed">
-                    J&apos;accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande.{" "}
-                    <Link href="/politique-de-confidentialite/" className="underline hover:text-midnight">
-                      Politique de confidentialité
-                    </Link>
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto cta-glow bg-amber hover:bg-amber-dark text-midnight font-bold px-10 py-4 rounded-xl transition-colors text-base"
-                >
-                  Envoyer ma demande
-                </button>
-                <p className="text-xs text-steel">Réponse personnelle sous 24h. Pas de call center.</p>
-              </form>
+              <ContactForm />
             </div>
 
             {/* Sidebar */}
@@ -223,10 +117,24 @@ export default function ContactPage() {
                   <li className="flex items-start gap-3 text-sm text-silver pt-2 border-t border-charcoal">
                     <MapPinIcon size={17} className="text-amber shrink-0 mt-0.5" />
                     <span>
-                      {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
+                      {siteConfig.contact.address.streetAddress && (
+                        <>
+                          {siteConfig.contact.address.streetAddress}
+                          <br />
+                        </>
+                      )}
+                      {siteConfig.contact.address.postalCode}{" "}
+                      {siteConfig.contact.address.addressLocality}
                     </span>
                   </li>
                 </ul>
+                <div className="pt-3 mt-3 border-t border-charcoal text-xs text-silver/80">
+                  <p className="font-semibold text-white mb-1.5">
+                    Horaires
+                  </p>
+                  <p>Lundi – vendredi : 8 h – 17 h</p>
+                  <p className="text-silver/60">Samedi &amp; dimanche : fermé</p>
+                </div>
               </div>
 
               {/* Reassurance */}

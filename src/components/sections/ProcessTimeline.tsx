@@ -1,5 +1,3 @@
-import { SectionLabel } from "@/components/sections/SectionLabel";
-
 const steps = [
   {
     number: "01",
@@ -49,7 +47,7 @@ export function ProcessTimeline({ customSteps }: ProcessTimelineProps) {
           On commence par une visite. Pas par un devis.
         </h2>
         <p className="mt-3 text-silver max-w-xl mb-12">
-          Un processus rigoureux, conçu par un ancien inspecteur.
+          Un processus rigoureux : visite technique réelle, devis détaillé, conformité pensée dès la conception.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -97,7 +97,7 @@ export default function NlContactPage() {
               <li><a href={`tel:${siteConfig.contact.phoneRaw}`} className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight"><PhoneIcon size={18} className="text-amber" />{siteConfig.contact.phone}</a></li>
               <li><a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight"><MailIcon size={18} className="text-amber" />{siteConfig.contact.email}</a></li>
               <li><a href={siteConfig.contact.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight"><WhatsAppIcon size={18} className="text-amber" />WhatsApp</a></li>
-              <li className="flex items-start gap-3 text-sm text-charcoal"><MapPinIcon size={18} className="text-amber shrink-0 mt-0.5" /><span>{siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}</span></li>
+              <li className="flex items-start gap-3 text-sm text-charcoal"><MapPinIcon size={18} className="text-amber shrink-0 mt-0.5" /><span>{siteConfig.contact.address.postalCode} {siteConfig.contact.address.addressLocality}</span></li>
             </ul>
           </div>
         </div>

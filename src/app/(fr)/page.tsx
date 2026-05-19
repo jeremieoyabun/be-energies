@@ -4,6 +4,7 @@ import {
   organizationSchema,
   localBusinessSchema,
   webSiteSchema,
+  personSchema,
 } from "@/lib/schema";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
@@ -17,6 +18,7 @@ import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { RealizationGrid } from "@/components/sections/RealizationGrid";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
+import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
 import { pieges } from "@/data/pieges";
 import { testimonials } from "@/data/testimonials";
 import { realizations } from "@/data/realizations";
@@ -25,9 +27,9 @@ import { siteConfig } from "@/lib/site-config";
 import { MapPinIcon } from "@/lib/icons";
 
 export const metadata = generatePageMetadata({
-  title: "Be'energies — Panneaux solaires, batteries, bornes de recharge en Belgique",
+  title: "Installateur photovoltaïque en Wallonie | Ancien inspecteur RESCERT",
   description:
-    "Installation de panneaux solaires, batteries domestiques, bornes de recharge, pompes à chaleur et conformité électrique en Belgique. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Retour en 5-7 ans. Diagnostic gratuit.",
+    "Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Wallonie. Diagnostic gratuit, devis clair sous 48 h, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur certifié RESCERT.",
   path: "/",
   alternates: { fr: "/", nl: "/nl/" },
 });
@@ -44,15 +46,17 @@ export default function HomePage() {
       <JsonLd data={organizationSchema()} />
       <JsonLd data={localBusinessSchema()} />
       <JsonLd data={webSiteSchema()} />
+      <JsonLd data={personSchema()} />
 
       {/* 1. HERO */}
       <HeroSection
-        headline="J'ai inspecté des centaines d'installations. Aujourd'hui, je les construis."
-        subheadline="Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Un seul interlocuteur pour vos panneaux solaires, batteries, bornes et mise en conformité."
-        ctaLabel="Diagnostic énergétique gratuit"
+        headline="Votre installation énergétique, conçue comme si elle devait passer le contrôle demain."
+        subheadline="Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Wallonie. Diagnostic gratuit par Benoît Dezso, ancien inspecteur certifié RESCERT."
+        ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
-        secondaryCta={{ label: "Nos services", href: "/services/" }}
-        badge="Ancien inspecteur | Certifié RESCERT"
+        secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
+        badge="Certifié RESCERT · Ancien inspecteur · Wallonie"
+        reassurances={["Devis clair sous 48 h", "Visite technique réelle", "Un seul interlocuteur"]}
         video="/vds/Be-energies_video_header.webm"
       />
 
@@ -71,6 +75,9 @@ export default function HomePage() {
       {/* 6. COMPARISON + PIEGES */}
       <ComparisonTable />
       <PiegesCarousel pieges={pieges.slice(0, 3)} />
+
+      {/* 6b. QUOTE-CHECK conversion block */}
+      <QuoteCheckCTA variant="light" />
 
       {/* 7. PROCESS */}
       <ProcessTimeline />
@@ -125,7 +132,7 @@ export default function HomePage() {
           </div>
           <p className="mt-6 text-center text-sm text-steel">
             <span className="data-figure font-semibold text-charcoal">{siteConfig.contact.address.postalCode}</span>{" "}
-            {siteConfig.contact.address.city} — Déplacements dans toute la Belgique
+            {siteConfig.contact.address.addressLocality} — Déplacements dans toute la Belgique
           </p>
         </div>
       </section>
@@ -138,9 +145,9 @@ export default function HomePage() {
 
       {/* 11. FINAL CTA */}
       <CTADiagnostic
-        title="Votre diagnostic énergétique, par un ancien inspecteur certifié RESCERT"
-        description="Benoît se déplace chez vous, analyse votre installation, et vous remet un rapport personnalisé. Devis détaillé sous 48h. Pas une estimation générique — les vrais tarifs 2026 de votre gestionnaire de réseau."
-        ctaLabel="Demander mon diagnostic gratuit"
+        title="Un avis honnête avant de signer"
+        description="Visite technique sur site, dimensionnement basé sur votre consommation réelle, devis clair sous 48 h avec les tarifs 2026 de votre gestionnaire de réseau. Pas d'estimation générique, pas de pression."
+        ctaLabel="Vérifier la rentabilité de mon projet"
         ctaHref="/contact/"
         variant="dark"
       />

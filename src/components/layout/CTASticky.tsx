@@ -7,7 +7,7 @@ interface CTAStickyProps {
 }
 
 export function CTASticky({
-  ctaLabel = "Diagnostic gratuit",
+  ctaLabel = "Mon diagnostic gratuit",
   ctaHref = "/contact/",
 }: CTAStickyProps) {
   return (

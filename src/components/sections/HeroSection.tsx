@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRightIcon } from "@/lib/icons";
+import { ArrowRightIcon, CheckIcon } from "@/lib/icons";
 
 interface HeroSectionProps {
   headline: string;
@@ -12,6 +12,7 @@ interface HeroSectionProps {
   image?: string;
   badge?: string;
   video?: string;
+  reassurances?: string[];
 }
 
 export function HeroSection({
@@ -24,6 +25,7 @@ export function HeroSection({
   image,
   badge,
   video,
+  reassurances,
 }: HeroSectionProps) {
   const isCompact = variant === "compact";
   const isIdentity = variant === "identity";
@@ -124,12 +126,12 @@ export function HeroSection({
         }}
       />
 
-      <div className="container-be relative z-10 py-20 md:py-28 lg:py-36">
+      <div className="container-be relative z-10 py-24 md:py-32 lg:py-40">
         <div className={isIdentity && image && !video ? "grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center" : ""}>
           <div className={video ? "max-w-3xl mx-auto text-center" : "max-w-3xl"}>
             {/* Badge */}
             {badge && (
-              <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 mb-8 ${video ? "" : ""}`}>
+              <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 mb-8`}>
                 <div className="w-2 h-2 rounded-full bg-amber" />
                 <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-light">
                   {badge}
@@ -140,10 +142,10 @@ export function HeroSection({
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-[family-name:var(--font-heading)] text-white leading-[1.1] text-balance">
               {headline}
             </h1>
-            <p className={`mt-5 md:mt-6 text-lg md:text-xl leading-relaxed ${video ? "max-w-2xl mx-auto" : "max-w-2xl"} text-silver/90`}>
+            <p className={`mt-6 md:mt-7 text-lg md:text-xl leading-relaxed ${video ? "max-w-2xl mx-auto" : "max-w-2xl"} text-silver/90`}>
               {subheadline}
             </p>
-            <div className={`mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 ${video ? "justify-center" : ""}`}>
+            <div className={`mt-9 md:mt-10 flex flex-col sm:flex-row gap-4 ${video ? "justify-center" : ""}`}>
               <Link
                 href={ctaHref}
                 className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-8 py-4 rounded-xl transition-colors text-base"
@@ -160,6 +162,20 @@ export function HeroSection({
                 </Link>
               )}
             </div>
+
+            {reassurances && reassurances.length > 0 && (
+              <ul
+                className={`mt-9 md:mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-silver/80 ${video ? "justify-center" : ""}`}
+                aria-label="Engagements Be'energies"
+              >
+                {reassurances.map((item) => (
+                  <li key={item} className="inline-flex items-center gap-2">
+                    <CheckIcon size={14} className="text-amber-light shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           {/* Right side: image (only when no video) */}

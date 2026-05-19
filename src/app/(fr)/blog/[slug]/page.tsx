@@ -6,6 +6,7 @@ import { JsonLd, articleSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { RelatedServices } from "@/components/sections/RelatedServices";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
+import { DataSources } from "@/components/sections/DataSources";
 
 interface BlogPageProps {
   params: Promise<{ slug: string }>;
@@ -105,6 +106,8 @@ export default async function BlogArticlePage({ params }: BlogPageProps) {
               <p>Contenu en cours de r&eacute;daction.</p>
             </div>
           )}
+
+          <DataSources />
         </div>
       </article>
 

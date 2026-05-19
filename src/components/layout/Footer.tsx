@@ -85,8 +85,18 @@ export function Footer() {
               <li className="flex items-start gap-2 text-sm">
                 <MapPinIcon size={16} className="shrink-0 mt-0.5" />
                 <span>
-                  {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
+                  {siteConfig.contact.address.streetAddress && (
+                    <>
+                      {siteConfig.contact.address.streetAddress}
+                      <br />
+                    </>
+                  )}
+                  {siteConfig.contact.address.postalCode}{" "}
+                  {siteConfig.contact.address.addressLocality}
                 </span>
+              </li>
+              <li className="text-xs text-silver/70 pt-1">
+                Lun – ven : 8 h – 17 h
               </li>
             </ul>
           </div>
@@ -104,6 +114,44 @@ export function Footer() {
                 {siteConfig.founder.name}, {siteConfig.founder.credential}
               </p>
             </div>
+
+            {/* Social links */}
+            {(siteConfig.social.facebookUrl ||
+              siteConfig.social.googleBusinessProfileUrl) && (
+              <div className="mt-5 flex items-center gap-3">
+                {siteConfig.social.facebookUrl && (
+                  <a
+                    href={siteConfig.social.facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Be'energies sur Facebook"
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-charcoal text-silver hover:text-white hover:border-white/30 transition-colors"
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.19 2.24.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.57V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12Z" />
+                    </svg>
+                  </a>
+                )}
+                {siteConfig.social.googleBusinessProfileUrl && (
+                  <a
+                    href={siteConfig.social.googleBusinessProfileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Be'energies sur Google"
+                    className="inline-flex items-center gap-2 text-xs text-silver hover:text-white px-3 h-8 rounded-md border border-charcoal hover:border-white/30 transition-colors"
+                  >
+                    <span className="text-amber">★</span>
+                    Avis Google
+                  </a>
+                )}
+              </div>
+            )}
 
             {/* Logo in footer */}
             {/* eslint-disable-next-line @next/next/no-img-element */}

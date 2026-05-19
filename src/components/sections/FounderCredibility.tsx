@@ -111,9 +111,10 @@ export function FounderCredibility({
 
             <div className="mt-6 space-y-4 text-charcoal leading-relaxed text-[15px]">
               <p>
-                Pendant plus de 10 ans, Benoît a inspecté des installations électriques
-                et photovoltaïques à travers la Belgique pour le compte d&apos;organismes agréés.
-                Il a constaté, documenté, et corrigé les erreurs les plus fréquentes du secteur.
+                Avant de fonder Be&apos;energies, Benoît a inspecté des installations
+                électriques et photovoltaïques en Belgique pour le compte d&apos;organismes
+                agréés. Il a constaté, documenté et corrigé les erreurs les plus fréquentes
+                du secteur — celles qui font recaler une installation au contrôle.
               </p>
               <p>
                 Il fonde Be&apos;energies avec une conviction simple : chaque installation
@@ -130,16 +131,27 @@ export function FounderCredibility({
               </InspectorInsight>
             </div>
 
-            {/* Key differentiators */}
+            {/* Key differentiators — qualitative until quantified data is confirmed */}
             <div className="mt-8 grid sm:grid-cols-3 gap-4">
               {[
-                { figure: "10+", label: "ans d'inspections" },
-                { figure: "500+", label: "contrôles réalisés" },
-                { figure: "0", label: "non-conformité depuis la création" },
+                {
+                  figure: "Inspecteur",
+                  label: "expérience terrain en conformité électrique",
+                },
+                {
+                  figure: "RESCERT",
+                  label: "installateur agréé en Wallonie",
+                },
+                {
+                  figure: "Pré-audit",
+                  label: "approche pensée pour limiter les non-conformités",
+                },
               ].map((item) => (
                 <div key={item.label} className="text-center p-4 bg-ivory rounded-xl border border-cloud">
-                  <div className="stat-value text-2xl font-bold text-midnight">{item.figure}</div>
-                  <div className="text-xs text-steel mt-1">{item.label}</div>
+                  <div className="stat-value text-base font-bold text-midnight uppercase tracking-wide">
+                    {item.figure}
+                  </div>
+                  <div className="text-xs text-steel mt-1 leading-snug">{item.label}</div>
                 </div>
               ))}
             </div>

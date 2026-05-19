@@ -69,7 +69,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
   const localFaqs = generateLocalFaq(city, service, "fr");
 
   const headline = getLocalHeadline(service, city.name, "fr");
-  const subheadline = `Installation de ${service.title.toLowerCase()} à ${city.name} (${city.province}) par Be'énergies. Benoît Dezso, ancien inspecteur, certifié RESCERT. Diagnostic énergétique gratuit.`;
+  const subheadline = `Installation de ${service.title.toLowerCase()} à ${city.name} (${city.province}) par Be'energies. Visite technique, calcul de rentabilité réaliste et conformité pensée dès la conception par Benoît Dezso, certifié RESCERT.`;
 
   return (
     <>
@@ -107,9 +107,10 @@ export default async function LocalPage({ params }: LocalPageProps) {
             )}
             {grd && grd.prosumerEurPerKweYear > 0 && serviceSlug === "panneaux-photovoltaiques" && (
               <p>
-                En tant qu&apos;ancien inspecteur en conformité électrique, Benoît
-                conçoit chaque installation pour qu&apos;elle passe le contrôle du
-                premier coup. Pas de surprises, pas de frais supplémentaires.
+                Chaque installation est conçue pour passer le contrôle du premier
+                coup : sections de câbles vérifiées, mise à la terre conforme,
+                schéma unifilaire à jour. Pas de surprise au moment du contrôle,
+                pas de contre-visite à payer.
               </p>
             )}
           </div>
@@ -178,7 +179,9 @@ export default async function LocalPage({ params }: LocalPageProps) {
       )}
 
       <CTADiagnostic
-        title={`Diagnostic énergétique gratuit à ${city.name}`}
+        title={`Un avis honnête sur votre projet à ${city.name}`}
+        description={`Visite technique sur place, devis détaillé sous 48 h avec les tarifs réels de ${city.grd}. Gratuit, sans engagement.`}
+        ctaLabel={`Demander mon diagnostic à ${city.name}`}
         variant="dark"
       />
     </>
