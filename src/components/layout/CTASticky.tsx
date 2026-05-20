@@ -14,7 +14,7 @@ export function CTASticky({
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-midnight/95 backdrop-blur-sm border-t border-charcoal">
       <div className="flex items-center gap-2 px-4 py-3">
         <a
-          href={`tel:${siteConfig.contact.phoneRaw}`}
+          href={`tel:${siteConfig.contact.phones[0].raw}`}
           className="flex items-center justify-center w-12 h-12 bg-charcoal hover:bg-slate rounded-lg text-white transition-colors"
           aria-label="Appeler"
         >

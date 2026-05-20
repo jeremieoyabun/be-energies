@@ -48,26 +48,49 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
           {navigation.map((item) => (
-            <div key={item.href} className="relative group">
+            <div
+              key={item.href}
+              className="relative"
+              // Single hover container so the cursor can travel from the
+              // trigger to the panel without crossing a "dead zone" that would
+              // close the dropdown.
+              onMouseEnter={
+                item.children ? () => setOpenDropdown(item.href) : undefined
+              }
+              onMouseLeave={
+                item.children ? () => setOpenDropdown(null) : undefined
+              }
+            >
               {item.children ? (
                 <>
                   <button
                     className="flex items-center gap-1 text-[13px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors"
-                    onMouseEnter={() => setOpenDropdown(item.href)}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onFocus={() => setOpenDropdown(item.href)}
+                    onClick={() =>
+                      setOpenDropdown(
+                        openDropdown === item.href ? null : item.href,
+                      )
+                    }
                     aria-expanded={openDropdown === item.href}
+                    aria-haspopup="menu"
                   >
                     {item.label}
                     <ChevronDownIcon size={13} className="text-steel" />
                   </button>
+                  {/* Invisible bridge between trigger and panel so hover never breaks */}
                   <div
-                    className={`absolute top-full left-0 mt-1 bg-white rounded-xl shadow-lg border border-cloud/60 py-2 min-w-56 transition-all duration-200 ${
+                    className={`absolute top-full left-0 right-0 h-2 ${
+                      openDropdown === item.href ? "" : "pointer-events-none"
+                    }`}
+                    aria-hidden="true"
+                  />
+                  <div
+                    role="menu"
+                    className={`absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg border border-cloud/60 py-2 min-w-56 transition-all duration-200 ${
                       openDropdown === item.href
                         ? "opacity-100 translate-y-0 pointer-events-auto"
                         : "opacity-0 -translate-y-1 pointer-events-none"
                     }`}
-                    onMouseEnter={() => setOpenDropdown(item.href)}
-                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     {item.children.map((child) => {
                       const Icon = child.icon ? getServiceIcon(child.icon) : null;
@@ -75,7 +98,9 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
                         <Link
                           key={child.href}
                           href={child.href}
+                          role="menuitem"
                           className="flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:bg-ivory hover:text-midnight transition-colors"
+                          onClick={() => setOpenDropdown(null)}
                         >
                           {Icon && (
                             <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-midnight/5 text-amber-dark shrink-0">
@@ -112,12 +137,12 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
 
           {/* Phone (all sizes) */}
           <a
-            href={`tel:${siteConfig.contact.phoneRaw}`}
+            href={`tel:${siteConfig.contact.phones[0].raw}`}
             className="hidden sm:flex items-center gap-2 text-sm font-medium text-charcoal hover:text-midnight transition-colors px-2"
             aria-label="Appeler"
           >
             <PhoneIcon size={16} className="text-amber" />
-            <span className="hidden xl:inline data-figure text-[13px]">{siteConfig.contact.phone}</span>
+            <span className="hidden xl:inline data-figure text-[13px]">{siteConfig.contact.phones[0].label}</span>
           </a>
 
           {/* CTA button (desktop) */}
@@ -130,7 +155,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
 
           {/* Phone (mobile) */}
           <a
-            href={`tel:${siteConfig.contact.phoneRaw}`}
+            href={`tel:${siteConfig.contact.phones[0].raw}`}
             className="sm:hidden p-2 text-midnight"
             aria-label="Appeler"
           >

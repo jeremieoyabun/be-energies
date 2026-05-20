@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CTASticky } from "@/components/layout/CTASticky";
+import { CookieBanner } from "@/components/layout/CookieBanner";
 import { mainNavNl } from "@/data/navigation";
 
 export default function NlLayout({
@@ -19,6 +20,7 @@ export default function NlLayout({
       <main>{children}</main>
       <Footer />
       <CTASticky ctaLabel="Gratis diagnose" ctaHref="/nl/contact/" />
+      <CookieBanner />
     </div>
   );
 }

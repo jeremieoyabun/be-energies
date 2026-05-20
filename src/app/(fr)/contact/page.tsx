@@ -96,23 +96,14 @@ export default function ContactPage() {
               <div className="bg-midnight rounded-xl p-6 space-y-4">
                 <h3 className="font-semibold text-white text-sm">Contact direct</h3>
                 <ul className="space-y-3">
-                  <li>
-                    <a href={`tel:${siteConfig.contact.phoneRaw}`} className="flex items-center gap-3 text-sm text-silver hover:text-white transition-colors">
-                      <PhoneIcon size={17} className="text-amber" />
-                      <span className="data-figure">{siteConfig.contact.phone}</span>
-                    </a>
-                  </li>
-                  {siteConfig.contact.mobiles.map((m) => (
-                    <li key={m.raw}>
+                  {siteConfig.contact.phones.map((p) => (
+                    <li key={p.raw}>
                       <a
-                        href={`tel:${m.raw}`}
+                        href={`tel:${p.raw}`}
                         className="flex items-center gap-3 text-sm text-silver hover:text-white transition-colors"
                       >
                         <PhoneIcon size={17} className="text-amber" />
-                        <span className="data-figure">{m.label}</span>
-                        <span className="text-[10px] uppercase tracking-wider text-silver/60 ml-auto">
-                          GSM
-                        </span>
+                        <span className="data-figure">{p.label}</span>
                       </a>
                     </li>
                   ))}

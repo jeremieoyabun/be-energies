@@ -12,6 +12,13 @@ import {
   CheckIcon,
   PhoneIcon,
   MailIcon,
+  SolarIcon,
+  BatteryIcon,
+  ComplianceIcon,
+  EvChargingIcon,
+  AlertTriangleIcon,
+  RoofIcon,
+  StarIcon,
   getServiceIcon,
 } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
@@ -37,32 +44,39 @@ const proServices = services.filter((s) =>
 );
 
 // 7 raisons de l'ancien WP — réécrites pour Be'energies tone of voice
-const reasons = [
+const reasons: { icon: typeof SolarIcon; title: string; body: string }[] = [
   {
+    icon: SolarIcon,
     title: "Solutions énergétiques durables",
     body: "Photovoltaïque, batteries de stockage et bornes de recharge intégrés. Réduisez votre empreinte carbone tout en réalisant des économies mesurables sur votre facture énergétique.",
   },
   {
+    icon: StarIcon,
     title: "Expertise et qualité professionnelle",
     body: "Installation et maintenance assurées par notre équipe interne. Benoît Dezso, ancien inspecteur certifié RESCERT, supervise chaque projet — pas de sous-traitance en cascade.",
   },
   {
+    icon: BatteryIcon,
     title: "Rentabilité à long terme",
     body: "Dimensionnement basé sur votre consommation réelle. Calcul de retour sur investissement réaliste, intégrant primes, tarif prosumer et profil de consommation professionnel.",
   },
   {
+    icon: ComplianceIcon,
     title: "Conformité et sécurité",
     body: "Chaque installation est conçue pour passer le contrôle du premier coup. Schémas unifilaires à jour, protections adaptées, documentation technique complète.",
   },
   {
+    icon: EvChargingIcon,
     title: "Services personnalisés",
     body: "PME industrielle, syndic d'immeuble, cabinet médical, exploitation agricole : nous adaptons la solution à votre activité, vos contraintes opérationnelles et vos délais.",
   },
   {
+    icon: RoofIcon,
     title: "Engagement environnemental",
     body: "Adopter une énergie propre renforce votre image de marque et répond aux nouvelles attentes de vos clients, salariés et partenaires institutionnels.",
   },
   {
+    icon: AlertTriangleIcon,
     title: "Diagnostic énergétique",
     body: "Audit complet sur site pour identifier les meilleures opportunités d'économie : production, autoconsommation, intégration véhicule électrique, conformité.",
   },
@@ -195,21 +209,21 @@ export default function ProPage() {
                 Bruxelles et Luxembourg : un seul interlocuteur technique pour
                 des installations conformes, dimensionnées juste et rentables.
               </p>
-              <div className="mt-9 flex flex-col sm:flex-row gap-4">
+              <div className="mt-9 flex flex-col sm:flex-row flex-wrap gap-3">
                 <Link
                   href="/contact/?type=pro"
-                  className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-8 py-4 rounded-xl transition-colors text-base"
+                  className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-6 py-3.5 rounded-xl transition-colors text-[15px] whitespace-nowrap"
                 >
-                  Demander une étude sur mesure
-                  <ArrowRightIcon size={18} />
+                  Demander une étude
+                  <ArrowRightIcon size={17} />
                 </Link>
                 <a
-                  href={`tel:${siteConfig.contact.mobiles[0].raw}`}
-                  className="inline-flex items-center justify-center gap-2 font-medium px-8 py-4 rounded-xl transition-colors text-base border border-white/20 text-white/85 hover:text-white hover:border-white/40 hover:bg-white/5"
+                  href={`tel:${siteConfig.contact.phones[0].raw}`}
+                  className="inline-flex items-center justify-center gap-2 font-medium px-6 py-3.5 rounded-xl transition-colors text-[15px] border border-white/20 text-white/85 hover:text-white hover:border-white/40 hover:bg-white/5 whitespace-nowrap"
                 >
-                  <PhoneIcon size={17} />
+                  <PhoneIcon size={16} />
                   <span className="data-figure">
-                    {siteConfig.contact.mobiles[0].label}
+                    {siteConfig.contact.phones[0].label}
                   </span>
                 </a>
               </div>
@@ -334,24 +348,30 @@ export default function ProPage() {
           </p>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {reasons.map((r, i) => (
-              <article
-                key={r.title}
-                className="bg-white rounded-2xl border border-cloud p-6 md:p-7 flex flex-col"
-              >
-                <div className="flex items-baseline gap-3 mb-3">
-                  <span className="stat-value text-xs font-bold text-amber-dark tracking-wider">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-[family-name:var(--font-heading)] text-midnight text-lg leading-snug">
+            {reasons.map((r, i) => {
+              const Icon = r.icon;
+              return (
+                <article
+                  key={r.title}
+                  className="bg-white rounded-2xl border border-cloud p-6 md:p-7 flex flex-col hover:border-amber/40 transition-colors"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-amber/10 text-amber-dark flex items-center justify-center">
+                      <Icon size={20} />
+                    </div>
+                    <span className="stat-value text-xs font-bold text-amber-dark tracking-wider">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="font-[family-name:var(--font-heading)] text-midnight text-lg leading-snug mb-2">
                     {r.title}
                   </h3>
-                </div>
-                <p className="text-sm text-charcoal leading-relaxed">
-                  {r.body}
-                </p>
-              </article>
-            ))}
+                  <p className="text-sm text-charcoal leading-relaxed">
+                    {r.body}
+                  </p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -467,7 +487,7 @@ export default function ProPage() {
               </p>
             </div>
             <ul className="flex flex-col gap-2.5">
-              {siteConfig.contact.mobiles.map((m) => (
+              {siteConfig.contact.phones.map((m) => (
                 <li key={m.raw}>
                   <a
                     href={`tel:${m.raw}`}

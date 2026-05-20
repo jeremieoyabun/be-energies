@@ -7,6 +7,14 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { testimonials } from "@/data/testimonials";
+import {
+  CheckIcon,
+  AlertTriangleIcon,
+  ComplianceIcon,
+  SolarIcon,
+  BatteryIcon,
+  EvChargingIcon,
+} from "@/lib/icons";
 
 export const metadata = generatePageMetadata({
   title: "Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT",
@@ -40,50 +48,102 @@ export default function AboutPage() {
 
       {/* Section 1: L'histoire de Benoît */}
       <section className="section-padding">
-        <div className="container-be max-w-3xl prose prose-lg text-charcoal">
-          <h2>D&apos;inspecteur à installateur : pourquoi Benoît a changé de camp</h2>
+        <div className="container-be max-w-5xl">
+          <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-14 items-start">
+            <div className="prose prose-lg text-charcoal max-w-none prose-strong:text-midnight prose-strong:font-semibold">
+              <h2>D&apos;inspecteur à installateur : pourquoi Benoît a changé de camp</h2>
 
-          <p>
-            Avant de fonder Be&apos;energies, Benoît Dezso a travaillé comme
-            inspecteur en conformité électrique pour des organismes agréés en
-            Belgique. Son métier : vérifier que les installations électriques et
-            photovoltaïques respectaient les normes de sécurité. Chaque jour, il
-            entrait dans des maisons, ouvrait des coffrets, analysait des schémas
-            et rédigeait des rapports. Conformes ou non conformes.
-          </p>
+              <p className="lead">
+                Avant de fonder Be&apos;energies, Benoît Dezso a travaillé comme{" "}
+                <strong>inspecteur en conformité électrique</strong> pour des
+                organismes agréés en Belgique. Son métier : vérifier que les
+                installations électriques et photovoltaïques respectaient les
+                normes de sécurité.
+              </p>
 
-          <p>
-            La réalité du terrain l&apos;a marqué. Pas parce que tout était
-            catastrophique -- beaucoup d&apos;installations étaient correctes. Mais
-            parce que les erreurs qu&apos;il constatait suivaient toujours les
-            mêmes schémas. Des onduleurs sous-dimensionnés pour gagner quelques
-            centaines d&apos;euros. Des câbles mal sectionnés. Des protections
-            absentes. Des installations photovoltaïques dimensionnées pour gonfler
-            un devis, pas pour correspondre à la consommation réelle du ménage.
-          </p>
+              <p>
+                Chaque jour, il entrait dans des maisons, ouvrait des coffrets,
+                analysait des schémas et rédigeait des rapports —{" "}
+                <strong>conformes ou non conformes</strong>.
+              </p>
 
-          <p>
-            Et surtout, des propriétaires qui ne savaient pas. Qui avaient fait
-            confiance. Qui avaient signé un devis, payé une facture, et pensaient
-            que tout était en ordre. Jusqu&apos;au passage de l&apos;inspecteur.
-          </p>
+              <p>
+                La réalité du terrain l&apos;a marqué. Pas parce que tout était
+                catastrophique : beaucoup d&apos;installations étaient
+                correctes. Mais parce que{" "}
+                <strong>les erreurs qu&apos;il constatait suivaient toujours les mêmes schémas</strong>.
+                Des onduleurs sous-dimensionnés pour gagner quelques centaines
+                d&apos;euros. Des câbles mal sectionnés. Des protections
+                absentes. Des installations photovoltaïques dimensionnées pour
+                gonfler un devis, pas pour correspondre à la consommation
+                réelle du ménage.
+              </p>
 
-          <p>
-            Au fil des années, Benoît a développé une conviction : le problème
-            n&apos;était pas que les normes étaient trop strictes. Le problème
-            était que trop d&apos;installateurs les ignoraient, par manque de
-            formation, par facilité, ou par calcul commercial. Et la personne qui
-            payait les conséquences, c&apos;était toujours le propriétaire.
-          </p>
+              <p>
+                Et surtout, des propriétaires qui ne savaient pas. Qui avaient
+                fait confiance, signé un devis, payé une facture, et pensaient
+                que tout était en ordre.{" "}
+                <strong>Jusqu&apos;au passage de l&apos;inspecteur.</strong>
+              </p>
 
-          <p>
-            En fondant Be&apos;energies, Benoît a décidé d&apos;appliquer de
-            l&apos;autre côté du métier tout ce qu&apos;il avait appris en tant
-            qu&apos;inspecteur. Non pas parce qu&apos;il voulait prouver que les
-            autres avaient tort. Mais parce qu&apos;il savait à quoi ressemble une
-            installation bien faite -- et qu&apos;il voulait n&apos;en produire
-            que de celles-là.
-          </p>
+              <p>
+                Au fil des années, Benoît a développé une conviction : le
+                problème n&apos;était pas que les normes étaient trop strictes.
+                Le problème était que <strong>trop d&apos;installateurs les ignoraient</strong>,
+                par manque de formation, par facilité, ou par calcul
+                commercial. Et la personne qui payait les conséquences, c&apos;était
+                toujours le propriétaire.
+              </p>
+
+              <p>
+                En fondant Be&apos;energies, Benoît a décidé d&apos;appliquer
+                de l&apos;autre côté du métier tout ce qu&apos;il avait appris
+                en tant qu&apos;inspecteur. Pas pour prouver que les autres
+                avaient tort, mais parce qu&apos;il savait à quoi ressemble une
+                installation bien faite —{" "}
+                <strong>et qu&apos;il voulait n&apos;en produire que de celles-là</strong>.
+              </p>
+            </div>
+
+            {/* Sticky pull-quote + photo placeholder column */}
+            <aside className="lg:sticky lg:top-24 space-y-6">
+              {/* Photo placeholder — Benoit on field / coffret électrique */}
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-midnight via-slate to-charcoal border border-cloud relative">
+                <div className="absolute inset-0 flex items-center justify-center text-silver/60 text-xs uppercase tracking-[0.2em] text-center px-6">
+                  <span>
+                    Photo Benoît
+                    <br />
+                    sur chantier
+                    <br />
+                    <span className="opacity-50">(à fournir)</span>
+                  </span>
+                </div>
+              </div>
+
+              <figure className="bg-ivory border border-cloud rounded-2xl p-6">
+                <span
+                  className="text-amber text-4xl leading-none font-[family-name:var(--font-heading)] block mb-2"
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <blockquote className="text-charcoal text-[15px] leading-relaxed italic">
+                  Une installation bien faite, c&apos;est celle qui n&apos;a
+                  rien à craindre d&apos;un contrôle. Le reste, ce sont des
+                  raccourcis qui coûtent cher à quelqu&apos;un — toujours au
+                  propriétaire.
+                </blockquote>
+                <figcaption className="mt-4 pt-4 border-t border-cloud/70 text-sm">
+                  <span className="font-semibold text-midnight block">
+                    Benoît Dezso
+                  </span>
+                  <span className="text-steel text-xs">
+                    Fondateur · Certifié RESCERT
+                  </span>
+                </figcaption>
+              </figure>
+            </aside>
+          </div>
         </div>
       </section>
 
@@ -170,148 +230,184 @@ export default function AboutPage() {
 
       {/* Section 3: Nos valeurs, en pratique */}
       <section className="section-padding">
-        <div className="container-be max-w-3xl prose prose-lg text-charcoal">
-          <h2>Nos valeurs -- pas des slogans, des méthodes de travail</h2>
+        <div className="container-be max-w-4xl">
+          <div className="mb-12">
+            <div className="section-label">
+              <span>Notre méthode</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+              Nos valeurs — pas des slogans, des méthodes de travail
+            </h2>
+          </div>
 
-          <h3>Rigueur technique : chaque installation est conçue pour le contrôle</h3>
-          <p>
-            Chez Be&apos;energies, chaque installation est conçue comme si elle
-            allait être inspectée le lendemain. Parce que c&apos;est littéralement
-            le cas -- et parce que Benoît sait exactement ce que l&apos;inspecteur
-            va vérifier. Sections de câbles, protections différentielles, mise à
-            la terre, schémas unifilaires, étiquetage : tout est fait pour passer
-            le contrôle du premier coup, sans réserve, sans remarque.
-          </p>
-          <p>
-            Concrètement, cela signifie qu&apos;on ne choisit jamais un composant
-            pour son prix en catalogue. Chaque onduleur, chaque panneau, chaque
-            câble est sélectionné pour sa fiabilité réelle, sa compatibilité avec
-            le reste du système, et sa tenue dans le temps. Pas de raccourcis. Pas
-            de sous-dimensionnement. Pas de compromis sur les protections.
-          </p>
-
-          <h3>Honnêteté radicale : les vrais chiffres, même quand ils ne vendent pas</h3>
-          <p>
-            On ne vous vendra jamais une batterie si elle n&apos;est pas rentable
-            pour votre profil de consommation. On ne vous promettra jamais un
-            retour sur investissement en deux ans. On ne gonflera pas les chiffres
-            pour que le devis soit plus facile à signer.
-          </p>
-          <p>
-            Chaque proposition Be&apos;energies inclut un calcul de rentabilité
-            basé sur les tarifs 2026 réels de votre gestionnaire de réseau, votre
-            consommation mesurée, et un taux d&apos;autoconsommation réaliste.
-            Quand le retour se situe entre 5 et 7 ans, on vous le dit. Et on vous
-            explique pourquoi c&apos;est un excellent investissement à environ 12%
-            de rendement annuel -- sans mentir sur le délai.
-          </p>
-          <p>
-            Si après analyse, un projet n&apos;est pas rentable dans votre
-            situation, on vous le dit aussi. Vous ne nous devez rien pour le
-            diagnostic. Et vous repartez avec des informations fiables, que vous
-            fassiez appel à nous ou non.
-          </p>
-
-          <h3>Accompagnement continu : après l&apos;installation, on ne disparaît pas</h3>
-          <p>
-            Beaucoup de propriétaires découvrent après l&apos;installation que
-            leur installateur est devenu injoignable. Benoît a vu cette situation
-            des dizaines de fois en inspection : un client qui a un problème, qui
-            cherche son installateur, et qui ne trouve personne.
-          </p>
-          <p>
-            Chez Be&apos;energies, le suivi post-installation n&apos;est pas une
-            option. Il est inclus dans chaque projet. Monitoring de votre
-            production, vérification de conformité, assistance en cas de panne,
-            mise à jour de vos paramètres si les tarifs changent. Votre
-            investissement est protégé sur le long terme.
-          </p>
+          <div className="space-y-8">
+            {[
+              {
+                icon: ComplianceIcon,
+                title:
+                  "Rigueur technique : chaque installation est conçue pour le contrôle",
+                paragraphs: [
+                  <>
+                    Chez Be&apos;energies, chaque installation est conçue{" "}
+                    <strong>comme si elle allait être inspectée le lendemain</strong>.
+                    Parce que c&apos;est littéralement le cas — et parce que
+                    Benoît sait exactement ce que l&apos;inspecteur va
+                    vérifier. Sections de câbles, protections différentielles,
+                    mise à la terre, schémas unifilaires, étiquetage : tout
+                    est préparé pour passer le contrôle du premier coup, sans
+                    réserve.
+                  </>,
+                  <>
+                    Concrètement, on ne choisit jamais un composant pour son
+                    prix en catalogue. Chaque onduleur, chaque panneau, chaque
+                    câble est sélectionné pour sa{" "}
+                    <strong>fiabilité réelle</strong>, sa compatibilité avec
+                    le reste du système, et sa tenue dans le temps.
+                  </>,
+                ],
+              },
+              {
+                icon: AlertTriangleIcon,
+                title:
+                  "Honnêteté radicale : les vrais chiffres, même quand ils ne vendent pas",
+                paragraphs: [
+                  <>
+                    On ne vous vendra <strong>jamais</strong> une batterie si
+                    elle n&apos;est pas rentable pour votre profil de
+                    consommation. On ne vous promettra{" "}
+                    <strong>jamais</strong> un retour sur investissement en
+                    deux ans.
+                  </>,
+                  <>
+                    Chaque proposition Be&apos;energies inclut un calcul de
+                    rentabilité basé sur les{" "}
+                    <strong>tarifs réels de votre gestionnaire de réseau</strong>,
+                    votre consommation mesurée, et un taux
+                    d&apos;autoconsommation réaliste. Quand le retour se situe
+                    entre 5 et 7 ans, on vous le dit — et on vous explique
+                    pourquoi c&apos;est un excellent investissement.
+                  </>,
+                  <>
+                    Si un projet n&apos;est pas rentable dans votre situation,
+                    on vous le dit aussi.{" "}
+                    <strong>
+                      Vous ne nous devez rien pour le diagnostic.
+                    </strong>{" "}
+                    Vous repartez avec des informations fiables, que vous
+                    fassiez appel à nous ou non.
+                  </>,
+                ],
+              },
+              {
+                icon: CheckIcon,
+                title:
+                  "Accompagnement continu : après l'installation, on ne disparaît pas",
+                paragraphs: [
+                  <>
+                    Beaucoup de propriétaires découvrent après l&apos;installation
+                    que <strong>leur installateur est devenu injoignable</strong>.
+                    Benoît a vu cette situation des dizaines de fois en
+                    inspection : un client qui a un problème, qui cherche son
+                    installateur, et qui ne trouve personne.
+                  </>,
+                  <>
+                    Chez Be&apos;energies, le suivi post-installation n&apos;est
+                    pas une option : il est{" "}
+                    <strong>inclus dans chaque projet</strong>. Monitoring de
+                    votre production, vérification de conformité, assistance
+                    en cas de panne, mise à jour de vos paramètres si les
+                    tarifs changent.
+                  </>,
+                ],
+              },
+            ].map(({ icon: Icon, title, paragraphs }) => (
+              <article
+                key={title}
+                className="grid sm:grid-cols-[64px_1fr] gap-5 bg-white border border-cloud rounded-2xl p-6 md:p-7"
+              >
+                <div className="shrink-0 w-14 h-14 rounded-xl bg-amber/10 text-amber-dark flex items-center justify-center">
+                  <Icon size={26} />
+                </div>
+                <div>
+                  <h3 className="font-[family-name:var(--font-heading)] text-midnight text-xl leading-snug mb-3">
+                    {title}
+                  </h3>
+                  <div className="space-y-3 text-[15px] text-charcoal leading-relaxed">
+                    {paragraphs.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Section 4: Nos engagements concrets */}
       <section className="section-padding bg-ivory">
-        <div className="container-be max-w-3xl">
-          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight text-center mb-4">
-            Nos engagements concrets
-          </h2>
-          <p className="text-charcoal leading-relaxed text-center mb-8 max-w-2xl mx-auto">
-            Pas des promesses. Des règles de fonctionnement que nous appliquons
-            sur chaque chantier, sans exception.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-white border border-cloud rounded-xl p-6">
-              <h3 className="font-semibold text-midnight mb-2">
-                Visite technique obligatoire
-              </h3>
-              <p className="text-sm text-steel leading-relaxed">
-                Aucun devis n&apos;est émis sans visite sur place. On analyse
-                votre toiture, votre coffret électrique, votre compteur, votre
-                exposition, et vos habitudes de consommation. Un
-                dimensionnement correct exige des données réelles.
-              </p>
+        <div className="container-be max-w-5xl">
+          <div className="text-center mb-12">
+            <div className="section-label justify-center inline-flex">
+              <span>6 engagements</span>
             </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight mb-3 text-balance">
+              Nos engagements concrets
+            </h2>
+            <p className="text-charcoal leading-relaxed max-w-2xl mx-auto">
+              Pas des promesses. Des règles de fonctionnement que nous
+              appliquons sur chaque chantier, sans exception.
+            </p>
+          </div>
 
-            <div className="bg-white border border-cloud rounded-xl p-6">
-              <h3 className="font-semibold text-midnight mb-2">
-                Calcul de rentabilité transparent
-              </h3>
-              <p className="text-sm text-steel leading-relaxed">
-                Chaque proposition inclut un calcul basé sur les tarifs 2026
-                réels de votre GRD, votre tarif prosumer, votre taux
-                d&apos;autoconsommation estimé et le tarif d&apos;injection de
-                votre fournisseur. Vous voyez les vrais chiffres.
-              </p>
-            </div>
-
-            <div className="bg-white border border-cloud rounded-xl p-6">
-              <h3 className="font-semibold text-midnight mb-2">
-                Suivi post-installation inclus
-              </h3>
-              <p className="text-sm text-steel leading-relaxed">
-                Monitoring de votre production, vérification de conformité,
-                assistance technique. Après le chantier, on reste votre
-                interlocuteur. Pas de numéro de service client automatisé.
-                Benoît répond personnellement.
-              </p>
-            </div>
-
-            <div className="bg-white border border-cloud rounded-xl p-6">
-              <h3 className="font-semibold text-midnight mb-2">
-                Conformité garantie au premier passage
-              </h3>
-              <p className="text-sm text-steel leading-relaxed">
-                Chaque installation est conçue pour passer le contrôle de
-                conformité du premier coup. Benoît sait exactement ce que
-                l&apos;inspecteur va chercher. Schémas, protections, sections,
-                étiquetage -- tout est préparé.
-              </p>
-            </div>
-
-            <div className="bg-white border border-cloud rounded-xl p-6">
-              <h3 className="font-semibold text-midnight mb-2">
-                Conseil honnête, même si ça ne vend pas
-              </h3>
-              <p className="text-sm text-steel leading-relaxed">
-                Si une batterie n&apos;est pas rentable pour vous, on vous le
-                dit. Si votre toiture ne se prête pas au photovoltaïque, on
-                vous le dit aussi. Vous êtes libre de votre décision, avec les
-                bonnes informations.
-              </p>
-            </div>
-
-            <div className="bg-white border border-cloud rounded-xl p-6">
-              <h3 className="font-semibold text-midnight mb-2">
-                Un seul interlocuteur du début à la fin
-              </h3>
-              <p className="text-sm text-steel leading-relaxed">
-                Benoît intervient personnellement sur chaque chantier.
-                Pas de sous-traitance. Pas de commercial qui disparaît après
-                la signature. La personne qui conçoit votre installation est
-                celle qui la réalise et la suit.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                icon: SolarIcon,
+                title: "Visite technique obligatoire",
+                body: "Aucun devis sans visite sur place. On analyse toiture, coffret, compteur, exposition et habitudes. Un dimensionnement correct exige des données réelles.",
+              },
+              {
+                icon: BatteryIcon,
+                title: "Calcul de rentabilité transparent",
+                body: "Chaque proposition est basée sur les tarifs réels de votre GRD, votre tarif prosumer, votre autoconsommation estimée et le tarif d'injection. Vous voyez les vrais chiffres.",
+              },
+              {
+                icon: CheckIcon,
+                title: "Suivi post-installation inclus",
+                body: "Monitoring, vérification de conformité, assistance. Après le chantier, on reste votre interlocuteur. Pas de service client automatisé.",
+              },
+              {
+                icon: ComplianceIcon,
+                title: "Conformité au premier passage",
+                body: "Chaque installation est conçue pour passer le contrôle du premier coup. Schémas, protections, sections, étiquetage : tout est préparé.",
+              },
+              {
+                icon: AlertTriangleIcon,
+                title: "Conseil honnête, même si ça ne vend pas",
+                body: "Si une batterie n'est pas rentable pour vous, on vous le dit. Si votre toiture ne se prête pas au photovoltaïque, on vous le dit aussi.",
+              },
+              {
+                icon: EvChargingIcon,
+                title: "Un seul interlocuteur du début à la fin",
+                body: "Benoît intervient personnellement sur chaque chantier. Pas de sous-traitance. Pas de commercial qui disparaît après la signature.",
+              },
+            ].map(({ icon: Icon, title, body }) => (
+              <article
+                key={title}
+                className="bg-white border border-cloud rounded-2xl p-6 hover:border-amber/40 transition-colors"
+              >
+                <div className="w-11 h-11 rounded-xl bg-amber/10 text-amber-dark flex items-center justify-center mb-4">
+                  <Icon size={20} />
+                </div>
+                <h3 className="font-semibold text-midnight text-[15px] mb-2 leading-snug">
+                  {title}
+                </h3>
+                <p className="text-sm text-charcoal leading-relaxed">
+                  {body}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

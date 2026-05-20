@@ -55,7 +55,7 @@ export default function HomePage() {
         ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
-        badge="Certifié RESCERT · Ancien inspecteur · Wallonie"
+        badge="Certifié RESCERT · Ancien inspecteur en électricité"
         reassurances={["Devis clair sous 48 h", "Visite technique réelle", "Un seul interlocuteur"]}
         video="/vds/Be-energies_video_header.webm"
       />

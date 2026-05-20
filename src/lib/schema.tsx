@@ -30,29 +30,24 @@ export function organizationSchema() {
   return compact({
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: siteConfig.name,
+    name: siteConfig.legal.companyName,
+    legalName: siteConfig.legal.companyName,
     url: BASE_URL,
     logo: `${BASE_URL}/img/Logo_Be-energies-02.png`,
+    vatID: siteConfig.legal.vatNumber,
+    taxID: siteConfig.legal.vatNumber,
     founder: {
       "@type": "Person",
       name: siteConfig.founder.name,
       jobTitle: siteConfig.founder.role,
     },
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: siteConfig.contact.phone,
-        contactType: "customer service",
-        availableLanguage: ["French", "Dutch"],
-        areaServed: ["BE-WAL", "BE-BRU", "BE-VLG", "LU"],
-      },
-      ...siteConfig.contact.mobiles.map((m) => ({
-        "@type": "ContactPoint",
-        telephone: m.label.replace(/\s|\(|\)/g, ""),
-        contactType: "sales",
-        availableLanguage: ["French", "Dutch"],
-      })),
-    ],
+    contactPoint: siteConfig.contact.phones.map((p, i) => ({
+      "@type": "ContactPoint",
+      telephone: p.label.replace(/\s|\(|\)/g, ""),
+      contactType: i === 0 ? "customer service" : "sales",
+      availableLanguage: ["French", "Dutch"],
+      areaServed: ["BE-WAL", "BE-BRU", "BE-VLG", "LU"],
+    })),
     sameAs: sameAs(),
   });
 }
@@ -84,7 +79,7 @@ export function localBusinessSchema(city?: City) {
     name: siteConfig.name,
     url: BASE_URL,
     image: `${BASE_URL}/img/Logo_Be-energies-02.png`,
-    telephone: siteConfig.contact.phone,
+    telephone: siteConfig.contact.phones[0].label.replace(/\s|\(|\)/g, ""),
     email: siteConfig.contact.email,
     address,
     areaServed: [

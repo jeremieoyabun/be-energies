@@ -41,6 +41,14 @@ export const mainNavNl: NavItem[] = [
       { label: "Alle diensten", href: "/nl/diensten/" },
     ],
   },
+  // NB: pages Valstrikken / Realisaties / Pro / Over ons restent en cours
+  // de traduction côté contenu. On garde les liens en français le temps
+  // que les pages NL soient prêtes — la nav doit rester complète pour la
+  // découverte.
+  { label: "Valstrikken", href: "/pieges-a-eviter/" },
+  { label: "Realisaties", href: "/realisations/" },
+  { label: "Pro", href: "/pro/" },
+  { label: "Over ons", href: "/a-propos/" },
   { label: "Contact", href: "/nl/contact/" },
 ];
 

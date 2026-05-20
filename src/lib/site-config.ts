@@ -21,10 +21,10 @@ export const siteConfig = {
     credentialShort: "RESCERT",
   },
   contact: {
-    phone: "+32 12 39 42 37",
-    phoneRaw: "+3212394237",
-    // Direct mobile lines (Benoît + commercial). Displayed on contact and Pro pages.
-    mobiles: [
+    // Single source of truth. First entry = primary line shown in header /
+    // sticky CTA / single-line components. Both entries shown side-by-side in
+    // the footer, contact sidebar and Pro page direct-line block.
+    phones: [
       { label: "+32 (0)472 12 70 55", raw: "+32472127055" },
       { label: "+32 (0)474 36 73 27", raw: "+32474367327" },
     ] as { label: string; raw: string }[],
@@ -73,6 +73,15 @@ export const siteConfig = {
    * Update whenever tariff data is reviewed.
    */
   dataAsOf: "mai 2026",
+  /**
+   * Legal information used by mentions légales, footer, and Organization
+   * schema (taxID).
+   */
+  legal: {
+    companyName: "Be'energies SARL",
+    vatNumber: "BE0765.737.695",
+    privacyAsOf: "mai 2026",
+  },
 } as const;
 
 export type SiteConfig = typeof siteConfig;

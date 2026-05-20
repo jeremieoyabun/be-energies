@@ -31,7 +31,7 @@ export default function NlContactPage() {
         headline="Laten we praten over uw project"
         subheadline="Benoît antwoordt persoonlijk. Gratis energiediagnose, zonder verplichting."
         ctaLabel="Nu bellen"
-        ctaHref={`tel:${siteConfig.contact.phoneRaw}`}
+        ctaHref={`tel:${siteConfig.contact.phones[0].raw}`}
         variant="compact"
       />
 
@@ -94,7 +94,9 @@ export default function NlContactPage() {
           <div className="mt-10 bg-ivory border border-cloud rounded-xl p-6 space-y-3">
             <h3 className="font-semibold text-midnight">Direct contact</h3>
             <ul className="space-y-3">
-              <li><a href={`tel:${siteConfig.contact.phoneRaw}`} className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight"><PhoneIcon size={18} className="text-amber" />{siteConfig.contact.phone}</a></li>
+              {siteConfig.contact.phones.map((p) => (
+                <li key={p.raw}><a href={`tel:${p.raw}`} className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight"><PhoneIcon size={18} className="text-amber" />{p.label}</a></li>
+              ))}
               <li><a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight"><MailIcon size={18} className="text-amber" />{siteConfig.contact.email}</a></li>
               <li><a href={siteConfig.contact.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-charcoal hover:text-midnight"><WhatsAppIcon size={18} className="text-amber" />WhatsApp</a></li>
               <li className="flex items-start gap-3 text-sm text-charcoal"><MapPinIcon size={18} className="text-amber shrink-0 mt-0.5" /><span>{siteConfig.contact.address.postalCode} {siteConfig.contact.address.addressLocality}</span></li>

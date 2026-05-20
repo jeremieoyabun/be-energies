@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CTASticky } from "@/components/layout/CTASticky";
+import { CookieBanner } from "@/components/layout/CookieBanner";
 import { mainNavFr } from "@/data/navigation";
 
 export default function FrLayout({
@@ -19,6 +20,7 @@ export default function FrLayout({
       <main>{children}</main>
       <Footer />
       <CTASticky />
+      <CookieBanner />
     </div>
   );
 }
