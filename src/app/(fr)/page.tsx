@@ -27,9 +27,9 @@ import { siteConfig } from "@/lib/site-config";
 import { MapPinIcon } from "@/lib/icons";
 
 export const metadata = generatePageMetadata({
-  title: "Installateur photovoltaïque en Wallonie | Ancien inspecteur RESCERT",
+  title: "Installateur photovoltaïque en Belgique | Ancien inspecteur RESCERT",
   description:
-    "Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Wallonie. Diagnostic gratuit, devis clair sous 48 h, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur certifié RESCERT.",
+    "Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit, devis clair sous 48 h, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur certifié RESCERT.",
   path: "/",
   alternates: { fr: "/", nl: "/nl/" },
 });
@@ -51,7 +51,7 @@ export default function HomePage() {
       {/* 1. HERO */}
       <HeroSection
         headline="Votre installation énergétique, conçue comme si elle devait passer le contrôle demain."
-        subheadline="Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Wallonie. Diagnostic gratuit par Benoît Dezso, ancien inspecteur certifié RESCERT."
+        subheadline="Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit par Benoît Dezso, ancien inspecteur certifié RESCERT."
         ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
@@ -102,7 +102,7 @@ export default function HomePage() {
             <span>Zone d&apos;intervention</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-8 text-balance">
-            Wallonie, Bruxelles, Limbourg flamand &amp; Luxembourg
+            Wallonie, Flandre, Bruxelles &amp; Luxembourg
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
@@ -110,11 +110,11 @@ export default function HomePage() {
                 region: "Wallonie",
                 cities: "Liège, Namur, Mons, Charleroi, Waremme, Ans, Nivelles",
               },
-              { region: "Bruxelles", cities: "Toutes les communes" },
               {
-                region: "Limbourg flamand",
+                region: "Flandre",
                 cities: "Riemst, Tongeren, Hasselt, Bilzen, Lanaken",
               },
+              { region: "Bruxelles", cities: "Toutes les communes" },
               {
                 region: "Luxembourg",
                 cities: "Projets professionnels sur étude — Grand-Duché",

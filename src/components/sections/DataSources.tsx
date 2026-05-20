@@ -25,13 +25,13 @@ export function DataSources({
   const isDark = variant === "dark";
   return (
     <aside
-      className={`mt-8 text-[12px] leading-relaxed rounded-lg border px-4 py-3 ${
+      className={`mt-8 text-[12px] leading-relaxed rounded-lg border px-4 py-3 text-left ${
         isDark
           ? "bg-white/[0.04] border-white/10 text-silver/80"
           : "bg-ivory border-cloud text-steel"
       } ${className}`}
     >
-      <p className="m-0">
+      <p className="m-0 text-left">
         <strong
           className={`font-semibold ${isDark ? "text-white" : "text-midnight"}`}
         >
@@ -41,7 +41,7 @@ export function DataSources({
         profil de consommation.
       </p>
       <p
-        className={`m-0 mt-1 text-[11px] uppercase tracking-[0.08em] ${
+        className={`m-0 mt-1 text-[11px] uppercase tracking-[0.08em] text-left ${
           isDark ? "text-silver/60" : "text-steel/80"
         }`}
       >

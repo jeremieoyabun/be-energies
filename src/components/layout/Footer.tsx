@@ -172,9 +172,27 @@ export function Footer() {
           <p className="text-xs text-steel">
             &copy; {new Date().getFullYear()} {siteConfig.name} SARL. Tous droits réservés.
           </p>
-          <p className="text-xs text-steel italic font-[family-name:var(--font-heading)]">
-            {siteConfig.tagline}
-          </p>
+          <div className="flex items-center gap-4 text-xs text-steel">
+            <span className="italic font-[family-name:var(--font-heading)]">
+              {siteConfig.tagline}
+            </span>
+            <span className="text-charcoal">·</span>
+            <div className="inline-flex items-center gap-1">
+              <Link
+                href="/"
+                className="font-semibold text-silver hover:text-white transition-colors uppercase"
+              >
+                FR
+              </Link>
+              <span className="text-charcoal">/</span>
+              <Link
+                href="/nl/"
+                className="font-semibold text-steel hover:text-white transition-colors uppercase"
+              >
+                NL
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

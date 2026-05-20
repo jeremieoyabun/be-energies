@@ -99,15 +99,19 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
                           key={child.href}
                           href={child.href}
                           role="menuitem"
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-charcoal hover:bg-ivory hover:text-midnight transition-colors"
+                          className="group/item flex items-center gap-3 mx-1.5 px-3 py-2.5 text-sm text-charcoal rounded-lg hover:bg-ivory hover:text-midnight transition-all hover:translate-x-0.5"
                           onClick={() => setOpenDropdown(null)}
                         >
                           {Icon && (
-                            <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-midnight/5 text-amber-dark shrink-0">
-                              <Icon size={15} />
+                            <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-midnight/5 text-amber-dark shrink-0 group-hover/item:bg-amber group-hover/item:text-midnight transition-colors">
+                              <Icon size={16} />
                             </span>
                           )}
-                          {child.label}
+                          <span className="flex-1">{child.label}</span>
+                          <ChevronDownIcon
+                            size={12}
+                            className="text-cloud -rotate-90 opacity-0 group-hover/item:opacity-100 group-hover/item:text-amber transition-opacity"
+                          />
                         </Link>
                       );
                     })}
@@ -127,14 +131,6 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
-          {/* Language switcher */}
-          <Link
-            href={locale === "fr" ? "/nl/" : "/"}
-            className="text-xs font-semibold text-steel hover:text-midnight transition-colors uppercase px-2 py-1 rounded hover:bg-ivory"
-          >
-            {locale === "fr" ? "NL" : "FR"}
-          </Link>
-
           {/* Phone (all sizes) */}
           <a
             href={`tel:${siteConfig.contact.phones[0].raw}`}

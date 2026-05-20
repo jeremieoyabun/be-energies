@@ -1,8 +1,10 @@
 import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, faqSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { CheckIcon } from "@/lib/icons";
+import { CheckIcon, ArrowRightIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
+
+const GUIDE_PDF_URL = "/api/guide/pieges";
 
 export const metadata = generatePageMetadata({
   title: "Guide gratuit -- Les 7 pièges à éviter avant de signer",
@@ -86,47 +88,30 @@ export default function LeadMagnetPage() {
               </ul>
             </div>
 
-            {/* Form card */}
+            {/* Download card — direct PDF, no email gate */}
             <div className="md:col-span-2">
               <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl">
                 <p className="text-midnight font-semibold text-center mb-1">
-                  Recevez le guide par email
+                  Téléchargement immédiat
                 </p>
                 <p className="text-steel text-xs text-center mb-6">
-                  PDF de 12 pages + checklist imprimable
+                  PDF · Sommaire + 7 fiches piège + checklist
                 </p>
-                <form className="space-y-3">
-                  <div>
-                    <label htmlFor="lead-name" className="sr-only">Prénom</label>
-                    <input
-                      type="text"
-                      id="lead-name"
-                      name="name"
-                      placeholder="Votre prénom"
-                      className="w-full border border-cloud rounded-lg px-4 py-3 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lead-email" className="sr-only">Email</label>
-                    <input
-                      type="email"
-                      id="lead-email"
-                      name="email"
-                      placeholder="Votre adresse email"
-                      required
-                      className="w-full border border-cloud rounded-lg px-4 py-3 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-amber hover:bg-amber-dark text-midnight font-semibold py-3.5 rounded-lg transition-colors text-sm"
-                  >
-                    Télécharger le guide gratuit
-                  </button>
-                  <p className="text-xs text-steel text-center">
-                    Pas de spam. Désinscription en un clic.
-                  </p>
-                </form>
+                <a
+                  href={GUIDE_PDF_URL}
+                  download="be-energies-7-pieges-a-eviter.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-glow w-full inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold py-3.5 rounded-lg transition-colors text-sm"
+                >
+                  Télécharger le guide gratuit
+                  <ArrowRightIcon size={16} />
+                </a>
+                <p className="mt-3 text-[11px] text-steel text-center leading-relaxed">
+                  Gratuit · sans email · sans inscription.
+                  <br />
+                  Lisible dans n&apos;importe quel navigateur ou imprimable.
+                </p>
               </div>
             </div>
           </div>
@@ -200,28 +185,19 @@ export default function LeadMagnetPage() {
           <h2 className="text-2xl font-[family-name:var(--font-heading)] text-midnight mb-4">
             Prêt à éviter les erreurs qui coûtent cher ?
           </h2>
-          <form className="space-y-3">
-            <div>
-              <label htmlFor="lead-email-2" className="sr-only">Email</label>
-              <input
-                type="email"
-                id="lead-email-2"
-                name="email"
-                placeholder="Votre adresse email"
-                required
-                className="w-full border border-cloud rounded-lg px-4 py-3.5 text-sm focus:border-amber focus:ring-1 focus:ring-amber outline-none transition-colors text-center"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-amber hover:bg-amber-dark text-midnight font-semibold py-4 rounded-lg transition-colors"
-            >
-              Recevoir le guide gratuit
-            </button>
-            <p className="text-xs text-steel">
-              Gratuit. 12 pages. PDF immédiat. Pas de spam.
-            </p>
-          </form>
+          <a
+            href={GUIDE_PDF_URL}
+            download="be-energies-7-pieges-a-eviter.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-8 py-4 rounded-xl transition-colors"
+          >
+            Télécharger le guide gratuit (PDF)
+            <ArrowRightIcon size={17} />
+          </a>
+          <p className="mt-4 text-xs text-steel">
+            Gratuit · sans email · ouvre directement le PDF.
+          </p>
         </div>
       </section>
     </>

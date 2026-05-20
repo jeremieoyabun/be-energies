@@ -24,12 +24,12 @@ export function TrustBar({ citySpecificStat }: TrustBarProps) {
   if (installations.verified) {
     stats.push({
       value: `${installations.value}+`,
-      label: "installations en Wallonie",
+      label: "installations résidentielles & PME",
       isHighlight: true,
     });
   } else {
     stats.push({
-      value: "Wallonie",
+      value: "Wallonie, Flandre & Luxembourg",
       label: "installations résidentielles & PME",
       isHighlight: true,
     });

@@ -14,7 +14,7 @@ import type { FAQItem } from "@/lib/types";
 export const metadata = generatePageMetadata({
   title: "10 pièges à éviter avant un devis solaire | Guide par un ancien inspecteur",
   description:
-    "Panneaux solaires, batterie, borne, pompe à chaleur : les 10 pièges à vérifier avant de signer un devis en Wallonie. Checklists et 10 questions à poser. Guide par Benoît Dezso, certifié RESCERT.",
+    "Panneaux solaires, batterie, borne, pompe à chaleur : les 10 pièges à vérifier avant de signer un devis en Belgique. Checklists et 10 questions à poser. Guide par Benoît Dezso, certifié RESCERT.",
   path: "/pieges-a-eviter/",
 });
 

@@ -10,9 +10,9 @@ import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon, CheckIcon } from "@/lib/
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
-  title: "Contact | Diagnostic énergétique gratuit en Wallonie",
+  title: "Contact | Diagnostic énergétique gratuit",
   description:
-    "Diagnostic énergétique gratuit en Wallonie : visite technique sur site, devis détaillé sous 48 h. Réponse personnelle de Benoît Dezso, certifié RESCERT. Pas de call center, pas de pression commerciale.",
+    "Diagnostic énergétique gratuit en Belgique et au Luxembourg : visite technique sur site, devis détaillé sous 48 h. Réponse personnelle de Benoît Dezso, certifié RESCERT. Pas de call center, pas de pression commerciale.",
   path: "/contact/",
   alternates: { fr: "/contact/", nl: "/nl/contact/" },
 });

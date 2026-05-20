@@ -26,7 +26,7 @@ import type { FAQItem } from "@/lib/types";
 export const metadata = generatePageMetadata({
   title: "Espace Pro — Solutions énergétiques pour PME, entreprises et institutions",
   description:
-    "PME, grandes entreprises, syndics et institutions en Wallonie, Bruxelles et Luxembourg : panneaux solaires, batteries, bornes de recharge, conformité électrique. Étude sur mesure par Benoît Dezso, certifié RESCERT.",
+    "PME, grandes entreprises, syndics et institutions en Belgique et au Luxembourg : panneaux solaires, batteries, bornes de recharge, conformité électrique. Étude sur mesure par Benoît Dezso, certifié RESCERT.",
   path: "/pro/",
 });
 
@@ -205,9 +205,9 @@ export default function ProPage() {
                 Optimisez votre retour sur investissement énergétique
               </h1>
               <p className="mt-7 text-lg md:text-xl leading-relaxed text-silver/90 max-w-2xl">
-                PME, grandes entreprises, syndics et institutions en Wallonie,
-                Bruxelles et Luxembourg : un seul interlocuteur technique pour
-                des installations conformes, dimensionnées juste et rentables.
+                PME, grandes entreprises, syndics et institutions en Belgique
+                et au Luxembourg : un seul interlocuteur technique pour des
+                installations conformes, dimensionnées juste et rentables.
               </p>
               <div className="mt-9 flex flex-col sm:flex-row flex-wrap gap-3">
                 <Link
