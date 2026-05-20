@@ -38,13 +38,21 @@ export function organizationSchema() {
       name: siteConfig.founder.name,
       jobTitle: siteConfig.founder.role,
     },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: siteConfig.contact.phone,
-      contactType: "customer service",
-      availableLanguage: ["French", "Dutch"],
-      areaServed: ["BE-WAL", "BE-BRU", "BE-VLG"],
-    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: siteConfig.contact.phone,
+        contactType: "customer service",
+        availableLanguage: ["French", "Dutch"],
+        areaServed: ["BE-WAL", "BE-BRU", "BE-VLG", "LU"],
+      },
+      ...siteConfig.contact.mobiles.map((m) => ({
+        "@type": "ContactPoint",
+        telephone: m.label.replace(/\s|\(|\)/g, ""),
+        contactType: "sales",
+        availableLanguage: ["French", "Dutch"],
+      })),
+    ],
     sameAs: sameAs(),
   });
 }

@@ -1,40 +1,70 @@
+import Link from "next/link";
+import Image from "next/image";
 import { generatePageMetadata } from "@/lib/metadata";
-import { JsonLd, localBusinessSchema } from "@/lib/schema";
+import { JsonLd, localBusinessSchema, personSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ServiceCardGrid } from "@/components/sections/ServiceCardGrid";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { FAQSection } from "@/components/sections/FAQSection";
-import { CheckIcon } from "@/lib/icons";
+import { siteConfig } from "@/lib/site-config";
+import { services } from "@/data/services";
+import {
+  ArrowRightIcon,
+  CheckIcon,
+  PhoneIcon,
+  MailIcon,
+  getServiceIcon,
+} from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
-  title: "Solutions énergétiques pour professionnels et entreprises",
+  title: "Espace Pro — Solutions énergétiques pour PME, entreprises et institutions",
   description:
-    "Panneaux solaires, bornes de recharge, conformité électrique pour entreprises, syndics et collectivités en Belgique. Un seul interlocuteur technique, du dimensionnement au contrôle.",
+    "PME, grandes entreprises, syndics et institutions en Wallonie, Bruxelles et Luxembourg : panneaux solaires, batteries, bornes de recharge, conformité électrique. Étude sur mesure par Benoît Dezso, certifié RESCERT.",
   path: "/pro/",
 });
 
-const advantages = [
+// Services dispo pour les pros (l'ancien site n'incluait pas pompes-à-chaleur sur l'espace pro)
+const PRO_SERVICE_SLUGS = [
+  "panneaux-photovoltaiques",
+  "batteries-domestiques",
+  "bornes-de-recharge",
+  "conformite-electrique",
+  "nettoyage-toiture",
+];
+
+const proServices = services.filter((s) =>
+  PRO_SERVICE_SLUGS.includes(s.slug),
+);
+
+// 7 raisons de l'ancien WP — réécrites pour Be'energies tone of voice
+const reasons = [
   {
-    title: "Un seul interlocuteur",
-    description:
-      "De l\u0027étude technique au contrôle de conformité. Pas de sous-traitance en cascade, pas de dilution de responsabilité.",
+    title: "Solutions énergétiques durables",
+    body: "Photovoltaïque, batteries de stockage et bornes de recharge intégrés. Réduisez votre empreinte carbone tout en réalisant des économies mesurables sur votre facture énergétique.",
   },
   {
-    title: "Dimensionnement technique, pas commercial",
-    description:
-      "Benoît calcule vos besoins réels. Pas de surdimensionnement pour gonfler la facture. Chaque kWc est justifié par votre consommation.",
+    title: "Expertise et qualité professionnelle",
+    body: "Installation et maintenance assurées par notre équipe interne. Benoît Dezso, ancien inspecteur certifié RESCERT, supervise chaque projet — pas de sous-traitance en cascade.",
   },
   {
-    title: "Conformité garantie dès le premier contrôle",
-    description:
-      "Ancien inspecteur en installation électrique et certifié RESCERT, Benoît conçoit chaque installation pour passer le contrôle du premier coup. Zéro surprise, zéro frais supplémentaires.",
+    title: "Rentabilité à long terme",
+    body: "Dimensionnement basé sur votre consommation réelle. Calcul de retour sur investissement réaliste, intégrant primes, tarif prosumer et profil de consommation professionnel.",
   },
   {
-    title: "Accompagnement administratif complet",
-    description:
-      "Primes, autorisations, déclarations, raccordement : nous gérons les démarches pour que vous puissiez vous concentrer sur votre activité.",
+    title: "Conformité et sécurité",
+    body: "Chaque installation est conçue pour passer le contrôle du premier coup. Schémas unifilaires à jour, protections adaptées, documentation technique complète.",
+  },
+  {
+    title: "Services personnalisés",
+    body: "PME industrielle, syndic d'immeuble, cabinet médical, exploitation agricole : nous adaptons la solution à votre activité, vos contraintes opérationnelles et vos délais.",
+  },
+  {
+    title: "Engagement environnemental",
+    body: "Adopter une énergie propre renforce votre image de marque et répond aux nouvelles attentes de vos clients, salariés et partenaires institutionnels.",
+  },
+  {
+    title: "Diagnostic énergétique",
+    body: "Audit complet sur site pour identifier les meilleures opportunités d'économie : production, autoconsommation, intégration véhicule électrique, conformité.",
   },
 ];
 
@@ -43,15 +73,15 @@ const useCases = [
     title: "PME industrielle",
     location: "Nivelles",
     description:
-      "Installation de 30 kWc sur toiture plate avec optimiseurs de puissance. Dimensionnement basé sur le profil de consommation réel de l\u0027entreprise, pas sur une estimation standard.",
-    keyFigure: "Retour sur investissement < 5 ans",
-    keyResult: "Réduction de 40% de la facture énergétique",
+      "Installation 30 kWc sur toiture plate avec optimiseurs de puissance. Dimensionnement basé sur le profil de consommation réel de l'entreprise.",
+    keyFigure: "Réduction notable de la facture énergétique",
+    keyResult: "Production calée sur les heures d'activité",
   },
   {
-    title: "Syndic d\u0027immeuble",
+    title: "Syndic d'immeuble",
     location: "Bruxelles",
     description:
-      "Installation de 8 bornes de recharge en parking souterrain. Conformité triphasé Sibelga, gestion de charge partagée entre copropriétaires, et comptage individuel.",
+      "Installation de 8 bornes de recharge en parking souterrain. Conformité Sibelga, gestion de charge partagée entre copropriétaires, comptage individuel.",
     keyFigure: "8 bornes en parking souterrain",
     keyResult: "Gestion de charge partagée conforme",
   },
@@ -59,9 +89,9 @@ const useCases = [
     title: "Cabinet médical",
     location: "Namur",
     description:
-      "Pompe à chaleur Daikin couplée à des panneaux solaires. Autoconsommation optimisée pour les heures d\u0027ouverture du cabinet, avec suivi de performance en temps réel.",
+      "Pompe à chaleur couplée à des panneaux solaires. Autoconsommation optimisée pour les heures d'ouverture du cabinet, suivi de performance en temps réel.",
     keyFigure: "Autoconsommation optimisée",
-    keyResult: "Chauffage + climatisation solaire",
+    keyResult: "Chauffage + climatisation solaires",
   },
 ];
 
@@ -70,13 +100,13 @@ const processSteps = [
     step: "01",
     title: "Audit énergétique",
     description:
-      "Analyse de votre consommation réelle, de votre infrastructure électrique, et de vos objectifs. Nous partons de vos données, pas d\u0027un modèle générique.",
+      "Analyse de votre consommation réelle, de votre infrastructure électrique, et de vos objectifs. Nous partons de vos données, pas d'un modèle générique.",
   },
   {
     step: "02",
     title: "Étude technique détaillée",
     description:
-      "Dimensionnement précis, choix de matériel professionnel, plan d\u0027implantation. Chaque élément est justifié techniquement et financièrement.",
+      "Dimensionnement précis, choix de matériel professionnel, plan d'implantation. Chaque élément est justifié techniquement et financièrement.",
   },
   {
     step: "03",
@@ -96,27 +126,32 @@ const faqItems: FAQItem[] = [
   {
     question: "Quel est le délai pour un projet professionnel ?",
     answer:
-      "Le délai dépend de l\u0027ampleur du projet. Pour une installation photovoltaïque standard sur toiture existante, comptez 2 à 4 semaines entre l\u0027audit et la mise en service. Pour un projet plus complexe impliquant des bornes de recharge, une pompe à chaleur, ou des travaux de mise en conformité, le délai peut atteindre 6 à 8 semaines. Nous établissons un planning précis dès la validation de l\u0027étude technique.",
+      "Le délai dépend de l'ampleur du projet. Pour une installation photovoltaïque standard sur toiture existante, comptez 2 à 4 semaines entre l'audit et la mise en service. Pour un projet plus complexe (bornes de recharge, pompe à chaleur, mise en conformité), le délai peut atteindre 6 à 8 semaines. Nous établissons un planning précis dès la validation de l'étude technique.",
   },
   {
     question: "Travaillez-vous avec des syndics ?",
     answer:
-      "Oui, nous avons l\u0027expérience des projets en copropriété. Nous gérons les spécificités techniques des immeubles à appartements : bornes de recharge en parking souterrain, comptage individuel, conformité avec le gestionnaire de réseau, et coordination avec le syndic et le conseil de copropriété. Nous fournissons également la documentation nécessaire pour les assemblées générales.",
+      "Oui. Nous gérons les spécificités techniques des immeubles à appartements : bornes de recharge en parking souterrain, comptage individuel, conformité avec le gestionnaire de réseau, coordination avec le syndic et le conseil de copropriété. Nous fournissons aussi la documentation nécessaire pour les assemblées générales.",
   },
   {
     question: "Quelles primes sont disponibles pour les entreprises ?",
     answer:
-      "Les primes varient selon la région (Wallonie, Bruxelles, Flandre), le type d\u0027installation, et la taille de votre entreprise. En Wallonie et à Bruxelles, des primes existent pour le photovoltaïque, les bornes de recharge, et les pompes à chaleur. Nous intégrons le calcul des primes dans chaque étude technique et nous gérons l\u0027ensemble du processus administratif pour vous.",
+      "Les primes varient selon la région (Wallonie, Bruxelles, Flandre), le type d'installation et la taille de votre entreprise. Nous intégrons systématiquement le calcul des primes dans l'étude technique et gérons l'ensemble du processus administratif pour vous.",
+  },
+  {
+    question: "Intervenez-vous au Luxembourg ?",
+    answer:
+      "Oui, nous intervenons sur certains projets professionnels au Grand-Duché de Luxembourg. Contactez-nous pour vérifier que votre localisation entre dans notre zone d'intervention et obtenir un devis adapté à la réglementation luxembourgeoise.",
   },
   {
     question: "Pouvez-vous intervenir sans interrompre notre activité ?",
     answer:
-      "Oui, c\u0027est un point que nous intégrons systématiquement dans la planification. Nous pouvons travailler le week-end, en dehors des heures d\u0027ouverture, ou par phases pour minimiser l\u0027impact sur votre activité. Le planning d\u0027intervention est défini en amont avec vous et adapté à vos contraintes opérationnelles.",
+      "Oui, c'est un point que nous intégrons systématiquement dans la planification. Nous pouvons travailler le week-end, en dehors des heures d'ouverture, ou par phases pour minimiser l'impact sur votre activité. Le planning d'intervention est défini en amont avec vous.",
   },
   {
     question: "Proposez-vous un contrat de maintenance ?",
     answer:
-      "Oui, nous proposons des formules de suivi et de maintenance préventive. Cela inclut le monitoring de la production, le nettoyage des panneaux, la vérification des connexions, et l\u0027intervention rapide en cas de baisse de performance. Un système de surveillance bien configuré permet de détecter les anomalies avant qu\u0027elles ne deviennent coûteuses.",
+      "Oui. Cela inclut le monitoring de la production, le nettoyage des panneaux, la vérification des connexions et l'intervention rapide en cas de baisse de performance. Un système de surveillance bien configuré permet de détecter les anomalies avant qu'elles ne deviennent coûteuses.",
   },
 ];
 
@@ -124,106 +159,251 @@ export default function ProPage() {
   return (
     <>
       <JsonLd data={localBusinessSchema()} />
+      <JsonLd data={personSchema()} />
 
       <Breadcrumbs
         items={[
           { name: "Accueil", href: "/" },
-          { name: "Professionnels" },
+          { name: "Espace Pro" },
         ]}
       />
 
-      {/* Hero */}
-      <HeroSection
-        headline="Un partenaire énergétique pour votre entreprise"
-        subheadline="PME, syndics, gestionnaires de biens, collectivités : Benoît Dezso conçoit et réalise vos installations avec la même rigueur qu&apos;il appliquait en tant qu&apos;inspecteur. Un seul interlocuteur technique pour des projets conformes, dimensionnés juste, et rentables."
-        ctaLabel="Demander une étude sur mesure"
-        ctaHref="/contact/"
-        variant="compact"
-      />
+      {/* Hero — direct quote from the founder, on a dark surface */}
+      <section className="relative overflow-hidden bg-midnight">
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(circle at 20% 50%, var(--brand-amber) 0%, transparent 60%)",
+          }}
+        />
+        <div className="container-be relative z-10 py-20 md:py-28 lg:py-32">
+          <div className="grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 mb-8">
+                <div className="w-2 h-2 rounded-full bg-amber" />
+                <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-light">
+                  Espace Pro · PME · Syndics · Institutions
+                </span>
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-[family-name:var(--font-heading)] text-white leading-[1.1] text-balance">
+                Optimisez votre retour sur investissement énergétique
+              </h1>
+              <p className="mt-7 text-lg md:text-xl leading-relaxed text-silver/90 max-w-2xl">
+                PME, grandes entreprises, syndics et institutions en Wallonie,
+                Bruxelles et Luxembourg : un seul interlocuteur technique pour
+                des installations conformes, dimensionnées juste et rentables.
+              </p>
+              <div className="mt-9 flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact/?type=pro"
+                  className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-8 py-4 rounded-xl transition-colors text-base"
+                >
+                  Demander une étude sur mesure
+                  <ArrowRightIcon size={18} />
+                </Link>
+                <a
+                  href={`tel:${siteConfig.contact.mobiles[0].raw}`}
+                  className="inline-flex items-center justify-center gap-2 font-medium px-8 py-4 rounded-xl transition-colors text-base border border-white/20 text-white/85 hover:text-white hover:border-white/40 hover:bg-white/5"
+                >
+                  <PhoneIcon size={17} />
+                  <span className="data-figure">
+                    {siteConfig.contact.mobiles[0].label}
+                  </span>
+                </a>
+              </div>
+              <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-silver/80">
+                {[
+                  "Visite technique réelle",
+                  "Étude sur mesure",
+                  "Un seul interlocuteur expert",
+                ].map((item) => (
+                  <li key={item} className="inline-flex items-center gap-2">
+                    <CheckIcon size={14} className="text-amber-light shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      {/* Pourquoi les professionnels nous choisissent */}
+            {/* Founder quote card */}
+            <figure className="bg-white/[0.04] border border-white/10 rounded-2xl p-7 md:p-8 backdrop-blur-sm">
+              <span
+                className="text-amber text-5xl leading-none font-[family-name:var(--font-heading)] block mb-2"
+                aria-hidden="true"
+              >
+                &ldquo;
+              </span>
+              <blockquote className="text-white/90 text-[15px] md:text-base leading-relaxed">
+                Nous proposons des solutions sur mesure, conçues pour répondre
+                aux besoins uniques de votre activité tout en optimisant votre
+                retour sur investissement. Que vous soyez à la tête d&apos;une
+                PME, d&apos;une grande entreprise ou d&apos;une institution,
+                notre expertise et nos technologies avancées vous garantissent
+                des installations performantes et respectueuses de
+                l&apos;environnement.
+              </blockquote>
+              <figcaption className="mt-6 pt-5 border-t border-white/10 flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-amber/30 shrink-0">
+                  <Image
+                    src="/img/misc/worker.webp"
+                    alt={siteConfig.founder.name}
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">
+                    {siteConfig.founder.name}
+                  </p>
+                  <p className="text-amber-light text-xs">
+                    Directeur de Be&apos;energies · Certifié RESCERT
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div
+          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber to-transparent opacity-40"
+          aria-hidden="true"
+        />
+      </section>
+
+      {/* Pro services */}
+      <section className="section-padding">
+        <div className="container-be">
+          <div className="section-label">
+            <span>Nos services pour les pros</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+            Cinq expertises, un seul interlocuteur
+          </h2>
+          <p className="mt-4 text-charcoal max-w-2xl">
+            Chaque projet professionnel a ses contraintes : budget, délais,
+            conformité réglementaire, continuité d&apos;activité. Nous adaptons
+            nos services à votre contexte — pas l&apos;inverse.
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {proServices.map((s) => {
+              const Icon = getServiceIcon(s.icon);
+              return (
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}/`}
+                  className="group card p-6 hover:border-amber/40 transition-colors"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-amber/10 text-amber-dark">
+                      <Icon size={18} />
+                    </span>
+                    <h3 className="font-semibold text-midnight text-[17px]">
+                      {s.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-steel leading-relaxed">
+                    {s.shortDescription}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-amber-dark group-hover:text-amber transition-colors">
+                    Voir le service
+                    <ArrowRightIcon size={14} />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Be'energies for your company — 7 reasons */}
       <section className="section-padding bg-ivory">
         <div className="container-be">
-          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight text-center">
-            Pourquoi les professionnels nous choisissent
+          <div className="section-label">
+            <span>Pourquoi Be&apos;energies</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance max-w-2xl">
+            Pourquoi choisir Be&apos;energies pour votre entreprise ?
           </h2>
-          <p className="mt-4 text-center text-steel max-w-2xl mx-auto">
-            Ce qui fait la différence avec Be&apos;energies, ce n&apos;est pas le discours commercial.
-            C&apos;est la rigueur technique d&apos;un ancien inspecteur appliquée à chaque projet.
+          <p className="mt-4 text-charcoal max-w-2xl">
+            Ce qui fait la différence : la rigueur technique d&apos;un ancien
+            inspecteur appliquée à chaque projet, du dimensionnement au
+            contrôle.
           </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {advantages.map((advantage) => (
-              <div
-                key={advantage.title}
-                className="bg-white rounded-xl border border-cloud p-6 md:p-8"
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {reasons.map((r, i) => (
+              <article
+                key={r.title}
+                className="bg-white rounded-2xl border border-cloud p-6 md:p-7 flex flex-col"
               >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 mt-1 w-8 h-8 rounded-full bg-amber/15 flex items-center justify-center">
-                    <CheckIcon size={16} className="text-amber" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-[family-name:var(--font-heading)] text-midnight">
-                      {advantage.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-charcoal leading-relaxed">
-                      {advantage.description}
-                    </p>
-                  </div>
+                <div className="flex items-baseline gap-3 mb-3">
+                  <span className="stat-value text-xs font-bold text-amber-dark tracking-wider">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-[family-name:var(--font-heading)] text-midnight text-lg leading-snug">
+                    {r.title}
+                  </h3>
                 </div>
-              </div>
+                <p className="text-sm text-charcoal leading-relaxed">
+                  {r.body}
+                </p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Nos services pour les professionnels */}
+      {/* Use cases */}
       <section className="section-padding">
         <div className="container-be">
-          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight text-center">
-            Nos services pour les professionnels
+          <div className="section-label">
+            <span>Cas concrets</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+            Des projets professionnels documentés
           </h2>
-          <p className="mt-4 text-center text-steel max-w-2xl mx-auto mb-10">
-            Chaque projet professionnel a ses contraintes : budget, délais, conformité réglementaire,
-            continuité d&apos;activité. Nous adaptons nos services à votre contexte, pas l&apos;inverse.
+          <p className="mt-4 text-charcoal max-w-2xl">
+            Trois exemples de projets dimensionnés sur mesure, conformes du
+            premier coup. Chiffres détaillés disponibles lors de l&apos;étude.
           </p>
-        </div>
-        <ServiceCardGrid />
-      </section>
-
-      {/* Cas concrets */}
-      <section className="section-padding bg-ivory">
-        <div className="container-be">
-          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight text-center">
-            Cas concrets
-          </h2>
-          <p className="mt-4 text-center text-steel max-w-2xl mx-auto">
-            Des projets réels, dimensionnés sur mesure, conformes du premier coup.
-          </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
             {useCases.map((useCase) => (
               <div
                 key={useCase.title}
-                className="bg-white rounded-xl border border-cloud overflow-hidden"
+                className="bg-white rounded-2xl border border-cloud overflow-hidden"
               >
-                <div className="p-6 md:p-8">
+                <div className="p-6 md:p-7">
                   <div className="flex items-center gap-2 text-sm text-steel mb-3">
                     <span className="inline-block w-2 h-2 rounded-full bg-amber" />
                     {useCase.location}
                   </div>
-                  <h3 className="text-lg font-[family-name:var(--font-heading)] text-midnight">
+                  <h3 className="font-[family-name:var(--font-heading)] text-midnight text-lg">
                     {useCase.title}
                   </h3>
                   <p className="mt-3 text-sm text-charcoal leading-relaxed">
                     {useCase.description}
                   </p>
                   <div className="mt-5 pt-5 border-t border-cloud space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckIcon size={14} className="text-amber shrink-0" />
-                      <span className="text-midnight font-medium">{useCase.keyFigure}</span>
+                    <div className="flex items-start gap-2 text-sm">
+                      <CheckIcon
+                        size={14}
+                        className="text-amber shrink-0 mt-0.5"
+                      />
+                      <span className="text-midnight font-medium">
+                        {useCase.keyFigure}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckIcon size={14} className="text-amber shrink-0" />
-                      <span className="text-midnight font-medium">{useCase.keyResult}</span>
+                    <div className="flex items-start gap-2 text-sm">
+                      <CheckIcon
+                        size={14}
+                        className="text-amber shrink-0 mt-0.5"
+                      />
+                      <span className="text-midnight font-medium">
+                        {useCase.keyResult}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -233,44 +413,95 @@ export default function ProPage() {
         </div>
       </section>
 
-      {/* Notre approche pour les projets professionnels */}
-      <section className="section-padding bg-midnight">
-        <div className="container-be">
-          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-white text-center">
-            Notre approche pour les projets professionnels
+      {/* Process timeline (dark) */}
+      <section className="section-padding bg-midnight relative overflow-hidden">
+        <div className="absolute inset-0 texture-dots" aria-hidden="true" />
+        <div className="container-be relative z-10">
+          <div className="section-label section-label-dark">
+            <span>Notre approche</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-white text-balance">
+            Un processus structuré, transparent, adapté aux pros
           </h2>
-          <p className="mt-4 text-center text-silver max-w-2xl mx-auto">
-            Un processus structuré, transparent, et adapté aux exigences des professionnels.
-          </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step) => (
-              <div key={step.step} className="relative">
-                <div className="text-4xl font-[family-name:var(--font-heading)] text-amber/30 mb-3">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {processSteps.map((step, index) => (
+              <div
+                key={step.step}
+                className="relative p-6 rounded-xl border border-charcoal bg-slate/50"
+              >
+                <span className="stat-value text-3xl font-bold text-amber/30 block mb-3">
                   {step.step}
-                </div>
-                <h3 className="text-lg font-[family-name:var(--font-heading)] text-white">
+                </span>
+                <h3 className="font-semibold text-white text-lg mb-2">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm text-silver leading-relaxed">
+                <p className="text-sm text-silver/80 leading-relaxed">
                   {step.description}
                 </p>
+                {index < processSteps.length - 1 && (
+                  <div
+                    className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-charcoal"
+                    aria-hidden="true"
+                  />
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Direct lines (visible reassurance for B2B who prefer phone) */}
+      <section className="py-12 md:py-14 bg-ivory">
+        <div className="container-be">
+          <div className="grid md:grid-cols-[1fr_auto] gap-6 items-center max-w-4xl mx-auto bg-white border border-cloud rounded-2xl p-6 md:p-7">
+            <div>
+              <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-2">
+                Ligne directe
+              </p>
+              <h3 className="text-lg md:text-xl font-[family-name:var(--font-heading)] text-midnight leading-snug">
+                Vous préférez parler à un humain avant d&apos;envoyer un mail ?
+              </h3>
+              <p className="mt-2 text-sm text-charcoal leading-relaxed">
+                Appelez l&apos;une de nos lignes directes. C&apos;est Benoît ou
+                l&apos;un de ses associés qui répond.
+              </p>
+            </div>
+            <ul className="flex flex-col gap-2.5">
+              {siteConfig.contact.mobiles.map((m) => (
+                <li key={m.raw}>
+                  <a
+                    href={`tel:${m.raw}`}
+                    className="inline-flex items-center gap-2 bg-midnight hover:bg-charcoal text-white font-semibold px-5 py-3 rounded-lg transition-colors"
+                  >
+                    <PhoneIcon size={16} className="text-amber" />
+                    <span className="data-figure text-[15px]">{m.label}</span>
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-amber-dark hover:text-amber px-2"
+                >
+                  <MailIcon size={15} />
+                  {siteConfig.contact.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <FAQSection
         items={faqItems}
-        title="Questions fréquentes -- Projets professionnels"
+        title="Questions fréquentes — Projets professionnels"
       />
 
-      {/* CTA */}
       <CTADiagnostic
         title="Un projet énergétique pour votre entreprise ?"
-        description="Benoît analyse votre infrastructure et vos besoins. Étude technique gratuite, sans engagement."
+        description="Benoît analyse votre infrastructure et vos besoins. Étude technique gratuite, sans engagement, livrée sous 48 h après visite sur site."
         ctaLabel="Demander une étude sur mesure"
+        ctaHref="/contact/?type=pro"
         variant="dark"
       />
     </>

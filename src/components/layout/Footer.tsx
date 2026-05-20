@@ -62,6 +62,17 @@ export function Footer() {
                   <span className="data-figure">{siteConfig.contact.phone}</span>
                 </a>
               </li>
+              {siteConfig.contact.mobiles.map((m) => (
+                <li key={m.raw}>
+                  <a
+                    href={`tel:${m.raw}`}
+                    className="flex items-center gap-2 text-sm text-silver hover:text-amber-light transition-colors"
+                  >
+                    <PhoneIcon size={16} />
+                    <span className="data-figure">{m.label}</span>
+                  </a>
+                </li>
+              ))}
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}

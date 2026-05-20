@@ -102,6 +102,20 @@ export default function ContactPage() {
                       <span className="data-figure">{siteConfig.contact.phone}</span>
                     </a>
                   </li>
+                  {siteConfig.contact.mobiles.map((m) => (
+                    <li key={m.raw}>
+                      <a
+                        href={`tel:${m.raw}`}
+                        className="flex items-center gap-3 text-sm text-silver hover:text-white transition-colors"
+                      >
+                        <PhoneIcon size={17} className="text-amber" />
+                        <span className="data-figure">{m.label}</span>
+                        <span className="text-[10px] uppercase tracking-wider text-silver/60 ml-auto">
+                          GSM
+                        </span>
+                      </a>
+                    </li>
+                  ))}
                   <li>
                     <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-3 text-sm text-silver hover:text-white transition-colors">
                       <MailIcon size={17} className="text-amber" />

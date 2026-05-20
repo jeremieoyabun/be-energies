@@ -102,9 +102,9 @@ export default function HomePage() {
             <span>Zone d&apos;intervention</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-8 text-balance">
-            Wallonie, Bruxelles, Limbourg flamand
+            Wallonie, Bruxelles, Limbourg flamand &amp; Luxembourg
           </h2>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
                 region: "Wallonie",
@@ -114,6 +114,10 @@ export default function HomePage() {
               {
                 region: "Limbourg flamand",
                 cities: "Riemst, Tongeren, Hasselt, Bilzen, Lanaken",
+              },
+              {
+                region: "Luxembourg",
+                cities: "Projets professionnels sur étude — Grand-Duché",
               },
             ].map((zone) => (
               <div

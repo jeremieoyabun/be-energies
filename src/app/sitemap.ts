@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/realisations/`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/blog/`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/contact/`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/pro/`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/pro/`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/guide-pieges-a-eviter/`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/mentions-legales/`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${BASE}/politique-de-confidentialite/`, changeFrequency: "yearly", priority: 0.2 },

@@ -23,9 +23,14 @@ export const siteConfig = {
   contact: {
     phone: "+32 12 39 42 37",
     phoneRaw: "+3212394237",
+    // Direct mobile lines (Benoît + commercial). Displayed on contact and Pro pages.
+    mobiles: [
+      { label: "+32 (0)472 12 70 55", raw: "+32472127055" },
+      { label: "+32 (0)474 36 73 27", raw: "+32474367327" },
+    ] as { label: string; raw: string }[],
     email: "info@be-energies.be",
     secondaryEmail: "benoit.dezso@be-energies.be",
-    whatsapp: "https://wa.me/3212394237",
+    whatsapp: "https://wa.me/32472127055",
     address: {
       streetAddress: "Komveld 35" as string | null,
       addressLocality: "Riemst",
