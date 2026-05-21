@@ -34,20 +34,14 @@ export default function NlHomePage() {
         secondaryCta={{ label: "Onze diensten", href: "/nl/diensten/" }}
       />
 
-      <TrustBar />
+      <TrustBar locale="nl" />
       <ServiceCardGrid locale="nl" />
 
       {nlTestimonials.length > 0 && (
         <TestimonialBlock testimonials={nlTestimonials} title="Wat onze klanten zeggen" />
       )}
 
-      <CTADiagnostic
-        title="Gratis energiediagnose"
-        description="Benoît analyseert uw verbruik, uw dak en uw elektrisch netwerk. U ontvangt een realistische berekening op basis van de tarieven van 2026."
-        ctaLabel="Vraag uw gratis diagnose aan"
-        ctaHref="/nl/contact/"
-        variant="dark"
-      />
+      <CTADiagnostic locale="nl" variant="dark" />
     </>
   );
 }

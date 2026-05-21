@@ -184,6 +184,24 @@ export default function ProPage() {
 
       {/* Hero — direct quote from the founder, on a dark surface */}
       <section className="relative overflow-hidden bg-midnight">
+        {/* Background photo (industrial PV roof) — subtle, behind dark overlay */}
+        <Image
+          src="/img/pro/hero.webp"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-30"
+          sizes="100vw"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(12,18,32,0.85) 0%, rgba(12,18,32,0.92) 100%)",
+          }}
+        />
         <div
           className="absolute inset-0 opacity-[0.07]"
           aria-hidden="true"

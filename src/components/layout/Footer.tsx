@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { footerNavFr } from "@/data/navigation";
 import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon } from "@/lib/icons";
+import { LanguageSwitch } from "@/components/layout/LanguageSwitch";
 
 export function Footer() {
   return (
@@ -177,21 +178,10 @@ export function Footer() {
               {siteConfig.tagline}
             </span>
             <span className="text-charcoal">·</span>
-            <div className="inline-flex items-center gap-1">
-              <Link
-                href="/"
-                className="font-semibold text-silver hover:text-white transition-colors uppercase"
-              >
-                FR
-              </Link>
-              <span className="text-charcoal">/</span>
-              <Link
-                href="/nl/"
-                className="font-semibold text-steel hover:text-white transition-colors uppercase"
-              >
-                NL
-              </Link>
-            </div>
+            {/* Language switcher — sets a long-lived cookie so the
+                middleware never re-detects the browser language after an
+                explicit choice. */}
+            <LanguageSwitch />
           </div>
         </div>
       </div>

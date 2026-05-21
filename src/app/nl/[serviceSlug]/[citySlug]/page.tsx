@@ -86,11 +86,11 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
         variant="local"
       />
 
-      <TrustBar />
+      <TrustBar locale="nl" />
 
       <section className="section-padding">
         <div className="container-be max-w-3xl space-y-8">
-          <FounderCredibility variant="local" cityName={city.name} />
+          <FounderCredibility variant="local" cityName={city.name} locale="nl" />
 
           {/* City-specific intro (unique per city x service) */}
           <div className="prose prose-lg max-w-none text-charcoal">
@@ -157,9 +157,8 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
       )}
 
       <CTADiagnostic
+        locale="nl"
         title={`Gratis energiediagnose in ${city.name}`}
-        ctaLabel="Vraag uw diagnose aan"
-        ctaHref="/nl/contact/"
         variant="dark"
       />
     </>

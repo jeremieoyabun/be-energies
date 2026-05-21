@@ -6,13 +6,30 @@ import { InspectorInsight } from "@/components/sections/InspectorInsight";
 interface FounderCredibilityProps {
   variant?: "full" | "compact" | "local";
   cityName?: string;
+  locale?: "fr" | "nl";
 }
+
+const COPY = {
+  fr: {
+    localPrefix: (city: string) => `Votre installateur à ${city} :`,
+    localRoleSuffix: (credential: string) =>
+      `, ancien inspecteur, ${credential}`,
+  },
+  nl: {
+    localPrefix: (city: string) => `Uw installateur in ${city}:`,
+    localRoleSuffix: (credential: string) =>
+      `, voormalig inspecteur, ${credential}`,
+  },
+} as const;
 
 export function FounderCredibility({
   variant = "compact",
   cityName,
+  locale = "fr",
 }: FounderCredibilityProps) {
   const founder = siteConfig.founder;
+  const t = COPY[locale];
+  const role = locale === "nl" ? founder.roleNl : founder.role;
 
   if (variant === "local" && cityName) {
     return (
@@ -28,10 +45,11 @@ export function FounderCredibility({
         </div>
         <div>
           <p className="font-semibold text-midnight text-sm">
-            Votre installateur à {cityName} :
+            {t.localPrefix(cityName)}
           </p>
           <p className="text-sm text-charcoal">
-            {founder.name}, ancien inspecteur, {founder.credential}
+            {founder.name}
+            {t.localRoleSuffix(founder.credential)}
           </p>
         </div>
       </div>
@@ -52,7 +70,7 @@ export function FounderCredibility({
         </div>
         <div>
           <p className="font-semibold text-midnight text-sm">{founder.name}</p>
-          <p className="text-xs text-steel">{founder.role}</p>
+          <p className="text-xs text-steel">{role}</p>
         </div>
         <Image
           src="/RESCERT.png"

@@ -31,6 +31,7 @@ interface Chapter {
   checklist?: string[];
   founderInsight?: string;
   serviceLink?: { label: string; href: string };
+  image?: { src: string; alt: string };
 }
 
 const chapters: Chapter[] = [
@@ -59,6 +60,10 @@ const chapters: Chapter[] = [
     founderInsight:
       "J'ai vu des devis où la 'prime' annoncée correspondait exactement à la marge cachée. Le client payait le prix du marché en croyant bénéficier d'une aide.",
     serviceLink: { label: "Installation photovoltaïque", href: "/services/panneaux-photovoltaiques/" },
+    image: {
+      src: "/img/pieges/primes.webp",
+      alt: "Main qui tape sur une calculatrice à côté d'un ordinateur — calcul de devis",
+    },
   },
   {
     id: "fausses-garanties",
@@ -92,6 +97,10 @@ const chapters: Chapter[] = [
     ],
     founderInsight:
       "Chez Be'energies, on ne promet pas 25 ans de garantie pour disparaître dans 3 ans. On détaille par écrit ce qui est garanti, par qui, et pendant combien de temps. Et on est là depuis le début.",
+    image: {
+      src: "/img/pieges/02-garanties.webp",
+      alt: "Technicien sur toiture solaire vérifiant une installation sur tablette, lumière de soleil couchant",
+    },
   },
   {
     id: "devis-non-equivalents",
@@ -121,6 +130,10 @@ const chapters: Chapter[] = [
     founderInsight:
       "Le devis le moins cher est rarement le moins cher à 25 ans. Je vois régulièrement des installations à 8 000 EUR qui nécessitent 2 000 EUR de corrections après le contrôle de conformité.",
     serviceLink: { label: "Notre approche photovoltaïque", href: "/services/panneaux-photovoltaiques/" },
+    image: {
+      src: "/img/pieges/03-devis-compare.webp",
+      alt: "Comparaison de devis photovoltaïques sur table de travail",
+    },
   },
   {
     id: "surchauffe-onduleur",
@@ -146,6 +159,10 @@ const chapters: Chapter[] = [
     ],
     founderInsight:
       "Les incendies photovoltaïques sont rares mais réels. Dans mes années d'inspection, j'ai vu des connecteurs MC4 noircis par la chaleur, des onduleurs installés dans des combles à 60 C, et des câbles DC qui passaient à travers l'isolation sans protection. Ce sont des erreurs évitables.",
+    image: {
+      src: "/img/pieges/04-onduleur.webp",
+      alt: "Onduleur photovoltaïque mural — composant clé de l'installation",
+    },
   },
   {
     id: "systeme-ac-sous-dimensionne",
@@ -171,6 +188,10 @@ const chapters: Chapter[] = [
     founderInsight:
       "Le côté AC est mon domaine. C'est exactement ce que j'inspectais pendant des années. La majorité des rapports de non-conformité que j'ai rédigés concernaient le côté AC, pas les panneaux eux-mêmes.",
     serviceLink: { label: "Conformité électrique", href: "/services/conformite-electrique/" },
+    image: {
+      src: "/img/pieges/05-tableau.webp",
+      alt: "Tableau électrique moderne avec disjoncteurs et protections différentielles",
+    },
   },
   {
     id: "mauvais-dimensionnement-chaudiere",
@@ -282,6 +303,10 @@ const chapters: Chapter[] = [
     founderInsight:
       "Un retour en 5-7 ans, c'est un rendement d'environ 12% par an. Aucun placement bancaire ne fait mieux. Pourquoi certains installateurs ressentent-ils le besoin de promettre 2 ans ? Parce que ça signe des contrats. Mais ça crée aussi des clients déçus.",
     serviceLink: { label: "Notre calcul de rentabilité", href: "/services/panneaux-photovoltaiques/" },
+    image: {
+      src: "/img/pieges/06-roi.webp",
+      alt: "Calcul de retour sur investissement photovoltaïque sur tablette",
+    },
   },
   {
     id: "surdimensionnement-injection",
@@ -347,6 +372,10 @@ const chapters: Chapter[] = [
     ],
     founderInsight:
       "Chez Be'energies, le diagnostic est gratuit et sans engagement. On ne demande jamais de signature le jour même. Si vous avez besoin de deux semaines pour comparer, prenez-les. Notre devis sera toujours valable.",
+    image: {
+      src: "/img/pieges/07-pression.webp",
+      alt: "Propriétaire en réflexion devant un devis — éviter la pression commerciale",
+    },
   },
 ];
 
@@ -549,6 +578,20 @@ export default function PiegesPage() {
             <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6 leading-tight">
               {ch.title}
             </h2>
+
+            {/* Chapter image (if available) */}
+            {ch.image && (
+              <div className="mb-8 relative aspect-[16/9] rounded-2xl overflow-hidden border border-cloud shadow-sm">
+                <Image
+                  src={ch.image.src}
+                  alt={ch.image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 720px"
+                  loading={i < 2 ? "eager" : "lazy"}
+                />
+              </div>
+            )}
 
             {/* Body content */}
             <div

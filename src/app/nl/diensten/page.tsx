@@ -30,11 +30,7 @@ export default function NlServicesPage() {
         variant="compact"
       />
       <ServiceCardGrid locale="nl" />
-      <CTADiagnostic
-        title="Gratis energiediagnose"
-        ctaLabel="Vraag uw diagnose aan"
-        ctaHref="/nl/contact/"
-      />
+      <CTADiagnostic locale="nl" />
     </>
   );
 }

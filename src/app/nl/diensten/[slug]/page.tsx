@@ -64,15 +64,15 @@ export default async function NlServicePage({ params }: NlServicePageProps) {
         variant="service"
       />
 
-      <TrustBar />
+      <TrustBar locale="nl" />
 
       <section className="section-padding">
         <div className="container-be max-w-3xl">
-          <FounderCredibility variant="compact" />
+          <FounderCredibility variant="compact" locale="nl" />
         </div>
       </section>
 
-      <ProcessTimeline />
+      <ProcessTimeline locale="nl" />
 
       {serviceFaq.length > 0 && <FAQSection items={serviceFaq} title="Veelgestelde vragen" />}
 
@@ -99,9 +99,8 @@ export default async function NlServicePage({ params }: NlServicePageProps) {
       <RelatedServices services={related} locale="nl" title="Aanvullende diensten" />
 
       <CTADiagnostic
+        locale="nl"
         title={`Gratis ${service.titleNl.toLowerCase()} diagnose`}
-        ctaLabel="Vraag uw diagnose aan"
-        ctaHref="/nl/contact/"
         variant="dark"
       />
     </>

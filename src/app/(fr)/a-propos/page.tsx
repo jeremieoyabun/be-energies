@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, personSchema, organizationSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -105,18 +106,22 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Sticky pull-quote + photo placeholder column */}
+            {/* Sticky pull-quote + photo column */}
             <aside className="lg:sticky lg:top-24 space-y-6">
-              {/* Photo placeholder — Benoit on field / coffret électrique */}
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-midnight via-slate to-charcoal border border-cloud relative">
-                <div className="absolute inset-0 flex items-center justify-center text-silver/60 text-xs uppercase tracking-[0.2em] text-center px-6">
-                  <span>
-                    Photo Benoît
-                    <br />
-                    sur chantier
-                    <br />
-                    <span className="opacity-50">(à fournir)</span>
-                  </span>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-midnight border border-cloud relative shadow-elevated">
+                <Image
+                  src="/img/hero/electrician-rooftop.webp"
+                  alt="Silhouette d'un électricien sur toiture solaire au coucher du soleil, tablette en main — Be'energies sur le terrain"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  className="object-cover"
+                />
+                <div
+                  className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-midnight/80 via-midnight/40 to-transparent"
+                  aria-hidden="true"
+                />
+                <div className="absolute bottom-4 left-4 right-4 text-white text-xs uppercase tracking-[0.18em] font-semibold">
+                  Sur le terrain · Be&apos;energies
                 </div>
               </div>
 

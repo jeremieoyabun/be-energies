@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 
 interface TrustBarProps {
   citySpecificStat?: string;
+  locale?: "fr" | "nl";
 }
 
 interface BarStat {
@@ -11,48 +12,74 @@ interface BarStat {
   isHighlight: boolean;
 }
 
+const COPY = {
+  fr: {
+    installationsVerified: "installations résidentielles & PME",
+    installationsCoverage: "Wallonie, Flandre & Luxembourg",
+    installationsLabel: "installations résidentielles & PME",
+    yearsLabelVerified: "d'expérience terrain",
+    inspectionTitle: "Inspection",
+    inspectionLabel: "expérience d'ancien inspecteur",
+    paybackUnit: "ans",
+    paybackLabel: "retour photovoltaïque estimé",
+    roleLine: "Ancien inspecteur · Installateur agréé",
+  },
+  nl: {
+    installationsVerified: "residentiële installaties & KMO",
+    installationsCoverage: "Wallonië, Vlaanderen & Luxemburg",
+    installationsLabel: "residentiële installaties & KMO",
+    yearsLabelVerified: "praktijkervaring",
+    inspectionTitle: "Inspectie",
+    inspectionLabel: "ervaring als voormalig inspecteur",
+    paybackUnit: "jaar",
+    paybackLabel: "geschatte terugverdientijd zonnepanelen",
+    roleLine: "Voormalig inspecteur · Erkend installateur",
+  },
+} as const;
+
 /**
  * Only emit a quantified stat when explicitly verified in siteConfig.
  * Otherwise fall back to a qualitative claim that doesn't expose us to a
  * false-advertising risk.
  */
-export function TrustBar({ citySpecificStat }: TrustBarProps) {
+export function TrustBar({ citySpecificStat, locale = "fr" }: TrustBarProps) {
   const { installations, yearsExperience, paybackYears } = siteConfig.stats;
+  const t = COPY[locale];
 
   const stats: BarStat[] = [];
 
   if (installations.verified) {
     stats.push({
       value: `${installations.value}+`,
-      label: "installations résidentielles & PME",
+      label: t.installationsVerified,
       isHighlight: true,
     });
   } else {
     stats.push({
-      value: "Wallonie, Flandre & Luxembourg",
-      label: "installations résidentielles & PME",
+      value: t.installationsCoverage,
+      label: t.installationsLabel,
       isHighlight: true,
     });
   }
 
   if (yearsExperience.verified) {
     stats.push({
-      value: `${yearsExperience.value} ans`,
-      label: "d'expérience terrain",
+      value: `${yearsExperience.value} ${locale === "nl" ? "jaar" : "ans"}`,
+      label: t.yearsLabelVerified,
       isHighlight: false,
     });
   } else {
     stats.push({
-      value: "Inspection",
-      label: "expérience d'ancien inspecteur",
+      value: t.inspectionTitle,
+      label: t.inspectionLabel,
       isHighlight: false,
     });
   }
 
   if (paybackYears.verified) {
     stats.push({
-      value: `${paybackYears.value} ans`,
-      label: "retour photovoltaïque estimé",
+      value: `${paybackYears.value} ${t.paybackUnit}`,
+      label: t.paybackLabel,
       isHighlight: false,
     });
   }
@@ -72,7 +99,7 @@ export function TrustBar({ citySpecificStat }: TrustBarProps) {
             />
             <div className="hidden sm:block text-sm border-l border-charcoal pl-5">
               <span className="text-white font-semibold">{siteConfig.founder.name}</span>
-              <p className="text-silver/80 text-[13px]">Ancien inspecteur · Installateur agréé</p>
+              <p className="text-silver/80 text-[13px]">{t.roleLine}</p>
             </div>
           </div>
 
