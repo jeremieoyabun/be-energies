@@ -165,12 +165,12 @@ export function HeroSection({
 
             {reassurances && reassurances.length > 0 && (
               <ul
-                className={`mt-9 md:mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-silver/80 ${video ? "justify-center" : ""}`}
+                className={`mt-6 flex flex-wrap gap-x-5 gap-y-1.5 text-[13px] text-silver/80 ${video ? "justify-center" : ""}`}
                 aria-label="Engagements Be'energies"
               >
                 {reassurances.map((item) => (
-                  <li key={item} className="inline-flex items-center gap-2">
-                    <CheckIcon size={14} className="text-amber-light shrink-0" />
+                  <li key={item} className="inline-flex items-center gap-1.5">
+                    <CheckIcon size={13} className="text-amber-light shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}

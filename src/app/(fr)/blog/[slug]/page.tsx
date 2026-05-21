@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { blogArticles, getBlogArticleBySlug } from "@/data/blog";
 import { getServiceBySlugFr } from "@/data/services";
@@ -92,6 +93,19 @@ export default async function BlogArticlePage({ params }: BlogPageProps) {
               <span className="text-cloud">&middot;</span>
               <span className="data-figure">{article.readingTime} min</span>
             </div>
+
+            {article.image && (
+              <div className="mt-8 relative aspect-[16/9] rounded-2xl overflow-hidden border border-cloud shadow-sm">
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 720px"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </header>
 
           {/* Article body */}

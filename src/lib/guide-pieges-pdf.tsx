@@ -3,6 +3,7 @@ import {
   Page,
   Text,
   View,
+  Image,
   StyleSheet,
   Link,
   Svg,
@@ -205,16 +206,19 @@ const styles = StyleSheet.create({
     color: COLORS.midnight,
     paddingRight: 12,
   },
+  tocSeverityWrap: {
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingHorizontal: 7,
+    borderRadius: 10,
+  },
   tocSeverity: {
     fontSize: 7.5,
     color: COLORS.white,
-    paddingTop: 2,
-    paddingBottom: 2,
-    paddingHorizontal: 6,
-    borderRadius: 8,
     textTransform: "uppercase",
     fontFamily: "Helvetica-Bold",
     letterSpacing: 0.6,
+    lineHeight: 1,
   },
 
   // Chapter
@@ -236,16 +240,29 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     marginRight: 10,
   },
+  // Wrap = the colored pill; child Text only handles the typography so the
+  // text stays vertically centered inside the pill.
+  chapterSeverityWrap: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingHorizontal: 10,
+    borderRadius: 12,
+  },
   chapterSeverity: {
-    fontSize: 7.5,
+    fontSize: 8.5,
     color: COLORS.white,
-    paddingTop: 2,
-    paddingBottom: 2,
-    paddingHorizontal: 6,
-    borderRadius: 8,
     textTransform: "uppercase",
     fontFamily: "Helvetica-Bold",
-    letterSpacing: 0.6,
+    letterSpacing: 0.8,
+    lineHeight: 1,
+  },
+  chapterImage: {
+    width: "100%",
+    height: 140,
+    objectFit: "cover",
+    borderRadius: 6,
+    marginTop: 4,
+    marginBottom: 14,
   },
 
   redFlagBlock: {
@@ -350,7 +367,17 @@ function Checkbox() {
   );
 }
 
-export function GuidePiegesDocument() {
+interface GuidePiegesDocumentProps {
+  /**
+   * Map of section number → image bytes. Loaded server-side by the route
+   * handler so the PDF renderer doesn't have to touch the filesystem.
+   */
+  imageBuffers?: Record<number, Buffer>;
+}
+
+export function GuidePiegesDocument({
+  imageBuffers,
+}: GuidePiegesDocumentProps = {}) {
   return (
     <Document
       title={GUIDE_TITLE}
@@ -408,14 +435,16 @@ export function GuidePiegesDocument() {
                 {String(s.number).padStart(2, "0")}
               </Text>
               <Text style={styles.tocTitle}>{s.title}</Text>
-              <Text
+              <View
                 style={[
-                  styles.tocSeverity,
+                  styles.tocSeverityWrap,
                   { backgroundColor: SEVERITY_COLOR[s.severity] },
                 ]}
               >
-                {SEVERITY_LABEL[s.severity]}
-              </Text>
+                <Text style={styles.tocSeverity}>
+                  {SEVERITY_LABEL[s.severity]}
+                </Text>
+              </View>
             </View>
           ))}
         </View>
@@ -443,17 +472,28 @@ export function GuidePiegesDocument() {
             <Text style={styles.chapterNumberCircle}>
               {String(section.number).padStart(2, "0")}
             </Text>
-            <Text
+            <View
               style={[
-                styles.chapterSeverity,
+                styles.chapterSeverityWrap,
                 { backgroundColor: SEVERITY_COLOR[section.severity] },
               ]}
             >
-              {SEVERITY_LABEL[section.severity]}
-            </Text>
+              <Text style={styles.chapterSeverity}>
+                {SEVERITY_LABEL[section.severity]}
+              </Text>
+            </View>
           </View>
 
           <Text style={styles.h2}>{section.title}</Text>
+
+          {imageBuffers?.[section.number] && (
+            // eslint-disable-next-line jsx-a11y/alt-text -- react-pdf Image, not <img>
+            <Image
+              src={imageBuffers[section.number]}
+              style={styles.chapterImage}
+            />
+          )}
+
           <Text style={styles.paragraph}>{section.intro}</Text>
 
           <Text style={styles.h3}>Signaux d&apos;alerte</Text>

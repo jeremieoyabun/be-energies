@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRightIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
 import { blogArticles } from "@/data/blog";
@@ -22,29 +23,47 @@ export function BlogPreview({ maxItems = 3 }: BlogPreviewProps) {
             <Link
               key={article.slug}
               href={`/blog/${article.slug}/`}
-              className="group bg-white border border-cloud rounded-xl p-6 card-lift hover:border-amber/30"
+              className="group bg-white border border-cloud rounded-xl overflow-hidden card-lift hover:border-amber/30 flex flex-col"
             >
-              <div className="flex items-center gap-2 text-xs mb-3">
-                <time dateTime={article.date} className="text-steel">
-                  {new Date(article.date).toLocaleDateString("fr-BE", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
-                <span className="text-cloud">&middot;</span>
-                <span className="data-figure text-steel">{article.readingTime} min</span>
+              {article.image && (
+                <div className="relative aspect-[16/10] overflow-hidden bg-ivory">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 380px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+              )}
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-center gap-2 text-xs mb-3">
+                  <time dateTime={article.date} className="text-steel">
+                    {new Date(article.date).toLocaleDateString("fr-BE", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span className="text-cloud">&middot;</span>
+                  <span className="data-figure text-steel">
+                    {article.readingTime} min
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-midnight group-hover:text-amber-dark transition-colors leading-tight">
+                  {article.title}
+                </h3>
+                <p className="mt-2 text-sm text-steel leading-relaxed">
+                  {article.excerpt}
+                </p>
+                <span className="mt-auto pt-4 inline-flex items-center gap-1 text-sm font-medium text-cyan-dark">
+                  Lire l&apos;article
+                  <ArrowRightIcon
+                    size={14}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </span>
               </div>
-              <h3 className="text-lg font-semibold text-midnight group-hover:text-amber-dark transition-colors leading-tight">
-                {article.title}
-              </h3>
-              <p className="mt-2 text-sm text-steel leading-relaxed">
-                {article.excerpt}
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-cyan opacity-0 group-hover:opacity-100 transition-opacity">
-                Lire l&apos;article
-                <ArrowRightIcon size={14} className="transition-transform group-hover:translate-x-1" />
-              </span>
             </Link>
           ))}
         </div>

@@ -190,7 +190,7 @@ export default function ProPage() {
           alt=""
           fill
           priority
-          className="object-cover opacity-30"
+          className="object-cover opacity-40"
           sizes="100vw"
           aria-hidden="true"
         />
@@ -199,7 +199,7 @@ export default function ProPage() {
           aria-hidden="true"
           style={{
             background:
-              "linear-gradient(180deg, rgba(12,18,32,0.85) 0%, rgba(12,18,32,0.92) 100%)",
+              "linear-gradient(180deg, rgba(12,18,32,0.75) 0%, rgba(12,18,32,0.82) 100%)",
           }}
         />
         <div

@@ -11,6 +11,8 @@ export interface PiegePdfSection {
   intro: string;
   redFlags: string[];
   checklist: string[];
+  /** Absolute on-disk path to the chapter image (resolved server-side). */
+  imageRelativePath?: string;
 }
 
 export const GUIDE_TITLE =
@@ -48,6 +50,7 @@ export const piegePdfSections: PiegePdfSection[] = [
       "Comparer le prix final avec d'autres devis sans « prime ».",
       "Ne jamais signer sur base d'une prime non vérifiée.",
     ],
+    imageRelativePath: "public/img/pieges/primes.webp",
   },
   {
     number: 2,
@@ -66,6 +69,7 @@ export const piegePdfSections: PiegePdfSection[] = [
       "Vérifier la durée de garantie de l'onduleur (souvent 5-12 ans).",
       "Obtenir un document écrit détaillant exactement ce qui est couvert.",
     ],
+    imageRelativePath: "public/img/pieges/02-garanties.webp",
   },
   {
     number: 3,
@@ -87,6 +91,7 @@ export const piegePdfSections: PiegePdfSection[] = [
       "Visite technique préalable incluse.",
       "Mise en service et contrôle de conformité inclus.",
     ],
+    imageRelativePath: "public/img/pieges/03-devis-compare.webp",
   },
   {
     number: 4,
@@ -107,6 +112,7 @@ export const piegePdfSections: PiegePdfSection[] = [
       "Demander si les connecteurs MC4 sont de même marque.",
       "Vérifier la présence d'un parafoudre DC côté panneaux.",
     ],
+    imageRelativePath: "public/img/pieges/04-onduleur.webp",
   },
   {
     number: 5,
@@ -126,6 +132,7 @@ export const piegePdfSections: PiegePdfSection[] = [
       "S'assurer qu'un dispositif de coupure générale est prévu.",
       "Vérifier que le disjoncteur est correctement calibré.",
     ],
+    imageRelativePath: "public/img/pieges/05-tableau.webp",
   },
   {
     number: 6,
@@ -146,6 +153,7 @@ export const piegePdfSections: PiegePdfSection[] = [
       "Vérifier le tarif d'injection utilisé (1-6 c/kWh).",
       "Vérifier si le tarif prosumer est inclus.",
     ],
+    imageRelativePath: "public/img/pieges/06-roi.webp",
   },
   {
     number: 7,
@@ -166,6 +174,7 @@ export const piegePdfSections: PiegePdfSection[] = [
       "Prendre le temps de comparer point par point.",
       "Faire relire le contrat par un tiers si nécessaire.",
     ],
+    imageRelativePath: "public/img/pieges/07-pression.webp",
   },
 ];
 

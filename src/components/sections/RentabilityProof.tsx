@@ -69,7 +69,7 @@ export function RentabilityProof() {
           </div>
         </div>
 
-        <DataSources className="mx-auto max-w-3xl" />
+        <DataSources className="max-w-3xl" />
       </div>
     </section>
   );

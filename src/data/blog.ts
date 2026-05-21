@@ -635,6 +635,7 @@ export const blogArticles: BlogArticle[] = [
     tags: ["photovoltaïque", "prix", "belgique"],
     relatedServices: ["panneaux-photovoltaiques", "batteries-domestiques"],
     body: bodyPrixPanneaux,
+    image: "/img/pieges/primes.webp",
   },
   {
     slug: "panneaux-solaires-rentables-2026",
@@ -647,6 +648,7 @@ export const blogArticles: BlogArticle[] = [
     tags: ["photovoltaïque", "rentabilité", "tarif-prosumer"],
     relatedServices: ["panneaux-photovoltaiques", "batteries-domestiques"],
     body: bodyPanneauxRentables,
+    image: "/img/pieges/06-roi.webp",
   },
   {
     slug: "borne-recharge-domicile-guide",
@@ -659,6 +661,7 @@ export const blogArticles: BlogArticle[] = [
     tags: ["borne-recharge", "véhicule-électrique", "guide"],
     relatedServices: ["bornes-de-recharge", "conformite-electrique"],
     body: bodyBorneRecharge,
+    image: "/img/realisations/borne-riemst.webp",
   },
   {
     slug: "tarif-prosumer-2026",
@@ -672,6 +675,7 @@ export const blogArticles: BlogArticle[] = [
     tags: ["tarif-prosumer", "wallonie", "réglementation"],
     relatedServices: ["panneaux-photovoltaiques"],
     body: bodyTarifProsumer,
+    image: "/img/pieges/05-tableau.webp",
   },
   {
     slug: "pompe-chaleur-vs-chaudiere-gaz",
@@ -684,6 +688,7 @@ export const blogArticles: BlogArticle[] = [
     tags: ["pompe-à-chaleur", "chauffage", "comparatif"],
     relatedServices: ["pompes-a-chaleur", "panneaux-photovoltaiques"],
     body: bodyPompeAChaleur,
+    image: "/img/pieges/06b_pompe-chaleur.webp",
   },
   {
     slug: "batterie-domestique-rentable",
@@ -696,6 +701,7 @@ export const blogArticles: BlogArticle[] = [
     tags: ["batterie", "rentabilité", "autoconsommation"],
     relatedServices: ["batteries-domestiques", "panneaux-photovoltaiques"],
     body: bodyBatterieDomestique,
+    image: "/img/realisations/batteries-crisnee.webp",
   },
 ];
 

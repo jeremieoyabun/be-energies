@@ -121,9 +121,9 @@ export function FounderCredibility({
             </div>
           </div>
 
-          {/* Bio */}
-          <div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+          {/* Bio — top-aligned with the photo via leading-none + tracking-tight to remove font baseline offset */}
+          <div className="md:pt-1">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.05]">
               J&apos;ai vu ce que les autres font mal. Aujourd&apos;hui, je fais mieux.
             </h2>
 

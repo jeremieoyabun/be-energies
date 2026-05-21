@@ -232,6 +232,10 @@ const chapters: Chapter[] = [
     founderInsight:
       "J'ai inspecté des maisons où la pompe à chaleur tournait avec l'appoint électrique en permanence. Le propriétaire payait plus qu'avec sa chaudière au gaz, et l'installateur avait quitté la scène. Un calcul thermique sérieux avant l'installation aurait évité tout ça.",
     serviceLink: { label: "Pompe à chaleur", href: "/services/pompes-a-chaleur/" },
+    image: {
+      src: "/img/pieges/06b_pompe-chaleur.webp",
+      alt: "Unité extérieure de pompe à chaleur en façade d'habitation",
+    },
   },
   {
     id: "documentation-technique",
@@ -338,6 +342,10 @@ const chapters: Chapter[] = [
     ],
     founderInsight:
       "Un bon dimensionnement commence par votre facture d'électricité, pas par la surface de votre toit. Si l'installateur commence par mesurer votre toiture au lieu de lire votre facture, posez-vous la question.",
+    image: {
+      src: "/img/pieges/09-surdimensionnement.webp",
+      alt: "Personne montrant un panneau solaire — discussion sur le dimensionnement adapté",
+    },
   },
   {
     id: "prendre-son-temps",

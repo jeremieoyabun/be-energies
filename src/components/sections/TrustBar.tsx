@@ -106,15 +106,15 @@ export function TrustBar({ citySpecificStat, locale = "fr" }: TrustBarProps) {
           {/* Stats */}
           <div className="flex items-center gap-6 md:gap-8">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
+              <div key={stat.label} className="text-center max-w-[180px]">
                 <div
-                  className={`stat-value text-lg font-bold ${
+                  className={`stat-value text-base md:text-lg font-bold leading-tight ${
                     stat.isHighlight ? "text-amber" : "text-white"
                   }`}
                 >
                   {stat.value}
                 </div>
-                <div className="text-[11px] text-silver/70 tracking-wide uppercase">
+                <div className="mt-1.5 text-[10.5px] text-silver/70 tracking-wide uppercase leading-[1.35]">
                   {stat.label}
                 </div>
               </div>

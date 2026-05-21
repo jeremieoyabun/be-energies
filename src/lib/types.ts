@@ -80,6 +80,8 @@ export interface BlogArticle {
   tags: string[];
   relatedServices: string[];
   body?: string;
+  /** Hero image. Falls back to a generic photo when absent. */
+  image?: string;
 }
 
 export interface FAQItem {
