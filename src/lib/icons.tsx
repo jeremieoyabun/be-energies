@@ -170,3 +170,17 @@ const iconMap: Record<string, React.ComponentType<IconProps>> = {
 export function getServiceIcon(iconName: string): React.ComponentType<IconProps> {
   return iconMap[iconName] ?? SolarIcon;
 }
+
+/**
+ * Render the icon for a given service slug. Use this in JSX instead of
+ * pulling `getServiceIcon` then `<Icon …/>`, so the React 19 lint rule
+ * `react-hooks/static-components` doesn't flag the inline component lookup.
+ */
+export function ServiceIcon({
+  name,
+  size = 24,
+  className,
+}: { name: string } & IconProps) {
+  const Component = iconMap[name] ?? SolarIcon;
+  return <Component size={size} className={className} />;
+}

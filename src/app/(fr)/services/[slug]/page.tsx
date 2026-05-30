@@ -22,6 +22,7 @@ import { RelatedServices } from "@/components/sections/RelatedServices";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
 import { DataSources } from "@/components/sections/DataSources";
+import { ServiceTOC } from "@/components/sections/ServiceTOC";
 import { siteConfig } from "@/lib/site-config";
 import { CheckIcon } from "@/lib/icons";
 import Link from "next/link";
@@ -172,24 +173,40 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <section
           key={section.id}
           id={section.id}
-          className={`section-padding ${index % 2 === 1 ? "bg-ivory" : ""}`}
+          className={`section-padding ${index % 2 === 1 ? "bg-ivory" : ""} scroll-mt-24`}
         >
-          <div className="container-be max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6">
-              {section.title}
-            </h2>
-            <div
-              className="article-prose"
-              dangerouslySetInnerHTML={{ __html: section.body }}
-            />
-            {/* Sources only after the last content section, for chiffrée services */}
-            {content.sections.length > 0 &&
-              index === content.sections.length - 1 &&
-              (slug === "panneaux-photovoltaiques" ||
-                slug === "batteries-domestiques" ||
-                slug === "bornes-de-recharge" ||
-                slug === "pompes-a-chaleur" ||
-                slug === "conformite-electrique") && <DataSources />}
+          <div className="container-be">
+            <div className="xl:grid xl:grid-cols-[220px_1fr] xl:gap-12">
+              {/* Sticky TOC — only render on the first section so it doesn't duplicate */}
+              {index === 0 && content && (
+                <ServiceTOC
+                  sections={content.sections.map((s) => ({
+                    id: s.id,
+                    title: s.title,
+                  }))}
+                />
+              )}
+              {/* Spacer column for non-first sections so content keeps the same right offset */}
+              {index !== 0 && <div className="hidden xl:block" aria-hidden="true" />}
+
+              <div className="max-w-3xl">
+                <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6">
+                  {section.title}
+                </h2>
+                <div
+                  className="article-prose"
+                  dangerouslySetInnerHTML={{ __html: section.body }}
+                />
+                {/* Sources only after the last content section, for chiffrée services */}
+                {content.sections.length > 0 &&
+                  index === content.sections.length - 1 &&
+                  (slug === "panneaux-photovoltaiques" ||
+                    slug === "batteries-domestiques" ||
+                    slug === "bornes-de-recharge" ||
+                    slug === "pompes-a-chaleur" ||
+                    slug === "conformite-electrique") && <DataSources />}
+              </div>
+            </div>
           </div>
         </section>
       ))}

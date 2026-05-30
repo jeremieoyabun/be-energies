@@ -209,6 +209,43 @@ export function articleSchema(article: {
   };
 }
 
+/**
+ * Emit a list of Review objects attached to the LocalBusiness so Google can
+ * surface rich snippets. Use only with on-site testimonials we are entitled
+ * to publish (consent obtained, names anonymised at the customer's request).
+ */
+export function reviewListSchema(
+  reviews: { author: string; rating: number; body: string; locality?: string }[],
+) {
+  return reviews.map((r) => ({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "LocalBusiness",
+      "@id": `${BASE_URL}/#localbusiness`,
+      name: siteConfig.name,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: r.rating,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    author: {
+      "@type": "Person",
+      name: r.author,
+      ...(r.locality && {
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: r.locality,
+          addressCountry: "BE",
+        },
+      }),
+    },
+    reviewBody: r.body,
+  }));
+}
+
 export function webSiteSchema() {
   return {
     "@context": "https://schema.org",
