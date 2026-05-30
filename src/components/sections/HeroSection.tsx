@@ -2,6 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRightIcon, CheckIcon } from "@/lib/icons";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
+import { HeroVideo } from "@/components/sections/HeroVideo";
+
+const VIDEO_POSTER = "/img/Be-energies_video_header.png";
 
 interface HeroSectionProps {
   headline: string;
@@ -77,27 +80,8 @@ export function HeroSection({
             }
       }
     >
-      {/* Video background */}
-      {video && (
-        <>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            aria-hidden="true"
-          >
-            <source src={video} type="video/webm" />
-          </video>
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, rgba(12,18,32,0.75) 0%, rgba(12,18,32,0.85) 100%)" }}
-            aria-hidden="true"
-          />
-        </>
-      )}
+      {/* Video background — poster paints first, video mounts deferred */}
+      {video && <HeroVideo src={video} poster={VIDEO_POSTER} />}
 
       {/* Image background (service pages) */}
       {!video && image && !isIdentity && (

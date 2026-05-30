@@ -8,6 +8,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
 import { DataSources } from "@/components/sections/DataSources";
+import { StickyPdfFab } from "@/components/sections/StickyPdfFab";
 import { AlertTriangleIcon, CheckIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
 
@@ -444,6 +445,8 @@ const severityBadge = {
 export default function PiegesPage() {
   return (
     <>
+      <StickyPdfFab />
+
       {/* Schema: Article + FAQ */}
       <JsonLd
         data={articleSchema({

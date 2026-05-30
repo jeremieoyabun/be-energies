@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { fontHeading, fontBody, fontData } from "@/lib/fonts";
+import { AnalyticsGate } from "@/components/layout/AnalyticsGate";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`${fontHeading.variable} ${fontBody.variable} ${fontData.variable} antialiased`}
       >
         {children}
+        <AnalyticsGate />
       </body>
     </html>
   );
