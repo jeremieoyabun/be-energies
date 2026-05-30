@@ -4,8 +4,10 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ServiceCardGrid } from "@/components/sections/ServiceCardGrid";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { testimonials } from "@/data/testimonials";
 import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
+import { homepageFaqNl } from "@/data/faq.nl";
 
 export const metadata = generatePageMetadata({
   title: "Be'energies -- Uw gecertificeerde installateur",
@@ -38,8 +40,13 @@ export default function NlHomePage() {
       <ServiceCardGrid locale="nl" />
 
       {nlTestimonials.length > 0 && (
-        <TestimonialBlock testimonials={nlTestimonials} title="Wat onze klanten zeggen" />
+        <TestimonialBlock
+          testimonials={nlTestimonials}
+          title="Wat onze klanten zeggen"
+        />
       )}
+
+      <FAQSection items={homepageFaqNl} title="Veelgestelde vragen" />
 
       <CTADiagnostic locale="nl" variant="dark" />
     </>
