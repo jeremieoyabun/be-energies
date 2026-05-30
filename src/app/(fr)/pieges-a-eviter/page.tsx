@@ -9,6 +9,7 @@ import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
 import { DataSources } from "@/components/sections/DataSources";
 import { StickyPdfFab } from "@/components/sections/StickyPdfFab";
+import { ReadMore } from "@/components/ReadMore";
 import { AlertTriangleIcon, CheckIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
 
@@ -604,11 +605,13 @@ export default function PiegesPage() {
               </div>
             )}
 
-            {/* Body content */}
-            <div
-              className="prose prose-lg max-w-none text-charcoal prose-headings:text-midnight prose-headings:font-[family-name:var(--font-heading)] prose-strong:text-midnight"
-              dangerouslySetInnerHTML={{ __html: ch.body }}
-            />
+            {/* Body content — clipped on mobile to reduce vertical fatigue */}
+            <ReadMore collapsedHeight={380}>
+              <div
+                className="prose prose-lg max-w-none text-charcoal prose-headings:text-midnight prose-headings:font-[family-name:var(--font-heading)] prose-strong:text-midnight"
+                dangerouslySetInnerHTML={{ __html: ch.body }}
+              />
+            </ReadMore>
 
             {/* Checklist */}
             {ch.checklist && (

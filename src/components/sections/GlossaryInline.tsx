@@ -1,4 +1,5 @@
 import { glossary } from "@/lib/glossary";
+import { Collapsible } from "@/components/Collapsible";
 
 interface GlossaryInlineProps {
   /** Glossary keys to display, in order. */
@@ -21,7 +22,8 @@ const LABELS: Record<string, string> = {
 
 /**
  * Lexique block — surfaces the technical terms from /lib/glossary at the
- * bottom of long pages. Pure server component, no JS shipped.
+ * bottom of long pages. Native <details> so it doesn't ship JS and stays
+ * print/SEO-friendly (the content is still in the DOM).
  */
 export function GlossaryInline({
   keys,
@@ -33,15 +35,11 @@ export function GlossaryInline({
   if (items.length === 0) return null;
 
   return (
-    <aside className="mt-10 rounded-2xl border border-cloud bg-ivory p-6 md:p-7">
-      <div className="flex items-baseline gap-3 mb-5">
-        <span className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark">
-          Jargon expliqué
-        </span>
-        <h3 className="text-base font-[family-name:var(--font-heading)] text-midnight">
-          {title}
-        </h3>
-      </div>
+    <Collapsible
+      eyebrow="Jargon expliqué"
+      summary={`${title} (${items.length} termes)`}
+      className="mt-10"
+    >
       <dl className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
         {items.map((k) => {
           const entry = glossary[k];
@@ -57,6 +55,6 @@ export function GlossaryInline({
           );
         })}
       </dl>
-    </aside>
+    </Collapsible>
   );
 }

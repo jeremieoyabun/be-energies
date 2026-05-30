@@ -24,6 +24,7 @@ import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
 import { DataSources } from "@/components/sections/DataSources";
 import { ServiceTOC } from "@/components/sections/ServiceTOC";
 import { GlossaryInline } from "@/components/sections/GlossaryInline";
+import { ReadMore } from "@/components/ReadMore";
 import { siteConfig } from "@/lib/site-config";
 import { CheckIcon } from "@/lib/icons";
 import Link from "next/link";
@@ -210,13 +211,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
               {index !== 0 && <div className="hidden xl:block" aria-hidden="true" />}
 
               <div className="max-w-3xl">
-                <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6">
+                <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6 scroll-mt-24">
                   {section.title}
                 </h2>
-                <div
-                  className="article-prose"
-                  dangerouslySetInnerHTML={{ __html: section.body }}
-                />
+                <ReadMore collapsedHeight={420}>
+                  <div
+                    className="article-prose"
+                    dangerouslySetInnerHTML={{ __html: section.body }}
+                  />
+                </ReadMore>
                 {/* After the last content section: glossary + data sources for chiffrée services */}
                 {content.sections.length > 0 &&
                   index === content.sections.length - 1 && (
