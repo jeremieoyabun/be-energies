@@ -124,7 +124,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <HeroSection
         headline={content?.headline ?? `Installation de ${service.title.toLowerCase()} en Belgique`}
         subheadline={content?.subheadline ?? service.shortDescription}
-        ctaLabel="Diagnostic gratuit"
+        ctaLabel="Mon diagnostic gratuit"
         ctaHref="/contact/"
         variant="service"
         image={service.heroImage}

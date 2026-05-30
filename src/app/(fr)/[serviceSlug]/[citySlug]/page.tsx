@@ -87,7 +87,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
       <HeroSection
         headline={headline}
         subheadline={subheadline}
-        ctaLabel={`Diagnostic gratuit à ${city.name}`}
+        ctaLabel={`Mon diagnostic gratuit à ${city.name}`}
         ctaHref="/contact/"
         variant="local"
       />

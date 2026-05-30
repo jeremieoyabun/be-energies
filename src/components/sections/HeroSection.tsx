@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRightIcon, CheckIcon } from "@/lib/icons";
+import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 
 interface HeroSectionProps {
   headline: string;
@@ -129,13 +130,18 @@ export function HeroSection({
       <div className="container-be relative z-10 py-24 md:py-32 lg:py-40">
         <div className={isIdentity && image && !video ? "grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center" : ""}>
           <div className={video ? "max-w-3xl mx-auto text-center" : "max-w-3xl"}>
-            {/* Badge */}
-            {badge && (
-              <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 mb-8`}>
-                <div className="w-2 h-2 rounded-full bg-amber" />
-                <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-light">
-                  {badge}
-                </span>
+            {/* Badge + Google rating row */}
+            {(badge || true) && (
+              <div className={`inline-flex flex-wrap items-center gap-2 mb-8 ${video ? "justify-center" : ""}`}>
+                {badge && (
+                  <span className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10">
+                    <span className="w-2 h-2 rounded-full bg-amber" />
+                    <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-light">
+                      {badge}
+                    </span>
+                  </span>
+                )}
+                <GoogleReviewsBadge variant="dark" />
               </div>
             )}
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { PhoneIcon, MenuIcon, CloseIcon, ChevronDownIcon, getServiceIcon } from "@/lib/icons";
 import type { NavItem } from "@/data/navigation";
+import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 
 interface HeaderProps {
   navigation: NavItem[];
@@ -131,6 +132,9 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
+          {/* Google reviews — desktop only (hides at lg- to spare the mobile space budget) */}
+          <GoogleReviewsBadge variant="inline" className="hidden xl:inline-flex mr-2" />
+
           {/* Phone (all sizes) */}
           <a
             href={`tel:${siteConfig.contact.phones[0].raw}`}

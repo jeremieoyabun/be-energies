@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { siteConfig } from "@/lib/site-config";
 import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon, CheckIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
@@ -80,9 +81,26 @@ export default function ContactPage() {
               <h2 className="text-xl font-[family-name:var(--font-heading)] text-midnight mb-1">
                 Demandez votre diagnostic gratuit
               </h2>
-              <p className="text-sm text-steel mb-8">
+              <p className="text-sm text-steel">
                 Quelques précisions nous permettent de préparer un rendez-vous utile. Comptez moins de 2 minutes.
               </p>
+
+              {/* Reassurance row + Google rating — visible BEFORE the form fields */}
+              <div className="mt-6 mb-8 bg-ivory border border-cloud rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <ul className="space-y-1.5 text-[13px] text-charcoal">
+                  {[
+                    "Diagnostic gratuit, sans engagement",
+                    "Réponse personnelle de Benoît sous 24 h",
+                    "Devis détaillé sous 48 h",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <CheckIcon size={14} className="text-success shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <GoogleReviewsBadge variant="card" className="shrink-0" />
+              </div>
 
               <ContactForm />
             </div>

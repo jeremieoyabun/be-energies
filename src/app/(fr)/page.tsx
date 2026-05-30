@@ -151,7 +151,7 @@ export default function HomePage() {
       <CTADiagnostic
         title="Un avis honnête avant de signer"
         description="Visite technique sur site, dimensionnement basé sur votre consommation réelle, devis clair sous 48 h avec les tarifs 2026 de votre gestionnaire de réseau. Pas d'estimation générique, pas de pression."
-        ctaLabel="Vérifier la rentabilité de mon projet"
+        ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
         variant="dark"
       />

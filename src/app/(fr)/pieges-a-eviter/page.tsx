@@ -494,7 +494,7 @@ export default function PiegesPage() {
               href="/contact/"
               className="inline-flex items-center bg-amber hover:bg-amber-dark text-midnight font-semibold px-6 py-3.5 rounded-lg transition-colors"
             >
-              Diagnostic gratuit
+              Mon diagnostic gratuit
             </Link>
             <Link
               href="/guide-pieges-a-eviter/"
