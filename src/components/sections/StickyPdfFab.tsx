@@ -44,7 +44,7 @@ export function StickyPdfFab() {
       rel="noopener noreferrer"
       download="be-energies-7-pieges-a-eviter.pdf"
       aria-label="Télécharger le guide PDF — 7 pièges à éviter"
-      className={`fixed z-40 bottom-20 right-4 md:bottom-6 md:right-6 inline-flex items-center gap-2.5 px-4 md:px-5 py-3 md:py-3.5 rounded-full bg-amber hover:bg-amber-dark text-midnight font-semibold text-[13px] md:text-sm shadow-2xl ring-1 ring-amber-dark/20 transition-all duration-300 ${
+      className={`fixed z-40 bottom-[88px] left-4 md:bottom-6 md:left-auto md:right-6 inline-flex items-center gap-2.5 px-4 md:px-5 py-3 md:py-3.5 rounded-full bg-amber hover:bg-amber-dark text-midnight font-semibold text-[13px] md:text-sm shadow-2xl ring-1 ring-amber-dark/20 transition-all duration-300 ${
         show
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 translate-y-3 pointer-events-none"

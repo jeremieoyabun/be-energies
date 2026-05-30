@@ -3,12 +3,26 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { BlogPreview } from "@/components/sections/BlogPreview";
 
-export const metadata = generatePageMetadata({
+const baseMeta = generatePageMetadata({
   title: "Blog -- Actualités énergie en Belgique",
   description:
     "Articles sur le photovoltaïque, les batteries, les bornes de recharge, et la réglementation énergétique en Belgique. Par Benoît Dezso.",
   path: "/blog/",
 });
+
+// Declare the RSS feed for feed readers (Feedly, NetNewsWire, etc.) and
+// for SEO crawlers that pick up <link rel="alternate" type="application/rss+xml">.
+export const metadata = {
+  ...baseMeta,
+  alternates: {
+    ...baseMeta.alternates,
+    types: {
+      "application/rss+xml": [
+        { url: "/blog/rss.xml", title: "Be'energies — Blog" },
+      ],
+    },
+  },
+};
 
 export default function BlogIndexPage() {
   return (

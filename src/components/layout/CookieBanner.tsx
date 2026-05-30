@@ -38,12 +38,64 @@ function readSnapshot(): Consent | null {
 
 const readServerSnapshot = (): Consent | null => null;
 
-export function CookieBanner() {
+const COPY = {
+  fr: {
+    regionLabel: "Préférences de cookies",
+    title: "Cookies & vie privée",
+    body: (
+      <>
+        Ce site utilise uniquement des cookies strictement nécessaires à son
+        fonctionnement. Aucun cookie de suivi publicitaire n&apos;est
+        déposé. Voir notre{" "}
+        <Link
+          href="/politique-de-confidentialite/"
+          className="underline hover:text-white"
+        >
+          politique de confidentialité
+        </Link>
+        .
+      </>
+    ),
+    accept: "J'accepte",
+    reject: "Refuser",
+    more: "En savoir plus",
+    moreHref: "/politique-de-confidentialite/",
+  },
+  nl: {
+    regionLabel: "Cookievoorkeuren",
+    title: "Cookies & privacy",
+    body: (
+      <>
+        Deze website gebruikt uitsluitend cookies die strikt noodzakelijk
+        zijn voor haar werking. Er worden geen tracking- of reclamecookies
+        geplaatst. Bekijk ons{" "}
+        <Link
+          href="/politique-de-confidentialite/"
+          className="underline hover:text-white"
+        >
+          privacybeleid
+        </Link>
+        .
+      </>
+    ),
+    accept: "Ik ga akkoord",
+    reject: "Weigeren",
+    more: "Meer info",
+    moreHref: "/politique-de-confidentialite/",
+  },
+} as const;
+
+interface CookieBannerProps {
+  locale?: "fr" | "nl";
+}
+
+export function CookieBanner({ locale = "fr" }: CookieBannerProps = {}) {
   const consent = useSyncExternalStore(
     subscribe,
     readSnapshot,
     readServerSnapshot,
   );
+  const t = COPY[locale];
 
   const persist = useCallback((value: Consent) => {
     try {
@@ -61,7 +113,7 @@ export function CookieBanner() {
   return (
     <div
       role="region"
-      aria-label="Préférences de cookies"
+      aria-label={t.regionLabel}
       className="fixed bottom-0 left-0 right-0 z-[60] md:bottom-4 md:left-4 md:right-4 md:max-w-xl md:mx-auto"
     >
       <div className="m-3 md:m-0 bg-midnight text-silver border border-charcoal rounded-2xl shadow-2xl p-5 md:p-6">
@@ -73,21 +125,8 @@ export function CookieBanner() {
             🍪
           </span>
           <div>
-            <p className="text-white font-semibold text-sm mb-1">
-              Cookies &amp; vie privée
-            </p>
-            <p className="text-xs text-silver/80 leading-relaxed">
-              Ce site utilise uniquement des cookies strictement nécessaires
-              à son fonctionnement. Aucun cookie de suivi publicitaire
-              n&apos;est déposé. Voir notre{" "}
-              <Link
-                href="/politique-de-confidentialite/"
-                className="underline hover:text-white"
-              >
-                politique de confidentialité
-              </Link>
-              .
-            </p>
+            <p className="text-white font-semibold text-sm mb-1">{t.title}</p>
+            <p className="text-xs text-silver/80 leading-relaxed">{t.body}</p>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-2.5">
@@ -96,20 +135,20 @@ export function CookieBanner() {
             onClick={() => persist("accepted")}
             className="cta-glow flex-1 inline-flex items-center justify-center bg-amber hover:bg-amber-dark text-midnight font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors"
           >
-            J&apos;accepte
+            {t.accept}
           </button>
           <button
             type="button"
             onClick={() => persist("rejected")}
             className="inline-flex items-center justify-center border border-white/20 hover:border-white/40 text-white/85 hover:text-white px-5 py-2.5 rounded-lg text-sm transition-colors"
           >
-            Refuser
+            {t.reject}
           </button>
           <Link
-            href="/politique-de-confidentialite/"
+            href={t.moreHref}
             className="hidden sm:inline-flex items-center justify-center text-silver/70 hover:text-white text-xs underline self-center px-3"
           >
-            En savoir plus
+            {t.more}
           </Link>
         </div>
       </div>
