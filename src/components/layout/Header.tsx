@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { PhoneIcon, MenuIcon, CloseIcon, ChevronDownIcon, getServiceIcon } from "@/lib/icons";
 import type { NavItem } from "@/data/navigation";
@@ -35,13 +36,16 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
     >
       <div className="container-be flex items-center justify-between h-16 md:h-[4.5rem]">
         {/* Logo */}
-        <Link href={locale === "nl" ? "/nl/" : "/"} className="flex items-center shrink-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+        <Link
+          href={locale === "nl" ? "/nl/" : "/"}
+          className="flex items-center shrink-0"
+        >
+          <Image
             src="/img/Logo_Be-energies-02.png"
             alt="Be'energies"
             width={180}
             height={45}
+            priority
             className="h-10 w-auto"
           />
         </Link>

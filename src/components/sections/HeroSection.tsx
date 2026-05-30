@@ -116,7 +116,7 @@ export function HeroSection({
           <div className={video ? "max-w-3xl mx-auto text-center" : "max-w-3xl"}>
             {/* Badge + Google rating row */}
             {(badge || true) && (
-              <div className={`inline-flex flex-wrap items-center gap-2 mb-8 ${video ? "justify-center" : ""}`}>
+              <div className={`inline-flex flex-wrap items-center gap-2 mb-8 hero-reveal hero-reveal-0 ${video ? "justify-center" : ""}`}>
                 {badge && (
                   <span className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10">
                     <span className="w-2 h-2 rounded-full bg-amber" />
@@ -129,13 +129,13 @@ export function HeroSection({
               </div>
             )}
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-[family-name:var(--font-heading)] text-white leading-[1.1] text-balance">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-[family-name:var(--font-heading)] text-white leading-[1.1] text-balance hero-reveal hero-reveal-1">
               {headline}
             </h1>
-            <p className={`mt-6 md:mt-7 text-lg md:text-xl leading-relaxed ${video ? "max-w-2xl mx-auto" : "max-w-2xl"} text-silver/90`}>
+            <p className={`mt-6 md:mt-7 text-lg md:text-xl leading-relaxed hero-reveal hero-reveal-2 ${video ? "max-w-2xl mx-auto" : "max-w-2xl"} text-silver/90`}>
               {subheadline}
             </p>
-            <div className={`mt-9 md:mt-10 flex flex-col sm:flex-row gap-4 ${video ? "justify-center" : ""}`}>
+            <div className={`mt-9 md:mt-10 flex flex-col sm:flex-row gap-4 hero-reveal hero-reveal-3 ${video ? "justify-center" : ""}`}>
               <Link
                 href={ctaHref}
                 className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-8 py-4 rounded-xl transition-colors text-base"
@@ -155,7 +155,7 @@ export function HeroSection({
 
             {reassurances && reassurances.length > 0 && (
               <ul
-                className={`mt-6 flex flex-wrap gap-x-5 gap-y-1.5 text-[13px] text-silver/80 ${video ? "justify-center" : ""}`}
+                className={`mt-6 flex flex-wrap gap-x-5 gap-y-1.5 text-[13px] text-silver/80 hero-reveal hero-reveal-4 ${video ? "justify-center" : ""}`}
                 aria-label="Engagements Be'energies"
               >
                 {reassurances.map((item) => (

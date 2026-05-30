@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { footerNavFr } from "@/data/navigation";
 import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon } from "@/lib/icons";
@@ -157,12 +158,12 @@ export function Footer() {
             )}
 
             {/* Logo in footer */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/img/Logo_Be-energies-w.png"
               alt="Be'energies"
               width={180}
               height={45}
+              loading="lazy"
               className="mt-6 h-10 w-auto"
             />
           </div>

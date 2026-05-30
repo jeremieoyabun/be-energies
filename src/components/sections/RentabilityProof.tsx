@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
 import { DataSources } from "@/components/sections/DataSources";
+import { CountUp } from "@/components/CountUp";
 
 export function RentabilityProof() {
   return (
@@ -39,12 +40,34 @@ export function RentabilityProof() {
 
           {/* Right: stat cards */}
           <div className="grid grid-cols-2 gap-4">
-            {[
-              { value: "5-7", unit: "ans", label: "Retour estimé selon votre consommation", accent: true },
-              { value: "~12", unit: "%", label: "Rendement annualisé estimé", accent: false },
-              { value: "~38", unit: "c/kWh", label: "Économies par kWh autoconsommé", accent: false },
-              { value: "25", unit: "+ ans", label: "Durée de vie attendue du système", accent: false },
-            ].map((stat) => (
+            {(
+              [
+                {
+                  display: <span>5-7</span>,
+                  unit: "ans",
+                  label: "Retour estimé selon votre consommation",
+                  accent: true,
+                },
+                {
+                  display: <CountUp to={12} prefix="~" decimals={0} />,
+                  unit: "%",
+                  label: "Rendement annualisé estimé",
+                  accent: false,
+                },
+                {
+                  display: <CountUp to={38} prefix="~" decimals={0} />,
+                  unit: "c/kWh",
+                  label: "Économies par kWh autoconsommé",
+                  accent: false,
+                },
+                {
+                  display: <CountUp to={25} suffix="+" decimals={0} />,
+                  unit: "ans",
+                  label: "Durée de vie attendue du système",
+                  accent: false,
+                },
+              ] as const
+            ).map((stat) => (
               <div
                 key={stat.label}
                 className={`rounded-xl p-5 md:p-6 ${
@@ -54,14 +77,26 @@ export function RentabilityProof() {
                 }`}
               >
                 <div className="flex items-baseline gap-1">
-                  <span className={`stat-value text-3xl md:text-4xl font-bold ${stat.accent ? "text-amber" : "text-midnight"}`}>
-                    {stat.value}
+                  <span
+                    className={`stat-value text-3xl md:text-4xl font-bold ${
+                      stat.accent ? "text-amber" : "text-midnight"
+                    }`}
+                  >
+                    {stat.display}
                   </span>
-                  <span className={`stat-value text-base font-semibold ${stat.accent ? "text-amber-light" : "text-amber-dark"}`}>
+                  <span
+                    className={`stat-value text-base font-semibold ${
+                      stat.accent ? "text-amber-light" : "text-amber-dark"
+                    }`}
+                  >
                     {stat.unit}
                   </span>
                 </div>
-                <div className={`text-xs mt-2 font-medium leading-snug ${stat.accent ? "text-silver" : "text-steel"}`}>
+                <div
+                  className={`text-xs mt-2 font-medium leading-snug ${
+                    stat.accent ? "text-silver" : "text-steel"
+                  }`}
+                >
                   {stat.label}
                 </div>
               </div>
