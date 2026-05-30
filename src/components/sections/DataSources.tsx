@@ -14,15 +14,36 @@ interface DataSourcesProps {
   updatedAt?: string;
   className?: string;
   variant?: "light" | "dark";
+  locale?: "fr" | "nl";
 }
 
+const COPY = {
+  fr: {
+    defaultSources: "CWaPE, GRD wallons, fournisseurs d'énergie",
+    sourcesLabel: "Sources :",
+    disclaimer:
+      "Données à vérifier selon votre commune, votre GRD et votre profil de consommation.",
+    updatedLabel: "Dernière mise à jour :",
+  },
+  nl: {
+    defaultSources: "CWaPE, Waalse netbeheerders, energieleveranciers",
+    sourcesLabel: "Bronnen:",
+    disclaimer:
+      "Gegevens te verifiëren naargelang uw gemeente, uw netbeheerder en uw verbruiksprofiel.",
+    updatedLabel: "Laatst bijgewerkt:",
+  },
+} as const;
+
 export function DataSources({
-  sources = "CWaPE, GRD wallons, fournisseurs d'énergie",
+  sources,
   updatedAt = siteConfig.dataAsOf,
   className = "",
   variant = "light",
+  locale = "fr",
 }: DataSourcesProps) {
   const isDark = variant === "dark";
+  const t = COPY[locale];
+  const sourcesLine = sources ?? t.defaultSources;
   return (
     <aside
       className={`mt-8 text-[12px] leading-relaxed rounded-lg border px-4 py-3 text-left ${
@@ -35,17 +56,16 @@ export function DataSources({
         <strong
           className={`font-semibold ${isDark ? "text-white" : "text-midnight"}`}
         >
-          Sources :
+          {t.sourcesLabel}
         </strong>{" "}
-        {sources}. Données à vérifier selon votre commune, votre GRD et votre
-        profil de consommation.
+        {sourcesLine}. {t.disclaimer}
       </p>
       <p
         className={`m-0 mt-1 text-[11px] uppercase tracking-[0.08em] text-left ${
           isDark ? "text-silver/60" : "text-steel/80"
         }`}
       >
-        Dernière mise à jour : {updatedAt}
+        {t.updatedLabel} {updatedAt}
       </p>
     </aside>
   );

@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 
 interface ServiceTOCProps {
   sections: { id: string; title: string }[];
+  locale?: "fr" | "nl";
 }
 
 /**
  * Sticky desktop-only table of contents for long service pages.
  * Highlights the section currently in view via IntersectionObserver.
  */
-export function ServiceTOC({ sections }: ServiceTOCProps) {
+export function ServiceTOC({ sections, locale = "fr" }: ServiceTOCProps) {
   const [activeId, setActiveId] = useState<string | null>(
     sections[0]?.id ?? null,
   );
@@ -40,11 +41,13 @@ export function ServiceTOC({ sections }: ServiceTOCProps) {
 
   return (
     <nav
-      aria-label="Sommaire de la page"
+      aria-label={
+        locale === "nl" ? "Inhoudsopgave van de pagina" : "Sommaire de la page"
+      }
       className="hidden xl:block sticky top-24 self-start"
     >
       <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
-        Sommaire
+        {locale === "nl" ? "Inhoud" : "Sommaire"}
       </p>
       <ol className="space-y-0.5 text-[13px] border-l border-cloud">
         {sections.map((s, i) => {

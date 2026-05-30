@@ -13,8 +13,15 @@ interface ReadMoreProps {
   /** Labels for the toggle button. */
   expandLabel?: string;
   collapseLabel?: string;
+  /** Set "nl" to apply Dutch fallbacks for expand/collapse labels. */
+  locale?: "fr" | "nl";
   className?: string;
 }
+
+const LOCALE_LABELS = {
+  fr: { expand: "Lire la suite", collapse: "Réduire" },
+  nl: { expand: "Lees verder", collapse: "Verbergen" },
+} as const;
 
 /**
  * Mobile-first "Lire la suite" wrapper.
@@ -31,10 +38,14 @@ export function ReadMore({
   children,
   collapsedHeight = 360,
   breakpointMax = 768,
-  expandLabel = "Lire la suite",
-  collapseLabel = "Réduire",
+  expandLabel,
+  collapseLabel,
+  locale = "fr",
   className = "",
 }: ReadMoreProps) {
+  const labels = LOCALE_LABELS[locale];
+  const expandText = expandLabel ?? labels.expand;
+  const collapseText = collapseLabel ?? labels.collapse;
   const innerRef = useRef<HTMLDivElement | null>(null);
   const [expanded, setExpanded] = useState(false);
   const [needsClip, setNeedsClip] = useState(false);
@@ -87,7 +98,7 @@ export function ReadMore({
           aria-expanded={expanded}
           className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-amber-dark hover:text-amber transition-colors"
         >
-          {expanded ? collapseLabel : expandLabel}
+          {expanded ? collapseText : expandText}
           <svg
             width="14"
             height="14"
