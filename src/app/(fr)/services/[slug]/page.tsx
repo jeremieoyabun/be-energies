@@ -23,6 +23,7 @@ import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
 import { DataSources } from "@/components/sections/DataSources";
 import { ServiceTOC } from "@/components/sections/ServiceTOC";
+import { GlossaryInline } from "@/components/sections/GlossaryInline";
 import { siteConfig } from "@/lib/site-config";
 import { CheckIcon } from "@/lib/icons";
 import Link from "next/link";
@@ -30,6 +31,25 @@ import Link from "next/link";
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
+
+// Glossary keys to surface per-service at the end of the deep content.
+// Keep short and topical: only the terms actually used in the body.
+const GLOSSARY_KEYS_BY_SERVICE: Record<string, string[]> = {
+  "panneaux-photovoltaiques": [
+    "prosumer",
+    "grd",
+    "autoconsommation",
+    "kwc",
+    "kwh",
+    "impact",
+    "onduleur",
+    "cwape",
+  ],
+  "batteries-domestiques": ["prosumer", "impact", "autoconsommation", "kwh"],
+  "bornes-de-recharge": ["rgie", "impact", "rescert"],
+  "conformite-electrique": ["rescert", "rgie"],
+  "pompes-a-chaleur": ["impact", "kwh", "autoconsommation"],
+};
 
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -197,14 +217,20 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   className="article-prose"
                   dangerouslySetInnerHTML={{ __html: section.body }}
                 />
-                {/* Sources only after the last content section, for chiffrée services */}
+                {/* After the last content section: glossary + data sources for chiffrée services */}
                 {content.sections.length > 0 &&
-                  index === content.sections.length - 1 &&
-                  (slug === "panneaux-photovoltaiques" ||
-                    slug === "batteries-domestiques" ||
-                    slug === "bornes-de-recharge" ||
-                    slug === "pompes-a-chaleur" ||
-                    slug === "conformite-electrique") && <DataSources />}
+                  index === content.sections.length - 1 && (
+                    <>
+                      {GLOSSARY_KEYS_BY_SERVICE[slug] && (
+                        <GlossaryInline keys={GLOSSARY_KEYS_BY_SERVICE[slug]} />
+                      )}
+                      {(slug === "panneaux-photovoltaiques" ||
+                        slug === "batteries-domestiques" ||
+                        slug === "bornes-de-recharge" ||
+                        slug === "pompes-a-chaleur" ||
+                        slug === "conformite-electrique") && <DataSources />}
+                    </>
+                  )}
               </div>
             </div>
           </div>

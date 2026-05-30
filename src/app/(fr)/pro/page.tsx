@@ -82,30 +82,63 @@ const reasons: { icon: typeof SolarIcon; title: string; body: string }[] = [
   },
 ];
 
-const useCases = [
+interface ProUseCase {
+  sector: string;
+  location: string;
+  scope: string;
+  technicalSpecs: string[];
+  /** When a verified result exists, fill in. Otherwise leave undefined and
+   *  the card shows a neutral "Étude détaillée disponible" badge. */
+  verifiedOutcome?: { label: string; value: string }[];
+  /** Optional explicit deliverables (always shown). */
+  deliverables: string[];
+}
+
+const useCases: ProUseCase[] = [
   {
-    title: "PME industrielle",
+    sector: "PME industrielle",
     location: "Nivelles",
-    description:
-      "Installation 30 kWc sur toiture plate avec optimiseurs de puissance. Dimensionnement basé sur le profil de consommation réel de l'entreprise.",
-    keyFigure: "Réduction notable de la facture énergétique",
-    keyResult: "Production calée sur les heures d'activité",
+    scope: "Photovoltaïque toiture plate",
+    technicalSpecs: [
+      "Toiture plate, optimiseurs de puissance",
+      "Dimensionnement sur consommation réelle",
+      "Production calée sur les heures d'activité",
+    ],
+    deliverables: [
+      "Étude énergétique préalable",
+      "Plan d'implantation + schéma unifilaire",
+      "Mise en service + monitoring 12 mois",
+    ],
   },
   {
-    title: "Syndic d'immeuble",
+    sector: "Syndic d'immeuble",
     location: "Bruxelles",
-    description:
-      "Installation de 8 bornes de recharge en parking souterrain. Conformité Sibelga, gestion de charge partagée entre copropriétaires, comptage individuel.",
-    keyFigure: "8 bornes en parking souterrain",
-    keyResult: "Gestion de charge partagée conforme",
+    scope: "Bornes de recharge en parking souterrain",
+    technicalSpecs: [
+      "Conformité Sibelga + RGIE",
+      "Gestion de charge partagée entre copropriétaires",
+      "Comptage individuel par utilisateur",
+    ],
+    deliverables: [
+      "Pré-étude pour Assemblée Générale",
+      "Devis détaillé + dossier copropriété",
+      "Coordination GRD + mise en service",
+    ],
   },
   {
-    title: "Cabinet médical",
+    sector: "Cabinet médical",
     location: "Namur",
-    description:
-      "Pompe à chaleur couplée à des panneaux solaires. Autoconsommation optimisée pour les heures d'ouverture du cabinet, suivi de performance en temps réel.",
-    keyFigure: "Autoconsommation optimisée",
-    keyResult: "Chauffage + climatisation solaires",
+    scope: "Pompe à chaleur + photovoltaïque",
+    technicalSpecs: [
+      "Calcul de déperditions thermiques",
+      "Autoconsommation calée sur les heures d'ouverture",
+      "Suivi de performance en temps réel",
+    ],
+    deliverables: [
+      "Étude thermique + dimensionnement PAC",
+      "Intégration au tableau électrique existant",
+      "Monitoring conso + production",
+    ],
   },
 ];
 
@@ -394,7 +427,7 @@ export default function ProPage() {
         </div>
       </section>
 
-      {/* Use cases */}
+      {/* Use cases — structured studies (real numbers stay confidential until shared in private) */}
       <section className="section-padding">
         <div className="container-be">
           <div className="section-label">
@@ -404,50 +437,92 @@ export default function ProPage() {
             Des projets professionnels documentés
           </h2>
           <p className="mt-4 text-charcoal max-w-2xl">
-            Trois exemples de projets dimensionnés sur mesure, conformes du
-            premier coup. Chiffres détaillés disponibles lors de l&apos;étude.
+            Trois projets représentatifs, chacun dimensionné sur les données
+            réelles du client. Les chiffres détaillés (kWc, ROI, économies)
+            sont partagés en privé lors de l&apos;étude — pour respecter la
+            confidentialité de nos clients pros.
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
-            {useCases.map((useCase) => (
-              <div
-                key={useCase.title}
-                className="bg-white rounded-2xl border border-cloud overflow-hidden"
+            {useCases.map((useCase, idx) => (
+              <article
+                key={`${useCase.sector}-${idx}`}
+                className="bg-white rounded-2xl border border-cloud overflow-hidden flex flex-col"
               >
-                <div className="p-6 md:p-7">
-                  <div className="flex items-center gap-2 text-sm text-steel mb-3">
-                    <span className="inline-block w-2 h-2 rounded-full bg-amber" />
-                    {useCase.location}
+                <div className="p-6 md:p-7 flex flex-col flex-1">
+                  {/* Sector + location chips */}
+                  <div className="flex items-center justify-between gap-2 text-[11px] mb-3">
+                    <span className="inline-flex items-center gap-1.5 text-steel">
+                      <span className="inline-block w-2 h-2 rounded-full bg-amber" />
+                      {useCase.location}
+                    </span>
+                    <span className="font-medium text-amber-dark bg-amber/8 border border-amber/20 px-2 py-0.5 rounded-full whitespace-nowrap uppercase tracking-wider">
+                      {useCase.sector}
+                    </span>
                   </div>
-                  <h3 className="font-[family-name:var(--font-heading)] text-midnight text-lg">
-                    {useCase.title}
+
+                  <h3 className="font-[family-name:var(--font-heading)] text-midnight text-lg leading-snug">
+                    {useCase.scope}
                   </h3>
-                  <p className="mt-3 text-sm text-charcoal leading-relaxed">
-                    {useCase.description}
-                  </p>
-                  <div className="mt-5 pt-5 border-t border-cloud space-y-2">
-                    <div className="flex items-start gap-2 text-sm">
-                      <CheckIcon
-                        size={14}
-                        className="text-amber shrink-0 mt-0.5"
-                      />
-                      <span className="text-midnight font-medium">
-                        {useCase.keyFigure}
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-2 text-sm">
-                      <CheckIcon
-                        size={14}
-                        className="text-amber shrink-0 mt-0.5"
-                      />
-                      <span className="text-midnight font-medium">
-                        {useCase.keyResult}
-                      </span>
-                    </div>
+
+                  {/* Technical scope bullets */}
+                  <ul className="mt-4 space-y-1.5 text-[13px] text-charcoal">
+                    {useCase.technicalSpecs.map((spec) => (
+                      <li key={spec} className="flex items-start gap-2">
+                        <CheckIcon
+                          size={13}
+                          className="text-amber shrink-0 mt-0.5"
+                        />
+                        <span>{spec}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Deliverables — what the customer receives */}
+                  <div className="mt-5 pt-5 border-t border-cloud">
+                    <p className="text-[10.5px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-2">
+                      Livrables fournis
+                    </p>
+                    <ul className="space-y-1 text-[12.5px] text-steel">
+                      {useCase.deliverables.map((d) => (
+                        <li key={d}>• {d}</li>
+                      ))}
+                    </ul>
                   </div>
+
+                  {/* Verified outcome — only rendered if client gave hard numbers */}
+                  {useCase.verifiedOutcome &&
+                    useCase.verifiedOutcome.length > 0 && (
+                      <div className="mt-5 pt-5 border-t border-cloud grid grid-cols-2 gap-3">
+                        {useCase.verifiedOutcome.map((o) => (
+                          <div key={o.label}>
+                            <p className="data-figure text-lg font-bold text-midnight leading-none">
+                              {o.value}
+                            </p>
+                            <p className="text-[11px] text-steel mt-1 leading-tight">
+                              {o.label}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                  <Link
+                    href="/contact/?type=pro-etude"
+                    className="mt-auto pt-5 inline-flex items-center gap-1 text-[13px] font-semibold text-amber-dark hover:text-amber transition-colors"
+                  >
+                    Demander une étude similaire
+                    <ArrowRightIcon size={13} />
+                  </Link>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
+
+          <p className="mt-8 text-xs text-steel">
+            Les chiffres ROI, kWc installés et économies réelles sont
+            communiqués en privé pendant l&apos;étude. Aucune donnée client
+            n&apos;est publiée sans accord écrit.
+          </p>
         </div>
       </section>
 
