@@ -92,7 +92,7 @@ function FeatureCard({
   return (
     <Link
       href={href}
-      className="group relative card p-7 md:p-8 flex flex-col bg-midnight text-white overflow-hidden hover:bg-deep transition-colors animate-fade-in-up"
+      className="group relative rounded-2xl border border-charcoal/40 shadow-[0_2px_8px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.18)] p-7 md:p-8 flex flex-col bg-midnight text-white overflow-hidden hover:bg-deep hover:-translate-y-0.5 transition-all duration-300 animate-fade-in-up"
     >
       {/* Subtle radial glow */}
       <div
