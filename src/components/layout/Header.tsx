@@ -6,7 +6,6 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { PhoneIcon, MenuIcon, CloseIcon, ChevronDownIcon, getServiceIcon } from "@/lib/icons";
 import type { NavItem } from "@/data/navigation";
-import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 
 interface HeaderProps {
   navigation: NavItem[];
@@ -52,8 +51,9 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
 
         {/* Desktop nav — show only at xl+ so the row never tries to fit at the
             cross-over breakpoint where labels wrap mid-word. Below xl, the
-            hamburger takes over. */}
-        <nav className="hidden xl:flex items-center gap-1" aria-label="Main navigation">
+            hamburger takes over. ml-10 pushes the nav away from the logo so
+            "Services" doesn't visually stick to the brand. */}
+        <nav className="hidden xl:flex items-center gap-1 ml-10" aria-label="Main navigation">
           {navigation.map((item) => (
             <div
               key={item.href}
@@ -136,21 +136,11 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
           ))}
         </nav>
 
-        {/* Right side */}
+        {/* Right side — Google reviews badge and inline phone number moved
+            out of the header to leave room for the nav. Reviews are still
+            visible on the homepage hero + contact form; phone is still in
+            footer and on every mobile screen via the icon link below. */}
         <div className="flex items-center gap-2">
-          {/* Google reviews — desktop only (hides at lg- to spare the mobile space budget) */}
-          <GoogleReviewsBadge variant="inline" className="hidden xl:inline-flex mr-2" />
-
-          {/* Phone (all sizes) */}
-          <a
-            href={`tel:${siteConfig.contact.phones[0].raw}`}
-            className="hidden sm:flex items-center gap-2 text-sm font-medium text-charcoal hover:text-midnight transition-colors px-2"
-            aria-label="Appeler"
-          >
-            <PhoneIcon size={16} className="text-amber" />
-            <span className="hidden xl:inline data-figure text-[13px]">{siteConfig.contact.phones[0].label}</span>
-          </a>
-
           {/* CTA button (desktop) — whitespace-nowrap so the label can never
               split across two lines even when the surrounding row is tight. */}
           <Link
@@ -160,10 +150,10 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
             {ctaLabel}
           </Link>
 
-          {/* Phone (mobile) */}
+          {/* Phone (mobile only — small icon for one-tap call) */}
           <a
             href={`tel:${siteConfig.contact.phones[0].raw}`}
-            className="sm:hidden p-2 text-midnight"
+            className="md:hidden p-2 text-midnight"
             aria-label="Appeler"
           >
             <PhoneIcon size={20} />

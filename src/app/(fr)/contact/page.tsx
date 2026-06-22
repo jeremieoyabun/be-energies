@@ -58,35 +58,24 @@ export default function ContactPage() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="py-14 md:py-20 bg-ivory">
+      {/* Hero + form — merged into one tight section so the form is visible
+          above the fold. Previous layout stacked a tall hero (py-20) on top
+          of section-padding which buried the fields. */}
+      <section className="pt-8 md:pt-12 pb-16 md:pb-20">
         <div className="container-be">
-          <div className="max-w-2xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance">
-              Parlons de votre projet
-            </h1>
-            <p className="mt-4 text-lg text-charcoal leading-relaxed">
-              Benoît vous répond personnellement. Diagnostic énergétique gratuit, sans engagement.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Form + Sidebar */}
-      <section className="section-padding">
-        <div className="container-be">
-          <div className="grid lg:grid-cols-[1fr_380px] gap-12 lg:gap-16">
-            {/* Form */}
+          <div className="grid lg:grid-cols-[1fr_380px] gap-10 lg:gap-16">
+            {/* Form column */}
             <div>
-              <h2 className="text-xl font-[family-name:var(--font-heading)] text-midnight mb-1">
-                Demandez votre diagnostic gratuit
-              </h2>
-              <p className="text-sm text-steel">
-                Quelques précisions nous permettent de préparer un rendez-vous utile. Comptez moins de 2 minutes.
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance">
+                Parlons de votre projet
+              </h1>
+              <p className="mt-3 text-base md:text-[17px] text-charcoal leading-relaxed">
+                Benoît vous répond personnellement. Diagnostic énergétique
+                gratuit, sans engagement — moins de 2 minutes pour remplir.
               </p>
 
               {/* Reassurance row + Google rating — visible BEFORE the form fields */}
-              <div className="mt-6 mb-8 bg-ivory border border-cloud rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="mt-5 mb-7 bg-ivory border border-cloud rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <ul className="space-y-1.5 text-[13px] text-charcoal">
                   {[
                     "Diagnostic gratuit, sans engagement",
