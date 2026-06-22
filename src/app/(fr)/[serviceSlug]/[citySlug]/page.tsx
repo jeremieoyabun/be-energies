@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { services, getServiceBySlugFr } from "@/data/services";
+import { visibleServices as services, getServiceBySlugFr } from "@/data/services";
 import { getCityBySlug, getNearbyCities, getFrenchCities } from "@/data/cities";
 import { getPiegesForService } from "@/data/pieges";
 import { getTestimonialsForCity } from "@/data/testimonials";

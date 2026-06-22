@@ -7,7 +7,7 @@ import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 export const metadata = generatePageMetadata({
   title: "Onze diensten",
   description:
-    "Zonnepanelen, thuisbatterijen, laadpalen, warmtepompen, elektrische conformiteit, dakreiniging. Een aanspreekpunt voor uw energiesysteem.",
+    "Zonnepanelen, thuisbatterijen, laadpalen, warmtepompen en elektrische conformiteit. Een aanspreekpunt voor uw energiesysteem.",
   path: "/nl/diensten/",
   locale: "nl-BE",
   alternates: { fr: "/services/", nl: "/nl/diensten/" },

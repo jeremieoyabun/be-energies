@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { services, getServiceBySlugNl } from "@/data/services";
+import { visibleServices as services, getServiceBySlugNl } from "@/data/services";
 import { getCityBySlug, getNearbyCities, getDutchCities } from "@/data/cities";
 import { generateLocalPageMetadata } from "@/lib/metadata";
 import { JsonLd, localBusinessSchema, serviceSchema } from "@/lib/schema";

@@ -50,8 +50,10 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+        {/* Desktop nav — show only at xl+ so the row never tries to fit at the
+            cross-over breakpoint where labels wrap mid-word. Below xl, the
+            hamburger takes over. */}
+        <nav className="hidden xl:flex items-center gap-1" aria-label="Main navigation">
           {navigation.map((item) => (
             <div
               key={item.href}
@@ -69,7 +71,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
               {item.children ? (
                 <>
                   <button
-                    className="flex items-center gap-1 text-[13px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors"
+                    className="flex items-center gap-1 text-[13px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors whitespace-nowrap"
                     onFocus={() => setOpenDropdown(item.href)}
                     onClick={() =>
                       setOpenDropdown(
@@ -125,7 +127,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
               ) : (
                 <Link
                   href={item.href}
-                  className="text-[13px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors"
+                  className="text-[13px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -149,10 +151,11 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
             <span className="hidden xl:inline data-figure text-[13px]">{siteConfig.contact.phones[0].label}</span>
           </a>
 
-          {/* CTA button (desktop) */}
+          {/* CTA button (desktop) — whitespace-nowrap so the label can never
+              split across two lines even when the surrounding row is tight. */}
           <Link
             href={ctaHref}
-            className="hidden md:inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold text-[13px] px-5 py-2.5 rounded-xl transition-colors"
+            className="hidden md:inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold text-[13px] px-5 py-2.5 rounded-xl transition-colors whitespace-nowrap"
           >
             {ctaLabel}
           </Link>
@@ -166,9 +169,9 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
             <PhoneIcon size={20} />
           </a>
 
-          {/* Hamburger */}
+          {/* Hamburger — visible below xl (matches the nav threshold above) */}
           <button
-            className="lg:hidden p-2 text-midnight rounded-lg hover:bg-ivory transition-colors"
+            className="xl:hidden p-2 text-midnight rounded-lg hover:bg-ivory transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={mobileOpen}
@@ -180,7 +183,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-cloud bg-white">
+        <div className="xl:hidden border-t border-cloud bg-white">
           <nav className="container-be py-4 space-y-1" aria-label="Mobile navigation">
             {navigation.map((item) => (
               <div key={item.href}>

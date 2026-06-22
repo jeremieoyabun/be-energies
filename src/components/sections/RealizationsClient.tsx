@@ -13,7 +13,6 @@ const serviceFilters = [
   { slug: "bornes-de-recharge", label: "Bornes de recharge" },
   { slug: "conformite-electrique", label: "Conformité" },
   { slug: "pompes-a-chaleur", label: "Pompes à chaleur" },
-  { slug: "nettoyage-toiture", label: "Nettoyage toiture" },
 ];
 
 interface RealizationsClientProps {

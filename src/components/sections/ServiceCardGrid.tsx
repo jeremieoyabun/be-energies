@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { services } from "@/data/services";
+import { visibleServices, services } from "@/data/services";
 import { ServiceIcon, ArrowRightIcon, CheckIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
 import type { Locale } from "@/lib/types";
@@ -27,7 +27,7 @@ const FEATURE_BENEFITS: Record<Locale, string[]> = {
 
 export function ServiceCardGrid({ locale = "fr" }: ServiceCardGridProps) {
   const feature = services.find((s) => s.slug === FEATURE_SLUG);
-  const others = services.filter((s) => s.slug !== FEATURE_SLUG);
+  const others = visibleServices.filter((s) => s.slug !== FEATURE_SLUG);
 
   return (
     <section className="section-padding bg-ivory">

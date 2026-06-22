@@ -81,6 +81,7 @@ export const services: Service[] = [
     heroImage: "/img/realisations/engis-03.webp",
     pieges: [],
     relatedServices: ["panneaux-photovoltaiques", "conformite-electrique"],
+    hidden: true,
   },
   {
     slug: "pompes-a-chaleur",
@@ -114,8 +115,16 @@ export function getServiceBySlugNl(slug: string): Service | undefined {
   return services.find((s) => s.slugNl === slug);
 }
 
+/**
+ * Services exposed on discovery surfaces (nav, grids, footer, sitemap,
+ * city-x-service pages, related services). Services with `hidden: true`
+ * are filtered out — their detail page stays accessible but no link
+ * points to it.
+ */
+export const visibleServices: Service[] = services.filter((s) => !s.hidden);
+
 export function getRelatedServices(service: Service): Service[] {
   return service.relatedServices
     .map((slug) => getServiceBySlugFr(slug))
-    .filter(Boolean) as Service[];
+    .filter((s): s is Service => Boolean(s) && !s!.hidden);
 }

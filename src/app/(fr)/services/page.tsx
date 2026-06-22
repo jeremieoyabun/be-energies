@@ -7,7 +7,7 @@ import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 export const metadata = generatePageMetadata({
   title: "Nos services",
   description:
-    "Panneaux solaires, batteries, bornes de recharge, pompes à chaleur, conformité électrique, nettoyage toiture. Un seul interlocuteur pour votre système énergétique.",
+    "Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique. Un seul interlocuteur pour votre système énergétique.",
   path: "/services/",
   alternates: { fr: "/services/", nl: "/nl/diensten/" },
 });
@@ -23,7 +23,7 @@ export default function ServicesHubPage() {
       />
       <HeroSection
         headline="Tous nos services"
-        subheadline="Un seul interlocuteur pour l'ensemble de votre système énergétique. Panneaux solaires, batteries, bornes de recharge, pompes à chaleur, conformité électrique, et nettoyage toiture."
+        subheadline="Un seul interlocuteur pour l'ensemble de votre système énergétique. Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique."
         ctaLabel="Mon diagnostic gratuit"
         ctaHref="/contact/"
         variant="compact"

@@ -36,11 +36,10 @@ const PRO_SERVICE_SLUGS = [
   "batteries-domestiques",
   "bornes-de-recharge",
   "conformite-electrique",
-  "nettoyage-toiture",
 ];
 
-const proServices = services.filter((s) =>
-  PRO_SERVICE_SLUGS.includes(s.slug),
+const proServices = services.filter(
+  (s) => PRO_SERVICE_SLUGS.includes(s.slug) && !s.hidden,
 );
 
 // 7 raisons de l'ancien WP — réécrites pour Be'energies tone of voice

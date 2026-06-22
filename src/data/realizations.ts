@@ -229,9 +229,9 @@ export const realizations: Realization[] = [
   },
   {
     slug: "mons-nettoyage-toiture-inspection",
-    title: "Nettoyage toiture + inspection panneaux à Mons",
+    title: "Inspection panneaux et rendement récupéré à Mons",
     city: "mons",
-    service: "nettoyage-toiture",
+    service: "panneaux-photovoltaiques",
     panelCount: 18,
     brands: ["SunPower"],
     date: "2025-11",

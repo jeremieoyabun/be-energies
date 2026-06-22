@@ -13,11 +13,14 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
     <>
       <JsonLd data={breadcrumbSchema(items)} />
       <nav aria-label="Fil d'Ariane" className="container-be py-3">
-        <ol className="flex flex-wrap items-center gap-1.5 text-sm text-steel">
+        {/* items-baseline + leading-snug avoids the staggered look when one
+            item (the current page) is `font-medium` and the others aren't —
+            baselines align cleanly regardless of weight. */}
+        <ol className="flex flex-wrap items-baseline gap-x-1.5 gap-y-1 text-sm text-steel leading-snug">
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (
-              <li key={index} className="flex items-center gap-1.5">
+              <li key={index} className="flex items-baseline gap-1.5">
                 {index > 0 && (
                   <span className="text-cloud" aria-hidden="true">/</span>
                 )}

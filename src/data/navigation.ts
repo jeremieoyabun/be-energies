@@ -1,4 +1,4 @@
-import { services } from "./services";
+import { visibleServices } from "./services";
 
 export interface NavItem {
   label: string;
@@ -12,7 +12,7 @@ export const mainNavFr: NavItem[] = [
     label: "Services",
     href: "/services/",
     children: [
-      ...services.map((s) => ({
+      ...visibleServices.map((s) => ({
         label: s.title,
         href: `/services/${s.slug}/`,
         icon: s.icon,
@@ -33,7 +33,7 @@ export const mainNavNl: NavItem[] = [
     label: "Diensten",
     href: "/nl/diensten/",
     children: [
-      ...services.map((s) => ({
+      ...visibleServices.map((s) => ({
         label: s.titleNl,
         href: `/nl/diensten/${s.slugNl}/`,
         icon: s.icon,
@@ -53,7 +53,7 @@ export const mainNavNl: NavItem[] = [
 ];
 
 export const footerNavFr = {
-  services: services.map((s) => ({
+  services: visibleServices.map((s) => ({
     label: s.title,
     href: `/services/${s.slug}/`,
   })),

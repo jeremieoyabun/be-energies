@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
-import { services } from "@/data/services";
+import { visibleServices as services } from "@/data/services";
 import { getFrenchCities, getDutchCities } from "@/data/cities";
 import { realizations } from "@/data/realizations";
 import { blogArticles } from "@/data/blog";
