@@ -88,7 +88,7 @@ export function QuoteCheckCTA({
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3.5 items-start sm:items-center">
               <Link
-                href="/contact/?type=devis-analyse"
+                href="/devis-analyse/"
                 className="cta-glow inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-7 py-3.5 rounded-xl transition-colors"
               >
                 Faire analyser mon devis

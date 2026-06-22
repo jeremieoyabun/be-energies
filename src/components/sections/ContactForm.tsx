@@ -424,8 +424,8 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
           {status === "submitting" ? "Envoi en cours…" : "Envoyer ma demande"}
         </button>
         <p className="text-xs text-steel leading-relaxed">
-          Benoît analyse votre demande personnellement. Vous recevez une
-          réponse claire, sans pression commerciale.
+          Benoît reprend chaque demande personnellement. Vous recevez une
+          réponse claire, un calcul réaliste, aucune pression commerciale.
         </p>
       </div>
 

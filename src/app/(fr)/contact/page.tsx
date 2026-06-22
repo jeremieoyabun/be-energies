@@ -70,8 +70,10 @@ export default function ContactPage() {
                 Parlons de votre projet
               </h1>
               <p className="mt-3 text-base md:text-[17px] text-charcoal leading-relaxed">
-                Benoît vous répond personnellement. Diagnostic énergétique
-                gratuit, sans engagement — moins de 2 minutes pour remplir.
+                Benoît vous répond personnellement — pas un call center, pas
+                de pression commerciale. Diagnostic gratuit, calcul de
+                rentabilité basé sur vos vraies données. Moins de 2 minutes
+                pour remplir.
               </p>
 
               {/* Reassurance row + Google rating — visible BEFORE the form fields */}
@@ -79,7 +81,8 @@ export default function ContactPage() {
                 <ul className="space-y-1.5 text-[13px] text-charcoal">
                   {[
                     "Diagnostic gratuit, sans engagement",
-                    "Réponse personnelle de Benoît sous 24 h",
+                    "Benoît reprend chaque demande personnellement",
+                    "Calcul de rentabilité réaliste, pas d'estimation marketing",
                     "Devis détaillé sous 48 h",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2">
