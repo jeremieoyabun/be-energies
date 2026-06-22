@@ -9,6 +9,8 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { LocalProof } from "@/components/sections/LocalProof";
+import { LocalContextBlock } from "@/components/sections/LocalContextBlock";
+import { RealisationsLocales } from "@/components/sections/RealisationsLocales";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
@@ -21,6 +23,7 @@ import {
   getLocalHeadline,
   getLocalMetaDescription,
 } from "@/data/local-content";
+import { getCityContext } from "@/data/city-context";
 
 interface NlLocalPageProps {
   params: Promise<{ serviceSlug: string; citySlug: string }>;
@@ -62,6 +65,7 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
   const localContent = getServiceLocalContent(service.slugNl, "nl");
   const grd = getGrdTariff(city.grd);
   const localFaqs = generateLocalFaq(city, service, "nl");
+  const cityContext = getCityContext(citySlug);
 
   const headline = getLocalHeadline(service, city.name, "nl");
   const subheadline = `Installatie van ${service.titleNl.toLowerCase()} in ${city.name} (${city.province}) door Be'energies. Benoît Dezso, voormalig inspecteur, RESCERT-gecertificeerd.`;
@@ -102,6 +106,17 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
             )}
           </div>
 
+          {cityContext && (
+            <LocalContextBlock
+              cityName={city.name}
+              province={city.province}
+              housingNote={cityContext.housingNote}
+              contextNote={cityContext.contextNote}
+              positioningNote={cityContext.positioningNote}
+              locale="nl"
+            />
+          )}
+
           {/* First PDF lead-magnet surface on NL local pages — slotted into
               the existing intro section to keep the page tight. */}
           <PDFLeadMagnetCard variant="compact" locale="nl" />
@@ -109,6 +124,14 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
           <LocalProof city={city} locale="nl" />
         </div>
       </section>
+
+      <RealisationsLocales
+        citySlug={citySlug}
+        provinceName={city.province}
+        serviceSlug={serviceSlug}
+        maxItems={4}
+        locale="nl"
+      />
 
       {localFaqs.length > 0 && (
         <FAQSection

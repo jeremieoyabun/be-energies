@@ -11,6 +11,8 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { LocalProof } from "@/components/sections/LocalProof";
+import { LocalContextBlock } from "@/components/sections/LocalContextBlock";
+import { RealisationsLocales } from "@/components/sections/RealisationsLocales";
 import { PiegesCarousel } from "@/components/sections/PiegesCarousel";
 import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -25,6 +27,7 @@ import {
   getLocalHeadline,
   getLocalMetaDescription,
 } from "@/data/local-content";
+import { getCityContext } from "@/data/city-context";
 
 interface LocalPageProps {
   params: Promise<{ serviceSlug: string; citySlug: string }>;
@@ -68,6 +71,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
   const localContent = getServiceLocalContent(serviceSlug, "fr");
   const grd = getGrdTariff(city.grd);
   const localFaqs = generateLocalFaq(city, service, "fr");
+  const cityContext = getCityContext(citySlug);
 
   const headline = getLocalHeadline(service, city.name, "fr");
   const subheadline = `Installation de ${service.title.toLowerCase()} à ${city.name} (${city.province}) par Be'energies. Visite technique, calcul de rentabilité réaliste et conformité pensée dès la conception par Benoît Dezso, certifié RESCERT.`;
@@ -116,6 +120,17 @@ export default async function LocalPage({ params }: LocalPageProps) {
             )}
           </div>
 
+          {cityContext && (
+            <LocalContextBlock
+              cityName={city.name}
+              province={city.province}
+              housingNote={cityContext.housingNote}
+              contextNote={cityContext.contextNote}
+              positioningNote={cityContext.positioningNote}
+              locale="fr"
+            />
+          )}
+
           <LocalProof city={city} locale="fr" />
         </div>
       </section>
@@ -141,9 +156,22 @@ export default async function LocalPage({ params }: LocalPageProps) {
         </section>
       )}
 
-      {cityTestimonials.length > 0 && (
-        <TestimonialBlock testimonials={cityTestimonials} />
-      )}
+      <RealisationsLocales
+        citySlug={citySlug}
+        provinceName={city.province}
+        serviceSlug={serviceSlug}
+        maxItems={4}
+        locale="fr"
+      />
+
+      <TestimonialBlock
+        testimonials={cityTestimonials}
+        fallbackContext={{
+          citySlug,
+          provinceName: city.province,
+          serviceSlug,
+        }}
+      />
 
       {localFaqs.length > 0 && (
         <FAQSection
