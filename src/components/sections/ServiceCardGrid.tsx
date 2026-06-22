@@ -117,13 +117,13 @@ function FeatureCard({
         {title}
       </h3>
 
-      <p className="relative mt-3 text-[15px] text-silver/90 leading-relaxed">
+      <p className="relative mt-3 text-[15px] text-white/90 leading-relaxed">
         {locale === "fr"
           ? "Conception, dimensionnement et installation par un ancien inspecteur certifié RESCERT. Le calcul de rentabilité est basé sur votre consommation réelle, pas sur un modèle générique."
           : "Ontwerp, dimensionering en installatie door een voormalig inspecteur, RESCERT-gecertificeerd. De rendabiliteitsberekening is gebaseerd op uw werkelijke verbruik, niet op een generiek model."}
       </p>
 
-      <ul className="relative mt-5 grid sm:grid-cols-2 gap-x-5 gap-y-1.5 text-[13px] text-silver/85">
+      <ul className="relative mt-5 grid sm:grid-cols-2 gap-x-5 gap-y-1.5 text-[13px] text-white/90">
         {benefits.map((b) => (
           <li key={b} className="flex items-start gap-1.5">
             <CheckIcon size={13} className="text-amber-light shrink-0 mt-0.5" />
