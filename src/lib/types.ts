@@ -73,6 +73,9 @@ export interface Realization {
   caseStudy?: RealizationCaseStudy;
   clientType?: "residential" | "professional";
   category?: "standard" | "correction" | "renovation" | "premium";
+  /** Optional short, measurable outcome surfaced on the card
+   *  (e.g. "+12 % production récupérée", "Conformité passée au 1er coup"). */
+  keyResult?: string;
 }
 
 export interface BlogArticle {

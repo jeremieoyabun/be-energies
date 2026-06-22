@@ -13,6 +13,7 @@ export const realizations: Realization[] = [
     date: "2025-09",
     clientType: "residential",
     category: "premium",
+    keyResult: "Économie ~1 850 €/an, contrôle passé sans remarque",
     description:
       "Installation de 32 panneaux SunPower Maxeon 6 avec optimiseurs SolarEdge sur une toiture en tuiles orientée sud-ouest à Riemst. Le dimensionnement a été calculé pour couvrir la consommation du ménage, y compris la recharge d'un véhicule électrique. Taux d'autoconsommation estimé à 62%, avec un retour sur investissement projeté à 7 ans sous le régime actuel du tarif prosommateur en Flandre.",
     images: [
@@ -46,6 +47,7 @@ export const realizations: Realization[] = [
     date: "2025-11",
     clientType: "residential",
     category: "standard",
+    keyResult: "78 % d'autoconsommation mesurée après 3 mois",
     description:
       "Installation combinée panneaux photovoltaïques et batterie Huawei LUNA 10 kWh pour un ménage de 4 personnes à Liège. Le système a été dimensionné pour maximiser l'autoconsommation face au tarif prosommateur wallon. La batterie couvre les pics de consommation en soirée et réduit l'injection sur le réseau. Autoconsommation mesurée à 78% après trois mois de fonctionnement.",
     images: [
@@ -77,6 +79,7 @@ export const realizations: Realization[] = [
     date: "2025-10",
     clientType: "residential",
     category: "standard",
+    keyResult: "Conformité passée du premier coup, recharge sur surplus solaire",
     description:
       "Installation d'une borne Wallbox Pulsar Plus 22 kW en monophasé chez un particulier à Namur. La borne a été connectée à l'installation photovoltaïque existante de 6 kWc, avec programmation pour privilégier la recharge solaire en journée. Le tableau électrique a été adapté pour supporter la charge sans risque de surcharge.",
     images: [
@@ -107,6 +110,7 @@ export const realizations: Realization[] = [
     date: "2025-12",
     clientType: "residential",
     category: "correction",
+    keyResult: "7 infractions reprises, RGIE validé sans remarque",
     description:
       "Reprise complète du tableau électrique et mise en conformité d'une maison des années 70 à Charleroi, après un refus de contrôle initial par un autre installateur. Remplacement du coffret, ajout des différentiels manquants, reprise du câblage non conforme et mise à la terre. Contrôle passé sans aucune remarque au deuxième passage.",
     images: [
@@ -141,6 +145,7 @@ export const realizations: Realization[] = [
     date: "2026-01",
     clientType: "residential",
     category: "standard",
+    keyResult: "Pointe quart-horaire ramenée de 6.8 kW à 3.1 kW",
     description:
       "Installation combinée de 16 panneaux Longi et d'une batterie Huawei LUNA 5 kWh pour un couple à Charleroi, dans le cadre du nouveau régime tarifaire wallon. Le système a été spécifiquement dimensionné pour lisser les pics de prélèvement et réduire l'impact du tarif capacitaire (pointe quart-horaire). La batterie se décharge automatiquement lors des pics de consommation détectés par le compteur communicant.",
     images: [
@@ -174,6 +179,7 @@ export const realizations: Realization[] = [
     date: "2025-12",
     clientType: "residential",
     category: "premium",
+    keyResult: "COP saisonnier mesuré 4.1 (au-dessus du prévisionnel)",
     description:
       "Installation couplée d'une pompe à chaleur air-eau Daikin Altherma 3 et de 24 panneaux photovoltaïques Longi sur une maison 4 façades à Namur. Le dimensionnement de la PAC a été calculé sur base d'une étude thermique réelle, pas d'une estimation au m2. L'objectif : couvrir 65% des besoins électriques de la PAC par la production solaire sur l'année.",
     images: [
@@ -206,6 +212,7 @@ export const realizations: Realization[] = [
     date: "2026-02",
     clientType: "residential",
     category: "standard",
+    keyResult: "Borne 22 kW intégrée sans dépassement de puissance souscrite",
     description:
       "Installation d'une borne Wallbox Commander 2 en triphasé 22 kW dans une maison de maître à Bruxelles. L'enjeu technique principal : intégrer la borne à une installation photovoltaïque existante de 5 kWc équipée de micro-onduleurs Enphase, sans dépasser la capacité du raccordement Sibelga. Le pilotage dynamique de charge évite les dépassements de puissance souscrite.",
     images: [
@@ -237,6 +244,7 @@ export const realizations: Realization[] = [
     date: "2025-11",
     clientType: "residential",
     category: "standard",
+    keyResult: "+12 % de production récupérée + 2 connecteurs à risque détectés",
     description:
       "Nettoyage complet d'une toiture en tuiles béton colonisée par de la mousse sur une maison à Mons. L'intervention a été couplée à une inspection visuelle et électrique des 18 panneaux SunPower installés 8 ans plus tôt. Deux connecteurs MC4 présentaient des signes d'oxydation et ont été remplacés. Le rendement des panneaux a été mesuré avant et après nettoyage : gain de 12% de production récupéré.",
     images: [
@@ -268,6 +276,7 @@ export const realizations: Realization[] = [
     date: "2026-01",
     clientType: "residential",
     category: "correction",
+    keyResult: "Contrôle repassé en 10 jours ouvrables, coût -40 % vs concurrence",
     description:
       "Intervention de sauvetage sur une installation électrique à Liège après un premier contrôle RGIE échoué réalisé par un autre installateur. Le rapport d'infraction listait 9 non-conformités, dont 3 critiques. Benoît a repris le chantier, corrigé les défauts réels et identifié deux faux positifs dans le rapport initial. Contrôle repassé avec succès en 10 jours ouvrables.",
     images: [
@@ -301,6 +310,7 @@ export const realizations: Realization[] = [
     date: "2026-02",
     clientType: "residential",
     category: "premium",
+    keyResult: "+8 % vs simulation grâce aux micro-onduleurs sur 2 pans",
     description:
       "Installation haut de gamme de 28 panneaux SunPower Maxeon 6 avec micro-onduleurs Enphase IQ8+ sur une villa à Wavre. La toiture présentait deux orientations différentes (sud et est), ce qui imposait un système capable de gérer des productions asymétriques. Le choix des micro-onduleurs Enphase permet à chaque panneau de fonctionner indépendamment, sans perte liée à l'effet de chaîne.",
     images: [
@@ -336,6 +346,7 @@ export const realizations: Realization[] = [
     date: "2025-10",
     clientType: "professional",
     category: "premium",
+    keyResult: "82 % d'autoconsommation — ROI projeté à 5 ans",
     description:
       "Installation de 60 panneaux Longi Hi-MO 6 sur le toit plat d'un entrepôt PME à Nivelles. Le système de 30 kWc est équipé de deux onduleurs Huawei SUN2000-15KTL en cascade et d'un système de monitoring avancé pour le suivi de production. L'installation est dimensionnée pour couvrir 70% de la consommation de l'activité en journée, où la production solaire correspond aux heures d'exploitation.",
     images: [
@@ -370,6 +381,7 @@ export const realizations: Realization[] = [
     date: "2025-08",
     clientType: "residential",
     category: "correction",
+    keyResult: "+18 % de production après remplacement de l'onduleur sous-dimensionné",
     description:
       "Reprise complète d'une installation photovoltaïque de 14 panneaux à Tournai, initialement posée par un concurrent aujourd'hui en faillite. L'installation présentait des défauts graves : câblage DC non protégé, onduleur sous-dimensionné, fixations non conformes et absence de mise à la terre des cadres. Benoît a corrigé l'ensemble et fait passer le contrôle de conformité qui n'avait jamais été réalisé.",
     images: [
