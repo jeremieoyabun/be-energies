@@ -1,5 +1,11 @@
 import { generatePageMetadata } from "@/lib/metadata";
-import { JsonLd, organizationSchema, localBusinessSchema } from "@/lib/schema";
+import {
+  JsonLd,
+  organizationSchema,
+  localBusinessSchema,
+  webSiteSchema,
+  personSchema,
+} from "@/lib/schema";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ServiceCardGrid } from "@/components/sections/ServiceCardGrid";
@@ -27,6 +33,8 @@ export default function NlHomePage() {
     <>
       <JsonLd data={organizationSchema()} />
       <JsonLd data={localBusinessSchema()} />
+      <JsonLd data={webSiteSchema()} />
+      <JsonLd data={personSchema()} />
 
       <HeroSection
         headline="Ik heb honderden installaties geinspecteerd. Vandaag bouw ik ze."

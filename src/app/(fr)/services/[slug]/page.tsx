@@ -8,7 +8,7 @@ import { faqByService } from "@/data/faq";
 import { getFrenchCities } from "@/data/cities";
 import { getServiceContent } from "@/data/service-content";
 import { generateServiceMetadata } from "@/lib/metadata";
-import { JsonLd, serviceSchema, howToSchema } from "@/lib/schema";
+import { JsonLd, serviceSchema, howToSchema, faqSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
@@ -135,6 +135,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
     <>
       <JsonLd data={serviceSchema(service)} />
       <JsonLd data={howToSchema(`Installation de ${service.title.toLowerCase()}`, processSteps)} />
+      {serviceFaq.length > 0 && (
+        <JsonLd data={faqSchema(serviceFaq)} />
+      )}
 
       <Breadcrumbs
         items={[

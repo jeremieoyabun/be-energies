@@ -1,4 +1,5 @@
 import { generatePageMetadata } from "@/lib/metadata";
+import { JsonLd, localBusinessSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServiceCardGrid } from "@/components/sections/ServiceCardGrid";
@@ -16,6 +17,7 @@ export const metadata = generatePageMetadata({
 export default function NlServicesPage() {
   return (
     <>
+      <JsonLd data={localBusinessSchema()} />
       <Breadcrumbs
         items={[
           { name: "Home", href: "/nl/" },

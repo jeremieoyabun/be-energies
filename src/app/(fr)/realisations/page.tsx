@@ -1,4 +1,5 @@
 import { generatePageMetadata } from "@/lib/metadata";
+import { JsonLd, localBusinessSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { RealizationsClient } from "@/components/sections/RealizationsClient";
@@ -14,6 +15,7 @@ export const metadata = generatePageMetadata({
 export default function RealizationsPage() {
   return (
     <>
+      <JsonLd data={localBusinessSchema()} />
       <Breadcrumbs
         items={[
           { name: "Accueil", href: "/" },

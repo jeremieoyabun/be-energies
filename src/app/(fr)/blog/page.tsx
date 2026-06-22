@@ -1,4 +1,5 @@
 import { generatePageMetadata } from "@/lib/metadata";
+import { JsonLd, localBusinessSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { BlogPreview } from "@/components/sections/BlogPreview";
@@ -27,6 +28,7 @@ export const metadata = {
 export default function BlogIndexPage() {
   return (
     <>
+      <JsonLd data={localBusinessSchema()} />
       <Breadcrumbs
         items={[
           { name: "Accueil", href: "/" },
