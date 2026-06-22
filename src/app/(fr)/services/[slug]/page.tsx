@@ -21,6 +21,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { RelatedServices } from "@/components/sections/RelatedServices";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
+import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
 import { DataSources } from "@/components/sections/DataSources";
 import { ServiceTOC } from "@/components/sections/ServiceTOC";
 import { GlossaryInline } from "@/components/sections/GlossaryInline";
@@ -281,6 +282,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
       {servicePieges.length > 0 && (
         <PiegesCarousel pieges={servicePieges} maxItems={3} />
       )}
+
+      {/* PDF lead magnet — the natural next step right after the piège teasers */}
+      <PDFLeadMagnetCard variant="card" />
 
       {/* Pre-signature analysis (only relevant on services where the user shops around) */}
       {(slug === "panneaux-photovoltaiques" ||

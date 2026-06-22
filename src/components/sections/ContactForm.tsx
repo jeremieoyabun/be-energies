@@ -10,6 +10,7 @@ import {
   TIMELINE_LABELS,
 } from "@/lib/contact-form";
 import { services } from "@/data/services";
+import { siteConfig } from "@/lib/site-config";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -133,6 +134,21 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
           sous 24&nbsp;h ouvrées. Si vous avez déjà un devis à faire analyser,
           vous pouvez nous le transférer en réponse à l&apos;email de
           confirmation.
+        </p>
+        <ul className="text-sm text-charcoal/70 leading-relaxed mb-4 space-y-1">
+          <li>· Pas d&apos;appel surprise dans l&apos;heure</li>
+          <li>· Pas de revente de vos données</li>
+          <li>· Pas de relance hebdomadaire</li>
+        </ul>
+        <p className="text-sm text-steel leading-relaxed mb-4">
+          Si vraiment urgent, appelez Benoît au{" "}
+          <a
+            href={`tel:${siteConfig.contact.phones[0].raw}`}
+            className="font-semibold text-amber-dark hover:text-amber underline"
+          >
+            {siteConfig.contact.phones[0].label}
+          </a>
+          .
         </p>
         <button
           type="button"
@@ -421,7 +437,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
               />
             </svg>
           )}
-          {status === "submitting" ? "Envoi en cours…" : "Envoyer ma demande"}
+          {status === "submitting" ? "Envoi en cours…" : "Envoyer à Benoît"}
         </button>
         <p className="text-xs text-steel leading-relaxed">
           Benoît reprend chaque demande personnellement. Vous recevez une

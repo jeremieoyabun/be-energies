@@ -7,9 +7,9 @@ import type { FAQItem } from "@/lib/types";
 const GUIDE_PDF_URL = "/api/guide/pieges";
 
 export const metadata = generatePageMetadata({
-  title: "Guide gratuit -- Les 7 pièges à éviter avant de signer",
+  title: "Guide gratuit -- Les 10 pièges à éviter avant de signer",
   description:
-    "Téléchargez le guide gratuit par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. 7 pièges concrets, la checklist des 10 questions à poser, et les vrais chiffres 2026. PDF immédiat.",
+    "Téléchargez le guide gratuit par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. 10 pièges concrets, la checklist des 10 questions à poser, et les vrais chiffres 2026. PDF immédiat.",
   path: "/guide-pieges-a-eviter/",
 });
 
@@ -22,7 +22,7 @@ const guideFaq: FAQItem[] = [
   {
     question: "Qui a rédigé ce guide ?",
     answer:
-      "Benoît Dezso, fondateur de Be'energies, ancien inspecteur en installation électrique et certifié RESCERT. Il a constaté ces 7 pièges sur le terrain, dans des centaines d'installations qu'il a inspectées.",
+      "Benoît Dezso, fondateur de Be'energies, ancien inspecteur en installation électrique et certifié RESCERT. Il a constaté ces 10 pièges sur le terrain, dans des centaines d'installations qu'il a inspectées.",
   },
   {
     question: "Est-ce que je vais recevoir du spam ?",
@@ -43,7 +43,7 @@ export default function LeadMagnetPage() {
   ];
 
   const guideIncludes = [
-    "Les 7 pièges détaillés avec exemples réels",
+    "Les 10 pièges détaillés avec exemples réels",
     "La checklist des 10 questions à poser à votre installateur",
     "Les vrais chiffres de rentabilité 2026 (tarifs prosumer, injection, autoconsommation)",
     "Le comparatif des pratiques courantes vs. les bonnes pratiques",
@@ -70,11 +70,11 @@ export default function LeadMagnetPage() {
                 Guide gratuit — PDF immédiat
               </p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-white leading-tight">
-                Les 7 pièges à éviter avant de signer avec un installateur
+                Les 10 pièges à éviter avant de signer avec un installateur
               </h1>
               <p className="mt-5 text-lg text-silver leading-relaxed">
                 Rédigé par Benoît Dezso, ancien inspecteur en installation électrique,
-                certifié RESCERT. Il a constaté ces 7 erreurs des centaines de fois
+                certifié RESCERT. Il a constaté ces 10 erreurs des centaines de fois
                 sur le terrain. Ce guide vous montre exactement quoi vérifier
                 avant de signer quoi que ce soit.
               </p>
@@ -118,7 +118,7 @@ export default function LeadMagnetPage() {
         </div>
       </section>
 
-      {/* 7 pièges preview */}
+      {/* 10 pièges preview */}
       <section className="section-padding">
         <div className="container-be max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight text-center mb-3">

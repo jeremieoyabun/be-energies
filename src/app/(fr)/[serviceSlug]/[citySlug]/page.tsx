@@ -15,6 +15,7 @@ import { PiegesCarousel } from "@/components/sections/PiegesCarousel";
 import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
+import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
 import { ArrowRightIcon } from "@/lib/icons";
 import {
   getCityIntro,
@@ -119,8 +120,25 @@ export default async function LocalPage({ params }: LocalPageProps) {
         </div>
       </section>
 
-      {servicePieges.length > 0 && (
-        <PiegesCarousel pieges={servicePieges} maxItems={2} />
+      {/* Bundle pièges teaser + PDF lead magnet so density stays low on
+          SEO-heavy local pages. If there are no pièges for this service,
+          we still surface the lead magnet on its own. */}
+      {servicePieges.length > 0 ? (
+        <section>
+          <PiegesCarousel pieges={servicePieges} maxItems={2} />
+          <div className="bg-midnight pb-12 md:pb-16 relative">
+            <div className="absolute inset-x-0 top-0 h-px bg-white/5" aria-hidden="true" />
+            <div className="container-be relative z-10">
+              <PDFLeadMagnetCard variant="compact" className="max-w-2xl mx-auto" />
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section className="section-padding bg-midnight">
+          <div className="container-be">
+            <PDFLeadMagnetCard variant="compact" className="max-w-2xl mx-auto" />
+          </div>
+        </section>
       )}
 
       {cityTestimonials.length > 0 && (

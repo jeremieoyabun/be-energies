@@ -11,6 +11,7 @@ import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { LocalProof } from "@/components/sections/LocalProof";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
+import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
 import { ArrowRightIcon } from "@/lib/icons";
 import {
   getCityIntro,
@@ -100,6 +101,10 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
               <p>{localContent.whyBody(city, grd)}</p>
             )}
           </div>
+
+          {/* First PDF lead-magnet surface on NL local pages — slotted into
+              the existing intro section to keep the page tight. */}
+          <PDFLeadMagnetCard variant="compact" locale="nl" />
 
           <LocalProof city={city} locale="nl" />
         </div>

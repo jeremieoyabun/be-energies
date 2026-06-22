@@ -664,7 +664,7 @@ export default function PiegesPage() {
                 <p className="text-[15px] md:text-base leading-relaxed">
                   « {ch.questionToAsk} »
                 </p>
-                <p className="mt-3 text-[11.5px] text-silver/70">
+                <p className="mt-3 text-[11.5px] text-white/80">
                   Aucune réponse claire en moins d&apos;une minute → signal
                   d&apos;alerte.
                 </p>

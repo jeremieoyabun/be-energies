@@ -119,7 +119,7 @@ export function ProcessTimeline({
               <h3 className="text-lg font-semibold text-white mb-2">
                 {step.title}
               </h3>
-              <p className="text-sm text-silver/80 leading-relaxed">
+              <p className="text-sm text-white/85 leading-relaxed">
                 {step.description}
               </p>
               {index < displaySteps.length - 1 && (

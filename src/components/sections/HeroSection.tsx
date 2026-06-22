@@ -4,7 +4,7 @@ import { ArrowRightIcon, CheckIcon } from "@/lib/icons";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { HeroVideo } from "@/components/sections/HeroVideo";
 
-const VIDEO_POSTER = "/img/Be-energies_video_header.png";
+const VIDEO_POSTER = "/img/Be-energies_video_header.webp";
 
 interface HeroSectionProps {
   headline: string;
@@ -70,7 +70,7 @@ export function HeroSection({
 
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative overflow-hidden min-h-[560px] md:min-h-[640px]"
       style={
         video
           ? { background: "var(--brand-midnight)" }
@@ -132,7 +132,7 @@ export function HeroSection({
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-[family-name:var(--font-heading)] text-white leading-[1.1] text-balance hero-reveal hero-reveal-1">
               {headline}
             </h1>
-            <p className={`mt-6 md:mt-7 text-lg md:text-xl leading-relaxed hero-reveal hero-reveal-2 ${video ? "max-w-2xl mx-auto" : "max-w-2xl"} text-silver/90`}>
+            <p className={`mt-6 md:mt-7 text-lg md:text-xl leading-relaxed hero-reveal hero-reveal-2 ${video ? "max-w-2xl mx-auto" : "max-w-2xl"} text-white/90`}>
               {subheadline}
             </p>
             <div className={`mt-9 md:mt-10 flex flex-col sm:flex-row gap-4 hero-reveal hero-reveal-3 ${video ? "justify-center" : ""}`}>
@@ -155,7 +155,7 @@ export function HeroSection({
 
             {reassurances && reassurances.length > 0 && (
               <ul
-                className={`mt-6 flex flex-wrap gap-x-5 gap-y-1.5 text-[13px] text-silver/80 hero-reveal hero-reveal-4 ${video ? "justify-center" : ""}`}
+                className={`mt-6 flex flex-wrap gap-x-5 gap-y-1.5 text-[13px] text-white/85 hero-reveal hero-reveal-4 ${video ? "justify-center" : ""}`}
                 aria-label="Engagements Be'energies"
               >
                 {reassurances.map((item) => (

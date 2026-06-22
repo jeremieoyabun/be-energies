@@ -99,7 +99,7 @@ export function TrustBar({ citySpecificStat, locale = "fr" }: TrustBarProps) {
             />
             <div className="hidden sm:block text-sm border-l border-charcoal pl-5">
               <span className="text-white font-semibold">{siteConfig.founder.name}</span>
-              <p className="text-silver/80 text-[13px]">{t.roleLine}</p>
+              <p className="text-white/85 text-[13px]">{t.roleLine}</p>
             </div>
           </div>
 
@@ -114,7 +114,7 @@ export function TrustBar({ citySpecificStat, locale = "fr" }: TrustBarProps) {
                 >
                   {stat.value}
                 </div>
-                <div className="mt-1.5 text-[10.5px] text-silver/70 tracking-wide uppercase leading-[1.35]">
+                <div className="mt-1.5 text-[10.5px] text-white/80 tracking-wide uppercase leading-[1.35]">
                   {stat.label}
                 </div>
               </div>

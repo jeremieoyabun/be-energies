@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { RelatedServices } from "@/components/sections/RelatedServices";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { DataSources } from "@/components/sections/DataSources";
+import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
 
 interface BlogPageProps {
   params: Promise<{ slug: string }>;
@@ -122,6 +123,12 @@ export default async function BlogArticlePage({ params }: BlogPageProps) {
           )}
 
           <DataSources />
+
+          {/* Inline PDF lead magnet — a better next step than the dark
+              sales-call CTA below for early-funnel blog readers. */}
+          <div className="mt-12">
+            <PDFLeadMagnetCard variant="inline" />
+          </div>
         </div>
       </article>
 

@@ -143,12 +143,12 @@ export default function ContactPage() {
                     </span>
                   </li>
                 </ul>
-                <div className="pt-3 mt-3 border-t border-charcoal text-xs text-silver/80">
+                <div className="pt-3 mt-3 border-t border-charcoal text-xs text-white/85">
                   <p className="font-semibold text-white mb-1.5">
                     Horaires
                   </p>
                   <p>Lundi – vendredi : 8 h – 17 h</p>
-                  <p className="text-silver/60">Samedi &amp; dimanche : fermé</p>
+                  <p className="text-white/75">Samedi &amp; dimanche : fermé</p>
                 </div>
               </div>
 

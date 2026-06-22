@@ -84,10 +84,10 @@ export function ComparisonTable({
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-midnight">
-                <th className="text-left py-4 px-5 text-silver/80 font-medium text-xs uppercase tracking-wider w-[22%]">
+                <th className="text-left py-4 px-5 text-white/85 font-medium text-xs uppercase tracking-wider w-[22%]">
                   Critère
                 </th>
-                <th className="text-left py-4 px-5 font-medium text-silver/80 text-xs uppercase tracking-wider w-[39%] border-l border-white/10">
+                <th className="text-left py-4 px-5 font-medium text-white/85 text-xs uppercase tracking-wider w-[39%] border-l border-white/10">
                   Pratique courante
                 </th>
                 <th className="text-left py-4 px-5 font-bold text-amber text-xs uppercase tracking-wider w-[39%] border-l border-white/10">

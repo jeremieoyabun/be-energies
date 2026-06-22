@@ -19,6 +19,7 @@ import { RealizationGrid } from "@/components/sections/RealizationGrid";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
+import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
 import { pieges } from "@/data/pieges";
 import { testimonials } from "@/data/testimonials";
 import { realizations } from "@/data/realizations";
@@ -57,7 +58,7 @@ export default function HomePage() {
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
         badge="Certifié RESCERT · Ancien inspecteur en électricité"
         reassurances={["Devis clair sous 48 h", "Visite technique réelle", "Un seul interlocuteur"]}
-        video="/vds/Be-energies_video_header.webm"
+        video="/vds/Be-energies_video_header.optimized.webm"
       />
 
       {/* 2. TRUST BAR — verified social proof + RESCERT immediately after the hero */}
@@ -82,6 +83,14 @@ export default function HomePage() {
       <ComparisonTable />
       <QuoteCheckCTA variant="dark" />
       <PiegesCarousel pieges={pieges.slice(0, 3)} />
+      {/* PDF lead magnet — converts homepage piège teaser viewers in one
+          click instead of bouncing them to /pieges-a-eviter/. */}
+      <section className="bg-midnight pb-16 md:pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 texture-dots opacity-60" aria-hidden="true" />
+        <div className="container-be relative z-10">
+          <PDFLeadMagnetCard variant="inline" />
+        </div>
+      </section>
 
       {/* 8. PROOF — real realizations */}
       <RealizationGrid

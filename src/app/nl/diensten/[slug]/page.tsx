@@ -21,6 +21,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { RelatedServices } from "@/components/sections/RelatedServices";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { DataSources } from "@/components/sections/DataSources";
+import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
 import { ServiceTOC } from "@/components/sections/ServiceTOC";
 import { GlossaryInline } from "@/components/sections/GlossaryInline";
 import { ReadMore } from "@/components/ReadMore";
@@ -218,6 +219,10 @@ export default async function NlServicePage({ params }: NlServicePageProps) {
           </div>
         </section>
       )}
+
+      {/* First Pièges surface on the NL service page — replaces the missing
+          carousel with a high-density PDF download. */}
+      <PDFLeadMagnetCard variant="card" locale="nl" />
 
       <ProcessTimeline locale="nl" />
 

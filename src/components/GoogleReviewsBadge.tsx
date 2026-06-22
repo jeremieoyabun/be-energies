@@ -74,8 +74,8 @@ export function GoogleReviewsBadge({
           ))}
         </span>
         <span className="data-figure font-bold text-white">{ratingLabel}</span>
-        <span className="text-silver/60">·</span>
-        <span className="text-silver/80">{count} avis Google</span>
+        <span className="text-white/70">·</span>
+        <span className="text-white/85">{count} avis Google</span>
       </a>
     );
   }

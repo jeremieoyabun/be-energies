@@ -126,7 +126,7 @@ export function CookieBanner({ locale = "fr" }: CookieBannerProps = {}) {
           </span>
           <div>
             <p className="text-white font-semibold text-sm mb-1">{t.title}</p>
-            <p className="text-xs text-silver/80 leading-relaxed">{t.body}</p>
+            <p className="text-xs text-white/90 leading-relaxed">{t.body}</p>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-2.5">
@@ -146,7 +146,7 @@ export function CookieBanner({ locale = "fr" }: CookieBannerProps = {}) {
           </button>
           <Link
             href={t.moreHref}
-            className="hidden sm:inline-flex items-center justify-center text-silver/70 hover:text-white text-xs underline self-center px-3"
+            className="hidden sm:inline-flex items-center justify-center text-white/80 hover:text-white text-xs underline self-center px-3"
           >
             {t.more}
           </Link>

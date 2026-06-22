@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, localBusinessSchema, faqSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { FAQSection } from "@/components/sections/FAQSection";
+import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import {
   CheckIcon,
@@ -149,7 +149,7 @@ export default function DevisAnalysePage() {
                 Faites vérifier votre devis solaire par un ancien inspecteur.
               </h1>
 
-              <p className="mt-5 text-[16px] md:text-[17px] text-silver/90 leading-relaxed max-w-2xl">
+              <p className="mt-5 text-[16px] md:text-[17px] text-white/90 leading-relaxed max-w-2xl">
                 Benoît Dezso — ancien inspecteur en installation électrique,
                 certifié RESCERT — analyse personnellement votre devis
                 photovoltaïque, batterie ou borne de recharge. Vous recevez un
@@ -161,7 +161,7 @@ export default function DevisAnalysePage() {
                 {reassurances.map((r) => (
                   <li
                     key={r}
-                    className="flex items-start gap-2.5 text-[14px] text-silver/85"
+                    className="flex items-start gap-2.5 text-[14px] text-white/90"
                   >
                     <CheckIcon
                       size={15}
@@ -371,7 +371,7 @@ export default function DevisAnalysePage() {
                     </a>
                   </li>
                 </ul>
-                <p className="pt-3 mt-3 border-t border-charcoal text-xs text-silver/80 leading-relaxed">
+                <p className="pt-3 mt-3 border-t border-charcoal text-xs text-white/85 leading-relaxed">
                   Joignez votre devis directement à l&apos;email — il atterrit
                   dans la boîte de Benoît.
                 </p>
@@ -395,22 +395,9 @@ export default function DevisAnalysePage() {
                 </div>
               </div>
 
-              <Link
-                href="/pieges-a-eviter/"
-                className="block bg-white border border-cloud rounded-xl p-5 hover:border-amber/40 transition-colors group"
-              >
-                <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-2">
-                  Aller plus loin
-                </p>
-                <p className="text-[14px] text-charcoal leading-relaxed">
-                  Les pièges les plus fréquents dans les devis solaires belges
-                  — guide complet.
-                </p>
-                <p className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-amber-dark group-hover:text-amber transition-colors">
-                  Lire le guide
-                  <ArrowRightIcon size={13} />
-                </p>
-              </Link>
+              {/* Upgrades the weakest CTA in the sidebar into a direct PDF
+                  download — high-intent quote-checkers are primed for it. */}
+              <PDFLeadMagnetCard variant="compact" />
             </aside>
           </div>
         </div>

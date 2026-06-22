@@ -254,7 +254,7 @@ export default function ProPage() {
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-[family-name:var(--font-heading)] text-white leading-[1.1] text-balance">
                 Optimisez votre retour sur investissement énergétique
               </h1>
-              <p className="mt-7 text-lg md:text-xl leading-relaxed text-silver/90 max-w-2xl">
+              <p className="mt-7 text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl">
                 PME, grandes entreprises, syndics et institutions en Belgique
                 et au Luxembourg : un seul interlocuteur technique pour des
                 installations conformes, dimensionnées juste et rentables.
@@ -277,7 +277,7 @@ export default function ProPage() {
                   </span>
                 </a>
               </div>
-              <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-silver/80">
+              <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-white/85">
                 {[
                   "Visite technique réelle",
                   "Étude sur mesure",
@@ -547,7 +547,7 @@ export default function ProPage() {
                 <h3 className="font-semibold text-white text-lg mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm text-silver/80 leading-relaxed">
+                <p className="text-sm text-white/85 leading-relaxed">
                   {step.description}
                 </p>
                 {index < processSteps.length - 1 && (

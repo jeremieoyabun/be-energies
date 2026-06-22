@@ -70,7 +70,7 @@ export function CTADiagnostic({
         </h2>
         <p
           className={`mt-4 leading-relaxed text-[15px] ${
-            isDark ? "text-silver/90" : "text-charcoal"
+            isDark ? "text-white/90" : "text-charcoal"
           }`}
         >
           {description ?? d.description}
@@ -82,7 +82,7 @@ export function CTADiagnostic({
           {ctaLabel ?? d.ctaLabel}
           <ArrowRightIcon size={18} />
         </Link>
-        <div className={`mt-5 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm ${isDark ? "text-silver/60" : "text-steel"}`}>
+        <div className={`mt-5 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm ${isDark ? "text-white/75" : "text-steel"}`}>
           <span>{d.micro1}</span>
           <span>{d.micro2}</span>
           <span>{d.micro3}</span>

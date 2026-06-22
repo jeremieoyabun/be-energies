@@ -60,7 +60,7 @@ export function QuoteCheckCTA({
 
             <p
               className={`mt-5 text-[15px] md:text-base leading-relaxed max-w-2xl ${
-                isDark ? "text-silver/90" : "text-charcoal"
+                isDark ? "text-white/90" : "text-charcoal"
               }`}
             >
               Envoyez-nous votre devis (PDF, photo, peu importe). Benoît l&apos;analyse
@@ -74,7 +74,7 @@ export function QuoteCheckCTA({
                 <li
                   key={item}
                   className={`flex items-start gap-2.5 text-sm ${
-                    isDark ? "text-silver/85" : "text-charcoal"
+                    isDark ? "text-white/90" : "text-charcoal"
                   }`}
                 >
                   <CheckIcon
@@ -96,7 +96,7 @@ export function QuoteCheckCTA({
               </Link>
               <span
                 className={`text-xs ${
-                  isDark ? "text-silver/60" : "text-steel"
+                  isDark ? "text-white/75" : "text-steel"
                 }`}
               >
                 Réponse écrite sous 48 h · Pas de pression commerciale

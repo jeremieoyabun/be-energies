@@ -55,7 +55,7 @@ export function PiegesCarousel({
               <h3 className="text-[17px] font-semibold text-white mb-3 leading-snug">
                 {piege.title}
               </h3>
-              <p className="text-sm text-silver/80 leading-relaxed">
+              <p className="text-sm text-white/85 leading-relaxed">
                 {piege.problem}
               </p>
               <p className="mt-3 text-sm text-amber-light/80 leading-relaxed">
