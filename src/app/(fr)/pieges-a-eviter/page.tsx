@@ -34,6 +34,10 @@ interface Chapter {
   founderInsight?: string;
   serviceLink?: { label: string; href: string };
   image?: { src: string; alt: string };
+  /** One short, punchy question the visitor can copy/paste verbatim into
+   *  their next conversation with an installer. Rendered as a copyable
+   *  callout under the founder insight. */
+  questionToAsk?: string;
 }
 
 const chapters: Chapter[] = [
@@ -61,6 +65,8 @@ const chapters: Chapter[] = [
     ],
     founderInsight:
       "J'ai vu des devis où la 'prime' annoncée correspondait exactement à la marge cachée. Le client payait le prix du marché en croyant bénéficier d'une aide.",
+    questionToAsk:
+      "Pouvez-vous me donner le nom exact du dispositif de prime, l'organisme payeur et le lien vers le texte officiel ?",
     serviceLink: { label: "Installation photovoltaïque", href: "/services/panneaux-photovoltaiques/" },
     image: {
       src: "/img/pieges/primes.webp",
@@ -99,6 +105,8 @@ const chapters: Chapter[] = [
     ],
     founderInsight:
       "Chez Be'energies, on ne promet pas 25 ans de garantie pour disparaître dans 3 ans. On détaille par écrit ce qui est garanti, par qui, et pendant combien de temps. Et on est là depuis le début.",
+    questionToAsk:
+      "La main-d'œuvre et le déplacement sont-ils garantis combien de temps, et que se passe-t-il si votre entreprise cesse son activité dans 5 ans ?",
     image: {
       src: "/img/pieges/02-garanties.webp",
       alt: "Technicien sur toiture solaire vérifiant une installation sur tablette, lumière de soleil couchant",
@@ -131,6 +139,8 @@ const chapters: Chapter[] = [
     ],
     founderInsight:
       "Le devis le moins cher est rarement le moins cher à 25 ans. Je vois régulièrement des installations à 8 000 EUR qui nécessitent 2 000 EUR de corrections après le contrôle de conformité.",
+    questionToAsk:
+      "Pouvez-vous me lister la marque + le modèle exact des panneaux, de l'onduleur et du système de fixation, plus la section de câble AC prévue ?",
     serviceLink: { label: "Notre approche photovoltaïque", href: "/services/panneaux-photovoltaiques/" },
     image: {
       src: "/img/pieges/03-devis-compare.webp",
@@ -308,6 +318,8 @@ const chapters: Chapter[] = [
     ],
     founderInsight:
       "Un retour en 5-7 ans, c'est un rendement d'environ 12% par an. Aucun placement bancaire ne fait mieux. Pourquoi certains installateurs ressentent-ils le besoin de promettre 2 ans ? Parce que ça signe des contrats. Mais ça crée aussi des clients déçus.",
+    questionToAsk:
+      "Sur quel prix d'électricité, quel tarif d'injection et quel taux d'autoconsommation votre calcul de retour est-il basé ?",
     serviceLink: { label: "Notre calcul de rentabilité", href: "/services/panneaux-photovoltaiques/" },
     image: {
       src: "/img/pieges/06-roi.webp",
@@ -641,6 +653,22 @@ export default function PiegesPage() {
                   — Benoît Dezso, ancien inspecteur, certifié RESCERT
                 </cite>
               </blockquote>
+            )}
+
+            {/* Question to ask the installer — designed to be copied verbatim */}
+            {ch.questionToAsk && (
+              <div className="mt-6 bg-midnight text-white rounded-xl p-5 md:p-6">
+                <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber mb-2">
+                  Question à poser à votre installateur
+                </p>
+                <p className="text-[15px] md:text-base leading-relaxed">
+                  « {ch.questionToAsk} »
+                </p>
+                <p className="mt-3 text-[11.5px] text-silver/70">
+                  Aucune réponse claire en moins d&apos;une minute → signal
+                  d&apos;alerte.
+                </p>
+              </div>
             )}
 
             {/* Service link */}
