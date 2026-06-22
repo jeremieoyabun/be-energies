@@ -60,39 +60,41 @@ export default function HomePage() {
         video="/vds/Be-energies_video_header.webm"
       />
 
-      {/* 2. TRUST BAR */}
+      {/* 2. TRUST BAR — verified social proof + RESCERT immediately after the hero */}
       <TrustBar />
 
-      {/* 3. RENTABILITY PROOF */}
+      {/* 3. PHOTOVOLTAIC REALITY 2026 — the honest profitability angle */}
       <RentabilityProof />
 
-      {/* 4. SERVICES */}
+      {/* 4. SERVICES — what we do */}
       <ServiceCardGrid />
 
-      {/* 5. FOUNDER */}
+      {/* 5. FOUNDER CREDIBILITY — Benoît's inspector story */}
       <FounderCredibility variant="full" />
 
-      {/* 6. COMPARISON + PIEGES */}
-      <ComparisonTable />
-      <PiegesCarousel pieges={pieges.slice(0, 3)} />
-
-      {/* 6b. QUOTE-CHECK conversion block */}
-      <QuoteCheckCTA variant="light" />
-
-      {/* 7. PROCESS */}
+      {/* 6. METHOD — how Benoît works (sits with founder, builds the trust block) */}
       <ProcessTimeline />
 
-      {/* 8. TESTIMONIALS + REALIZATIONS */}
-      <TestimonialBlock
-        testimonials={heroTestimonials}
-        title="Ils nous ont fait confiance"
-      />
+      {/* 7. DECISION HELP — comparison + quote-check + pièges form a tight
+              "before you sign anything" block; QuoteCheckCTA is intentionally
+              dark to bridge the ivory ComparisonTable and the midnight
+              PiegesCarousel, framing all three as one visual unit. */}
+      <ComparisonTable />
+      <QuoteCheckCTA variant="dark" />
+      <PiegesCarousel pieges={pieges.slice(0, 3)} />
 
+      {/* 8. PROOF — real realizations */}
       <RealizationGrid
         realizations={realizations}
         maxItems={4}
         showViewAll
         featured
+      />
+
+      {/* 9. REVIEWS — what clients say + Google rating badge */}
+      <TestimonialBlock
+        testimonials={heroTestimonials}
+        title="Ils nous ont fait confiance"
       />
 
       {/* 9. LOCAL COVERAGE */}
