@@ -55,6 +55,35 @@ const nextConfig: NextConfig = {
       // Catch-all for old WordPress pagination
       { source: "/page/:num/", destination: "/", permanent: true },
       { source: "/blog/page/:num/", destination: "/blog/", permanent: true },
+
+      // Common WordPress homepage slugs (FR + EN)
+      { source: "/accueil/", destination: "/", permanent: true },
+      { source: "/home/", destination: "/", permanent: true },
+
+      // Common WP service-list aliases
+      { source: "/solutions/", destination: "/services/", permanent: true },
+      { source: "/prestations/", destination: "/services/", permanent: true },
+      { source: "/nos-prestations/", destination: "/services/", permanent: true },
+
+      // Old EN slugs sometimes left over from WP themes
+      { source: "/solar-panels/", destination: "/services/panneaux-photovoltaiques/", permanent: true },
+      { source: "/heat-pump/", destination: "/services/pompes-a-chaleur/", permanent: true },
+      { source: "/heat-pumps/", destination: "/services/pompes-a-chaleur/", permanent: true },
+      { source: "/ev-charger/", destination: "/services/bornes-de-recharge/", permanent: true },
+      { source: "/ev-charging/", destination: "/services/bornes-de-recharge/", permanent: true },
+
+      // Common legal-page slugs
+      { source: "/cgv/", destination: "/mentions-legales/", permanent: true },
+      { source: "/cgu/", destination: "/mentions-legales/", permanent: true },
+      { source: "/conditions-generales/", destination: "/mentions-legales/", permanent: true },
+      { source: "/confidentialite/", destination: "/politique-de-confidentialite/", permanent: true },
+      { source: "/vie-privee/", destination: "/politique-de-confidentialite/", permanent: true },
+      { source: "/cookies/", destination: "/politique-de-confidentialite/", permanent: true },
+
+      // Route old "analyse de devis" intents to the new dedicated landing
+      { source: "/analyse-devis/", destination: "/devis-analyse/", permanent: true },
+      { source: "/verification-devis/", destination: "/devis-analyse/", permanent: true },
+      { source: "/avis-devis/", destination: "/devis-analyse/", permanent: true },
     ];
   },
 };
