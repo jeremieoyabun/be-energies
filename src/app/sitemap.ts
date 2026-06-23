@@ -4,6 +4,7 @@ import { visibleServices as services } from "@/data/services";
 import { getFrenchCities, getDutchCities } from "@/data/cities";
 import { realizations } from "@/data/realizations";
 import { blogArticles } from "@/data/blog";
+import { getAllPillarGuides } from "@/data/pillar-guides";
 
 const BASE = siteConfig.url;
 
@@ -22,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/devis-analyse/`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/pro/`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/guide-pieges-a-eviter/`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/guides/`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/mentions-legales/`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${BASE}/politique-de-confidentialite/`, changeFrequency: "yearly", priority: 0.2 },
     // NL
@@ -68,6 +70,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Pillar guides - high commercial value, prioritised above blog posts.
+  const guidePages: MetadataRoute.Sitemap = getAllPillarGuides().map((g) => ({
+    url: `${BASE}/guides/${g.slug}/`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   return [
     ...staticPages,
     ...servicePages,
@@ -75,5 +84,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...nlLocalPages,
     ...realizationPages,
     ...blogPages,
+    ...guidePages,
   ];
 }

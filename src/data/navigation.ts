@@ -21,6 +21,7 @@ export const mainNavFr: NavItem[] = [
     ],
   },
   { label: "Pièges à éviter", href: "/pieges-a-eviter/" },
+  { label: "Guides", href: "/guides/" },
   { label: "Réalisations", href: "/realisations/" },
   { label: "Espace Pro", href: "/pro/" },
   { label: "Blog", href: "/blog/" },
@@ -59,6 +60,7 @@ export const footerNavFr = {
   })),
   informations: [
     { label: "Pièges à éviter", href: "/pieges-a-eviter/" },
+    { label: "Guides", href: "/guides/" },
     { label: "Réalisations", href: "/realisations/" },
     { label: "Espace Pro", href: "/pro/" },
     { label: "Blog", href: "/blog/" },
