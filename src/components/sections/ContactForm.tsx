@@ -379,12 +379,12 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
             id="gdpr"
             name="gdpr"
             required
-            className="mt-1 accent-amber"
+            className="mt-0.5 h-5 w-5 shrink-0 accent-amber cursor-pointer"
             {...ariaProps("gdpr")}
           />
           <label
             htmlFor="gdpr"
-            className="text-xs text-steel leading-relaxed"
+            className="text-sm text-charcoal leading-relaxed cursor-pointer"
           >
             J&apos;accepte que mes données soient utilisées pour me recontacter
             dans le cadre de ma demande.{" "}
@@ -437,7 +437,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
               />
             </svg>
           )}
-          {status === "submitting" ? "Envoi en cours…" : "Envoyer à Benoît"}
+          {status === "submitting" ? "Envoi en cours…" : "Envoyer"}
         </button>
         <p className="text-xs text-steel leading-relaxed">
           Benoît reprend chaque demande personnellement. Vous recevez une
