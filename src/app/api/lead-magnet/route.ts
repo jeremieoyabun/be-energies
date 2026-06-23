@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 import { validateLeadMagnet, LEAD_MAGNETS } from "@/lib/lead-magnet";
 import { signLeadToken } from "@/lib/lead-token";
 
@@ -9,6 +10,14 @@ const BREVO_BASE = "https://api.brevo.com";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const EMAIL_TOKEN_TTL_MS = 7 * DAY_MS;
+
+function parseRecipients(raw: string | undefined): string[] {
+  if (!raw) return [];
+  return raw
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
 
 const escapeHtml = (s: string) =>
   s
@@ -202,6 +211,47 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error(
       "[lead-magnet] brevo email error:",
+      err instanceof Error ? err.message : "unknown",
+    );
+  }
+
+  // 4. Real-time internal notification via Resend to info@be-energies.be
+  //    (or whoever CONTACT_TO_EMAIL points at). Belt-and-suspenders so a
+  //    Brevo CRM browse isn't the only place this lead exists — Benoît
+  //    sees it land in the same inbox as contact-form submissions.
+  //    Failure here is logged but never blocks the user flow.
+  try {
+    const resendKey = process.env.RESEND_API_KEY;
+    const resendFrom = process.env.CONTACT_FROM_EMAIL;
+    const resendTo = parseRecipients(
+      process.env.CONTACT_TO_EMAIL ?? "info@be-energies.be",
+    );
+    if (resendKey && resendFrom && resendTo.length > 0) {
+      const resend = new Resend(resendKey);
+      const subjectLine = `Lead magnet — ${magnet.title} — ${data.email}`;
+      const text = [
+        `Nouveau téléchargement Be'energies`,
+        `Guide : ${magnet.title}`,
+        `Email : ${data.email}`,
+        data.firstName ? `Prénom : ${data.firstName}` : "",
+        data.sourcePage ? `Source : ${data.sourcePage}` : "",
+        `Opt-in marketing : ${data.consentMarketing ? "OUI" : "non"}`,
+        ``,
+        `Le contact est déjà créé dans la liste Brevo correspondante.`,
+      ]
+        .filter(Boolean)
+        .join("\n");
+      await resend.emails.send({
+        from: resendFrom,
+        to: resendTo,
+        replyTo: data.email,
+        subject: subjectLine,
+        text,
+      });
+    }
+  } catch (err) {
+    console.error(
+      "[lead-magnet] resend notification error:",
       err instanceof Error ? err.message : "unknown",
     );
   }

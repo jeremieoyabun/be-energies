@@ -124,14 +124,19 @@ export async function POST(request: Request) {
     }
   }
 
-  const recipients = parseRecipients(process.env.CONTACT_TO_EMAIL);
+  // Recipient(s) default to info@be-energies.be so a missed env var
+  // doesn't silently drop leads on the floor. From-address + API key
+  // still come strictly from env because Resend requires a verified
+  // sender domain and there's no safe default for that.
+  const recipients = parseRecipients(
+    process.env.CONTACT_TO_EMAIL ?? "info@be-energies.be",
+  );
   const fromAddress = process.env.CONTACT_FROM_EMAIL;
   const apiKey = process.env.RESEND_API_KEY;
 
-  // Hard fail visibly if mail isn't configured so we never silently lose leads.
   if (recipients.length === 0 || !fromAddress || !apiKey) {
     console.error(
-      "[contact] missing env: CONTACT_TO_EMAIL / CONTACT_FROM_EMAIL / RESEND_API_KEY",
+      "[contact] missing env: CONTACT_FROM_EMAIL / RESEND_API_KEY",
     );
     return NextResponse.json(
       {

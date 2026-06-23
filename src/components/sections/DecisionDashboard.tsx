@@ -58,14 +58,14 @@ export function DecisionDashboard({ children, steps }: DecisionDashboardProps) {
               key={`${step.number}-${idx}`}
               className="flex items-center gap-3 flex-1 last:flex-none"
             >
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-3">
                 <span
-                  className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-[10.5px] font-bold tabular-nums ${TONE_CIRCLE[tone]}`}
+                  className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-[12px] font-bold tabular-nums ${TONE_CIRCLE[tone]}`}
                 >
                   {step.number}
                 </span>
                 <span
-                  className={`text-[11px] font-semibold tracking-[0.12em] uppercase whitespace-nowrap ${TONE_LABEL[tone]}`}
+                  className={`text-[13px] font-bold tracking-[0.1em] uppercase whitespace-nowrap ${TONE_LABEL[tone]}`}
                 >
                   {step.label}
                 </span>
@@ -96,7 +96,7 @@ export function DecisionDashboard({ children, steps }: DecisionDashboardProps) {
               className="flex items-center gap-2"
             >
               <span
-                className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[9.5px] font-bold tabular-nums ${TONE_CIRCLE[tone]}`}
+                className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-[11.5px] font-bold tabular-nums ${TONE_CIRCLE[tone]}`}
               >
                 {step.number}
               </span>

@@ -415,13 +415,20 @@ html {
 /* ── Form styling ── */
 .form-input {
   width: 100%;
-  border: 1.5px solid var(--brand-cloud);
+  /* Border is the main contrast lever on a white field on a white page;
+     keep it 1.5px but anchor it on steel rather than the very light
+     cloud token, so empty fields still read as deliberate inputs. */
+  border: 1.5px solid color-mix(in srgb, var(--brand-steel) 30%, var(--brand-cloud) 70%);
   border-radius: 0.75rem;
-  padding: 0.875rem 1rem;
+  padding: 0.95rem 1rem;
   font-size: 0.9375rem;
   background: var(--brand-white);
   color: var(--brand-midnight);
+  font-weight: 500;
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.form-input:hover {
+  border-color: color-mix(in srgb, var(--brand-steel) 50%, var(--brand-cloud) 50%);
 }
 .form-input:focus {
   outline: none;
@@ -429,16 +436,17 @@ html {
   box-shadow: 0 0 0 3px var(--brand-amber-glow);
 }
 .form-input::placeholder {
-  color: var(--brand-silver);
+  color: var(--brand-steel);
+  opacity: 0.7;
 }
 
 .form-label {
   display: block;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--brand-charcoal);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brand-midnight);
   margin-bottom: 0.5rem;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.005em;
 }
 
 /* Text balance - better heading line wrapping */

@@ -163,12 +163,12 @@ export function RentabilityObjection2026() {
                         section altitude. */}
                     <div className="flex items-center gap-3 mb-4">
                       <span
-                        className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-[12px] font-bold tabular-nums ${t.badge}`}
+                        className={`inline-flex items-center justify-center w-9 h-9 rounded-full text-[13px] font-bold tabular-nums ${t.badge}`}
                       >
                         {number}
                       </span>
                       <span
-                        className={`text-[11px] font-semibold tracking-[0.14em] uppercase ${t.eyebrow}`}
+                        className={`text-[12.5px] md:text-[13px] font-bold tracking-[0.1em] uppercase ${t.eyebrow}`}
                       >
                         {eyebrow}
                       </span>
