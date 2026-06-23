@@ -88,13 +88,13 @@ export function RealizationFeaturedGrid({
       <div className="container-be">
         <div className="max-w-2xl mb-10">
           <SectionLabel>Projets en vedette</SectionLabel>
-          <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.1]">
             Trois chantiers qui résument notre approche
           </h2>
-          <p className="mt-3 text-charcoal leading-relaxed">
-            Une correction de chantier raté par un autre installateur, une installation premium
-            dimensionnée au plus juste, et une PME équipée pour absorber sa consommation diurne.
-            Trois preuves concrètes du métier de Be&apos;energies.
+          <p className="mt-4 text-charcoal/85 text-[15.5px] leading-relaxed">
+            Une correction de chantier raté par un autre installateur, une
+            installation premium dimensionnée au plus juste, et une PME
+            équipée pour absorber sa consommation diurne.
           </p>
         </div>
 
@@ -133,8 +133,8 @@ export function RealizationFeaturedGrid({
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-center gap-1.5 text-[11px] text-steel font-semibold uppercase tracking-wider mb-2">
-                    <MapPinIcon size={12} />
+                  <div className="flex items-center gap-1.5 text-[12.5px] md:text-[13px] text-amber-dark font-bold uppercase tracking-[0.1em] mb-2.5 font-[family-name:var(--font-mono)]">
+                    <MapPinIcon size={13} />
                     {buildPrimaryLabel(r, serviceLabel)}
                   </div>
                   <h3 className="text-lg md:text-xl font-[family-name:var(--font-heading)] text-midnight group-hover:text-amber-dark transition-colors leading-snug text-balance">

@@ -343,13 +343,16 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 RealizationGrid + TestimonialBlock stack. */}
         <ProofSystem
           testimonials={pvTestimonials}
+          // Strict rule: every slug here MUST point at a realization with
+          // at least one real photo, otherwise the trio collapses to the
+          // shared placeholder and reads as template content.
           featuredSlugs={[
             "riemst-32-panneaux",
-            "wavre-pv-premium-28-panneaux",
-            "tournai-correction-installation-defaillante",
+            "liege-installation-pv-batterie",
+            "nivelles-pv-pme",
           ]}
           title="La preuve, sur le terrain"
-          intro="Chantiers PV récents, projets phares, avis vérifiés. Trois échelles de preuve regroupées au même endroit."
+          intro="Chantiers PV récents, projets phares, avis vérifiés."
         />
 
         {/* 6. CTA DOUBLE CHEMIN — start a project vs. already hold a quote */}
