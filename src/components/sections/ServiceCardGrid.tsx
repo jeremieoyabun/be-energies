@@ -104,8 +104,8 @@ function FeatureCard({
         </span>
       </div>
 
-      <div className="relative grid md:grid-cols-[1fr_auto] gap-6 md:gap-7 items-start">
-        <div className="min-w-0">
+      <div className="relative grid md:grid-cols-[1fr_280px] gap-6 md:gap-8 items-stretch flex-1">
+        <div className="min-w-0 flex flex-col">
           <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white leading-tight">
             {title}
           </h3>
@@ -115,34 +115,34 @@ function FeatureCard({
               ? "Conception, dimensionnement et installation par un ancien inspecteur certifié RESCERT. Le calcul de rentabilité est basé sur votre consommation réelle, pas sur un modèle générique."
               : "Ontwerp, dimensionering en installatie door een voormalig inspecteur, RESCERT-gecertificeerd. De rendabiliteitsberekening is gebaseerd op uw werkelijke verbruik, niet op een generiek model."}
           </p>
+
+          <ul className="mt-5 grid sm:grid-cols-2 gap-x-5 gap-y-1.5 text-[13px] text-white/90">
+            {benefits.map((b) => (
+              <li key={b} className="flex items-start gap-1.5">
+                <CheckIcon size={13} className="text-amber-light shrink-0 mt-0.5" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+
+          <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-amber group-hover:gap-3 transition-all">
+            {locale === "fr" ? "Voir le service complet" : "Bekijk de volledige dienst"}
+            <ArrowRightIcon size={16} />
+          </span>
         </div>
 
         {service.heroImage && (
-          <div className="hidden md:block relative w-[200px] aspect-[16/10] rounded-xl overflow-hidden ring-1 ring-white/10 shadow-lg shrink-0">
+          <div className="hidden md:block relative rounded-xl overflow-hidden ring-1 ring-white/10 shadow-lg min-h-[260px]">
             <Image
               src={service.heroImage}
               alt={title}
               fill
-              sizes="200px"
+              sizes="280px"
               className="object-cover"
             />
           </div>
         )}
       </div>
-
-      <ul className="relative mt-5 grid sm:grid-cols-2 gap-x-5 gap-y-1.5 text-[13px] text-white/90">
-        {benefits.map((b) => (
-          <li key={b} className="flex items-start gap-1.5">
-            <CheckIcon size={13} className="text-amber-light shrink-0 mt-0.5" />
-            <span>{b}</span>
-          </li>
-        ))}
-      </ul>
-
-      <span className="relative mt-7 inline-flex items-center gap-2 text-sm font-semibold text-amber group-hover:gap-3 transition-all">
-        {locale === "fr" ? "Voir le service complet" : "Bekijk de volledige dienst"}
-        <ArrowRightIcon size={16} />
-      </span>
     </Link>
   );
 }
