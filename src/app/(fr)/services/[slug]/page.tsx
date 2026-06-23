@@ -333,13 +333,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
       </section>
 
       <RelatedServices services={related} />
-
-      <CTADiagnostic
-        title={content?.ctaTitle ?? midCta.title}
-        description={content?.ctaDescription ?? midCta.description}
-        ctaLabel={content?.ctaLabel ?? midCta.label}
-        variant="dark"
-      />
     </>
   );
 }

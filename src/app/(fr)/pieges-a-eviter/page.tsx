@@ -5,7 +5,6 @@ import { JsonLd, articleSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { FAQSection } from "@/components/sections/FAQSection";
-import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
 import { DataSources } from "@/components/sections/DataSources";
 import { StickyPdfFab } from "@/components/sections/StickyPdfFab";
@@ -507,16 +506,16 @@ export default function PiegesPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/contact/"
+              href="/guide-pieges-a-eviter/"
               className="inline-flex items-center bg-amber hover:bg-amber-dark text-midnight font-semibold px-6 py-3.5 rounded-lg transition-colors"
             >
-              Mon diagnostic gratuit
+              Télécharger le guide PDF
             </Link>
             <Link
-              href="/guide-pieges-a-eviter/"
+              href="/contact/"
               className="inline-flex items-center border border-silver/30 hover:border-silver/60 text-silver font-medium px-6 py-3.5 rounded-lg transition-colors"
             >
-              Télécharger le guide PDF
+              Mon diagnostic gratuit
             </Link>
           </div>
         </div>
@@ -788,14 +787,6 @@ export default function PiegesPage() {
 
       {/* Pre-signature quote check (primary conversion block) */}
       <QuoteCheckCTA variant="dark" />
-
-      {/* Final CTA */}
-      <CTADiagnostic
-        title="Pas encore de devis ? Commencez par un diagnostic."
-        description="Visite technique sur site, analyse de votre toiture et de votre consommation, calcul de rentabilité réaliste basé sur les tarifs réels de votre GRD. Gratuit, sans engagement."
-        ctaLabel="Demander mon diagnostic gratuit"
-        variant="default"
-      />
     </>
   );
 }

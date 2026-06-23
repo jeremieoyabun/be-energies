@@ -259,23 +259,34 @@ export default function ProPage() {
                 et au Luxembourg : un seul interlocuteur technique pour des
                 installations conformes, dimensionnées juste et rentables.
               </p>
-              <div className="mt-9 flex flex-col sm:flex-row flex-wrap gap-3">
+              <div className="mt-9 flex flex-col items-start gap-4">
                 <Link
-                  href="/contact/?type=pro"
-                  className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-6 py-3.5 rounded-xl transition-colors text-[15px] whitespace-nowrap"
+                  href="/contact/?type=pro-etude"
+                  className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-7 py-3.5 rounded-xl transition-colors text-[15px] whitespace-nowrap"
                 >
-                  Demander une étude
+                  Demander une étude sur mesure
                   <ArrowRightIcon size={17} />
                 </Link>
-                <a
-                  href={`tel:${siteConfig.contact.phones[0].raw}`}
-                  className="inline-flex items-center justify-center gap-2 font-medium px-6 py-3.5 rounded-xl transition-colors text-[15px] border border-white/20 text-white/85 hover:text-white hover:border-white/40 hover:bg-white/5 whitespace-nowrap"
-                >
-                  <PhoneIcon size={16} />
-                  <span className="data-figure">
-                    {siteConfig.contact.phones[0].label}
-                  </span>
-                </a>
+                <p className="text-sm text-white/70 flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span>Préférez parler directement ?</span>
+                  <a
+                    href={`tel:${siteConfig.contact.phones[0].raw}`}
+                    className="inline-flex items-center gap-1.5 text-amber-light hover:text-amber underline-offset-4 hover:underline"
+                  >
+                    <PhoneIcon size={14} />
+                    <span className="data-figure">
+                      {siteConfig.contact.phones[0].label}
+                    </span>
+                  </a>
+                  <span aria-hidden="true" className="text-white/30">·</span>
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    className="inline-flex items-center gap-1.5 text-amber-light hover:text-amber underline-offset-4 hover:underline"
+                  >
+                    <MailIcon size={14} />
+                    {siteConfig.contact.email}
+                  </a>
+                </p>
               </div>
               <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-white/85">
                 {[
@@ -578,22 +589,22 @@ export default function ProPage() {
                 l&apos;un de ses associés qui répond.
               </p>
             </div>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-2 text-sm text-steel">
               {siteConfig.contact.phones.map((m) => (
                 <li key={m.raw}>
                   <a
                     href={`tel:${m.raw}`}
-                    className="inline-flex items-center gap-2 bg-midnight hover:bg-charcoal text-white font-semibold px-5 py-3 rounded-lg transition-colors"
+                    className="inline-flex items-center gap-2 text-amber-dark hover:text-amber underline-offset-4 hover:underline"
                   >
-                    <PhoneIcon size={16} className="text-amber" />
-                    <span className="data-figure text-[15px]">{m.label}</span>
+                    <PhoneIcon size={15} />
+                    <span className="data-figure">{m.label}</span>
                   </a>
                 </li>
               ))}
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-amber-dark hover:text-amber px-2"
+                  className="inline-flex items-center gap-2 text-amber-dark hover:text-amber underline-offset-4 hover:underline"
                 >
                   <MailIcon size={15} />
                   {siteConfig.contact.email}
@@ -613,7 +624,7 @@ export default function ProPage() {
         title="Un projet énergétique pour votre entreprise ?"
         description="Benoît analyse votre infrastructure et vos besoins. Étude technique gratuite, sans engagement, livrée sous 48 h après visite sur site."
         ctaLabel="Demander une étude sur mesure"
-        ctaHref="/contact/?type=pro"
+        ctaHref="/contact/?type=pro-etude"
         variant="dark"
       />
     </>
