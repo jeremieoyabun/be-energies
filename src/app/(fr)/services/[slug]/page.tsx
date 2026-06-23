@@ -31,6 +31,11 @@ import { WarrantyLadder } from "@/components/sections/WarrantyLadder";
 import { PVSectionSummary } from "@/components/sections/PVSectionSummary";
 import { PVWhatThisMeans } from "@/components/sections/PVWhatThisMeans";
 import { PVInlineNextStep } from "@/components/sections/PVInlineNextStep";
+import { RentabilityObjection2026 } from "@/components/sections/RentabilityObjection2026";
+import { ProofSystem } from "@/components/sections/ProofSystem";
+import { PVMethodPanel } from "@/components/sections/PVMethodPanel";
+import { PVWarrantyTeaser } from "@/components/sections/PVWarrantyTeaser";
+import { ArrowRightIcon } from "@/lib/icons";
 import { siteConfig } from "@/lib/site-config";
 import { CheckIcon } from "@/lib/icons";
 import Link from "next/link";
@@ -267,6 +272,152 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const midCtaTitle = midCta.title;
   const midCtaDescription = midCta.description;
   const midCtaLabel = midCta.label;
+
+  // ---------------------------------------------------------------------------
+  // PV — dedicated 7-section structure
+  // ---------------------------------------------------------------------------
+  // The photovoltaic page was rendering ~21 stacked sections (TrustBar, RESCERT
+  // strip, regimes summary, warranty ladder, five deep content sections with
+  // sticky TOC, mid-page CTA, piège carousel, PDF magnet, quote-check, process
+  // timeline, comparison table, testimonials, realizations, FAQ, city grid,
+  // related services). The deep editorial content now lives in the dedicated
+  // pillar guides (prix-panneaux-solaires-wallonie-2026, tarif-impact-wallonie-
+  // explication, garanties-panneaux-solaires-onduleurs). The service page is
+  // now a clean 7-section conversion path. Non-PV services keep the previous
+  // long structure untouched below.
+  if (slug === "panneaux-photovoltaiques") {
+    const pvTestimonials = serviceTestimonials.slice(0, 2);
+    const pvFaq = serviceFaq.slice(0, 5);
+    return (
+      <>
+        <JsonLd data={serviceSchema(service)} />
+        <JsonLd
+          data={howToSchema(
+            `Installation de ${service.title.toLowerCase()}`,
+            processSteps,
+          )}
+        />
+        {pvFaq.length > 0 && <JsonLd data={faqSchema(pvFaq)} />}
+
+        <Breadcrumbs
+          items={[
+            { name: "Accueil", href: "/" },
+            { name: "Services", href: "/services/" },
+            { name: service.title },
+          ]}
+        />
+
+        {/* 1. HERO */}
+        <HeroSection
+          headline={
+            content?.headline ??
+            `Installation de ${service.title.toLowerCase()} en Belgique`
+          }
+          subheadline={content?.subheadline ?? service.shortDescription}
+          ctaLabel="Demander un diagnostic gratuit"
+          ctaHref="/contact/"
+          secondaryCta={{
+            label: "Faire vérifier mon devis",
+            href: "/devis-analyse/",
+          }}
+          badge={`Certifié RESCERT · ${siteConfig.founder.credential}`}
+          variant="service"
+          image={service.heroImage}
+        />
+
+        {/* 2. BLOC DÉCISION 2026 — answers the prosumer / smart-meter
+                objection head-on, with links into the pillar guides for
+                visitors who want to dig deeper. */}
+        <RentabilityObjection2026 />
+
+        {/* 3. MÉTHODE BE'ENERGIES — the six pre-quote checks. Replaces the
+                old TrustBar + RESCERT strip + ProcessTimeline trio. */}
+        <PVMethodPanel />
+
+        {/* 4. MATÉRIEL ET GARANTIES — three-line synthesis, links to the
+                dedicated guide that hosts the full WarrantyLadder tables. */}
+        <PVWarrantyTeaser />
+
+        {/* 5. PREUVE TERRAIN — unified proof block: strip + 3 PV projects
+                + up to 2 reviews. Replaces the previous TerrainStrip +
+                RealizationGrid + TestimonialBlock stack. */}
+        <ProofSystem
+          testimonials={pvTestimonials}
+          featuredSlugs={[
+            "riemst-32-panneaux",
+            "wavre-pv-premium-28-panneaux",
+            "tournai-correction-installation-defaillante",
+          ]}
+          title="La preuve, sur le terrain"
+          intro="Chantiers PV récents, projets phares, avis vérifiés. Trois échelles de preuve regroupées au même endroit."
+        />
+
+        {/* 6. CTA DOUBLE CHEMIN — start a project vs. already hold a quote */}
+        <section className="section-padding bg-midnight text-white">
+          <div className="container-be max-w-5xl">
+            <div className="text-center mb-10 md:mb-14">
+              <div className="section-label justify-center">
+                <span>Prochaine étape</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-heading)] text-white text-balance">
+                Vous êtes à quel moment ?
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+              <div className="p-7 md:p-9 flex flex-col rounded-lg bg-white/[0.03] border border-white/10">
+                <div className="text-xs font-semibold tracking-[0.18em] uppercase text-amber mb-3 font-[family-name:var(--font-mono)]">
+                  Étape 1
+                </div>
+                <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
+                  Je veux un diagnostic gratuit
+                </h3>
+                <p className="text-white/85 leading-relaxed mb-7 flex-1">
+                  Visite technique sur site, lecture de votre consommation
+                  réelle, calcul de rentabilité sur les tarifs 2026 de
+                  votre GRD. Vous repartez avec des chiffres défendables.
+                </p>
+                <Link
+                  href="/contact/"
+                  className="inline-flex items-center justify-center gap-2 bg-amber text-midnight font-semibold px-6 py-3 rounded-md hover:bg-amber-light transition-colors"
+                >
+                  Demander un diagnostic gratuit
+                  <ArrowRightIcon size={16} />
+                </Link>
+              </div>
+
+              <div className="p-7 md:p-9 flex flex-col rounded-lg bg-white/[0.03] border border-white/10">
+                <div className="text-xs font-semibold tracking-[0.18em] uppercase text-white/70 mb-3 font-[family-name:var(--font-mono)]">
+                  Deuxième avis
+                </div>
+                <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
+                  J&apos;ai déjà un devis à vérifier
+                </h3>
+                <p className="text-white/85 leading-relaxed mb-7 flex-1">
+                  Un installateur vous a déjà remis une offre. Envoyez-la,
+                  Benoît la lit avec son œil d&apos;ancien inspecteur et
+                  vous renvoie une analyse écrite sous 48 h ouvrées.
+                </p>
+                <Link
+                  href="/devis-analyse/"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-6 py-3 rounded-md hover:bg-white hover:text-midnight transition-colors"
+                >
+                  Faire vérifier mon devis
+                  <ArrowRightIcon size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. FAQ COURTE — 5 questions max, with a link to the full set in
+                the pillar guides for visitors who want more. */}
+        {pvFaq.length > 0 && <FAQSection items={pvFaq} />}
+
+        <RelatedServices services={related} />
+      </>
+    );
+  }
 
   return (
     <>
