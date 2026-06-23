@@ -69,7 +69,7 @@ export function PDFLeadMagnetCard({
   // Inner card markup is shared. Only the outer wrapper changes per variant.
   const innerCard = (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-amber/25 bg-gradient-to-br from-ivory via-white to-amber/[0.07] p-6 md:p-7 ${
+      className={`relative overflow-hidden rounded-2xl border border-amber/25 bg-ivory p-6 md:p-7 ${
         variant === "compact" ? "md:p-6" : ""
       }`}
     >
