@@ -144,11 +144,8 @@ describe("validateContact", () => {
   });
 
   it("accepts the payload when buildingType and timeline are omitted", () => {
-    const {
-      buildingType: _bt,
-      timeline: _tl,
-      ...rest
-    } = validPayload;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { buildingType, timeline, ...rest } = validPayload;
     const result = validateContact(rest);
     expect(result.ok).toBe(true);
     expect(result.data?.buildingType).toBeUndefined();

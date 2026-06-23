@@ -95,7 +95,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
       <HeroSection
         headline={headline}
         subheadline={subheadline}
-        ctaLabel={`Mon diagnostic gratuit à ${city.name}`}
+        ctaLabel={`Demander un diagnostic gratuit à ${city.name}`}
         ctaHref="/contact/"
         variant="local"
       />
@@ -238,7 +238,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
       <CTADiagnostic
         title={`Un avis honnête sur votre projet à ${city.name}`}
         description={`Visite technique sur place, devis détaillé sous 48 h avec les tarifs réels de ${city.grd}. Gratuit, sans engagement.`}
-        ctaLabel={`Demander mon diagnostic à ${city.name}`}
+        ctaLabel={`Demander un diagnostic gratuit à ${city.name}`}
         variant="dark"
       />
     </>

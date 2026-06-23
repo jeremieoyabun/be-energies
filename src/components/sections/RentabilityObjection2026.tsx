@@ -96,14 +96,17 @@ export function RentabilityObjection2026() {
           {BLOCKS.map(({ number, title, body, source, Icon }) => (
             <article
               key={number}
-              className="card p-6 md:p-7 flex flex-col h-full"
+              className="card p-6 md:p-7 flex flex-col h-full relative"
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="inline-flex items-center justify-center min-w-10 h-7 px-2.5 rounded-full bg-amber/15 text-amber-dark text-[12px] font-bold tracking-[0.08em]">
+              {/* Top row: prominent eyebrow number + icon. The number is
+                  intentionally oversized and treated as a tabular figure to
+                  anchor the scan path: number → title → body → source. */}
+              <div className="flex items-start justify-between mb-3">
+                <span className="data-figure text-[40px] md:text-[44px] font-bold leading-none tracking-tight text-amber-dark">
                   {number}
                 </span>
                 <Icon
-                  size={18}
+                  size={20}
                   className={
                     number === "03" ? "text-amber-dark" : "text-amber-dark/70"
                   }
@@ -115,28 +118,36 @@ export function RentabilityObjection2026() {
               <p className="mt-3 text-[14.5px] text-charcoal leading-relaxed">
                 {body}
               </p>
-              <p className="mt-4 pt-3 border-t border-cloud text-[11.5px] text-steel/90 leading-snug">
+              <p className="mt-auto pt-4 border-t border-cloud text-[11.5px] text-steel/90 leading-snug tracking-wide">
                 {source}
               </p>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 md:mt-12 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4">
-          <Link
-            href="/pieges-a-eviter/"
-            className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-7 py-3.5 rounded-xl transition-colors"
-          >
-            Lire les 10 pièges à éviter
-            <ArrowRightIcon size={16} />
-          </Link>
-          <Link
-            href="/devis-analyse/"
-            className="inline-flex items-center justify-center gap-2 font-medium px-7 py-3.5 rounded-xl transition-colors border border-charcoal/30 text-charcoal hover:bg-midnight hover:text-white hover:border-midnight"
-          >
-            Faire vérifier mon devis
-            <ArrowRightIcon size={15} />
-          </Link>
+        {/* Next-step ladder: primary action (pièges guide, soft commitment)
+            then secondary (devis analyse, higher intent). Eyebrow label
+            frames it as a clear next step instead of a wall of buttons. */}
+        <div className="mt-10 md:mt-12">
+          <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-4">
+            La suite logique
+          </p>
+          <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4">
+            <Link
+              href="/pieges-a-eviter/"
+              className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-7 py-3.5 rounded-xl transition-colors"
+            >
+              Lire les 10 pièges à éviter
+              <ArrowRightIcon size={16} />
+            </Link>
+            <Link
+              href="/devis-analyse/"
+              className="inline-flex items-center justify-center gap-2 font-medium px-7 py-3.5 rounded-xl transition-colors border border-charcoal/30 text-charcoal hover:bg-midnight hover:text-white hover:border-midnight"
+            >
+              Faire vérifier mon devis
+              <ArrowRightIcon size={15} />
+            </Link>
+          </div>
         </div>
 
         <DataSources

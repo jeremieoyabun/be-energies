@@ -42,8 +42,8 @@ export function StickyPdfFab() {
       href={GUIDE_PDF_URL}
       target="_blank"
       rel="noopener noreferrer"
-      download="be-energies-7-pieges-a-eviter.pdf"
-      aria-label="Télécharger le guide PDF : 10 pièges à éviter"
+      download="be-energies-10-pieges-a-eviter.pdf"
+      aria-label="Télécharger le guide complet (10 pièges)"
       className={`fixed z-40 bottom-[88px] left-4 md:bottom-6 md:left-auto md:right-6 inline-flex items-center gap-2.5 px-4 md:px-5 py-3 md:py-3.5 rounded-full bg-amber hover:bg-amber-dark text-midnight font-semibold text-[13px] md:text-sm shadow-2xl ring-1 ring-amber-dark/20 transition-all duration-300 ${
         show
           ? "opacity-100 translate-y-0 pointer-events-auto"
@@ -65,8 +65,8 @@ export function StickyPdfFab() {
           strokeLinejoin="round"
         />
       </svg>
-      <span className="hidden sm:inline">Télécharger le guide</span>
-      <span className="sm:hidden">Guide PDF</span>
+      <span className="hidden sm:inline">Télécharger le guide (10 pièges)</span>
+      <span className="sm:hidden">Guide PDF (10 pièges)</span>
       <ArrowRightIcon size={14} className="hidden md:inline" />
     </a>
   );

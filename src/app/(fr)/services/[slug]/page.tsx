@@ -28,6 +28,9 @@ import { GlossaryInline } from "@/components/sections/GlossaryInline";
 import { ReadMore } from "@/components/ReadMore";
 import { PVRegimesSummary } from "@/components/sections/PVRegimesSummary";
 import { WarrantyLadder } from "@/components/sections/WarrantyLadder";
+import { PVSectionSummary } from "@/components/sections/PVSectionSummary";
+import { PVWhatThisMeans } from "@/components/sections/PVWhatThisMeans";
+import { PVInlineNextStep } from "@/components/sections/PVInlineNextStep";
 import { siteConfig } from "@/lib/site-config";
 import { CheckIcon } from "@/lib/icons";
 import Link from "next/link";
@@ -54,6 +57,138 @@ const GLOSSARY_KEYS_BY_SERVICE: Record<string, string[]> = {
   "conformite-electrique": ["rescert", "rgie"],
   "pompes-a-chaleur": ["impact", "kwh", "autoconsommation"],
 };
+
+/**
+ * PV-only scannability augmentations.
+ *
+ * For each long-form section of the photovoltaic service body, we may inject:
+ *   - `summary`     : 3 bullets shown at the top ("En 30 secondes")
+ *   - `whatThisMeans`: an amber-bordered "Pour vous, concrètement" callout
+ *                     placed after the section body
+ *   - `inlineCta`   : a single-row "next step" CTA placed after the body,
+ *                     right after a natural decision point
+ *
+ * Keys match the FR section ids declared in service-content.ts.
+ */
+const PV_SECTION_AUGMENTATIONS: Record<
+  string,
+  {
+    summary?: string[];
+    whatThisMeans?: { title?: string; html: string };
+    inlineCta?: { prompt: string; label: string; href: string };
+  }
+> = {
+  "rentabilite-2026": {
+    summary: [
+      "Sans aide publique, le PV reste l'un des meilleurs placements pour un ménage belge en 2026.",
+      "Exemple chiffré : <strong>4,7 kWc, ~9 700 EUR TTC, retour en 5 à 7 ans</strong>.",
+      "Rendement annualisé d'environ <strong>12 %</strong>, contre ~2 % pour un compte épargne.",
+    ],
+    whatThisMeans: {
+      html: "Le bon réflexe n'est plus de chasser la prime, mais de vérifier que le <strong>dimensionnement colle à votre consommation réelle</strong>. C'est là que les promesses de retour en 2 ans s'effondrent, et que les calculs honnêtes tiennent.",
+    },
+    inlineCta: {
+      prompt: "Vous voulez vérifier la rentabilité réelle de votre projet ?",
+      label: "Demander un calcul personnalisé",
+      href: "/contact/",
+    },
+  },
+  "deux-regimes": {
+    summary: [
+      "<strong>Régime 1 (avant 2024)</strong> : compteur à l'envers maintenu jusqu'au 31/12/2030, tarif prosumer payé annuellement.",
+      "<strong>Régime 2 (depuis 2024)</strong> : compteur communicant, pas de prosumer, mais surplus revendu 7 à 46x moins cher.",
+      "Dans les deux cas, le dimensionnement reste la variable qui décide de la rentabilité.",
+    ],
+    whatThisMeans: {
+      html: "Si vous êtes en <strong>régime 1</strong>, ne payez pas pour une batterie : le réseau fait déjà le travail gratuitement jusqu'en 2030. Si vous êtes en <strong>régime 2</strong>, chaque kWh autoconsommé vaut 7 à 46 fois plus que ce qu'il rapporterait injecté. Le calcul change tout.",
+    },
+  },
+  "tarif-prosumer": {
+    summary: [
+      "Le tarif prosumer est un <strong>frais de réseau</strong>, pas une taxe punitive.",
+      "Montants 2026 selon votre GRD : entre <strong>81 et 99 EUR/kWe/an</strong> TTC.",
+      "Les installations <strong>post-2024 avec compteur communicant ne paient pas</strong> ce tarif.",
+    ],
+    whatThisMeans: {
+      html: "Si vous installez aujourd'hui, le tarif prosumer ne vous concerne pas : vous payez votre consommation réelle, point. Si vous êtes installé avant 2024, le prosumer est intégré au calcul de retour et reste rentable dans la majorité des cas. Demandez les montants exacts de <strong>votre</strong> GRD avant de signer.",
+    },
+    inlineCta: {
+      prompt: "Vous avez déjà un devis avec un calcul prosumer flou ?",
+      label: "Faire vérifier mon devis ligne par ligne",
+      href: "/devis-analyse/",
+    },
+  },
+  autoconsommation: {
+    summary: [
+      "Prix d'achat moyen : <strong>~38 c/kWh</strong>. Meilleur tarif d'injection : <strong>5,58 c/kWh</strong>.",
+      "Chaque kWh autoconsommé vaut donc <strong>7 à 46x plus</strong> qu'un kWh injecté.",
+      "Le choix du fournisseur (et de son tarif d'injection) pèse autant que celui de l'installateur.",
+    ],
+    whatThisMeans: {
+      html: "Le dimensionnement honnête vise <strong>l'autoconsommation maximale</strong>, pas le plus grand nombre de panneaux possible. Un système trop gros vend son surplus à perte. Un système bien calibré couvre votre courbe de charge réelle, heure par heure.",
+    },
+  },
+  "tarif-impact": {
+    summary: [
+      "Trois plages : <strong>ECO, MEDIUM, PIC</strong>. Le pic solaire tombe en plein ECO.",
+      "Économies CWaPE : <strong>~14 %</strong> en ménage adapté, <strong>jusqu'à 28 %</strong> avec véhicule électrique.",
+      "Pour les ~350 000 prosumers encore en régime de compensation : bihoraire classique souvent plus sûr (BeProsumer, mars 2026).",
+    ],
+    whatThisMeans: {
+      html: "Le tarif IMPACT n'est pas une bonne idée par défaut : il dépend de votre courbe de consommation et de votre régime. Avant de basculer, faites simuler les deux scénarios sur <strong>vos</strong> données de comptage. C'est là qu'une batterie commence vraiment à se justifier.",
+    },
+    inlineCta: {
+      prompt: "Vous hésitez entre bihoraire classique et tarif IMPACT ?",
+      label: "Simuler les deux sur ma situation",
+      href: "/contact/",
+    },
+  },
+};
+
+/**
+ * Adds `data-label="<th text>"` to every `<td>` in the rendered HTML so the
+ * `.article-prose-mobile-stack` CSS can render labels next to each value on
+ * mobile (the desktop layout is untouched).
+ *
+ * Server-side, runs once at build time. We intentionally keep this regex-based
+ * because the body HTML is hand-authored, small, and well-formed.
+ */
+function labelTableCellsForMobile(html: string): string {
+  return html.replace(
+    /<table([^>]*)>([\s\S]*?)<\/table>/g,
+    (full, tableAttrs, inner) => {
+      const headers: string[] = [];
+      const headRegex = /<th[^>]*>([\s\S]*?)<\/th>/g;
+      let m: RegExpExecArray | null;
+      while ((m = headRegex.exec(inner)) !== null) {
+        // Strip inner tags from the header text, keep plain text only.
+        const text = m[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+        headers.push(text);
+      }
+      if (headers.length === 0) return full;
+      const labelledInner = inner.replace(
+        /<tr>([\s\S]*?)<\/tr>/g,
+        (rowFull: string, rowInner: string) => {
+          // Skip header rows (those that contain <th>).
+          if (/<th[\s>]/.test(rowInner)) return rowFull;
+          let cellIdx = 0;
+          const newRow = rowInner.replace(
+            /<td([^>]*)>/g,
+            (_tdFull: string, tdAttrs: string) => {
+              const label = headers[cellIdx] ?? "";
+              cellIdx += 1;
+              // Don't double-label if already present.
+              if (/data-label=/.test(tdAttrs)) return `<td${tdAttrs}>`;
+              return `<td${tdAttrs} data-label="${label.replace(/"/g, "&quot;")}">`;
+            }
+          );
+          return `<tr>${newRow}</tr>`;
+        }
+      );
+      return `<table${tableAttrs}>${labelledInner}</table>`;
+    }
+  );
+}
 
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -152,7 +287,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <HeroSection
         headline={content?.headline ?? `Installation de ${service.title.toLowerCase()} en Belgique`}
         subheadline={content?.subheadline ?? service.shortDescription}
-        ctaLabel="Mon diagnostic gratuit"
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         variant="service"
         image={service.heroImage}
@@ -205,55 +340,93 @@ export default async function ServicePage({ params }: ServicePageProps) {
       {slug === "panneaux-photovoltaiques" && <WarrantyLadder />}
 
       {/* Deep content sections - with alternating backgrounds */}
-      {content?.sections.map((section, index) => (
-        <section
-          key={section.id}
-          id={section.id}
-          className={`section-padding ${index % 2 === 1 ? "bg-ivory" : ""} scroll-mt-24`}
-        >
-          <div className="container-be">
-            <div className="xl:grid xl:grid-cols-[220px_1fr] xl:gap-12">
-              {/* Sticky TOC - only render on the first section so it doesn't duplicate */}
-              {index === 0 && content && (
-                <ServiceTOC
-                  sections={content.sections.map((s) => ({
-                    id: s.id,
-                    title: s.title,
-                  }))}
-                />
-              )}
-              {/* Spacer column for non-first sections so content keeps the same right offset */}
-              {index !== 0 && <div className="hidden xl:block" aria-hidden="true" />}
+      {content?.sections.map((section, index) => {
+        const isPV = slug === "panneaux-photovoltaiques";
+        const augment = isPV ? PV_SECTION_AUGMENTATIONS[section.id] : undefined;
+        // PV-only: pre-process tables so each <td> carries a data-label
+        // matching its <th>, which the .article-prose-mobile-stack CSS uses
+        // to render each row as a card on mobile.
+        const renderedBody = isPV
+          ? labelTableCellsForMobile(section.body)
+          : section.body;
+        const proseClass = isPV
+          ? "article-prose article-prose-mobile-stack"
+          : "article-prose";
 
-              <div className="max-w-3xl">
-                <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6 scroll-mt-24">
-                  {section.title}
-                </h2>
-                <ReadMore collapsedHeight={420}>
-                  <div
-                    className="article-prose"
-                    dangerouslySetInnerHTML={{ __html: section.body }}
+        return (
+          <section
+            key={section.id}
+            id={section.id}
+            className={`section-padding ${index % 2 === 1 ? "bg-ivory" : ""} scroll-mt-24`}
+          >
+            <div className="container-be">
+              <div className="xl:grid xl:grid-cols-[220px_1fr] xl:gap-12">
+                {/* Sticky TOC - only render on the first section so it doesn't duplicate */}
+                {index === 0 && content && (
+                  <ServiceTOC
+                    sections={content.sections.map((s) => ({
+                      id: s.id,
+                      title: s.title,
+                    }))}
                   />
-                </ReadMore>
-                {/* After the last content section: glossary + data sources for chiffrée services */}
-                {content.sections.length > 0 &&
-                  index === content.sections.length - 1 && (
-                    <>
-                      {GLOSSARY_KEYS_BY_SERVICE[slug] && (
-                        <GlossaryInline keys={GLOSSARY_KEYS_BY_SERVICE[slug]} />
-                      )}
-                      {(slug === "panneaux-photovoltaiques" ||
-                        slug === "batteries-domestiques" ||
-                        slug === "bornes-de-recharge" ||
-                        slug === "pompes-a-chaleur" ||
-                        slug === "conformite-electrique") && <DataSources />}
-                    </>
+                )}
+                {/* Spacer column for non-first sections so content keeps the same right offset */}
+                {index !== 0 && <div className="hidden xl:block" aria-hidden="true" />}
+
+                <div className="max-w-3xl">
+                  <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6 scroll-mt-24">
+                    {section.title}
+                  </h2>
+                  {/* PV-only: scannable 3-bullet recap above the dense body */}
+                  {augment?.summary && (
+                    <PVSectionSummary bullets={augment.summary} />
                   )}
+                  <ReadMore collapsedHeight={420}>
+                    <div
+                      className={proseClass}
+                      dangerouslySetInnerHTML={{ __html: renderedBody }}
+                    />
+                  </ReadMore>
+                  {/* PV-only: amber-bordered translation of the technical
+                      content into a personal implication for the reader */}
+                  {augment?.whatThisMeans && (
+                    <PVWhatThisMeans title={augment.whatThisMeans.title}>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: augment.whatThisMeans.html,
+                        }}
+                      />
+                    </PVWhatThisMeans>
+                  )}
+                  {/* PV-only: single-row inline next-step after a natural
+                      decision point in the body */}
+                  {augment?.inlineCta && (
+                    <PVInlineNextStep
+                      prompt={augment.inlineCta.prompt}
+                      label={augment.inlineCta.label}
+                      href={augment.inlineCta.href}
+                    />
+                  )}
+                  {/* After the last content section: glossary + data sources for chiffrée services */}
+                  {content.sections.length > 0 &&
+                    index === content.sections.length - 1 && (
+                      <>
+                        {GLOSSARY_KEYS_BY_SERVICE[slug] && (
+                          <GlossaryInline keys={GLOSSARY_KEYS_BY_SERVICE[slug]} />
+                        )}
+                        {(slug === "panneaux-photovoltaiques" ||
+                          slug === "batteries-domestiques" ||
+                          slug === "bornes-de-recharge" ||
+                          slug === "pompes-a-chaleur" ||
+                          slug === "conformite-electrique") && <DataSources />}
+                      </>
+                    )}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        );
+      })}
 
       {/* Fallback if no deep content exists */}
       {!content && (

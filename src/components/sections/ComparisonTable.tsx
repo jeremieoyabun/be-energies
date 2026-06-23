@@ -60,8 +60,10 @@ export function ComparisonTable({
           Ce que la plupart des installateurs font, et ce que nous faisons différemment.
         </p>
 
-        {/* Mobile: stacked cards */}
-        <div className="md:hidden space-y-4">
+        {/* Mobile: stacked cards. aria-hidden because the desktop <table>
+            below carries the canonical semantics; this view is purely
+            visual reflow for narrow viewports. Crawlers see one source. */}
+        <div className="md:hidden space-y-4" aria-hidden="true">
           {rows.map((row, index) => (
             <div key={index} className="card p-5">
               <p className="font-semibold text-midnight text-sm mb-3">{row.aspect}</p>

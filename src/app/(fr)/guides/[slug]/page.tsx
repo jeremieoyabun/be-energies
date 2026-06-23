@@ -145,10 +145,10 @@ export default async function GuidePage({ params }: GuidePageProps) {
       <HeroSection
         headline={guide.h1}
         subheadline={guide.introduction}
-        ctaLabel="Mon diagnostic gratuit"
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{
-          label: "Analyser mon devis",
+          label: "Faire vérifier mon devis",
           href: "/devis-analyse/",
         }}
         variant="compact"

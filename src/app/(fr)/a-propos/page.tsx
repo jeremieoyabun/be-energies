@@ -40,7 +40,7 @@ export default function AboutPage() {
       <HeroSection
         headline="L&apos;installateur qui a d&apos;abord été l&apos;inspecteur"
         subheadline="Benoît Dezso a inspecté des installations électriques et photovoltaïques en Belgique avant de devenir installateur. Il a vu ce qui casse, ce qui brûle, ce qui coûte cher. Aujourd&apos;hui, il installe ce qu&apos;il aurait approuvé."
-        ctaLabel="Demander mon diagnostic gratuit"
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         variant="compact"
       />

@@ -49,6 +49,18 @@ function formatCity(slug: string) {
     .join(" ");
 }
 
+// Pull a short "problem solved" snippet from the case study challenge so
+// every card carries a hint of the technical story, not just metrics. We
+// take the first sentence and cap it around ~110 chars so cards stay even.
+function buildProblemSolved(r: Realization): string | null {
+  const challenge = r.caseStudy?.challenge;
+  if (!challenge) return null;
+  const firstSentence = challenge.split(/(?<=[.!?])\s+/)[0] ?? challenge;
+  const trimmed = firstSentence.trim();
+  if (trimmed.length <= 110) return trimmed;
+  return trimmed.slice(0, 107).trimEnd() + "…";
+}
+
 // Resolve the province from a city slug via the canonical cities dataset.
 // Returns undefined if the slug isn't in cities.ts (cards still render via fallbacks).
 function getProvince(citySlug: string): string | undefined {
@@ -168,11 +180,12 @@ export function RealizationGrid({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {gridItems.map((r) => {
             const categoryBadge = r.category ? CATEGORY_BADGE[r.category] : null;
+            const problem = buildProblemSolved(r);
             return (
               <Link
                 key={r.slug}
                 href={`/realisations/${r.slug}/`}
-                className="group card overflow-hidden flex flex-col"
+                className="group card overflow-hidden flex flex-col min-h-[440px]"
               >
                 <div className="aspect-[4/3] bg-ivory relative overflow-hidden">
                   <Image
@@ -215,6 +228,11 @@ export function RealizationGrid({
                       </span>
                     )}
                   </div>
+                  {problem && (
+                    <p className="mt-3 text-[13px] text-charcoal leading-relaxed line-clamp-2">
+                      {problem}
+                    </p>
+                  )}
                   {r.keyResult && (
                     <p className="mt-auto pt-4 text-[12.5px] font-semibold text-success flex items-start gap-1.5">
                       <CheckIcon size={12} className="shrink-0 mt-0.5" />

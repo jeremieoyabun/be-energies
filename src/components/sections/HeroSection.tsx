@@ -177,7 +177,7 @@ export function HeroSection({
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <Image
                   src={image}
-                  alt="Be'energies sur le terrain"
+                  alt="Benoit Dezso, ancien inspecteur en installation electrique, sur un chantier Be'energies"
                   width={640}
                   height={480}
                   className="object-cover w-full h-auto"

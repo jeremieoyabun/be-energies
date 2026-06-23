@@ -74,7 +74,7 @@ export function FounderCredibility({
         </div>
         <Image
           src="/RESCERT.png"
-          alt="RESCERT"
+          alt="Certification RESCERT"
           width={80}
           height={80}
           className="h-16 w-16 object-contain ml-auto"
@@ -90,12 +90,15 @@ export function FounderCredibility({
         <SectionLabel>Le fondateur</SectionLabel>
 
         <div className="grid md:grid-cols-[300px_1fr] gap-10 lg:gap-14 items-start">
-          {/* Photo + certifications */}
+          {/* Photo + certifications.
+              Image slot: placeholder for a real field portrait of Benoît
+              (toiture, tableau, ou intervention). Replace src with the
+              final asset when shot, keep the aspect-ratio. */}
           <div className="w-full max-w-[300px] mx-auto md:mx-0 space-y-4">
             <div className="aspect-[3/4] rounded-2xl bg-midnight relative overflow-hidden shadow-elevated">
               <Image
                 src="/img/misc/worker.webp"
-                alt={founder.name}
+                alt={`${founder.name}, ${founder.role}, sur une intervention en Belgique`}
                 width={600}
                 height={800}
                 className="object-cover w-full h-full"
@@ -147,6 +150,33 @@ export function FounderCredibility({
                 terre défaillantes. Aujourd&apos;hui, chaque installation que je conçois
                 est pensée pour le contrôle avant d&apos;être pensée pour la vente.
               </InspectorInsight>
+            </div>
+
+            {/* Ce qu'il regarde en premier - field-grounded mini-checklist
+                that mirrors the inspector reflex. Reinforces "l'installateur
+                qui a d'abord été l'inspecteur" with three concrete signals. */}
+            <div className="mt-8 rounded-2xl border border-cloud bg-ivory p-5 md:p-6">
+              <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-4">
+                Ce qu&apos;il regarde en premier
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Le tableau électrique : âge, schéma, état des protections (en particulier sur les maisons d'avant 1985).",
+                  "La charpente : état réel après rénovation ou isolation, capacité à porter la structure de pose.",
+                  "Le profil de consommation : courbe horaire, présence d'une pompe à chaleur ou d'une borne, pour dimensionner sur l'usage et pas sur la surface.",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-[14.5px] text-charcoal leading-relaxed"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 w-1.5 h-1.5 rounded-full bg-amber shrink-0"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             {/* Key differentiators - qualitative until quantified data is confirmed */}

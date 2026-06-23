@@ -45,17 +45,25 @@ export function PVRegimesSummary() {
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {/* Régime 1 - pre-2024 */}
           <article className="bg-white border border-cloud rounded-2xl p-6 md:p-7 flex flex-col">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-midnight text-amber font-bold text-sm">
-                1
-              </span>
-              <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-steel">
-                Installations avant le 01/01/2024
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-midnight text-amber font-bold text-sm">
+                  1
+                </span>
+                <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-midnight">
+                  Régime 1
+                </span>
+              </div>
+              <span className="font-[family-name:var(--font-data)] text-[11px] tracking-[0.05em] text-steel tabular-nums">
+                avant 01/01/2024
               </span>
             </div>
             <h3 className="font-[family-name:var(--font-heading)] text-midnight text-xl leading-snug">
               Régime de compensation
             </h3>
+            <p className="mt-2 font-[family-name:var(--font-data)] text-[13px] text-amber-dark tabular-nums">
+              Compensation maintenue jusqu&apos;au 31/12/2030
+            </p>
             <ul className="mt-4 space-y-2 text-[14px] text-charcoal leading-relaxed flex-1">
               <li className="flex items-start gap-2">
                 <CheckIcon size={14} className="text-success shrink-0 mt-0.5" />
@@ -77,7 +85,11 @@ export function PVRegimesSummary() {
                 />
                 <span>
                   Vous payez le <strong>tarif prosumer</strong> annuel
-                  (~85-99 €/kWe/an selon le GRD).
+                  (
+                  <span className="font-[family-name:var(--font-data)] tabular-nums">
+                    ~85 à 99 EUR/kWe/an
+                  </span>{" "}
+                  selon le GRD).
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -91,11 +103,11 @@ export function PVRegimesSummary() {
                 </span>
               </li>
             </ul>
-            <div className="mt-5 pt-5 border-t border-cloud text-[13px]">
-              <p className="font-semibold text-midnight mb-1">
+            <div className="mt-5 pt-5 border-t border-cloud border-l-4 border-l-amber -mx-6 md:-mx-7 px-6 md:px-7 pl-7 md:pl-8 text-[13px] bg-amber/[0.04] rounded-bl-2xl rounded-br-2xl">
+              <p className="font-semibold text-midnight mb-1 text-[10.5px] tracking-[0.14em] uppercase text-amber-dark">
                 Ce que ça veut dire pour vous
               </p>
-              <p className="text-steel leading-relaxed">
+              <p className="text-charcoal leading-relaxed">
                 Une batterie physique n&apos;est généralement{" "}
                 <strong className="text-midnight">pas rentable</strong>{" "}
                 tant que la compensation dure : le réseau fait déjà le job
@@ -106,17 +118,25 @@ export function PVRegimesSummary() {
 
           {/* Régime 2 - post-2024 */}
           <article className="bg-white border border-cloud rounded-2xl p-6 md:p-7 flex flex-col">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber text-midnight font-bold text-sm">
-                2
-              </span>
-              <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark">
-                Installations depuis le 01/01/2024
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber text-midnight font-bold text-sm">
+                  2
+                </span>
+                <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-midnight">
+                  Régime 2
+                </span>
+              </div>
+              <span className="font-[family-name:var(--font-data)] text-[11px] tracking-[0.05em] text-steel tabular-nums">
+                depuis 01/01/2024
               </span>
             </div>
             <h3 className="font-[family-name:var(--font-heading)] text-midnight text-xl leading-snug">
               Compteur communicant
             </h3>
+            <p className="mt-2 font-[family-name:var(--font-data)] text-[13px] text-amber-dark tabular-nums">
+              Ratio autoconso / injection : 7x à 46x
+            </p>
             <ul className="mt-4 space-y-2 text-[14px] text-charcoal leading-relaxed flex-1">
               <li className="flex items-start gap-2">
                 <CheckIcon size={14} className="text-success shrink-0 mt-0.5" />
@@ -129,7 +149,11 @@ export function PVRegimesSummary() {
                 <CheckIcon size={14} className="text-success shrink-0 mt-0.5" />
                 <span>
                   Surplus revendu au tarif d&apos;injection de votre
-                  fournisseur (1 à 6 c/kWh selon l&apos;offre).
+                  fournisseur (
+                  <span className="font-[family-name:var(--font-data)] tabular-nums">
+                    1 à 6 c/kWh
+                  </span>{" "}
+                  selon l&apos;offre).
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -145,21 +169,24 @@ export function PVRegimesSummary() {
                   className="text-warning shrink-0 mt-0.5"
                 />
                 <span>
-                  Chaque kWh injecté rapporte 7 à 46× moins que ce qu&apos;il
-                  coûte à l&apos;achat : l&apos;autoconsommation devient la
-                  variable clé.
+                  Chaque kWh injecté rapporte{" "}
+                  <span className="font-[family-name:var(--font-data)] tabular-nums">
+                    7 à 46x
+                  </span>{" "}
+                  moins que ce qu&apos;il coûte à l&apos;achat :
+                  l&apos;autoconsommation devient la variable clé.
                 </span>
               </li>
             </ul>
-            <div className="mt-5 pt-5 border-t border-cloud text-[13px]">
-              <p className="font-semibold text-midnight mb-1">
+            <div className="mt-5 pt-5 border-t border-cloud border-l-4 border-l-amber -mx-6 md:-mx-7 px-6 md:px-7 pl-7 md:pl-8 text-[13px] bg-amber/[0.04] rounded-bl-2xl rounded-br-2xl">
+              <p className="font-semibold text-midnight mb-1 text-[10.5px] tracking-[0.14em] uppercase text-amber-dark">
                 Ce que ça veut dire pour vous
               </p>
-              <p className="text-steel leading-relaxed">
+              <p className="text-charcoal leading-relaxed">
                 Dans les faits, le dimensionnement doit viser{" "}
                 <strong className="text-midnight">
                   l&apos;autoconsommation maximale
-                </strong>{" "}
+                </strong>
                 , pas la production maximale. Une batterie ou un véhicule
                 électrique change vite la rentabilité.
               </p>
@@ -182,7 +209,7 @@ export function PVRegimesSummary() {
             href="/contact/"
             className="cta-glow inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-5 py-3 rounded-xl text-sm whitespace-nowrap transition-colors shrink-0"
           >
-            Demander mon diagnostic
+            Demander un diagnostic gratuit
             <ArrowRightIcon size={15} />
           </Link>
         </div>

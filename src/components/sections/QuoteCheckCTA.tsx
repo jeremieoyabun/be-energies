@@ -91,7 +91,7 @@ export function QuoteCheckCTA({
                 href="/devis-analyse/"
                 className="cta-glow inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-7 py-3.5 rounded-xl transition-colors"
               >
-                Faire analyser mon devis
+                Faire vérifier mon devis solaire
                 <ArrowRightIcon size={17} />
               </Link>
               <span

@@ -36,10 +36,10 @@ export default function GuidesIndexPage() {
       <HeroSection
         headline="Tout savoir avant d'investir"
         subheadline="Quatre guides longs, sourcés et mis à jour, pour décider en connaissance de cause. Ce qu'un installateur honnête vous dirait si vous aviez deux heures avec lui."
-        ctaLabel="Mon diagnostic gratuit"
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{
-          label: "Analyser mon devis",
+          label: "Faire vérifier mon devis",
           href: "/devis-analyse/",
         }}
         variant="compact"
@@ -102,13 +102,13 @@ export default function GuidesIndexPage() {
               href="/devis-analyse/"
               className="inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-7 py-3.5 rounded-xl transition-colors"
             >
-              Faire analyser mon devis
+              Faire vérifier mon devis
             </Link>
             <Link
               href="/contact/"
               className="inline-flex items-center justify-center gap-2 border border-cloud hover:border-midnight/40 text-charcoal hover:text-midnight font-medium px-7 py-3.5 rounded-xl transition-colors"
             >
-              Demander un diagnostic
+              Demander un diagnostic gratuit
             </Link>
           </div>
         </div>

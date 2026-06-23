@@ -15,7 +15,7 @@ export default function FrLayout({
       <Header
         navigation={mainNavFr}
         locale="fr"
-        ctaLabel="Mon diagnostic gratuit"
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
       />
       <main>{children}</main>

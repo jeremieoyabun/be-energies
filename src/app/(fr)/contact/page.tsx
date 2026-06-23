@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, localBusinessSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -7,7 +8,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { siteConfig } from "@/lib/site-config";
-import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon, CheckIcon } from "@/lib/icons";
+import { PhoneIcon, MailIcon, WhatsAppIcon, MapPinIcon, CheckIcon, AlertTriangleIcon, ArrowRightIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
@@ -76,8 +77,33 @@ export default function ContactPage() {
                 pour remplir.
               </p>
 
+              {/* Founder strip - reinforces "Benoît répond personnellement"
+                  at the top of the form column, right where the user is about
+                  to commit time to filling fields. */}
+              <div className="mt-6 flex items-center gap-4 bg-white border border-cloud rounded-xl p-4 shadow-sm">
+                <div className="w-14 h-14 rounded-full bg-slate/20 shrink-0 overflow-hidden ring-2 ring-amber/25">
+                  <Image
+                    src="/img/misc/worker.webp"
+                    alt={siteConfig.founder.name}
+                    width={56}
+                    height={56}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="text-sm text-charcoal leading-snug">
+                  <p className="font-semibold text-midnight">
+                    {siteConfig.founder.name}, ancien inspecteur en
+                    installation électrique, certifié RESCERT.
+                  </p>
+                  <p className="text-steel mt-0.5">
+                    Il reprend personnellement chaque demande sous 24 h
+                    ouvrées. Pas de call center.
+                  </p>
+                </div>
+              </div>
+
               {/* Reassurance row + Google rating - visible BEFORE the form fields */}
-              <div className="mt-5 mb-7 bg-ivory border border-cloud rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="mt-4 mb-5 bg-ivory border border-cloud rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <ul className="space-y-1.5 text-[13px] text-charcoal">
                   {[
                     "Diagnostic gratuit, sans engagement",
@@ -93,6 +119,29 @@ export default function ContactPage() {
                 </ul>
                 <GoogleReviewsBadge variant="card" className="shrink-0" />
               </div>
+
+              {/* Existing-quote alert - faster path for users already mid-funnel.
+                  Visually distinct from the reassurance card so it reads as a
+                  contextual side-door, not part of the form. */}
+              <Link
+                href="/devis-analyse/"
+                className="group mb-7 flex items-start gap-3 rounded-xl border border-amber/40 bg-warm-gradient p-4 md:p-5 transition-colors hover:border-amber"
+              >
+                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber/15 text-amber-dark">
+                  <AlertTriangleIcon size={18} />
+                </span>
+                <span className="flex-1 text-sm leading-relaxed text-charcoal">
+                  <span className="block font-semibold text-midnight">
+                    Vous avez déjà un devis sur la table ?
+                  </span>
+                  Demandez plutôt une analyse de devis gratuite. Benoît
+                  relit le détail technique avant que vous ne signiez.
+                </span>
+                <span className="mt-1 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.08em] text-amber-dark transition-transform group-hover:translate-x-0.5">
+                  Analyser
+                  <ArrowRightIcon size={14} />
+                </span>
+              </Link>
 
               <ContactForm />
             </div>

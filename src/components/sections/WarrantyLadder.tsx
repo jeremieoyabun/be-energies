@@ -214,8 +214,10 @@ export function WarrantyLadder() {
           </table>
         </div>
 
-        {/* PANEL TABLE - mobile stacked cards */}
-        <div className="mt-10 md:hidden space-y-4">
+        {/* PANEL TABLE - mobile stacked cards. aria-hidden: the desktop
+            <table> above is the canonical semantic source; this view
+            is a visual reflow only. Crawlers see one source of truth. */}
+        <div className="mt-10 md:hidden space-y-4" aria-hidden="true">
           {warrantyData.panel_brands.map((panel) => (
             <article
               key={panel.brand}
@@ -318,8 +320,8 @@ export function WarrantyLadder() {
             </table>
           </div>
 
-          {/* Mobile */}
-          <div className="md:hidden space-y-4">
+          {/* Mobile - visual reflow only (canonical table is above) */}
+          <div className="md:hidden space-y-4" aria-hidden="true">
             {warrantyData.inverter_brands.map((inverter) => (
               <article
                 key={inverter.brand}

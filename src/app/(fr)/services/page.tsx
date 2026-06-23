@@ -26,7 +26,7 @@ export default function ServicesHubPage() {
       <HeroSection
         headline="Tous nos services"
         subheadline="Un seul interlocuteur pour l'ensemble de votre système énergétique. Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique."
-        ctaLabel="Mon diagnostic gratuit"
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         variant="compact"
       />

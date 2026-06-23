@@ -8,6 +8,11 @@ interface CTADiagnosticProps {
   ctaHref?: string;
   variant?: "default" | "dark";
   locale?: "fr" | "nl";
+  /** Optional secondary CTA, displayed side-by-side with the primary one. */
+  secondaryCta?: { label: string; href: string };
+  /** Optional single-line reassurance below the CTAs. Overrides the default
+   *  3-pill micro-reassurance row. */
+  reassurance?: string;
 }
 
 const DEFAULTS = {
@@ -15,7 +20,7 @@ const DEFAULTS = {
     title: "Diagnostic énergétique gratuit",
     description:
       "Benoît analyse votre consommation, votre toiture, et votre réseau électrique. Vous recevez un calcul de rentabilité réel basé sur les tarifs 2026.",
-    ctaLabel: "Demander mon diagnostic gratuit",
+    ctaLabel: "Demander un diagnostic gratuit",
     ctaHref: "/contact/",
     badge: "Gratuit · Sans engagement",
     micro1: "Réponse sous 24 h",
@@ -42,6 +47,8 @@ export function CTADiagnostic({
   ctaHref,
   variant = "default",
   locale = "fr",
+  secondaryCta,
+  reassurance,
 }: CTADiagnosticProps) {
   const d = DEFAULTS[locale];
   const isDark = variant === "dark";
@@ -75,18 +82,39 @@ export function CTADiagnostic({
         >
           {description ?? d.description}
         </p>
-        <Link
-          href={ctaHref ?? d.ctaHref}
-          className={`cta-glow mt-8 inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-10 py-4 rounded-xl transition-colors ${isDark ? "text-lg" : ""}`}
-        >
-          {ctaLabel ?? d.ctaLabel}
-          <ArrowRightIcon size={18} />
-        </Link>
-        <div className={`mt-5 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm ${isDark ? "text-white/75" : "text-steel"}`}>
-          <span>{d.micro1}</span>
-          <span>{d.micro2}</span>
-          <span>{d.micro3}</span>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <Link
+            href={ctaHref ?? d.ctaHref}
+            className={`cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-9 py-4 rounded-xl transition-colors ${isDark ? "text-lg" : ""}`}
+          >
+            {ctaLabel ?? d.ctaLabel}
+            <ArrowRightIcon size={18} />
+          </Link>
+          {secondaryCta && (
+            <Link
+              href={secondaryCta.href}
+              className={`inline-flex items-center justify-center gap-2 font-semibold px-8 py-4 rounded-xl transition-colors ${
+                isDark
+                  ? "border border-white/25 text-white/90 hover:text-white hover:border-white/50 hover:bg-white/5"
+                  : "border border-charcoal/30 text-charcoal hover:bg-midnight hover:text-white hover:border-midnight"
+              }`}
+            >
+              {secondaryCta.label}
+              <ArrowRightIcon size={15} />
+            </Link>
+          )}
         </div>
+        {reassurance ? (
+          <p className={`mt-5 text-sm ${isDark ? "text-white/75" : "text-steel"}`}>
+            {reassurance}
+          </p>
+        ) : (
+          <div className={`mt-5 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm ${isDark ? "text-white/75" : "text-steel"}`}>
+            <span>{d.micro1}</span>
+            <span>{d.micro2}</span>
+            <span>{d.micro3}</span>
+          </div>
+        )}
       </div>
     </section>
   );

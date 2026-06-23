@@ -22,7 +22,7 @@ const COPY = {
     eyebrow: "CHECKLIST GRATUITE",
     title: "Les 10 pièges à éviter avant de signer",
     subline: "Pour vérifier votre devis solaire en 5 minutes",
-    cta: "Télécharger le PDF",
+    cta: "Télécharger le guide PDF",
     micro: "PDF · 12 pages · Gratuit",
   },
   nl: {

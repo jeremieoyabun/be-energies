@@ -54,7 +54,7 @@ export default function HomePage() {
       <HeroSection
         headline="Votre installation énergétique, conçue comme si elle devait passer le contrôle demain."
         subheadline="Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT."
-        ctaLabel="Demander mon diagnostic gratuit"
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
         badge="Certifié RESCERT · Ancien inspecteur en électricité"
@@ -78,18 +78,20 @@ export default function HomePage() {
               sub-blocks, CTA to deeper pages. */}
       <RentabilityObjection2026 />
 
-      {/* 5. FOUNDER CREDIBILITY - Benoît's inspector story */}
+      {/* 5. FOUNDER CREDIBILITY - Benoît's inspector story (white bg breaks
+              the warm-gradient → midnight rhythm cleanly) */}
       <FounderCredibility variant="full" />
 
-      {/* 6. METHOD - how Benoît works (sits with founder, builds the trust block) */}
+      {/* 6. METHOD - how Benoît works (midnight, visual rhythm break after
+              the editorial founder block) */}
       <ProcessTimeline />
 
-      {/* 7. DECISION HELP - comparison + quote-check + pièges form a tight
-              "before you sign anything" block; QuoteCheckCTA is intentionally
-              dark to bridge the ivory ComparisonTable and the midnight
-              PiegesCarousel, framing all three as one visual unit. */}
+      {/* 7. DECISION HELP - comparison + pièges form a tight "before you sign
+              anything" editorial+visual pair. ComparisonTable (ivory editorial)
+              → PiegesCarousel (midnight visual) → PDFLeadMagnet (midnight soft
+              conversion tied to pièges). QuoteCheckCTA was moved DOWN out of
+              this stack to avoid 4 conversion pitches in a row. */}
       <ComparisonTable />
-      <QuoteCheckCTA variant="dark" />
       <PiegesCarousel pieges={pieges.slice(0, 3)} />
       {/* PDF lead magnet - converts homepage piège teaser viewers in one
           click instead of bouncing them to /pieges-a-eviter/. */}
@@ -100,7 +102,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. PROOF - real realizations */}
+      {/* 8. PROOF - real realizations (white bg, visual) */}
       <RealizationGrid
         realizations={realizations}
         maxItems={4}
@@ -108,13 +110,21 @@ export default function HomePage() {
         featured
       />
 
-      {/* 9. REVIEWS - what clients say + Google rating badge */}
+      {/* 9. QUOTE-CHECK CTA - placed AFTER realizations: the visitor has now
+              seen the founder, the method, the pièges, and real projects.
+              Asking "and your devis, who has checked it?" lands harder here
+              than buried inside the decision-help stack. Dark variant bridges
+              the white RealizationGrid and the warm-gradient TestimonialBlock. */}
+      <QuoteCheckCTA variant="dark" />
+
+      {/* 10. REVIEWS - what clients say + Google rating badge */}
       <TestimonialBlock
         testimonials={heroTestimonials}
         title="Ils nous ont fait confiance"
       />
 
-      {/* 9. LOCAL COVERAGE */}
+      {/* 11. LOCAL COVERAGE - ivory keeps the alternation with the white
+              FAQ that follows */}
       <section className="section-padding bg-ivory">
         <div className="container-be">
           <div className="section-label">
@@ -160,18 +170,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. FAQ */}
+      {/* 12. FAQ */}
       <FAQSection
         items={homepageFaq}
         title="Questions fréquentes"
       />
 
-      {/* 11. FINAL CTA */}
+      {/* 13. FINAL CTA - direct address + dual ladder (diagnostic vs devis
+              check) so the visitor can self-route based on whether they
+              already have a quote in hand. */}
       <CTADiagnostic
-        title="Un avis honnête avant de signer"
-        description="Concrètement : visite technique sur site, dimensionnement basé sur votre consommation réelle, devis clair sous 48 h avec les tarifs 2026 de votre gestionnaire de réseau. Pas d'estimation générique, pas de pression."
-        ctaLabel="Demander mon diagnostic gratuit"
+        title="Vous avez un projet en tête ? Voici comment on commence."
+        description="Deux portes d'entrée selon votre situation. Vous démarrez de zéro : on cale un diagnostic sur site, on dimensionne sur votre consommation réelle, on chiffre sous 48 h. Vous avez déjà un devis : Benoît le lit en détail et vous renvoie un avis écrit, sans pression."
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
+        secondaryCta={{ label: "Faire vérifier mon devis", href: "/devis-analyse/" }}
+        reassurance="Réponse de Benoît sous 24 h ouvrées · Pas de pression commerciale"
         variant="dark"
       />
     </>

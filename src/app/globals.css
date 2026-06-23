@@ -686,6 +686,66 @@ html {
   padding: 0 1rem;
 }
 
+/* Mobile-friendly table treatment for dense regulatory sections (PV).
+   On small screens, every <td> stacks vertically and its data-label
+   (set via the HTML transform in the page) renders as a small uppercase
+   header on the left. The desktop layout is untouched. */
+@media (max-width: 720px) {
+  .article-prose-mobile-stack table,
+  .article-prose-mobile-stack thead,
+  .article-prose-mobile-stack tbody,
+  .article-prose-mobile-stack tr,
+  .article-prose-mobile-stack td {
+    display: block;
+    width: 100%;
+  }
+  .article-prose-mobile-stack thead {
+    display: none;
+  }
+  .article-prose-mobile-stack table {
+    border: 1px solid var(--brand-cloud);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  .article-prose-mobile-stack tbody tr {
+    border-bottom: 1px solid var(--brand-cloud);
+    padding: 0.75rem 0.25rem;
+    background: var(--brand-white);
+  }
+  .article-prose-mobile-stack tbody tr:nth-child(even) {
+    background: var(--brand-ivory);
+  }
+  .article-prose-mobile-stack tbody tr:last-child {
+    border-bottom: none;
+  }
+  .article-prose-mobile-stack tbody td {
+    padding: 0.4rem 1rem;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .article-prose-mobile-stack tbody td::before {
+    content: attr(data-label);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--brand-steel);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+  }
+  .article-prose-mobile-stack tbody td:first-child {
+    background: var(--brand-midnight);
+    color: white;
+    padding: 0.65rem 1rem;
+    margin-bottom: 0.25rem;
+  }
+  .article-prose-mobile-stack tbody td:first-child::before {
+    color: var(--brand-amber);
+  }
+}
+
 /* ── Premium utility classes ── */
 
 /* Small section padding - for transition/bridge sections */

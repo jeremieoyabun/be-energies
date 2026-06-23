@@ -172,8 +172,15 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
       className="space-y-6"
       aria-describedby={liveRegionId}
     >
-      {/* Honeypot - hidden from sighted users + screen readers */}
-      <div aria-hidden="true" className="hidden">
+      {/* Honeypot - hidden from sighted users and screen readers.
+          Off-screen positioning (instead of display:none) keeps the input in
+          the accessibility tree disabled by aria-hidden, while still being
+          invisible and unfocusable. Belt-and-suspenders against bots that
+          ignore display:none. */}
+      <div
+        aria-hidden="true"
+        className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden"
+      >
         <label htmlFor="company">Ne pas remplir</label>
         <input
           type="text"

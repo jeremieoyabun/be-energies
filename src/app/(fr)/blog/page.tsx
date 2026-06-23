@@ -38,7 +38,7 @@ export default function BlogIndexPage() {
       <HeroSection
         headline="Blog"
         subheadline="Les vrais chiffres, les vraies analyses. Articles sur l'énergie en Belgique par un ancien inspecteur."
-        ctaLabel="Mon diagnostic gratuit"
+        ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         variant="compact"
       />

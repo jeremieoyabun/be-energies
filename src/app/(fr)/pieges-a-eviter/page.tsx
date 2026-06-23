@@ -28,6 +28,9 @@ interface Chapter {
   title: string;
   severity: "critique" | "important" | "attention";
   service: string;
+  /** One-line synthesis of the trap, displayed in a red-tinted box right
+   *  under the chapter title so a busy reader gets the gist in 2 seconds. */
+  trap: string;
   body: string;
   checklist?: string[];
   founderInsight?: string;
@@ -37,6 +40,10 @@ interface Chapter {
    *  their next conversation with an installer. Rendered as a copyable
    *  callout under the founder insight. */
   questionToAsk?: string;
+  /** The concrete piece of paper, datasheet, certificate, schema or photo
+   *  the client should ask for to verify the installer's claim. Rendered
+   *  in a small ivory card. Falls back to a generic line if omitted. */
+  proofToRequest?: string;
 }
 
 const chapters: Chapter[] = [
@@ -46,8 +53,11 @@ const chapters: Chapter[] = [
     title: "Les fausses promesses de primes en Wallonie",
     severity: "critique",
     service: "panneaux-photovoltaiques",
+    trap: "Une prime régionale est annoncée pour justifier un prix gonflé, alors qu'aucune prime résidentielle n'existe en Wallonie en 2026.",
+    proofToRequest:
+      "Nom exact du dispositif, organisme payeur et lien vers le texte officiel (Région wallonne, commune ou administration fiscale).",
     body: `<p>En 2026, il n&apos;existe plus de prime régionale pour les panneaux photovoltaïques résidentiels en Wallonie. Les anciennes primes Qualiwatt ont disparu, et aucun dispositif de remplacement équivalent n&apos;a été mis en place.</p>
-<p>Pourtant, certains démarcheurs continuent d&apos;évoquer des &laquo;&nbsp;primes régionales&nbsp;&raquo;, des &laquo;&nbsp;aides communales&nbsp;&raquo; ou des &laquo;&nbsp;incentives fiscaux&nbsp;&raquo; pour justifier un prix gonflé. La technique est simple : on présente un prix brut élevé, on annonce une &laquo;&nbsp;prime&nbsp;&raquo; qui le réduit, et le client paie au final un tarif normal -- en croyant avoir obtenu une réduction.</p>
+<p>Pourtant, on voit régulièrement des démarcheurs évoquer des &laquo;&nbsp;primes régionales&nbsp;&raquo;, des &laquo;&nbsp;aides communales&nbsp;&raquo; ou des &laquo;&nbsp;incentives fiscaux&nbsp;&raquo; pour justifier un prix gonflé. La mécanique est simple : on présente un prix brut élevé, on annonce une &laquo;&nbsp;prime&nbsp;&raquo; qui le réduit, et le client paie au final un tarif de marché, en croyant avoir obtenu une réduction.</p>
 <p><strong>Ce qui existe réellement en mars 2026 :</strong></p>
 <ul>
 <li>TVA à 6% (au lieu de 21%) pour les habitations de plus de 10 ans -- ce n&apos;est pas une prime, c&apos;est un taux réduit standard</li>
@@ -78,15 +88,18 @@ const chapters: Chapter[] = [
     title: "Les fausses garanties : 25 ans sur le papier, 0 ans dans la réalité",
     severity: "critique",
     service: "panneaux-photovoltaiques",
+    trap: "Une garantie « 25 ans » est annoncée sans préciser qu'elle ne couvre ni la main-d'œuvre, ni l'onduleur, ni la pérennité de l'installateur.",
+    proofToRequest:
+      "Document écrit listant chaque garantie (produit, rendement, main-d'œuvre, déplacement) avec durée et organisme qui la prend en charge.",
     body: `<p>Les panneaux solaires bénéficient typiquement de deux types de garantie :</p>
 <ul>
 <li><strong>Garantie produit (fabricant) :</strong> couvre les défauts de fabrication. Généralement 12 à 25 ans selon la marque.</li>
 <li><strong>Garantie de rendement :</strong> assure que le panneau conserve un certain pourcentage de sa puissance nominale (typiquement 80% après 25 ans).</li>
 </ul>
-<p>Le problème n&apos;est pas la garantie du panneau, mais la garantie de l&apos;installation. Voici ce que beaucoup d&apos;installateurs ne disent pas :</p>
+<p>Le problème n&apos;est pas la garantie du panneau, mais la garantie de l&apos;installation. Quelques points qui restent souvent dans le flou côté devis :</p>
 <ul>
-<li>La garantie fabricant ne couvre pas la main-d&apos;œuvre de remplacement. Si un panneau est défectueux après 5 ans, le fabricant vous envoie un nouveau panneau -- mais qui paie le déplacement, la dépose et la repose ?</li>
-<li>Si l&apos;installateur fait faillite (et dans un marché volatile, ça arrive), la garantie d&apos;installation disparaît avec l&apos;entreprise</li>
+<li>La garantie fabricant ne couvre pas la main-d&apos;œuvre de remplacement. Si un panneau est défectueux après 5 ans, le fabricant vous envoie un nouveau panneau, mais qui paie le déplacement, la dépose et la repose ?</li>
+<li>Si l&apos;installateur cesse son activité (et le secteur a connu plusieurs faillites récentes), la garantie d&apos;installation disparaît avec l&apos;entreprise</li>
 <li>La garantie de rendement est quasi impossible à faire valoir : il faut prouver que la baisse de rendement est due au panneau et non à l&apos;ombrage, la salissure, ou un défaut d&apos;onduleur</li>
 </ul>
 <p><strong>Les vraies questions à poser :</strong></p>
@@ -117,6 +130,9 @@ const chapters: Chapter[] = [
     title: "Comparer des devis sur du matériel non équivalent",
     severity: "important",
     service: "panneaux-photovoltaiques",
+    trap: "Trois devis au même format cachent trois niveaux de matériel très différents : on compare un prix, pas une installation.",
+    proofToRequest:
+      "Datasheet de chaque panneau et de l'onduleur (marque + modèle exact, puissance, rendement, courbes I-V), plus la fiche du système de fixation.",
     body: `<p>Trois devis à 9 500, 11 000 et 12 500 EUR pour une installation de 5 kWc. Le réflexe est de prendre le moins cher. Mais les trois devis ne proposent pas la même chose.</p>
 <p><strong>Ce qui varie entre deux devis &laquo;&nbsp;équivalents&nbsp;&raquo; :</strong></p>
 <ul>
@@ -152,6 +168,9 @@ const chapters: Chapter[] = [
     title: "Onduleur surchauffe et risque d'incendie : le danger invisible",
     severity: "critique",
     service: "panneaux-photovoltaiques",
+    trap: "Un onduleur sous-dimensionné, posé dans un grenier non ventilé ou raccordé à des MC4 mélangés : la surchauffe est silencieuse jusqu'à l'incident.",
+    proofToRequest:
+      "Plan d'implantation de l'onduleur (local, dégagements, ventilation), datasheet de l'onduleur avec plage de température et marque des connecteurs DC utilisés.",
     body: `<p>L&apos;onduleur convertit le courant continu produit par les panneaux en courant alternatif utilisable. C&apos;est le composant le plus sollicité de l&apos;installation, et c&apos;est aussi celui qui présente le risque d&apos;incendie le plus élevé quand il est mal installé.</p>
 <p><strong>Les causes de surchauffe les plus courantes :</strong></p>
 <ul>
@@ -181,7 +200,10 @@ const chapters: Chapter[] = [
     title: "Le côté AC sous-dimensionné : le coupable oublié",
     severity: "important",
     service: "all",
-    body: `<p>Tout le monde parle des panneaux et de l&apos;onduleur. Personne ne parle du côté AC -- la partie courant alternatif entre l&apos;onduleur et le tableau électrique. C&apos;est pourtant là où se concentre une part importante des non-conformités.</p>
+    trap: "Câble AC sous-dimensionné, différentiel inadapté, pas de coupure d'urgence : les non-conformités se concentrent côté tableau, là où le client ne regarde jamais.",
+    proofToRequest:
+      "Schéma unifilaire à jour, section du câble AC entre onduleur et tableau, type de différentiel prévu (A ou B) et calibre du disjoncteur.",
+    body: `<p>Tout le monde parle des panneaux et de l&apos;onduleur. Le côté AC, la partie courant alternatif entre l&apos;onduleur et le tableau électrique, reste souvent dans l&apos;angle mort. C&apos;est pourtant là où se concentre une part importante des non-conformités.</p>
 <p><strong>Les erreurs les plus fréquentes côté AC :</strong></p>
 <ul>
 <li><strong>Section de câble insuffisante :</strong> un câble 2,5 mm pour un onduleur de 5 kW sur une distance de 15 mètres. Le câble chauffe, la résistance augmente, vous perdez de l&apos;énergie et le risque de surchauffe est réel.</li>
@@ -210,6 +232,9 @@ const chapters: Chapter[] = [
     title: "Pompe à chaleur : le mauvais dimensionnement qui coûte une fortune",
     severity: "critique",
     service: "pompes-a-chaleur",
+    trap: "Une pompe à chaleur dimensionnée à la louche (surface, pas déperditions) finit en appoint électrique permanent, et la facture explose.",
+    proofToRequest:
+      "Calcul de déperditions thermiques (note de calcul), COP et SCOP nominaux de la machine retenue, et puissance de l'appoint électrique.",
     body: `<p>Une pompe à chaleur mal dimensionnée est l&apos;un des investissements les plus décevants qu&apos;un propriétaire puisse faire. Contrairement aux panneaux solaires, où un léger surdimensionnement a un impact limité, une pompe à chaleur surdimensionnée ou sous-dimensionnée crée des problèmes concrets et immédiats.</p>
 <p><strong>Pompe à chaleur sous-dimensionnée :</strong></p>
 <ul>
@@ -251,9 +276,12 @@ const chapters: Chapter[] = [
   {
     id: "documentation-technique",
     number: 7,
-    title: "Documentation technique : ce que vous devez recevoir (et que beaucoup ne fournissent pas)",
+    title: "Documentation technique : ce que vous devez recevoir (et qui manque souvent)",
     severity: "important",
     service: "all",
+    trap: "L'installation fonctionne mais le dossier est incomplet : schéma unifilaire absent, fiches techniques manquantes, rapport de conformité oublié.",
+    proofToRequest:
+      "Dossier de fin de chantier : schéma unifilaire à jour, schéma de position, rapport de l'organisme agréé, fiches techniques panneaux + onduleur, garanties écrites, photos avant fermeture.",
     body: `<p>Après une installation, vous devez recevoir un ensemble de documents techniques qui sont à la fois une obligation légale et une protection pour vous. Sans ces documents, votre installation est incomplète, même si elle fonctionne.</p>
 <p><strong>Documents obligatoires :</strong></p>
 <ul>
@@ -290,8 +318,11 @@ const chapters: Chapter[] = [
     title: "Le retour sur investissement en 2 ans : mathématiquement impossible",
     severity: "critique",
     service: "panneaux-photovoltaiques",
+    trap: "Un retour annoncé en 2 ans repose sur un prix d'électricité, un taux d'autoconsommation et un tarif d'injection irréalistes en 2026.",
+    proofToRequest:
+      "Détail ligne par ligne du calcul de rentabilité : prix d'achat de l'électricité, tarif d'injection, taux d'autoconsommation, tarif prosumer s'il s'applique.",
     body: `<p>En 2026, avec un coût d&apos;installation moyen de 1 800 à 2 200 EUR/kWc (TVA 6% incluse), et des économies annuelles réalistes de 250 à 350 EUR/kWc, le retour sur investissement se situe entre <strong>5 et 7 ans</strong>.</p>
-<p>Un installateur qui promet un retour en 2 ans utilise nécessairement des hypothèses fausses :</p>
+<p>Un retour annoncé en 2 ans repose nécessairement sur des hypothèses qui ne tiennent pas :</p>
 <ul>
 <li><strong>Prix d&apos;électricité gonflé :</strong> projection à 50-60 c/kWh au lieu des ~38 c/kWh actuels</li>
 <li><strong>Taux d&apos;autoconsommation irréel :</strong> 90% alors que la moyenne belge sans batterie est de 30-40%</li>
@@ -331,9 +362,12 @@ const chapters: Chapter[] = [
     title: "Le surdimensionnement : plus de panneaux, plus de marge pour l'installateur",
     severity: "important",
     service: "panneaux-photovoltaiques",
+    trap: "On dimensionne à partir de la surface du toit et non de votre facture : le surplus est injecté à 1-6 c/kWh, au lieu d'être économisé à 38 c/kWh.",
+    proofToRequest:
+      "Note de dimensionnement basée sur votre consommation annuelle réelle, avec taux d'autoconsommation estimé et revenu d'injection projeté.",
     body: `<p>La règle d&apos;or de 2026 : chaque kWh que vous consommez vous-même vaut <strong>~38 centimes</strong>. Chaque kWh que vous injectez dans le réseau vous rapporte entre <strong>1 et 6 centimes</strong>. Le ratio est de 7 à 46 en faveur de l&apos;autoconsommation.</p>
-<p>Un système surdimensionné produit plus d&apos;électricité que vous n&apos;en consommez. Le surplus est injecté et vendu à perte. Vous payez plus cher à l&apos;achat pour un retour marginal sur chaque kWc excédentaire.</p>
-<p><strong>Pourquoi certains installateurs surdimensionnent :</strong></p>
+<p>Un système surdimensionné produit plus d&apos;électricité que vous n&apos;en consommez. Le surplus est injecté et valorisé à un tarif très faible. Vous payez plus cher à l&apos;achat pour un retour marginal sur chaque kWc excédentaire.</p>
+<p><strong>Pourquoi on observe régulièrement du surdimensionnement :</strong></p>
 <ul>
 <li>Le chiffre d&apos;affaires augmente proportionnellement au nombre de panneaux</li>
 <li>La marge en pourcentage reste constante, donc le profit en euros augmente</li>
@@ -366,14 +400,17 @@ const chapters: Chapter[] = [
     title: "Prenez votre temps : la pression commerciale est un signal d'alarme",
     severity: "attention",
     service: "all",
-    body: `<p>Les techniques de vente sous pression sont courantes dans le secteur de l&apos;énergie en Belgique :</p>
+    trap: "« Offre valable aujourd'hui », « dernier créneau », « la prime expire » : la pression vise à empêcher la comparaison.",
+    proofToRequest:
+      "Devis écrit, daté, avec une durée de validité claire (idéalement 30 jours), plus 2 à 3 références récentes de chantiers comparables.",
+    body: `<p>Les techniques de vente sous pression restent courantes dans le secteur de l&apos;énergie en Belgique :</p>
 <ul>
 <li>&laquo;&nbsp;Cette offre est valable uniquement aujourd&apos;hui&nbsp;&raquo;</li>
 <li>&laquo;&nbsp;Notre agenda est complet, on ne peut vous garantir un créneau que si vous signez maintenant&nbsp;&raquo;</li>
 <li>&laquo;&nbsp;Les prix des panneaux vont augmenter le mois prochain&nbsp;&raquo;</li>
 <li>&laquo;&nbsp;La prime expire bientôt&nbsp;&raquo; (cf. chapitre 1 : quelle prime ?)</li>
 </ul>
-<p>Sur le terrain, les panneaux solaires ne sont pas une denrée périssable. Les prix sont stables ou en légère baisse. Aucune offre sérieuse n&apos;expire en 24 heures. Un installateur qui vous met la pression ne veut pas que vous compariez.</p>
+<p>Sur le terrain, les panneaux solaires ne sont pas une denrée périssable. Les prix sont stables ou en légère baisse. Aucune offre sérieuse n&apos;expire en 24 heures. Si on vous met la pression pour signer immédiatement, c&apos;est rarement dans votre intérêt.</p>
 <p><strong>Le bon processus :</strong></p>
 <ol>
 <li><strong>Demandez 2 à 3 devis</strong> auprès d&apos;installateurs différents</li>
@@ -509,25 +546,48 @@ export default function PiegesPage() {
               href="/guide-pieges-a-eviter/"
               className="inline-flex items-center bg-amber hover:bg-amber-dark text-midnight font-semibold px-6 py-3.5 rounded-lg transition-colors"
             >
-              Télécharger le guide PDF
+              Télécharger le guide complet (10 pièges)
             </Link>
             <Link
               href="/contact/"
               className="inline-flex items-center border border-silver/30 hover:border-silver/60 text-silver font-medium px-6 py-3.5 rounded-lg transition-colors"
             >
-              Mon diagnostic gratuit
+              Demander un diagnostic gratuit
             </Link>
+          </div>
+          <p className="mt-3 text-xs text-silver/70">PDF · gratuit · sans email</p>
+        </div>
+      </section>
+
+      {/* How to read this guide */}
+      <section className="section-padding pb-6">
+        <div className="container-be max-w-3xl">
+          <div className="bg-ivory border border-cloud rounded-2xl p-6 md:p-8">
+            <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
+              Comment lire ce guide
+            </p>
+            <p className="text-charcoal leading-relaxed">
+              Chaque chapitre suit la même structure : <strong>le piège</strong> en une
+              ligne, <strong>la question</strong> à poser à votre installateur, et
+              <strong> la preuve</strong> à demander pour vérifier sa réponse.
+              C&apos;est conçu pour les propriétaires qui comparent 2 ou 3 devis et
+              veulent un filtre rapide avant signature.
+            </p>
+            <p className="mt-3 text-charcoal leading-relaxed">
+              Vous pouvez tout lire en ligne, ou télécharger le PDF imprimable pour
+              l&apos;avoir sous la main pendant vos rendez-vous installateurs.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Who wrote this */}
-      <section className="section-padding">
+      <section className="section-padding pt-6">
         <div className="container-be max-w-3xl">
           <div className="flex flex-col sm:flex-row items-center gap-6 bg-ivory border border-cloud rounded-2xl p-6 mb-8">
             <Image
               src="/RESCERT.png"
-              alt="RESCERT"
+              alt="Certification RESCERT"
               width={120}
               height={120}
               className="h-[80px] w-[80px] object-contain shrink-0"
@@ -536,40 +596,60 @@ export default function PiegesPage() {
           </div>
           <div className="mt-8 prose prose-lg max-w-none text-charcoal">
             <p>
-              Ce guide n&apos;est pas une liste de peurs. C&apos;est un outil de décision.
+              Ce guide n&apos;est pas une liste de peurs, c&apos;est un outil de décision.
               Si vous lisez ces 10 chapitres et posez les questions associées à votre
-              installateur, vous éliminerez 90% des risques d&apos;une mauvaise installation.
+              installateur, vous éliminerez la grande majorité des risques d&apos;une
+              mauvaise installation.
             </p>
             <p>
-              Et si c&apos;est nous que vous interrogez, on répondra avec la même transparence.
-              Parce qu&apos;un client bien informé est un client qui fait un bon choix -- et
-              qui recommande ensuite.
+              Et si c&apos;est nous que vous interrogez, on répondra avec la même
+              transparence. Un client bien informé est un client qui fait un bon
+              choix, et qui recommande ensuite.
             </p>
           </div>
         </div>
       </section>
 
       {/* Table of contents */}
-      <section className="section-padding bg-ivory">
+      <section className="section-padding bg-ivory" aria-labelledby="sommaire">
         <div className="container-be max-w-3xl">
-          <h2 className="text-2xl font-[family-name:var(--font-heading)] text-midnight mb-6">
-            Sommaire
-          </h2>
-          <nav>
-            <ol className="space-y-2">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+            <div>
+              <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-2">
+                Sommaire
+              </p>
+              <h2
+                id="sommaire"
+                className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight"
+              >
+                Les 10 chapitres du guide
+              </h2>
+            </div>
+            <Link
+              href="/guide-pieges-a-eviter/"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-midnight hover:text-amber-dark transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Télécharger le PDF
+            </Link>
+          </div>
+          <nav aria-label="Sommaire des 10 chapitres">
+            <ol className="space-y-1.5">
               {chapters.map((ch) => (
                 <li key={ch.id}>
                   <a
                     href={`#${ch.id}`}
-                    className="flex items-start gap-3 py-2 px-3 rounded-lg hover:bg-white transition-colors group"
+                    className="flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-white border border-transparent hover:border-cloud transition-colors group"
                   >
-                    <span className="shrink-0 w-7 h-7 flex items-center justify-center bg-midnight text-white text-xs font-bold rounded-full mt-0.5">
-                      {ch.number}
+                    <span className="shrink-0 inline-block w-7 text-[11px] data-figure text-amber-dark mt-1 tabular-nums">
+                      {String(ch.number).padStart(2, "0")}
                     </span>
-                    <span className="text-charcoal group-hover:text-midnight transition-colors">
+                    <span className="flex-1 text-charcoal group-hover:text-midnight transition-colors leading-snug">
                       {ch.title}
                     </span>
-                    <span className={`ml-auto shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full ${severityBadge[ch.severity]}`}>
+                    <span className={`ml-auto shrink-0 text-[10px] font-semibold px-2 py-0.5 rounded-full mt-1 ${severityBadge[ch.severity]}`}>
                       {severityLabel[ch.severity]}
                     </span>
                   </a>
@@ -598,9 +678,22 @@ export default function PiegesPage() {
               </span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-6 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-5 leading-tight">
               {ch.title}
             </h2>
+
+            {/* Le piege - 1-line synthesis */}
+            <div className="mb-8 flex items-start gap-3 bg-danger/5 border-l-4 border-danger rounded-r-xl p-4 md:p-5">
+              <AlertTriangleIcon size={20} className="text-danger shrink-0 mt-0.5" />
+              <div>
+                <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-danger mb-1">
+                  Le piège
+                </p>
+                <p className="text-charcoal leading-snug text-[15px] md:text-base">
+                  {ch.trap}
+                </p>
+              </div>
+            </div>
 
             {/* Chapter image (if available) */}
             {ch.image && (
@@ -664,11 +757,22 @@ export default function PiegesPage() {
                   « {ch.questionToAsk} »
                 </p>
                 <p className="mt-3 text-[11.5px] text-white/80">
-                  Aucune réponse claire en moins d&apos;une minute → signal
+                  Pas de réponse claire en moins d&apos;une minute : signal
                   d&apos;alerte.
                 </p>
               </div>
             )}
+
+            {/* Preuve a demander - concrete document/datasheet to request */}
+            <div className="mt-4 bg-ivory border border-cloud rounded-xl p-4 md:p-5">
+              <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-1.5">
+                Preuve à demander
+              </p>
+              <p className="text-charcoal text-[14px] md:text-[15px] leading-relaxed">
+                {ch.proofToRequest ??
+                  "Devis détaillé + datasheet du matériel proposé."}
+              </p>
+            </div>
 
             {/* Service link */}
             {ch.serviceLink && (
@@ -737,15 +841,17 @@ export default function PiegesPage() {
             Ce guide existe aussi en PDF
           </h2>
           <p className="text-charcoal max-w-xl mx-auto mb-6">
-            Les 10 pièges + la checklist des 10 questions en un document imprimable.
-            Gardez-le sous la main quand vous comparez vos devis.
+            Les 10 pièges, les 10 questions, et chaque preuve à demander, rassemblés
+            dans un document imprimable. Gardez-le sous la main quand vous comparez
+            vos devis.
           </p>
           <Link
             href="/guide-pieges-a-eviter/"
             className="inline-flex items-center bg-amber hover:bg-amber-dark text-midnight font-semibold px-8 py-4 rounded-lg transition-colors"
           >
-            Télécharger le guide gratuit (PDF)
+            Télécharger le guide complet (10 pièges)
           </Link>
+          <p className="mt-3 text-xs text-steel">PDF · gratuit · sans email</p>
         </div>
       </section>
 

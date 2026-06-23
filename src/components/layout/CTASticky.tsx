@@ -12,7 +12,7 @@ interface CTAStickyProps {
  * to give each tappable target enough surface area for a thumb.)
  */
 export function CTASticky({
-  ctaLabel = "Mon diagnostic gratuit",
+  ctaLabel = "Demander un diagnostic gratuit",
   ctaHref = "/contact/",
 }: CTAStickyProps) {
   return (
