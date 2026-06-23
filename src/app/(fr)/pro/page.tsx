@@ -52,7 +52,7 @@ const reasons: { icon: typeof SolarIcon; title: string; body: string }[] = [
   {
     icon: StarIcon,
     title: "Expertise et qualité professionnelle",
-    body: "Installation et maintenance assurées par notre équipe interne. Benoît Dezso, ancien inspecteur certifié RESCERT, supervise chaque projet : pas de sous-traitance en cascade.",
+    body: "Installation et maintenance assurées par notre équipe interne. Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT, supervise chaque projet : pas de sous-traitance en cascade.",
   },
   {
     icon: BatteryIcon,
@@ -278,6 +278,7 @@ export default function ProPage() {
                       {siteConfig.contact.phones[0].label}
                     </span>
                   </a>
+                  <span className="text-xs text-white/50 hidden sm:inline">Lun – Ven : 8 h – 17 h</span>
                   <span aria-hidden="true" className="text-white/30">·</span>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
@@ -598,6 +599,7 @@ export default function ProPage() {
                   >
                     <PhoneIcon size={15} />
                     <span className="data-figure">{m.label}</span>
+                    <span className="text-xs text-steel/80 ml-1 no-underline hidden sm:inline">Lun – Ven : 8 h – 17 h</span>
                   </a>
                 </li>
               ))}

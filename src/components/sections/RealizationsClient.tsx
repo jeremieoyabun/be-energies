@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPinIcon } from "@/lib/icons";
+import { cities } from "@/data/cities";
 import type { Realization } from "@/lib/types";
 
 const serviceFilters = [
@@ -14,6 +15,38 @@ const serviceFilters = [
   { slug: "conformite-electrique", label: "Conformité" },
   { slug: "pompes-a-chaleur", label: "Pompes à chaleur" },
 ];
+
+// Human-readable service labels - keep card chips clean (no raw slugs).
+const SERVICE_LABEL: Record<string, string> = {
+  "panneaux-photovoltaiques": "Panneaux solaires",
+  "batteries-domestiques": "Batterie",
+  "bornes-de-recharge": "Borne de recharge",
+  "conformite-electrique": "Conformité",
+  "pompes-a-chaleur": "Pompe à chaleur",
+};
+
+function formatCity(slug: string) {
+  return slug
+    .split("-")
+    .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(" ");
+}
+
+function getProvince(citySlug: string): string | undefined {
+  return cities.find((c) => c.slug === citySlug)?.province;
+}
+
+// Primary technical label: "Installation {kwc} kWc · {province}" when possible,
+// with graceful fallbacks so the card never breaks.
+function buildPrimaryLabel(r: Realization, serviceLabel: string): string {
+  const province = getProvince(r.city);
+  if (r.kwc) {
+    const head = `Installation ${r.kwc} kWc`;
+    return province ? `${head} · ${province}` : head;
+  }
+  if (province) return `${serviceLabel} · ${province}`;
+  return serviceLabel || formatCity(r.city);
+}
 
 interface RealizationsClientProps {
   realizations: Realization[];
@@ -81,23 +114,27 @@ export function RealizationsClient({ realizations }: RealizationsClientProps) {
           </div>
           <div className="p-6 md:p-8 flex flex-col justify-center">
             <div className="inline-flex self-start px-2.5 py-1 rounded-full text-[10px] font-semibold bg-amber/10 text-amber-dark tracking-wider uppercase mb-3">
-              {filtered[0].service}
+              {SERVICE_LABEL[filtered[0].service] ?? filtered[0].service}
+            </div>
+            <div className="flex items-center gap-1.5 text-[11px] text-steel font-semibold uppercase tracking-wider mb-2">
+              <MapPinIcon size={12} />
+              {buildPrimaryLabel(
+                filtered[0],
+                SERVICE_LABEL[filtered[0].service] ?? filtered[0].service,
+              )}
             </div>
             <h2 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight group-hover:text-amber-dark transition-colors">
               {filtered[0].title}
             </h2>
             <div className="mt-2 flex items-center gap-1.5 text-xs text-steel">
               <MapPinIcon size={12} />
-              {filtered[0].city}
+              {formatCity(filtered[0].city)}
             </div>
-            <div className="mt-4 flex items-center gap-4 text-sm">
-              {filtered[0].kwc && (
-                <span className="stat-value font-bold text-midnight">{filtered[0].kwc} <span className="text-steel font-normal">kWc</span></span>
-              )}
-              {filtered[0].panelCount && (
+            {filtered[0].panelCount && (
+              <div className="mt-4 flex items-center gap-4 text-sm">
                 <span className="stat-value font-bold text-midnight">{filtered[0].panelCount} <span className="text-steel font-normal">panneaux</span></span>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </Link>
       )}
@@ -120,23 +157,21 @@ export function RealizationsClient({ realizations }: RealizationsClientProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-midnight/30 via-transparent to-transparent" />
               <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/90 text-midnight tracking-wider uppercase backdrop-blur-sm">
-                {r.service}
+                {SERVICE_LABEL[r.service] ?? r.service}
               </div>
             </div>
             <div className="p-5">
-              <div className="flex items-center gap-1.5 text-[11px] text-steel font-medium uppercase tracking-wider mb-1.5">
+              <div className="flex items-center gap-1.5 text-[11px] text-steel font-semibold uppercase tracking-wider mb-1.5">
                 <MapPinIcon size={11} />
-                {r.city}
+                {buildPrimaryLabel(r, SERVICE_LABEL[r.service] ?? r.service)}
               </div>
               <h3 className="text-base font-semibold text-midnight group-hover:text-amber-dark transition-colors leading-snug">
                 {r.title}
               </h3>
-              {(r.kwc || r.panelCount) && (
-                <div className="mt-2 flex items-center gap-3 text-xs text-steel">
-                  {r.kwc && <span className="stat-value font-semibold text-charcoal">{r.kwc} kWc</span>}
-                  {r.panelCount && <span className="stat-value font-semibold text-charcoal">{r.panelCount} panneaux</span>}
-                </div>
-              )}
+              <div className="mt-2 flex items-center gap-3 text-xs text-steel">
+                <span>{formatCity(r.city)}</span>
+                {r.panelCount && <span className="stat-value font-semibold text-charcoal">{r.panelCount} panneaux</span>}
+              </div>
             </div>
           </Link>
         ))}

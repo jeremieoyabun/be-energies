@@ -143,7 +143,7 @@ export default function AboutPage() {
                     Benoît Dezso
                   </span>
                   <span className="text-steel text-xs">
-                    Fondateur · Certifié RESCERT
+                    Fondateur · Ancien inspecteur · Certifié RESCERT
                   </span>
                 </figcaption>
               </figure>

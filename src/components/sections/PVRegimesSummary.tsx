@@ -156,7 +156,7 @@ export function PVRegimesSummary() {
                 Ce que ça veut dire pour vous
               </p>
               <p className="text-steel leading-relaxed">
-                Le dimensionnement doit viser{" "}
+                Dans les faits, le dimensionnement doit viser{" "}
                 <strong className="text-midnight">
                   l&apos;autoconsommation maximale
                 </strong>{" "}

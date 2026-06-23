@@ -110,10 +110,13 @@ export default function ContactPage() {
                     <li key={p.raw}>
                       <a
                         href={`tel:${p.raw}`}
-                        className="flex items-center gap-3 text-sm text-silver hover:text-white transition-colors"
+                        className="flex flex-col gap-0.5 text-sm text-silver hover:text-white transition-colors"
                       >
-                        <PhoneIcon size={17} className="text-amber" />
-                        <span className="data-figure">{p.label}</span>
+                        <span className="inline-flex items-center gap-3">
+                          <PhoneIcon size={17} className="text-amber" />
+                          <span className="data-figure">{p.label}</span>
+                        </span>
+                        <span className="text-xs text-silver/65 ml-7">Lun – Ven : 8 h – 17 h</span>
                       </a>
                     </li>
                   ))}

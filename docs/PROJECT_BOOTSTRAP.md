@@ -239,7 +239,7 @@ These are not "components" in the UI sense -- they are **content modules** that 
 
 | Block | Purpose | Appears On |
 |-------|---------|------------|
-| **FounderCredibility** | Photo + "Ancien inspecteur RESCERT" + 2-line pitch | Homepage hero, service pages, local pages, about |
+| **FounderCredibility** | Photo + "Ancien inspecteur · Certifié RESCERT" + 2-line pitch | Homepage hero, service pages, local pages, about |
 | **PiegeCard** | Single trap with severity badge + problem/solution | Service pages, pillar page, homepage |
 | **PiegesCarousel** | 3 rotating traps as trust hooks | Homepage, service pages |
 | **TrustBar** | RESCERT cert + years experience + projects count + satisfaction % | Below every hero |
@@ -419,7 +419,7 @@ These must be decided NOW. Changing them later is expensive.
 **Why:** Every solar installer in Belgium uses teal/green/yellow. Be'energies needs to look like an expert, not another eco startup.
 
 ### Decision 6: Founder block is NOT optional
-**Recommendation:** Every service page and every local page must include a FounderCredibility block: photo of Benoit + "Ancien inspecteur en conformite electrique, certifie RESCERT" + 1-2 lines.
+**Recommendation:** Every service page and every local page must include a FounderCredibility block: photo of Benoit + "Ancien inspecteur en installation electrique · Certifie RESCERT" + 1-2 lines.
 **Why:** This is the moat. If it's only on the About page, 90% of visitors never see it.
 
 ### Decision 7: "Pieges a eviter" appears on EVERY service page

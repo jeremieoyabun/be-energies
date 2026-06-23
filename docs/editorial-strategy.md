@@ -1166,7 +1166,7 @@ article:section: [Cluster name]
   "author": {
     "@type": "Person",
     "name": "Benoit Dezso",
-    "jobTitle": "Fondateur de Be'energies, ancien inspecteur RESCERT",
+    "jobTitle": "Fondateur de Be'energies, ancien inspecteur en installation electrique, certifie RESCERT",
     "url": "https://be-energies.be/a-propos/"
   },
   "publisher": {
@@ -1222,7 +1222,7 @@ article:section: [Cluster name]
 
 ### Module: Author Bio Box
 Appears at the end of every article.
-Content: Photo de Benoit, titre "Ecrit par Benoit Dezso -- ancien inspecteur en conformite electrique, fondateur de Be'energies", 2-3 phrases sur son parcours, lien vers /a-propos/.
+Content: Photo de Benoit, titre "Ecrit par Benoit Dezso -- ancien inspecteur en installation electrique, certifie RESCERT, fondateur de Be'energies", 2-3 phrases sur son parcours, lien vers /a-propos/.
 
 ### Module: CTA Diagnostic Inline
 Appears 1-2 times within the article body (after key decision sections).

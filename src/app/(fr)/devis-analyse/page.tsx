@@ -358,6 +358,7 @@ export default function DevisAnalysePage() {
                       >
                         <PhoneIcon size={17} className="text-amber" />
                         <span className="data-figure">{p.label}</span>
+                        <span className="text-xs text-white/60 hidden sm:inline">Lun – Ven : 8 h – 17 h</span>
                       </a>
                     </li>
                   ))}

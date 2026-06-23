@@ -163,7 +163,7 @@ Translation: At Be'energies, every installation is designed as if it would be in
 > J'ai inspecte des centaines d'installations. Aujourd'hui, je les construis.
 
 **Subheadline:**
-> Benoit Dezso, ancien inspecteur en conformite electrique certifie RESCERT, fonde Be'energies pour installer ce qu'il aurait approuve.
+> Benoit Dezso, ancien inspecteur en installation electrique, certifie RESCERT, fonde Be'energies pour installer ce qu'il aurait approuve.
 
 **CTA:** Demandez votre diagnostic energetique gratuit
 
@@ -217,7 +217,7 @@ Translation: At Be'energies, every installation is designed as if it would be in
 > J'ai inspecte des centaines d'installations. Aujourd'hui, je les construis.
 
 **Subheadline:**
-> Benoit Dezso, ancien inspecteur certifie RESCERT. Panneaux solaires, batteries, bornes de recharge, pompes a chaleur, conformite electrique.
+> Benoit Dezso, ancien inspecteur en installation electrique, certifie RESCERT. Panneaux solaires, batteries, bornes de recharge, pompes a chaleur, conformite electrique.
 
 **Trust bar (below hero):**
 > [RESCERT badge] [X installations] [X ans d'experience] [Retour en 5-7 ans]
@@ -442,7 +442,7 @@ For homepage (shorter):
 > **Benoit Dezso** a passe [X] ans a inspecter des installations electriques. Aujourd'hui, il installe ce qu'il aurait approuve. Certifie RESCERT.
 
 For local pages (compact):
-> **Votre installateur a [City] :** Benoit Dezso, ancien inspecteur certifie RESCERT.
+> **Votre installateur a [City] :** Benoit Dezso, ancien inspecteur en installation electrique, certifie RESCERT.
 
 ---
 

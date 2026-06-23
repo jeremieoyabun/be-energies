@@ -30,7 +30,7 @@ import { MapPinIcon } from "@/lib/icons";
 export const metadata = generatePageMetadata({
   title: "Installateur photovoltaïque en Belgique | Ancien inspecteur RESCERT",
   description:
-    "Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit, devis clair sous 48 h, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur certifié RESCERT.",
+    "Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit, devis clair sous 48 h, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
   path: "/",
   alternates: { fr: "/", nl: "/nl/" },
 });
@@ -52,7 +52,7 @@ export default function HomePage() {
       {/* 1. HERO */}
       <HeroSection
         headline="Votre installation énergétique, conçue comme si elle devait passer le contrôle demain."
-        subheadline="Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit par Benoît Dezso, ancien inspecteur certifié RESCERT."
+        subheadline="Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT."
         ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
@@ -161,7 +161,7 @@ export default function HomePage() {
       {/* 11. FINAL CTA */}
       <CTADiagnostic
         title="Un avis honnête avant de signer"
-        description="Visite technique sur site, dimensionnement basé sur votre consommation réelle, devis clair sous 48 h avec les tarifs 2026 de votre gestionnaire de réseau. Pas d'estimation générique, pas de pression."
+        description="Concrètement : visite technique sur site, dimensionnement basé sur votre consommation réelle, devis clair sous 48 h avec les tarifs 2026 de votre gestionnaire de réseau. Pas d'estimation générique, pas de pression."
         ctaLabel="Demander mon diagnostic gratuit"
         ctaHref="/contact/"
         variant="dark"

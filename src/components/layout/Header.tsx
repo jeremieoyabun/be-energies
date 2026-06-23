@@ -130,7 +130,8 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
           <a
             href={`tel:${siteConfig.contact.phones[0].raw}`}
             className="md:hidden p-2 text-midnight"
-            aria-label="Appeler"
+            aria-label="Appeler — Lun – Ven : 8 h – 17 h"
+            title="Lun – Ven : 8 h – 17 h"
           >
             <PhoneIcon size={20} />
           </a>

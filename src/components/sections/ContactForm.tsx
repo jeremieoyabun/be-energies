@@ -148,6 +148,9 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
           >
             {siteConfig.contact.phones[0].label}
           </a>
+          <span className="text-xs text-steel/80 ml-2">
+            (Lun – Ven : 8 h – 17 h)
+          </span>
           .
         </p>
         <button

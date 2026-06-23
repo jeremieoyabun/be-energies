@@ -172,7 +172,7 @@ export default function LeadMagnetPage() {
                 de signer.
               </p>
               <p className="text-steel text-sm mt-2">
-                Benoît Dezso, ancien inspecteur, certifié RESCERT, fondateur de Be&apos;energies
+                Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT, fondateur de Be&apos;energies
               </p>
             </div>
           </div>

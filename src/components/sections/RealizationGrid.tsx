@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPinIcon, ArrowRightIcon, CheckIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
+import { cities } from "@/data/cities";
 import type { Realization } from "@/lib/types";
 
 interface RealizationGridProps {
@@ -46,6 +47,26 @@ function formatCity(slug: string) {
     .split("-")
     .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
     .join(" ");
+}
+
+// Resolve the province from a city slug via the canonical cities dataset.
+// Returns undefined if the slug isn't in cities.ts (cards still render via fallbacks).
+function getProvince(citySlug: string): string | undefined {
+  return cities.find((c) => c.slug === citySlug)?.province;
+}
+
+// Build the primary technical label shown above the title.
+// Priority: "Installation {kwc} kWc · {province}" when both are known,
+// then "Installation {kwc} kWc", then "{service} · {province}",
+// then service alone, then formatCity(city) as a last resort.
+function buildPrimaryLabel(r: Realization, serviceLabel: string): string {
+  const province = getProvince(r.city);
+  if (r.kwc) {
+    const head = `Installation ${r.kwc} kWc`;
+    return province ? `${head} · ${province}` : head;
+  }
+  if (province) return `${serviceLabel} · ${province}`;
+  return serviceLabel || formatCity(r.city);
 }
 
 export function RealizationGrid({
@@ -111,27 +132,28 @@ export function RealizationGrid({
                     </span>
                   )}
               </div>
+              <div className="flex items-center gap-1.5 text-[11px] text-steel font-semibold uppercase tracking-wider mb-2">
+                <MapPinIcon size={12} />
+                {buildPrimaryLabel(
+                  featuredItem,
+                  SERVICE_LABEL[featuredItem.service] ?? featuredItem.service,
+                )}
+              </div>
               <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight group-hover:text-amber-dark transition-colors">
                 {featuredItem.title}
               </h3>
-              <div className="mt-2 flex items-center gap-1.5 text-xs text-steel">
+              <div className="mt-3 flex items-center gap-1.5 text-xs text-steel">
                 <MapPinIcon size={12} />
                 {formatCity(featuredItem.city)}
               </div>
-              <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
-                {featuredItem.kwc && (
-                  <span className="stat-value font-bold text-midnight">
-                    {featuredItem.kwc}{" "}
-                    <span className="text-steel font-normal">kWc</span>
-                  </span>
-                )}
-                {featuredItem.panelCount && (
+              {featuredItem.panelCount && (
+                <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
                   <span className="stat-value font-bold text-midnight">
                     {featuredItem.panelCount}{" "}
                     <span className="text-steel font-normal">panneaux</span>
                   </span>
-                )}
-              </div>
+                </div>
+              )}
               {featuredItem.keyResult && (
                 <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-success bg-success/8 border border-success/15 rounded-full px-3 py-1.5 self-start">
                   <CheckIcon size={13} className="shrink-0" />
@@ -175,27 +197,24 @@ export function RealizationGrid({
                   </div>
                 </div>
                 <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-1.5 text-[11px] text-steel font-medium uppercase tracking-wider mb-1.5">
+                  <div className="flex items-center gap-1.5 text-[11px] text-steel font-semibold uppercase tracking-wider mb-1.5">
                     <MapPinIcon size={11} />
-                    {formatCity(r.city)}
+                    {buildPrimaryLabel(
+                      r,
+                      SERVICE_LABEL[r.service] ?? r.service,
+                    )}
                   </div>
                   <h3 className="text-base font-semibold text-midnight group-hover:text-amber-dark transition-colors leading-snug">
                     {r.title}
                   </h3>
-                  {(r.kwc || r.panelCount) && (
-                    <div className="mt-2 flex items-center gap-3 text-xs text-steel">
-                      {r.kwc && (
-                        <span className="stat-value font-semibold text-charcoal">
-                          {r.kwc} kWc
-                        </span>
-                      )}
-                      {r.panelCount && (
-                        <span className="stat-value font-semibold text-charcoal">
-                          {r.panelCount} panneaux
-                        </span>
-                      )}
-                    </div>
-                  )}
+                  <div className="mt-2 flex items-center gap-3 text-xs text-steel">
+                    <span>{formatCity(r.city)}</span>
+                    {r.panelCount && (
+                      <span className="stat-value font-semibold text-charcoal">
+                        {r.panelCount} panneaux
+                      </span>
+                    )}
+                  </div>
                   {r.keyResult && (
                     <p className="mt-auto pt-4 text-[12.5px] font-semibold text-success flex items-start gap-1.5">
                       <CheckIcon size={12} className="shrink-0 mt-0.5" />

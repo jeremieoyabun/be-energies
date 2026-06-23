@@ -18,7 +18,7 @@ export interface PiegePdfSection {
 export const GUIDE_TITLE =
   "Les 10 pièges à éviter avant de signer avec un installateur";
 export const GUIDE_SUBTITLE =
-  "Guide pratique par Benoît Dezso, ancien inspecteur certifié RESCERT";
+  "Guide pratique par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT";
 
 export const GUIDE_INTRO_PARAGRAPHS = [
   "Ce guide n'est pas une liste de peurs. C'est un outil de décision.",

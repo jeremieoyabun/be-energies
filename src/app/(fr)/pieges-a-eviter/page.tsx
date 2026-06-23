@@ -373,7 +373,7 @@ const chapters: Chapter[] = [
 <li>&laquo;&nbsp;Les prix des panneaux vont augmenter le mois prochain&nbsp;&raquo;</li>
 <li>&laquo;&nbsp;La prime expire bientôt&nbsp;&raquo; (cf. chapitre 1 : quelle prime ?)</li>
 </ul>
-<p>La réalité : les panneaux solaires ne sont pas une denrée périssable. Les prix sont stables ou en légère baisse. Aucune offre sérieuse n&apos;expire en 24 heures. Un installateur qui vous met la pression ne veut pas que vous compariez.</p>
+<p>Sur le terrain, les panneaux solaires ne sont pas une denrée périssable. Les prix sont stables ou en légère baisse. Aucune offre sérieuse n&apos;expire en 24 heures. Un installateur qui vous met la pression ne veut pas que vous compariez.</p>
 <p><strong>Le bon processus :</strong></p>
 <ol>
 <li><strong>Demandez 2 à 3 devis</strong> auprès d&apos;installateurs différents</li>
@@ -649,7 +649,7 @@ export default function PiegesPage() {
                   &ldquo;{ch.founderInsight}&rdquo;
                 </p>
                 <cite className="not-italic text-sm text-steel/70 mt-1 block">
-                  Benoît Dezso, ancien inspecteur, certifié RESCERT
+                  Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT
                 </cite>
               </blockquote>
             )}

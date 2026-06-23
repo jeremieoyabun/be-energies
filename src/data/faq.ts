@@ -14,7 +14,7 @@ export const homepageFaq: FAQItem[] = [
   {
     question: "Pourquoi choisir un ancien inspecteur, certifié RESCERT comme installateur ?",
     answer:
-      "Benoît Dezsö a passé plus de 10 ans à inspecter des installations électriques et photovoltaïques pour des organismes agréés. Il a documenté les erreurs les plus fréquentes du secteur : onduleurs sous-dimensionnés, câblages non conformes, dimensionnements basés sur des promesses plutôt que sur des calculs réels. Aujourd'hui, il conçoit chaque installation Be'energies avec le niveau de rigueur qu'il exigeait en tant qu'inspecteur. Résultat : votre installation est pensée pour passer le contrôle de conformité du premier coup, sans mauvaise surprise.",
+      "Benoît Dezsö a passé plus de 10 ans à inspecter des installations électriques et photovoltaïques pour des organismes agréés. Il a documenté les erreurs les plus fréquentes du secteur : onduleurs sous-dimensionnés, câblages non conformes, dimensionnements basés sur des promesses plutôt que sur des calculs réels. Concrètement, il conçoit chaque installation Be'energies avec le niveau de rigueur qu'il exigeait en tant qu'inspecteur. Résultat : votre installation est pensée pour passer le contrôle de conformité du premier coup, sans mauvaise surprise.",
   },
   {
     question: "Quels services propose Be'energies ?",
@@ -38,7 +38,7 @@ export const pvServiceFaq: FAQItem[] = [
   {
     question: "Le tarif prosumer annule-t-il la rentabilité ?",
     answer:
-      "Non. Le tarif prosumer représente environ 85,84 EUR/kWe/an chez ORES. Pour une installation de 5 kWc, cela fait environ 429 EUR/an. Or, les économies d'autoconsommation pour la même installation se situent entre 1 200 et 1 600 EUR/an. Le solde reste largement positif, entre 800 et 1 200 EUR d'économies nettes par an. Et pour les installations mises en service depuis janvier 2024 avec compteur communicant, ce tarif ne s'applique tout simplement pas.",
+      "Non. Le tarif prosumer représente environ 85,84 EUR/kWe/an chez ORES. Pour une installation de 5 kWc, cela fait environ 429 EUR/an. Or, les économies d'autoconsommation pour la même installation se situent entre 1 200 et 1 600 EUR/an. Dans les faits, le solde reste largement positif, entre 800 et 1 200 EUR d'économies nettes par an. Et pour les installations mises en service depuis janvier 2024 avec compteur communicant, ce tarif ne s'applique tout simplement pas.",
   },
   {
     question: "Quelle est la différence entre compensation et injection ?",

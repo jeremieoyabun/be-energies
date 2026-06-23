@@ -93,7 +93,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const ctaByService: Record<string, { title: string; description: string; label: string }> = {
     "panneaux-photovoltaiques": {
       title: "Vérifier la rentabilité réelle de votre projet solaire",
-      description: "Visite technique, mesure d'ombrage, calcul basé sur votre consommation réelle et les tarifs 2026 de votre GRD. Vous repartez avec des chiffres défendables, pas une promesse.",
+      description: "Concrètement : visite technique, mesure d'ombrage, calcul basé sur votre consommation réelle et les tarifs 2026 de votre GRD. Vous repartez avec des chiffres défendables, pas une promesse.",
       label: "Vérifier la rentabilité de mon projet",
     },
     "batteries-domestiques": {

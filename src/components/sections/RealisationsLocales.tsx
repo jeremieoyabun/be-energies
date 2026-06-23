@@ -146,25 +146,41 @@ export function RealisationsLocales({
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
-              <div className="p-4 flex flex-col flex-1">
-                <div className="flex items-center flex-wrap gap-x-1.5 gap-y-1 text-[10.5px] text-steel font-medium uppercase tracking-wider mb-1.5">
-                  <span className="inline-flex items-center gap-1">
-                    <MapPinIcon size={10} />
-                    {formatCity(r.city)}
-                  </span>
-                  <span aria-hidden="true">·</span>
-                  <span>{serviceLabelMap[r.service] ?? r.service}</span>
-                </div>
-                <h3 className="text-sm font-semibold text-midnight group-hover:text-amber-dark transition-colors leading-snug">
-                  {r.title}
-                </h3>
-                {r.keyResult && (
-                  <p className="mt-auto pt-3 text-[11.5px] font-semibold text-success flex items-start gap-1.5">
-                    <CheckIcon size={11} className="shrink-0 mt-0.5" />
-                    {r.keyResult}
-                  </p>
-                )}
-              </div>
+              {(() => {
+                const cardProvince = cities.find(
+                  (c) => c.slug === r.city,
+                )?.province;
+                const serviceLabel = serviceLabelMap[r.service] ?? r.service;
+                // Primary label: "{kwc} kWc · {province}" when both known,
+                // else "{kwc} kWc", else "{service} · {province}", else service / city.
+                let primary: string;
+                if (r.kwc) {
+                  primary = cardProvince
+                    ? `${r.kwc} kWc · ${cardProvince}`
+                    : `${r.kwc} kWc`;
+                } else if (cardProvince) {
+                  primary = `${serviceLabel} · ${cardProvince}`;
+                } else {
+                  primary = serviceLabel || formatCity(r.city);
+                }
+                return (
+                  <div className="p-4 flex flex-col flex-1">
+                    <div className="flex items-center gap-1.5 text-[11px] text-midnight font-bold uppercase tracking-wider mb-1.5">
+                      <MapPinIcon size={11} />
+                      {primary}
+                    </div>
+                    <h3 className="text-[13px] text-steel leading-snug group-hover:text-amber-dark transition-colors">
+                      {r.title}
+                    </h3>
+                    {r.keyResult && (
+                      <p className="mt-auto pt-3 text-[11.5px] font-semibold text-success flex items-start gap-1.5">
+                        <CheckIcon size={11} className="shrink-0 mt-0.5" />
+                        {r.keyResult}
+                      </p>
+                    )}
+                  </div>
+                );
+              })()}
             </Link>
           ))}
         </div>

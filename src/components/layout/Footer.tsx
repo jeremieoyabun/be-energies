@@ -90,10 +90,13 @@ export function Footer() {
                 <li key={p.raw}>
                   <a
                     href={`tel:${p.raw}`}
-                    className="flex items-center gap-2 text-sm text-silver hover:text-amber-light transition-colors"
+                    className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-sm text-silver hover:text-amber-light transition-colors"
                   >
-                    <PhoneIcon size={16} />
-                    <span className="data-figure">{p.label}</span>
+                    <span className="inline-flex items-center gap-2">
+                      <PhoneIcon size={16} />
+                      <span className="data-figure">{p.label}</span>
+                    </span>
+                    <span className="text-xs text-silver/60">Lun – Ven : 8 h – 17 h</span>
                   </a>
                 </li>
               ))}

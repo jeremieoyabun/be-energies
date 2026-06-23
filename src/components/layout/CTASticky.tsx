@@ -21,7 +21,8 @@ export function CTASticky({
         <a
           href={`tel:${siteConfig.contact.phones[0].raw}`}
           className="flex items-center justify-center w-12 h-12 bg-charcoal hover:bg-slate rounded-lg text-white transition-colors shrink-0"
-          aria-label="Appeler"
+          aria-label="Appeler — Lun – Ven : 8 h – 17 h"
+          title="Lun – Ven : 8 h – 17 h"
         >
           <PhoneIcon size={20} />
         </a>

@@ -345,7 +345,7 @@ Target word count: 1,500-2,000 words per local page.
 | 2 | `HERO` | "[Service] a [City] -- votre installateur certifie" |
 | 3 | `TRUST_BAR` | Same + city-specific stat if available |
 | 4 | Content: City introduction | Unique paragraph about [service] in [city], mentioning GRD, local context |
-| 5 | `FOUNDER` | Compact: "Votre installateur a [City]: Benoit Dezso, ancien inspecteur RESCERT" |
+| 5 | `FOUNDER` | Compact: "Votre installateur a [City]: Benoit Dezso, ancien inspecteur en installation electrique, certifie RESCERT" |
 | 6 | `LOCAL_PROOF` | "X installations dans la province de [province]" + nearest realization |
 | 7 | Content: Why [service] in [city] | City-specific benefits, subsidies, GRD tariff, local energy context |
 | 8 | `PIEGE_CARDS` | 2 service-specific traps (subset of service page) |

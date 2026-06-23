@@ -216,7 +216,7 @@ const serviceLocalContentNl: Record<string, ServiceLocalContent> = {
   "elektrische-conformiteit": {
     whyTitle: (city) => `Elektrische conformiteit in ${city}: expertise van een ex-inspecteur`,
     whyBody: (city) =>
-      `In ${city.name} wordt de conformiteitscontrole uitgevoerd door Benoit Dezso, voormalig gecertificeerd inspecteur. Hij weet exact wat de controleur nagaat en zorgt dat uw installatie in een keer slaagt voor de keuring.`,
+      `In ${city.name} wordt de conformiteitscontrole uitgevoerd door Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd. Hij weet exact wat de controleur nagaat en zorgt dat uw installatie in een keer slaagt voor de keuring.`,
     crossServiceHeading: (city) => `Installatie conform in ${city}? Optimaliseer verder:`,
   },
   dakreiniging: {
@@ -479,7 +479,7 @@ export function getLocalMetaDescription(
   const grd = getGrdTariff(city.grd);
 
   if (locale === "nl") {
-    return `${service.titleNl} in ${city.name} (${city.province}) door Be'energies. Benoit Dezso, voormalig inspecteur. Netbeheerder ${city.grd}. Gratis diagnose.`;
+    return `${service.titleNl} in ${city.name} (${city.province}) door Be'energies. Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd. Netbeheerder ${city.grd}. Gratis diagnose.`;
   }
 
   const tariffSnippet =
