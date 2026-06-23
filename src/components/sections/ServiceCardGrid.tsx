@@ -15,13 +15,11 @@ const FEATURE_BENEFITS: Record<Locale, string[]> = {
   fr: [
     "Dimensionnement basé sur votre consommation réelle",
     "Tarifs 2026 du GRD vérifiés ligne par ligne",
-    "Retour estimé en 5 à 7 ans",
     "Conformité pensée dès la conception",
   ],
   nl: [
     "Dimensionering op basis van uw werkelijke verbruik",
     "Tarieven 2026 van de netbeheerder, lijn per lijn",
-    "Geschatte terugverdientijd: 5 tot 7 jaar",
     "Conformiteit van bij het ontwerp",
   ],
 };

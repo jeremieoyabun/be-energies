@@ -188,8 +188,9 @@ export function ProofSystem({
               ))}
             </div>
             <SourceNote>
-              Chiffres extraits des dossiers de chantier vérifiés. Détail
-              technique complet sur chaque page projet.
+              Résultats propres à chaque chantier, mesurés ou estimés sur
+              le dossier client. Détail technique complet sur chaque page
+              projet.
             </SourceNote>
           </div>
         )}

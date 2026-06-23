@@ -123,10 +123,10 @@ export default function HomePage() {
             <ComplianceBadge
               tone="white"
               icon="clock"
-              label="Réponse sous 24 h ouvrées"
+              label="Réponse de Benoît sous 24 h ouvrées"
             />
             <p className="text-center text-sm text-white/70">
-              Réponse de Benoît sous 24 h ouvrées. Pas de call center, pas de pression.
+              Pas de call center, pas de pression commerciale.
             </p>
           </div>
         </div>

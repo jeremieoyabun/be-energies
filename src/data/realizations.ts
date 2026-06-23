@@ -13,7 +13,7 @@ export const realizations: Realization[] = [
     date: "2025-09",
     clientType: "residential",
     category: "premium",
-    keyResult: "Économie ~1 850 €/an, contrôle passé sans remarque",
+    keyResult: "Économie estimée à ~1 850 €/an, contrôle passé sans remarque",
     description:
       "Installation de 32 panneaux SunPower Maxeon 6 avec optimiseurs SolarEdge sur une toiture en tuiles orientée sud-ouest à Riemst. Le dimensionnement a été calculé pour couvrir la consommation du ménage, y compris la recharge d'un véhicule électrique. Taux d'autoconsommation estimé à 62%, avec un retour sur investissement projeté à 7 ans sous le régime actuel du tarif prosommateur en Flandre.",
     images: [
@@ -336,7 +336,7 @@ export const realizations: Realization[] = [
     date: "2025-10",
     clientType: "professional",
     category: "premium",
-    keyResult: "82 % d'autoconsommation, ROI projeté à 5 ans",
+    keyResult: "82 % d'autoconsommation mesurée, ROI projeté à 5 ans",
     description:
       "Installation de 60 panneaux Longi Hi-MO 6 sur le toit plat d'un entrepôt PME à Nivelles. Le système de 30 kWc est équipé de deux onduleurs Huawei SUN2000-15KTL en cascade et d'un système de monitoring avancé pour le suivi de production. L'installation est dimensionnée pour couvrir 70% de la consommation de l'activité en journée, où la production solaire correspond aux heures d'exploitation.",
     images: [

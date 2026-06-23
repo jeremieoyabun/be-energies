@@ -6,8 +6,8 @@ export const testimonials: Testimonial[] = [
     city: "Liège",
     service: "panneaux-photovoltaiques",
     quote:
-      "Depuis l'installation de nos panneaux par Be'energies, notre facture est passée de 185 EUR à 38 EUR par mois. Et l'installation a passé le contrôle du premier coup.",
-    outcome: "Facture : de 185 EUR à 38 EUR/mois",
+      "Sur notre profil de consommation, notre facture mensuelle est passée d'environ 185 € à 38 €. L'installation a aussi passé le contrôle du premier coup.",
+    outcome: "Facture mensuelle réduite d'environ 80 % sur son profil",
     rating: 5,
   },
   {
