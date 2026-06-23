@@ -279,7 +279,7 @@ html {
 }
 .section-label span {
   font-family: var(--font-data), 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--brand-steel);

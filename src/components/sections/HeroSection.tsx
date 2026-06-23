@@ -159,7 +159,10 @@ export function HeroSection({
                 aria-label="Engagements Be'energies"
               >
                 {reassurances.map((item) => (
-                  <li key={item} className="inline-flex items-center gap-1.5">
+                  <li
+                    key={item}
+                    className="inline-flex items-center gap-1.5 whitespace-nowrap"
+                  >
                     <CheckIcon size={13} className="text-amber-light shrink-0" />
                     <span>{item}</span>
                   </li>

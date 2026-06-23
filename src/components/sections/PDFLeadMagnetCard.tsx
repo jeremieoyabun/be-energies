@@ -73,13 +73,6 @@ export function PDFLeadMagnetCard({
         variant === "compact" ? "md:p-6" : ""
       }`}
     >
-      {/* Decorative corner glow — kept very subtle so the card sits at home
-          both in a light section and as a sidebar widget. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-12 -right-12 h-32 w-32 rounded-full bg-amber/20 blur-2xl"
-      />
-
       <div className="relative z-10 flex flex-col gap-4">
         <div className="flex items-center gap-2">
           <span className="inline-flex h-2 w-2 rounded-full bg-amber" aria-hidden="true" />

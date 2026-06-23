@@ -94,16 +94,6 @@ function FeatureCard({
       href={href}
       className="group relative rounded-2xl border border-charcoal/40 shadow-[0_2px_8px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.18)] p-7 md:p-8 flex flex-col bg-midnight text-white overflow-hidden hover:bg-deep hover:-translate-y-0.5 transition-all duration-300 animate-fade-in-up"
     >
-      {/* Subtle radial glow */}
-      <div
-        className="absolute top-1/2 -right-20 w-80 h-80 -translate-y-1/2 opacity-30 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(circle, var(--brand-amber) 0%, transparent 60%)",
-        }}
-      />
-
       <div className="relative flex items-center gap-3 mb-5">
         <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-amber text-midnight shrink-0">
           <ServiceIcon name={service.icon} size={24} />
