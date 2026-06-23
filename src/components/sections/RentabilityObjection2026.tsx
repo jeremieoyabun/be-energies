@@ -1,170 +1,203 @@
 import Link from "next/link";
-import { ArrowRightIcon, CheckIcon, AlertTriangleIcon } from "@/lib/icons";
+import { ArrowRightIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
 import { DataSources } from "@/components/sections/DataSources";
 
 /**
  * RentabilityObjection2026
  *
- * Most installer sites bury "les panneaux ne sont plus rentables avec le
- * compteur communicant et le tarif prosumer" inside the FAQ. We name the
- * objection on the homepage (H2), resolve it in three sourced sub-blocks,
- * then CTA out to deeper pages — pattern borrowed from 1KOMMA5° and
- * Octopus Energy.
+ * Homepage decision frame for the PV 2026 question. Instead of debating the
+ * objection rhetorically, we lay out three visual decision cards — avant
+ * 2024, après 2024, ce qui compte vraiment — so the visitor reads the
+ * regulatory shift as a clean before/after/answer, with the "answer" card
+ * (carte 03) styled as the converting tile.
  *
  * Placed between ServiceCardGrid (bg-ivory) and FounderCredibility so the
  * warm gradient breaks the ivory rhythm and signals "this is the part you
  * actually came here to read".
  */
 
-type Block = {
+type CardTone = "light" | "dark" | "warm";
+
+type Card = {
   number: "01" | "02" | "03";
+  eyebrow: string;
   title: string;
   body: React.ReactNode;
-  source: string;
   link: { href: string; label: string };
-  Icon: typeof CheckIcon;
+  tone: CardTone;
 };
 
-const BLOCKS: Block[] = [
+const CARDS: Card[] = [
   {
     number: "01",
-    title: "Le tarif prosumer existe, mais ne tue pas la rentabilité",
+    eyebrow: "Avant 2024",
+    title: "Compensation + tarif prosumer",
     body: (
       <>
-        Avant 2024, le prosumer s&apos;applique (
-        <strong className="text-midnight">~85 EUR/kWe/an</strong> chez ORES).
-        Comparé à l&apos;autoconsommation directe, le solde reste largement
-        positif sur 25 ans.
+        Le compteur tourne à l&apos;envers. Vous payez le tarif prosumer en
+        contrepartie. Régime maintenu jusqu&apos;au{" "}
+        <strong>31 décembre 2030</strong> pour les installations mises en
+        service avant le 01/01/2024.
       </>
     ),
-    source: "Sources : CWaPE, grilles GRD 2026.",
     link: {
       href: "/guides/prix-panneaux-solaires-wallonie-2026/",
-      label: "Voir le tarif par GRD",
+      label: "Lire le détail",
     },
-    Icon: CheckIcon,
+    tone: "light",
   },
   {
     number: "02",
-    title: "Le compteur communicant change le calcul, pas le résultat",
+    eyebrow: "Après 2024",
+    title: "Compteur communicant + autoconsommation",
     body: (
       <>
-        Depuis 2024, l&apos;autoconsommation directe vaut{" "}
-        <strong className="text-midnight">~7 à 46 fois plus</strong> que
-        l&apos;injection. Un dimensionnement honnête vise la consommation
-        réelle, pas la surface du toit.
+        Le compteur communicant sépare injection et prélèvement. La
+        rentabilité vient de ce que vous consommez quand vos panneaux
+        produisent. L&apos;injection est revendue, mais plus faiblement.
       </>
     ),
-    source: "Sources : CWaPE, fournisseurs d'énergie 2026.",
     link: {
-      href: "/guides/prix-panneaux-solaires-wallonie-2026/",
-      label: "Lire le guide dimensionnement",
+      href: "/guides/tarif-impact-wallonie-explication/",
+      label: "Lire le détail",
     },
-    Icon: CheckIcon,
+    tone: "dark",
   },
   {
     number: "03",
-    title: "Ce qui plombe vraiment la rentabilité : un mauvais devis",
+    eyebrow: "Ce qui compte vraiment",
+    title: "Dimensionnement + profil de consommation",
     body: (
       <>
-        Surdimensionnement vendu sur surface, matériel sous-garanti, oubli du
-        tableau : trois erreurs qui coûtent plus que la réforme tarifaire.
-        D&apos;où l&apos;intérêt de faire relire le devis avant de signer.
+        Ce n&apos;est plus la surface de la toiture qui décide, c&apos;est
+        votre consommation réelle. Une installation bien dimensionnée sur
+        votre profil reste largement rentable. Surdimensionner ne paie plus.
       </>
     ),
-    source: "Sources : retours terrain Be'energies, guide pièges PDF.",
     link: {
-      href: "/pieges-a-eviter/",
-      label: "Voir les 10 pièges",
+      href: "/devis-analyse/",
+      label: "Faire vérifier mon projet",
     },
-    Icon: AlertTriangleIcon,
+    tone: "warm",
   },
 ];
+
+const TONE_STYLES: Record<
+  CardTone,
+  {
+    card: string;
+    eyebrow: string;
+    title: string;
+    body: string;
+    badge: string;
+    link: string;
+  }
+> = {
+  light: {
+    card: "bg-ivory border border-cloud",
+    eyebrow: "text-charcoal/70",
+    title: "text-midnight",
+    body: "text-charcoal",
+    badge: "bg-amber/15 text-amber-dark",
+    link: "text-amber-dark hover:text-midnight",
+  },
+  dark: {
+    card: "bg-midnight text-white border border-midnight",
+    eyebrow: "text-amber-light/80",
+    title: "text-white",
+    body: "text-white/85",
+    badge: "bg-amber text-midnight",
+    link: "text-amber-light hover:text-white",
+  },
+  warm: {
+    card: "bg-warm-gradient border border-amber/25",
+    eyebrow: "text-amber-dark",
+    title: "text-midnight",
+    body: "text-charcoal",
+    badge: "bg-amber text-midnight",
+    link: "text-amber-dark hover:text-midnight",
+  },
+};
 
 export function RentabilityObjection2026() {
   return (
     <section className="section-padding bg-warm-gradient">
       <div className="container-be">
         <div className="max-w-3xl">
-          <SectionLabel>L&apos;objection qu&apos;on entend le plus</SectionLabel>
+          <SectionLabel>Photovoltaïque 2026</SectionLabel>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
-            Les panneaux sont-ils encore rentables en 2026 ?
+            Ce qui a changé, et ce qui compte vraiment
           </h2>
           <p className="mt-4 text-charcoal leading-relaxed text-[17px]">
-            Réponse honnête : oui, mais la logique a changé.
+            Le calcul de rentabilité a changé avec le compteur communicant.
+            Trois repères simples pour vous repérer.
           </p>
         </div>
 
-        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
-          {BLOCKS.map(({ number, title, body, source, link, Icon }) => (
-            <article
-              key={number}
-              className="card p-6 md:p-7 flex flex-col h-full relative"
-            >
-              {/* Top row: prominent eyebrow number + icon. The number is
-                  intentionally oversized and treated as a tabular figure to
-                  anchor the scan path: number → title → body → link → source. */}
-              <div className="flex items-start justify-between mb-3">
-                <span className="data-figure text-[40px] md:text-[44px] font-bold leading-none tracking-tight text-amber-dark">
-                  {number}
-                </span>
-                <Icon
-                  size={20}
-                  className={
-                    number === "03" ? "text-amber-dark" : "text-amber-dark/70"
-                  }
-                />
-              </div>
-              <h3 className="text-[17px] md:text-lg font-[family-name:var(--font-heading)] text-midnight leading-snug">
-                {title}
-              </h3>
-              <p className="mt-3 text-[14.5px] text-charcoal leading-relaxed">
-                {body}
-              </p>
-              <Link
-                href={link.href}
-                className="mt-3 inline-flex items-center gap-1 text-[13px] font-medium text-amber-dark hover:text-midnight transition-colors"
+        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {CARDS.map(({ number, eyebrow, title, body, link, tone }) => {
+            const t = TONE_STYLES[tone];
+            return (
+              <article
+                key={number}
+                className={`rounded-2xl p-6 md:p-7 flex flex-col h-full relative ${t.card}`}
               >
-                {link.label}
-                <ArrowRightIcon size={13} />
-              </Link>
-              <p className="mt-auto pt-4 border-t border-cloud text-[11.5px] text-steel/90 leading-snug tracking-wide">
-                {source}
-              </p>
-            </article>
-          ))}
-        </div>
-
-        {/* Next-step ladder: primary action (pièges guide, soft commitment)
-            then secondary (devis analyse, higher intent). Eyebrow label
-            frames it as a clear next step instead of a wall of buttons. */}
-        <div className="mt-10 md:mt-12">
-          <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-4">
-            La suite logique
-          </p>
-          <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4">
-            <Link
-              href="/pieges-a-eviter/"
-              className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-7 py-3.5 rounded-xl transition-colors"
-            >
-              Lire les 10 pièges à éviter
-              <ArrowRightIcon size={16} />
-            </Link>
-            <Link
-              href="/devis-analyse/"
-              className="inline-flex items-center justify-center gap-2 font-medium px-7 py-3.5 rounded-xl transition-colors border border-charcoal/30 text-charcoal hover:bg-midnight hover:text-white hover:border-midnight"
-            >
-              Faire vérifier mon devis
-              <ArrowRightIcon size={15} />
-            </Link>
-          </div>
+                {/* Top row: amber circle badge with the step number plus the
+                    eyebrow label. The badge anchors the scan path and lets
+                    the three cards read as a sequence: 01 → 02 → 03. */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span
+                    className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-[12px] font-bold tabular-nums ${t.badge}`}
+                  >
+                    {number}
+                  </span>
+                  <span
+                    className={`text-[11px] font-semibold tracking-[0.14em] uppercase ${t.eyebrow}`}
+                  >
+                    {eyebrow}
+                  </span>
+                </div>
+                <h3
+                  className={`text-[17px] md:text-lg font-[family-name:var(--font-heading)] leading-snug ${t.title}`}
+                >
+                  {title}
+                </h3>
+                <p
+                  className={`mt-3 text-[14.5px] leading-relaxed ${t.body}`}
+                >
+                  {body}
+                </p>
+                <Link
+                  href={link.href}
+                  className={`mt-auto pt-5 inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors ${t.link}`}
+                >
+                  {link.label}
+                  <ArrowRightIcon size={13} />
+                </Link>
+              </article>
+            );
+          })}
         </div>
 
         <DataSources
           className="max-w-3xl"
           sources="CWaPE, GRD wallons, fournisseurs d'énergie, retours terrain Be'energies"
         />
+
+        {/* Single-line conversion tail: the cards already structured the
+            decision; here we just offer the personalised next step in one
+            sentence rather than a button row. */}
+        <p className="mt-8 text-[15px] text-charcoal">
+          Vous voulez le calcul pour votre cas ?{" "}
+          <Link
+            href="/contact/"
+            className="font-semibold text-amber-dark hover:text-midnight underline underline-offset-4 decoration-amber/60 hover:decoration-midnight transition-colors"
+          >
+            Demander un diagnostic
+          </Link>
+          .
+        </p>
       </div>
     </section>
   );

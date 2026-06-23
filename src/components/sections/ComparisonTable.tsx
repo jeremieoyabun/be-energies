@@ -15,24 +15,20 @@ interface ComparisonTableProps {
 
 const defaultPairs: ComparisonPair[] = [
   {
-    classique: "Estimation par téléphone",
-    beEnergies: "Visite technique sur site, courbe de charge",
+    classique: "Dimensionnement basé sur la surface disponible",
+    beEnergies: "Dimensionnement basé sur votre consommation réelle",
   },
   {
-    classique: "Panneaux « tier-1 », onduleur générique",
-    beEnergies: "Marque, modèle, datasheet annexée",
+    classique: "Hypothèses tarifaires génériques",
+    beEnergies: "Tarifs GRD vérifiés ligne par ligne",
   },
   {
-    classique: "Découverte le jour du contrôle",
-    beEnergies: "Conformité pensée dès l'étude",
+    classique: "Batterie proposée par défaut",
+    beEnergies: "Batterie recommandée uniquement si elle est rentable",
   },
   {
-    classique: "« 25 ans » sans précision",
-    beEnergies: "Garantie quantifiée, source manufacturier",
-  },
-  {
-    classique: "Sous-traitants en cascade",
-    beEnergies: "Un seul interlocuteur, du diagnostic au contrôle",
+    classique: "Conformité vérifiée tardivement",
+    beEnergies: "Conformité anticipée dès la conception",
   },
 ];
 
@@ -48,7 +44,7 @@ export function ComparisonTable({
           {title}
         </h2>
         <p className="text-steel mb-10 max-w-2xl">
-          Après quinze ans à inspecter des installations, voici ce qui distingue un devis sérieux d&apos;un devis marketing.
+          Voici quatre points où la différence se joue, entre une installation standard et une installation pensée pour durer.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
