@@ -11,11 +11,8 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ServiceCardGrid } from "@/components/sections/ServiceCardGrid";
 import { RentabilityObjection2026 } from "@/components/sections/RentabilityObjection2026";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
-import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
-import { RealizationGrid } from "@/components/sections/RealizationGrid";
-import { TerrainStrip } from "@/components/sections/TerrainStrip";
+import { ProofSystem } from "@/components/sections/ProofSystem";
 import { testimonials } from "@/data/testimonials";
-import { realizations } from "@/data/realizations";
 import { ArrowRightIcon } from "@/lib/icons";
 
 export const metadata = generatePageMetadata({
@@ -59,19 +56,11 @@ export default function HomePage() {
               checklist (handled inside the variant="full") */}
       <FounderCredibility variant="full" />
 
-      {/* 5. PROOF - one continuous block: TerrainStrip (silent field photos)
-              → RealizationGrid (curated projects) → TestimonialBlock (2 voices) */}
-      <TerrainStrip />
-      <RealizationGrid
-        realizations={realizations}
-        maxItems={4}
-        showViewAll
-        featured
-      />
-      <TestimonialBlock
-        testimonials={proofTestimonials}
-        title="Ils nous ont fait confiance"
-      />
+      {/* 5. PROOF — unified proof block. Single H2, three internal sub-bands
+              (strip of recent chantiers, 3 featured projects, 2 Google reviews).
+              Replaces the previous TerrainStrip + RealizationGrid + TestimonialBlock
+              stack so the home reads as one proof chapter instead of three. */}
+      <ProofSystem testimonials={proofTestimonials} />
 
       {/* 6. FINAL CONVERSION SPLIT - dual ladder: starting a project vs.
               already holding a quote. Single H2, 2 cards, one reassurance line. */}
