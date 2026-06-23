@@ -107,7 +107,7 @@ export function QuoteCheckCTA({
           {/* Illustration - character with magnifying glass */}
           <div className="hidden md:flex items-center justify-center shrink-0 w-[180px] lg:w-[210px]">
             <Image
-              src="/img/Mascotte.png"
+              src="/img/Mascotte.webp"
               alt="Personnage à la loupe qui inspecte un devis"
               width={210}
               height={357}
