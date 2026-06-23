@@ -61,7 +61,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
                 <>
                   <button
                     type="button"
-                    className="flex items-center gap-1 text-[13px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors whitespace-nowrap"
+                    className="flex items-center gap-1 text-[14.5px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors whitespace-nowrap"
                     aria-haspopup="menu"
                   >
                     {item.label}
@@ -103,7 +103,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
               ) : (
                 <Link
                   href={item.href}
-                  className="text-[13px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors whitespace-nowrap"
+                  className="text-[14.5px] font-medium text-charcoal hover:text-midnight px-3 py-2 rounded-lg hover:bg-ivory transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -121,7 +121,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
               split across two lines even when the surrounding row is tight. */}
           <Link
             href={ctaHref}
-            className="hidden md:inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold text-[13px] px-5 py-2.5 rounded-xl transition-colors whitespace-nowrap"
+            className="hidden md:inline-flex items-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold text-[14px] px-5 py-2.5 rounded-xl transition-colors whitespace-nowrap"
           >
             {ctaLabel}
           </Link>
