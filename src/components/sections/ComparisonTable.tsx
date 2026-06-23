@@ -1,132 +1,125 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CheckIcon, CloseIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
 
-interface ComparisonRow {
-  aspect: string;
-  others: string;
+interface ComparisonPair {
+  classique: string;
   beEnergies: string;
 }
 
 interface ComparisonTableProps {
-  rows?: ComparisonRow[];
+  pairs?: ComparisonPair[];
   title?: string;
 }
 
-const defaultRows: ComparisonRow[] = [
+const defaultPairs: ComparisonPair[] = [
   {
-    aspect: "Diagnostic énergétique",
-    others: "Estimation générique sur base d'une facture",
-    beEnergies: "Courbe de charge réelle et tarifs 2026 de votre GRD",
+    classique: "Estimation par téléphone",
+    beEnergies: "Visite technique sur site, courbe de charge",
   },
   {
-    aspect: "Devis",
-    others: "« Panneaux 400 Wc », onduleur non précisé",
-    beEnergies: "Marque, modèle et datasheet pour chaque composant",
+    classique: "Panneaux « tier-1 », onduleur générique",
+    beEnergies: "Marque, modèle, datasheet annexée",
   },
   {
-    aspect: "Conformité électrique",
-    others: "Contre-visite fréquente, corrections à votre charge",
-    beEnergies: "Pensée dès la conception, passage du premier coup",
+    classique: "Découverte le jour du contrôle",
+    beEnergies: "Conformité pensée dès l'étude",
   },
   {
-    aspect: "Garantie long terme",
-    others: "« Garantie 25 ans » sans précision de rendement",
-    beEnergies: "Rendement garanti chiffré à 25 ans (% contractuel)",
+    classique: "« 25 ans » sans précision",
+    beEnergies: "Garantie quantifiée, source manufacturier",
   },
   {
-    aspect: "Interlocuteur",
-    others: "Commercial, puis sous-traitants, puis SAV externe",
-    beEnergies: "Un seul interlocuteur du diagnostic au contrôle final",
+    classique: "Sous-traitants en cascade",
+    beEnergies: "Un seul interlocuteur, du diagnostic au contrôle",
   },
 ];
 
 export function ComparisonTable({
-  rows = defaultRows,
-  title = "Pourquoi Be'energies fait la différence",
+  pairs = defaultPairs,
+  title = "Deux façons de poser des panneaux. Une seule passe le contrôle.",
 }: ComparisonTableProps) {
   return (
     <section className="section-padding bg-ivory">
-      <div className="container-be max-w-4xl">
-        <SectionLabel>Comparaison</SectionLabel>
+      <div className="container-be max-w-5xl">
+        <SectionLabel>Pourquoi nous différons</SectionLabel>
         <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-3 text-balance">
           {title}
         </h2>
-        <p className="text-steel mb-10 max-w-xl">
-          Ce que la plupart des installateurs font, et ce que nous faisons différemment.
+        <p className="text-steel mb-10 max-w-2xl">
+          Après quinze ans à inspecter des installations, voici ce qui distingue un devis sérieux d&apos;un devis marketing.
         </p>
 
-        {/* Mobile: stacked cards. aria-hidden because the desktop <table>
-            below carries the canonical semantics; this view is purely
-            visual reflow for narrow viewports. Crawlers see one source. */}
-        <div className="md:hidden space-y-4" aria-hidden="true">
-          {rows.map((row, index) => (
-            <div key={index} className="card p-5">
-              <p className="font-semibold text-midnight text-sm mb-3">{row.aspect}</p>
-              <div className="space-y-2">
-                <div className="flex items-start gap-2 text-sm">
-                  <CloseIcon size={14} className="text-danger shrink-0 mt-0.5" />
-                  <span className="text-steel">{row.others}</span>
-                </div>
-                <div className="flex items-start gap-2 text-sm">
-                  <CheckIcon size={14} className="text-success shrink-0 mt-0.5" />
-                  <span className="text-midnight font-medium">{row.beEnergies}</span>
-                </div>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+          {/* LEFT — L'installateur classique */}
+          <div className="rounded-2xl bg-cloud/40 border border-cloud p-6 md:p-7">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-danger/10">
+                <CloseIcon size={16} className="text-danger" />
+              </span>
+              <h3 className="text-lg font-semibold text-charcoal">
+                L&apos;installateur classique
+              </h3>
             </div>
-          ))}
-        </div>
-
-        {/* Desktop: table */}
-        <div className="hidden md:block rounded-2xl overflow-hidden border border-cloud shadow-sm">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-midnight">
-                <th className="text-left py-4 px-5 text-white/85 font-medium text-xs uppercase tracking-wider w-[22%]">
-                  Critère
-                </th>
-                <th className="text-left py-4 px-5 font-medium text-white/85 text-xs uppercase tracking-wider w-[39%] border-l border-white/10">
-                  Pratique courante
-                </th>
-                <th className="text-left py-4 px-5 font-bold text-amber text-xs uppercase tracking-wider w-[39%] border-l border-white/10">
-                  Be&apos;energies
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, index) => (
-                <tr
-                  key={index}
-                  className="border-b border-cloud/60 last:border-0 group"
-                >
-                  <td className="py-4 px-5 font-semibold text-midnight text-[13px]">
-                    {row.aspect}
-                  </td>
-                  <td className="py-4 px-5 text-steel border-l border-cloud/60">
-                    <span className="flex items-start gap-2.5">
-                      <CloseIcon
-                        size={14}
-                        className="text-danger/70 shrink-0 mt-0.5"
-                      />
-                      {row.others}
-                    </span>
-                  </td>
-                  <td className="py-4 px-5 text-midnight font-medium bg-amber/[0.03] border-l border-cloud/60">
-                    <span className="flex items-start gap-2.5">
-                      <CheckIcon
-                        size={14}
-                        className="text-success shrink-0 mt-0.5"
-                      />
-                      {row.beEnergies}
-                    </span>
-                  </td>
-                </tr>
+            <ul className="space-y-3.5">
+              {pairs.map((pair, index) => (
+                <li key={index} className="flex items-start gap-2.5 text-sm">
+                  <CloseIcon
+                    size={14}
+                    className="text-danger shrink-0 mt-1"
+                  />
+                  <span className="text-steel">{pair.classique}</span>
+                </li>
               ))}
-            </tbody>
-          </table>
+            </ul>
+          </div>
+
+          {/* RIGHT — Be'energies */}
+          <div className="relative rounded-2xl bg-midnight text-white p-6 md:p-7 overflow-hidden shadow-lg">
+            <span
+              aria-hidden="true"
+              className="absolute top-4 right-4 w-2 h-2 rounded-full bg-amber"
+            />
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber/20">
+                <CheckIcon size={16} className="text-amber" />
+              </span>
+              <h3 className="text-lg font-bold text-white">Be&apos;energies</h3>
+            </div>
+            <ul className="space-y-3.5">
+              {pairs.map((pair, index) => (
+                <li key={index} className="flex items-start gap-2.5 text-sm">
+                  <CheckIcon
+                    size={14}
+                    className="text-amber shrink-0 mt-1"
+                  />
+                  <span className="text-white/95">{pair.beEnergies}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-7 pt-6 border-t border-white/10 flex items-center gap-4">
+              <div className="relative shrink-0 w-[88px] h-[88px] rounded-xl overflow-hidden ring-1 ring-white/10">
+                <Image
+                  src="/img/services/benoit-inspection-tableau.png"
+                  alt="Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT"
+                  width={176}
+                  height={176}
+                  sizes="88px"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <p className="text-xs leading-relaxed text-white/85">
+                Benoît Dezso, ancien inspecteur.
+                <br />
+                Certifié RESCERT.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-10 text-center">
           <Link
             href="/pieges-a-eviter/"
             className="inline-flex items-center gap-2 text-sm font-medium text-midnight underline underline-offset-4 decoration-amber/60 hover:decoration-amber transition-colors"

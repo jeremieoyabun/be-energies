@@ -229,7 +229,12 @@ export default async function NlServicePage({ params }: NlServicePageProps) {
       <ProcessTimeline locale="nl" />
 
       {content?.comparisonRows && content.comparisonRows.length > 0 && (
-        <ComparisonTable rows={content.comparisonRows} />
+        <ComparisonTable
+          pairs={content.comparisonRows.map((r) => ({
+            classique: r.others,
+            beEnergies: r.beEnergies,
+          }))}
+        />
       )}
 
       {serviceFaq.length > 0 && (

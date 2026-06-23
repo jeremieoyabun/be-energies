@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { generatePageMetadata } from "@/lib/metadata";
 import {
   JsonLd,
@@ -20,7 +21,6 @@ import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { RealizationGrid } from "@/components/sections/RealizationGrid";
 import { TerrainStrip } from "@/components/sections/TerrainStrip";
 import { FAQSection } from "@/components/sections/FAQSection";
-import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
 import { PDFLeadMagnetCard } from "@/components/sections/PDFLeadMagnetCard";
 import { pieges } from "@/data/pieges";
@@ -194,16 +194,54 @@ export default function HomePage() {
 
       {/* 13. FINAL CTA - direct address + dual ladder (diagnostic vs devis
               check) so the visitor can self-route based on whether they
-              already have a quote in hand. */}
-      <CTADiagnostic
-        title="Vous avez un projet en tête ? Voici comment on commence."
-        description="Deux portes d'entrée selon votre situation. Vous démarrez de zéro : on cale un diagnostic sur site, on dimensionne sur votre consommation réelle, on chiffre sous 48 h. Vous avez déjà un devis : Benoît le lit en détail et vous renvoie un avis écrit, sans pression."
-        ctaLabel="Demander un diagnostic gratuit"
-        ctaHref="/contact/"
-        secondaryCta={{ label: "Faire vérifier mon devis", href: "/devis-analyse/" }}
-        reassurance="Réponse de Benoît sous 24 h ouvrées · Pas de pression commerciale"
-        variant="dark"
-      />
+              already have a quote in hand. Inlined: hero-poster background,
+              midnight gradient overlay, dotted texture, dual CTAs. */}
+      <section className="relative overflow-hidden min-h-[420px] md:min-h-[520px] flex items-center">
+        <Image
+          src="/img/Be-energies_video_header.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover -z-10"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-midnight/85 via-midnight/90 to-deep/95 -z-10"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 texture-dots opacity-60 -z-10"
+          aria-hidden="true"
+        />
+        <div className="container-be relative z-10 text-center py-16 md:py-24">
+          <div className="text-xs md:text-sm font-semibold tracking-[0.2em] text-amber-light uppercase mb-4">
+            Dernier mot
+          </div>
+          <h2 className="text-3xl md:text-5xl font-[family-name:var(--font-heading)] text-white text-balance max-w-2xl mx-auto leading-tight">
+            Vous avez un projet en tête ? Voici comment on commence.
+          </h2>
+          <p className="mt-5 text-base md:text-lg text-white/90 max-w-xl mx-auto leading-relaxed">
+            Un seul échange suffit pour savoir si votre projet tient debout : visite gratuite, devis clair sous 48 h.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <Link
+              href="/contact/"
+              className="inline-flex items-center justify-center gap-2 bg-amber text-midnight font-semibold px-6 py-3 rounded-md hover:bg-amber-light transition-colors min-w-[260px]"
+            >
+              Demander un diagnostic gratuit
+              <ArrowRightIcon size={16} />
+            </Link>
+            <Link
+              href="/devis-analyse/"
+              className="inline-flex items-center justify-center gap-2 border border-white/80 text-white font-semibold px-6 py-3 rounded-md hover:bg-white hover:text-midnight transition-colors min-w-[260px]"
+            >
+              Faire vérifier mon devis
+            </Link>
+          </div>
+          <p className="mt-6 text-sm text-white/70">
+            Réponse de Benoît sous 24 h ouvrées. Pas de call center, pas de pression.
+          </p>
+        </div>
+      </section>
     </>
   );
 }

@@ -477,7 +477,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       {/* Custom comparison rows from deep content, or defaults */}
       <ComparisonTable
-        rows={content?.comparisonRows}
+        pairs={content?.comparisonRows?.map((r) => ({
+          classique: r.others,
+          beEnergies: r.beEnergies,
+        }))}
         title={content ? `Ce que d'autres font vs. ce que Be'energies fait pour vos ${service.title.toLowerCase()}` : undefined}
       />
 
