@@ -39,11 +39,11 @@ export function ProjectProofCard({
     >
       {/* Header strip — audit dossier label, sharp bottom border */}
       <div className="flex items-center justify-between gap-3 px-5 md:px-6 pt-4 pb-3 border-b border-amber/30 bg-ivory">
-        <p className="font-[family-name:var(--font-mono)] text-[10.5px] md:text-[11px] font-semibold tracking-[0.14em] uppercase text-amber-dark leading-none truncate">
+        <p className="font-[family-name:var(--font-mono)] text-[12px] md:text-[13px] font-bold tracking-[0.1em] uppercase text-amber-dark leading-none truncate">
           {primaryLabel}
         </p>
         {isCorrection && (
-          <span className="shrink-0 inline-flex items-center rounded-md bg-danger text-white text-[10px] font-semibold tracking-[0.08em] uppercase px-2 py-0.5">
+          <span className="shrink-0 inline-flex items-center rounded-md bg-danger text-white text-[10.5px] md:text-[11px] font-semibold tracking-[0.08em] uppercase px-2 py-0.5">
             Correction
           </span>
         )}
@@ -72,18 +72,18 @@ export function ProjectProofCard({
 
       {/* Title + problem + keyResult */}
       <div className="p-5 md:p-6 flex flex-col gap-3 flex-1">
-        <h3 className="text-[15.5px] md:text-base font-semibold text-midnight leading-snug">
+        <h3 className="text-base md:text-lg font-semibold text-midnight leading-[1.3]">
           {r.title}
         </h3>
         {problem && (
-          <p className="text-[13px] text-charcoal/80 leading-relaxed line-clamp-2">
+          <p className="text-[13.5px] text-charcoal leading-relaxed line-clamp-2">
             {problem}
           </p>
         )}
         {r.keyResult && (
-          <p className="mt-auto inline-flex items-start gap-1.5 text-[13px] font-semibold text-success">
-            <CheckIcon size={13} className="shrink-0 mt-0.5" />
-            {r.keyResult}
+          <p className="mt-auto inline-flex items-start gap-2 text-[14px] md:text-[14.5px] font-semibold text-midnight leading-snug">
+            <CheckIcon size={14} className="shrink-0 mt-[3px] text-success" />
+            <span>{r.keyResult}</span>
           </p>
         )}
       </div>
