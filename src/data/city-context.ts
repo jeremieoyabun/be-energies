@@ -89,9 +89,9 @@ export const cityContext: Record<string, CityContextEntry> = {
     housingNote:
       "Arlon a un caractère à la fois urbain et résidentiel, avec un centre compact, des faubourgs en maisons mitoyennes et une périphérie pavillonnaire marquée par l'influence du marché luxembourgeois.",
     contextNote:
-      "Le réseau est exploité par AIEG, un gestionnaire local plus rare en Wallonie : il faut connaître ses procédures spécifiques de raccordement et de notification avant tout projet. Le profil résidentiel arlonais, avec souvent des grands logements et des consommations électriques importantes, justifie régulièrement des installations 8 à 12 kWc avec batterie. Les hivers plus froids ici renforcent l'intérêt du couplage PV plus pompe à chaleur bien dimensionné.",
+      "Le réseau est exploité par ORES, qui couvre la quasi-totalité de la province de Luxembourg. Le profil résidentiel arlonais, avec souvent des grands logements et des consommations électriques importantes, justifie régulièrement des installations 8 à 12 kWc avec batterie. Les hivers plus froids ici renforcent l'intérêt du couplage PV plus pompe à chaleur bien dimensionné.",
     positioningNote:
-      "Sur Arlon, ce qui change c'est le gestionnaire de réseau : un installateur qui ne connaît pas les procédures AIEG va perdre du temps à chaque étape. Je préfère vérifier le dossier administratif avant de promettre un délai.",
+      "Sur Arlon, ce que je regarde avant tout c'est la covisibilité avec les biens classés du centre historique et la portance des charpentes anciennes. L'orientation idéale doit parfois céder le pas à une intégration plus discrète.",
   },
   tournai: {
     housingNote:

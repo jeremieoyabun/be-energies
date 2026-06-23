@@ -118,7 +118,7 @@ export const cities: City[] = [
     population: 30543,
     postalCodes: ["6700", "6704", "6706"],
     coordinates: { lat: 49.6835, lng: 5.8167 },
-    grd: "AIEG",
+    grd: "ORES",
     nearbyCities: ["namur", "liege"],
   },
   {

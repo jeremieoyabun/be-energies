@@ -95,7 +95,7 @@ const cityIntrosFr: Record<string, (service: Service) => string> = {
   verviers: (s) =>
     `Verviers, en province de Liège, est desservie par RESA -- le GRD avec l'un des tarifs prosumer les plus bas de Wallonie (${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an). Les ${s.title.toLowerCase()} y sont particulièrement rentables. Benoît couvre toute la région verviétoise.`,
   arlon: (s) =>
-    `À Arlon, en province de Luxembourg, le GRD est AIEG, qui propose le tarif prosumer le plus bas de Wallonie : ${grdTariffs.AIEG.prosumerEurPerKweYear} EUR/kWe/an. Les ${s.title.toLowerCase()} dans cette région bénéficient donc d'un avantage tarifaire significatif. Benoît se déplace jusqu'en province de Luxembourg.`,
+    `À Arlon, en province de Luxembourg, le réseau est exploité par ORES (tarif prosumer de ${grdTariffs.ORES.prosumerEurPerKweYear} EUR/kWe/an), qui couvre la quasi-totalité de la province. Le bâti arlonais, plus diversifié qu'on ne le pense, demande une lecture sérieuse de la couverture et de la charpente avant tout projet ${s.title.toLowerCase()}. Benoît se déplace dans toute la province de Luxembourg.`,
   tournai: (s) =>
     `À Tournai, en Hainaut occidental, les ${s.title.toLowerCase()} sont gérées par ORES (tarif prosumer de ${grdTariffs.ORES.prosumerEurPerKweYear} EUR/kWe/an). Ville historique avec un parc immobilier varié, Tournai offre de bonnes opportunités d'autoconsommation. Benoît intervient à Tournai et dans le Tournaisis.`,
   "la-louviere": (s) =>
