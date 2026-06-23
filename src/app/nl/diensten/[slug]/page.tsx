@@ -3,7 +3,7 @@ import Link from "next/link";
 import { services, getServiceBySlugNl, getRelatedServices } from "@/data/services";
 import { getDutchCities } from "@/data/cities";
 import { faqByServiceNl } from "@/data/faq.nl";
-import { getServiceContentNl } from "@/data/service-content.nl";
+import { getServiceContent } from "@/data/service-content";
 import { generatePageMetadata } from "@/lib/metadata";
 import {
   JsonLd,
@@ -64,7 +64,8 @@ export async function generateMetadata({ params }: NlServicePageProps) {
   const { slug } = await params;
   const service = getServiceBySlugNl(slug);
   if (!service) return {};
-  const content = getServiceContentNl(slug);
+  // Unified bilingual content is keyed on the canonical FR slug.
+  const content = getServiceContent(service.slug, "nl");
   return generatePageMetadata({
     title:
       content?.seoTitle ?? `${service.titleNl} -- Installatie in België`,
@@ -83,7 +84,8 @@ export default async function NlServicePage({ params }: NlServicePageProps) {
   const service = getServiceBySlugNl(slug);
   if (!service) notFound();
 
-  const content = getServiceContentNl(slug);
+  // Unified bilingual content is keyed on the canonical FR slug.
+  const content = getServiceContent(service.slug, "nl");
   const related = getRelatedServices(service);
   const nlCities = getDutchCities();
   // FAQ data is keyed on the FR slug (single source of truth across locales).
