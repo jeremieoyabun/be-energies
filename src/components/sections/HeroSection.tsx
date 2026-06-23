@@ -155,13 +155,13 @@ export function HeroSection({
 
             {reassurances && reassurances.length > 0 && (
               <ul
-                className={`mt-6 flex flex-wrap gap-x-5 gap-y-1.5 text-[13px] text-white/85 hero-reveal hero-reveal-4 ${video ? "justify-center" : ""}`}
+                className={`mt-6 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-x-5 gap-y-2 text-[13px] text-white/85 hero-reveal hero-reveal-4 ${video ? "sm:justify-center" : ""}`}
                 aria-label="Engagements Be'energies"
               >
                 {reassurances.map((item) => (
                   <li
                     key={item}
-                    className="inline-flex items-center gap-1.5 whitespace-nowrap"
+                    className="inline-flex items-center gap-1.5 whitespace-nowrap leading-none"
                   >
                     <CheckIcon size={13} className="text-amber-light shrink-0" />
                     <span>{item}</span>
