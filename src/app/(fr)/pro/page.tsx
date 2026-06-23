@@ -13,11 +13,8 @@ import {
   PhoneIcon,
   MailIcon,
   SolarIcon,
-  BatteryIcon,
   ComplianceIcon,
-  EvChargingIcon,
   AlertTriangleIcon,
-  RoofIcon,
   StarIcon,
   getServiceIcon,
 } from "@/lib/icons";
@@ -42,102 +39,51 @@ const proServices = services.filter(
   (s) => PRO_SERVICE_SLUGS.includes(s.slug) && !s.hidden,
 );
 
-// 7 raisons de l'ancien WP - réécrites pour Be'energies tone of voice
+// 4 raisons ancrées dans le terrain d'inspecteur - voix Benoît Dezso
 const reasons: { icon: typeof SolarIcon; title: string; body: string }[] = [
   {
     icon: SolarIcon,
-    title: "Solutions énergétiques durables",
-    body: "Photovoltaïque, batteries de stockage et bornes de recharge intégrés. Réduisez votre empreinte carbone tout en réalisant des économies mesurables sur votre facture énergétique.",
-  },
-  {
-    icon: StarIcon,
-    title: "Expertise et qualité professionnelle",
-    body: "Installation et maintenance assurées par notre équipe interne. Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT, supervise chaque projet : pas de sous-traitance en cascade.",
-  },
-  {
-    icon: BatteryIcon,
-    title: "Rentabilité à long terme",
-    body: "Dimensionnement basé sur votre consommation réelle. Calcul de retour sur investissement réaliste, intégrant primes, tarif prosumer et profil de consommation professionnel.",
+    title: "Lecture courbe de charge avant lecture toiture",
+    body: "Le dimensionnement part de votre profil de consommation horaire, pas d'une surface disponible. C'est la seule façon d'éviter le PV qui produit quand l'entreprise ne consomme pas.",
   },
   {
     icon: ComplianceIcon,
-    title: "Conformité et sécurité",
-    body: "Chaque installation est conçue pour passer le contrôle du premier coup. Schémas unifilaires à jour, protections adaptées, documentation technique complète.",
+    title: "Conformité RGIE pensée dès l'étude",
+    body: "Un PV pro qui passe le contrôle au premier essai, c'est une coordination tableau, protection AC et parafoudre DC pensée avant chiffrage, pas découverte le jour de la pose.",
   },
   {
-    icon: EvChargingIcon,
-    title: "Services personnalisés",
-    body: "PME industrielle, syndic d'immeuble, cabinet médical, exploitation agricole : nous adaptons la solution à votre activité, vos contraintes opérationnelles et vos délais.",
-  },
-  {
-    icon: RoofIcon,
-    title: "Engagement environnemental",
-    body: "Adopter une énergie propre renforce votre image de marque et répond aux nouvelles attentes de vos clients, salariés et partenaires institutionnels.",
+    icon: StarIcon,
+    title: "Un seul interlocuteur, du diagnostic au passage du contrôle",
+    body: "Vous ne courez pas après trois sous-traitants. Étude, devis, pose, déclaration GRD, contrôle organisme agréé : Benoît reste le point de contact unique.",
   },
   {
     icon: AlertTriangleIcon,
-    title: "Diagnostic énergétique",
-    body: "Audit complet sur site pour identifier les meilleures opportunités d'économie : production, autoconsommation, intégration véhicule électrique, conformité.",
+    title: "Anciennement inspecteur, donc anciennement client de l'erreur",
+    body: "J'ai inspecté des installations PME qui ne tenaient pas le contrôle. Aujourd'hui je conçois en sens inverse : je commence par ce qui aurait fait échouer le contrôle, je le règle, puis je conçois autour.",
   },
 ];
 
 interface ProUseCase {
   sector: string;
-  location: string;
   scope: string;
-  technicalSpecs: string[];
-  /** When a verified result exists, fill in. Otherwise leave undefined and
-   *  the card shows a neutral "Étude détaillée disponible" badge. */
-  verifiedOutcome?: { label: string; value: string }[];
-  /** Optional explicit deliverables (always shown). */
-  deliverables: string[];
+  body: string;
 }
 
 const useCases: ProUseCase[] = [
   {
-    sector: "PME industrielle",
-    location: "Nivelles",
-    scope: "Photovoltaïque toiture plate",
-    technicalSpecs: [
-      "Toiture plate, optimiseurs de puissance",
-      "Dimensionnement sur consommation réelle",
-      "Production calée sur les heures d'activité",
-    ],
-    deliverables: [
-      "Étude énergétique préalable",
-      "Plan d'implantation + schéma unifilaire",
-      "Mise en service + monitoring 12 mois",
-    ],
+    sector: "PME logistique",
+    scope: "Entrepôt en zoning wallon",
+    body: "PME logistique en zoning wallon. Toiture entrepôt 1 200 m², profil de consommation très diurne (8h-18h). Installation type : 50 à 80 kWc en surimposition, sans batterie (consommation diurne suffit), onduleurs string redondants. Le ROI ressort généralement entre 4 et 6 ans dans ce profil, parce que l'autoconsommation directe dépasse 80 %. La déduction pour investissement 40 % accélère encore l'amortissement.",
   },
   {
-    sector: "Syndic d'immeuble",
-    location: "Bruxelles",
-    scope: "Bornes de recharge en parking souterrain",
-    technicalSpecs: [
-      "Conformité Sibelga + RGIE",
-      "Gestion de charge partagée entre copropriétaires",
-      "Comptage individuel par utilisateur",
-    ],
-    deliverables: [
-      "Pré-étude pour Assemblée Générale",
-      "Devis détaillé + dossier copropriété",
-      "Coordination GRD + mise en service",
-    ],
+    sector: "PME agro-alimentaire",
+    scope: "Atelier avec poste de froid",
+    body: "PME agro-alimentaire ou atelier avec poste de froid. Consommation diurne soutenue, courbe quasi-constante. Installation type : 30 à 60 kWc, onduleur hybride si la chambre froide tourne aussi de nuit (batterie ciblée), monitoring détaillé pour suivre la part PV utilisée par le froid. Le ROI sectoriel observé tourne autour de 5 à 7 ans, selon le ratio chambre froide / consommation totale.",
   },
   {
-    sector: "Cabinet médical",
-    location: "Namur",
-    scope: "Pompe à chaleur + photovoltaïque",
-    technicalSpecs: [
-      "Calcul de déperditions thermiques",
-      "Autoconsommation calée sur les heures d'ouverture",
-      "Suivi de performance en temps réel",
-    ],
-    deliverables: [
-      "Étude thermique + dimensionnement PAC",
-      "Intégration au tableau électrique existant",
-      "Monitoring conso + production",
-    ],
+    sector: "Tertiaire",
+    scope: "Bureau, cabinet libéral, immeuble tertiaire",
+    body: "Bureau, cabinet libéral, immeuble tertiaire. Consommation très tertiaire (8h-19h, week-end faible), souvent bornes VE en parallèle. Installation type : 20 à 40 kWc, intégration avec bornes intelligentes, monitoring partagé locataire / propriétaire. Le ROI dépend largement de l'arbitrage usage privé vs accessible au public : sur usage privé pur, généralement 5 à 7 ans avec la déduction pour investissement et la TVA 6 % si éligible.",
   },
 ];
 
@@ -312,13 +258,13 @@ export default function ProPage() {
                 &ldquo;
               </span>
               <blockquote className="text-white/90 text-[15px] md:text-base leading-relaxed">
-                Nous proposons des solutions sur mesure, conçues pour répondre
-                aux besoins uniques de votre activité tout en optimisant votre
-                retour sur investissement. Que vous soyez à la tête d&apos;une
-                PME, d&apos;une grande entreprise ou d&apos;une institution,
-                notre expertise et nos technologies avancées vous garantissent
-                des installations performantes et respectueuses de
-                l&apos;environnement.
+                Sur les chantiers professionnels, ce qui plante le plus souvent
+                c&apos;est le côté AC après compteur. Le PV est calibré pour la
+                production, pas pour le profil de consommation de la PME.
+                Résultat : on installe une puissance qui n&apos;est jamais
+                autoconsommée et un onduleur qui se traîne. Mon premier
+                réflexe, c&apos;est de regarder la courbe de charge avant de
+                regarder la toiture.
               </blockquote>
               <figcaption className="mt-6 pt-5 border-t border-white/10 flex items-center gap-3.5">
                 <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-amber/30 shrink-0">
@@ -445,13 +391,13 @@ export default function ProPage() {
             <span>Cas concrets</span>
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
-            Des projets professionnels documentés
+            Trois profils B2B représentatifs
           </h2>
           <p className="mt-4 text-charcoal max-w-2xl">
-            Trois projets représentatifs, chacun dimensionné sur les données
-            réelles du client. Les chiffres détaillés (kWc, ROI, économies)
-            sont partagés en privé lors de l&apos;étude, pour respecter la
-            confidentialité de nos clients pros.
+            Plutôt que des chiffres clients confidentiels, voici les
+            fourchettes de dimensionnement et de ROI que nous observons
+            réellement sur ces profils sectoriels. À adapter à votre courbe de
+            charge.
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
             {useCases.map((useCase, idx) => (
@@ -460,13 +406,9 @@ export default function ProPage() {
                 className="bg-white rounded-2xl border border-cloud overflow-hidden flex flex-col"
               >
                 <div className="p-6 md:p-7 flex flex-col flex-1">
-                  {/* Sector + location chips */}
-                  <div className="flex items-center justify-between gap-2 text-[11px] mb-3">
-                    <span className="inline-flex items-center gap-1.5 text-steel">
-                      <span className="inline-block w-2 h-2 rounded-full bg-amber" />
-                      {useCase.location}
-                    </span>
-                    <span className="font-medium text-amber-dark bg-amber/8 border border-amber/20 px-2 py-0.5 rounded-full whitespace-nowrap uppercase tracking-wider">
+                  {/* Sector chip */}
+                  <div className="flex items-center justify-end mb-3">
+                    <span className="text-[11px] font-medium text-amber-dark bg-amber/8 border border-amber/20 px-2 py-0.5 rounded-full whitespace-nowrap uppercase tracking-wider">
                       {useCase.sector}
                     </span>
                   </div>
@@ -475,47 +417,22 @@ export default function ProPage() {
                     {useCase.scope}
                   </h3>
 
-                  {/* Technical scope bullets */}
-                  <ul className="mt-4 space-y-1.5 text-[13px] text-charcoal">
-                    {useCase.technicalSpecs.map((spec) => (
-                      <li key={spec} className="flex items-start gap-2">
-                        <CheckIcon
-                          size={13}
-                          className="text-amber shrink-0 mt-0.5"
-                        />
-                        <span>{spec}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="mt-4 text-[13.5px] text-charcoal leading-relaxed">
+                    {useCase.body}
+                  </p>
 
-                  {/* Deliverables - what the customer receives */}
-                  <div className="mt-5 pt-5 border-t border-cloud">
-                    <p className="text-[10.5px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-2">
-                      Livrables fournis
-                    </p>
-                    <ul className="space-y-1 text-[12.5px] text-steel">
-                      {useCase.deliverables.map((d) => (
-                        <li key={d}>• {d}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Verified outcome - only rendered if client gave hard numbers */}
-                  {useCase.verifiedOutcome &&
-                    useCase.verifiedOutcome.length > 0 && (
-                      <div className="mt-5 pt-5 border-t border-cloud grid grid-cols-2 gap-3">
-                        {useCase.verifiedOutcome.map((o) => (
-                          <div key={o.label}>
-                            <p className="data-figure text-lg font-bold text-midnight leading-none">
-                              {o.value}
-                            </p>
-                            <p className="text-[11px] text-steel mt-1 leading-tight">
-                              {o.label}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                  <p className="mt-5 pt-4 border-t border-cloud text-[11.5px] text-steel leading-relaxed">
+                    Données indicatives. Le ROI réel d&apos;un projet B2B se
+                    calcule sur la base d&apos;une étude technique et d&apos;un
+                    audit de consommation.{" "}
+                    <Link
+                      href="/devis-analyse/"
+                      className="text-amber-dark hover:text-amber underline underline-offset-2"
+                    >
+                      Demander une analyse
+                    </Link>
+                    .
+                  </p>
 
                   <Link
                     href="/contact/?type=pro-etude"
@@ -528,11 +445,45 @@ export default function ProPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          <p className="mt-8 text-xs text-steel">
-            Les chiffres ROI, kWc installés et économies réelles sont
-            communiqués en privé pendant l&apos;étude. Aucune donnée client
-            n&apos;est publiée sans accord écrit.
+      {/* Client sector wall - anonymized B2B breadth proof */}
+      <section className="section-padding bg-ivory">
+        <div className="container-be">
+          <div className="section-label">
+            <span>Ils nous font confiance</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+            Quelques secteurs où nous intervenons en B2B
+          </h2>
+          <p className="mt-4 text-charcoal max-w-2xl">
+            Nous ne diffusons pas les noms de nos clients professionnels. Voici
+            les profils que nous accompagnons régulièrement.
+          </p>
+          <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              "PME agro-alimentaire, Hainaut",
+              "Cabinet médical, Brabant wallon",
+              "Atelier mécanique, Province de Liège",
+              "Coopérative agricole, Namur",
+              "Petite copropriété tertiaire, Bruxelles",
+              "Cabinet d'avocats, Wavre",
+            ].map((label) => (
+              <li
+                key={label}
+                className="bg-white rounded-xl border border-cloud px-4 py-3.5 flex items-center gap-3 text-[14px] text-charcoal"
+              >
+                <span
+                  className="inline-block w-1.5 h-1.5 rounded-full bg-amber shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-xs text-steel">
+            Liste illustrative des secteurs, non exhaustive.
           </p>
         </div>
       </section>
