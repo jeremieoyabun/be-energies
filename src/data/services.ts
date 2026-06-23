@@ -93,7 +93,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Hoogwaardige verwarming en airconditioning, gedimensioneerd voor uw woning en geintegreerd in uw energiesysteem.",
     icon: "heat-pump",
-    heroImage: "/img/services/climatisation.jpg",
+    heroImage: "/img/realisations/engis.webp",
     pieges: ["devis-sans-visite"],
     relatedServices: [
       "panneaux-photovoltaiques",
