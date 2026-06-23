@@ -34,11 +34,11 @@ export function ProjectProofCard({
   return (
     <Link
       href={`/realisations/${r.slug}/`}
-      className="group relative bg-ivory border border-cloud rounded-2xl overflow-hidden flex flex-col hover:border-amber/40 hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber"
+      className="group relative bg-white border-[1.5px] border-midnight/10 rounded-2xl overflow-hidden flex flex-col shadow-[0_1px_2px_rgba(12,18,32,0.04)] hover:-translate-y-0.5 hover:border-amber/50 hover:shadow-[0_12px_32px_-12px_rgba(245,158,11,0.25),0_2px_8px_rgba(12,18,32,0.08)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber"
       aria-label={`Dossier projet : ${r.title}`}
     >
       {/* Header strip — audit dossier label, sharp bottom border */}
-      <div className="flex items-center justify-between gap-3 px-5 md:px-6 pt-4 pb-3 border-b border-amber/30 bg-ivory">
+      <div className="flex items-center justify-between gap-3 px-5 md:px-6 pt-4 pb-3 border-b-[1.5px] border-amber/40 bg-ivory/70">
         <p className="font-[family-name:var(--font-mono)] text-[12px] md:text-[13px] font-bold tracking-[0.1em] uppercase text-amber-dark leading-none truncate">
           {primaryLabel}
         </p>

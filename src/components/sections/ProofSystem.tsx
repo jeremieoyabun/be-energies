@@ -132,7 +132,7 @@ export function ProofSystem({
         {stripItems.length > 0 && (
           <div className="mt-12 md:mt-14">
             <div className="flex items-end justify-between gap-4 mb-4 md:mb-5">
-              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-amber-dark">
+              <p className="text-[12px] font-bold tracking-[0.18em] uppercase text-amber-dark">
                 Chantiers récents
               </p>
               <Link
@@ -174,7 +174,7 @@ export function ProofSystem({
         {/* SUB-BAND 2 — 3 featured projects with key metrics */}
         {featured.length > 0 && (
           <div className="mt-14 md:mt-16">
-            <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-4 md:mb-6">
+            <p className="text-[12px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-4 md:mb-6">
               Projets phares
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -199,7 +199,7 @@ export function ProofSystem({
         {reviewItems.length > 0 && (
           <div className="mt-14 md:mt-16">
             <div className="flex flex-wrap items-end justify-between gap-4 mb-4 md:mb-5">
-              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-amber-dark">
+              <p className="text-[12px] font-bold tracking-[0.18em] uppercase text-amber-dark">
                 Avis vérifiés
               </p>
               <GoogleReviewsBadge variant="inline" className="shrink-0" />
@@ -208,14 +208,14 @@ export function ProofSystem({
               {reviewItems.map((t, idx) => (
                 <figure
                   key={`${t.name}-${idx}`}
-                  className="bg-ivory border border-cloud rounded-2xl p-5 md:p-6"
+                  className="card p-5 md:p-6"
                 >
                   <div className="flex items-center gap-0.5 mb-3" aria-label={`Note ${t.rating} sur 5`}>
                     {Array.from({ length: t.rating }).map((_, i) => (
                       <StarIcon key={i} size={14} className="text-amber" />
                     ))}
                   </div>
-                  <blockquote className="text-[14px] text-charcoal leading-relaxed">
+                  <blockquote className="text-[15px] text-charcoal leading-relaxed">
                     {t.quote}
                   </blockquote>
                   <figcaption className="mt-4 flex items-center gap-2 text-[12.5px] text-steel">

@@ -130,16 +130,16 @@ export default function LeadMagnetPage() {
             {piegesPreviews.map((piege) => (
               <div
                 key={piege.number}
-                className="flex items-start gap-4 p-5 border border-cloud rounded-xl hover:border-amber/40 transition-colors"
+                className="card flex items-start gap-5 p-5 md:p-6 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <span className="shrink-0 w-9 h-9 flex items-center justify-center bg-amber/10 text-amber font-bold rounded-full text-sm">
-                  {piege.number}
+                <span className="step-badge step-badge-inverted shrink-0">
+                  {String(piege.number).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="font-semibold text-midnight">
+                  <h3 className="text-[17px] md:text-[18px] font-semibold text-midnight leading-snug">
                     {piege.title}
                   </h3>
-                  <p className="text-sm text-steel mt-0.5">
+                  <p className="text-[14.5px] text-charcoal mt-1.5 leading-relaxed">
                     {piege.teaser}
                   </p>
                 </div>

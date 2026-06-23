@@ -146,7 +146,7 @@ export function WarrantyLadder() {
       aria-labelledby="warranty-ladder-heading"
     >
       <div className="container-be max-w-5xl">
-        <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
+        <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-3">
           Garanties chiffrées, pas promesses vagues
         </p>
         <h2
@@ -217,11 +217,11 @@ export function WarrantyLadder() {
         {/* PANEL TABLE - mobile stacked cards. aria-hidden: the desktop
             <table> above is the canonical semantic source; this view
             is a visual reflow only. Crawlers see one source of truth. */}
-        <div className="mt-10 md:hidden space-y-4" aria-hidden="true">
+        <div className="mt-10 md:hidden space-y-4" >
           {warrantyData.panel_brands.map((panel) => (
             <article
               key={panel.brand}
-              className="border border-cloud rounded-xl p-5"
+              className="card p-5 md:p-6"
             >
               <h3 className="font-semibold text-midnight text-[15px] leading-tight">
                 {panel.brand}
@@ -266,7 +266,7 @@ export function WarrantyLadder() {
 
         {/* INVERTER TABLE */}
         <div className="mt-14">
-          <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
+          <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-3">
             Côté onduleur
           </p>
           <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight leading-tight mb-6">
@@ -321,11 +321,11 @@ export function WarrantyLadder() {
           </div>
 
           {/* Mobile - visual reflow only (canonical table is above) */}
-          <div className="md:hidden space-y-4" aria-hidden="true">
+          <div className="md:hidden space-y-4" >
             {warrantyData.inverter_brands.map((inverter) => (
               <article
                 key={inverter.brand}
-                className="border border-cloud rounded-xl p-5"
+                className="card p-5 md:p-6"
               >
                 <h4 className="font-semibold text-midnight text-[15px] leading-tight">
                   {inverter.brand}

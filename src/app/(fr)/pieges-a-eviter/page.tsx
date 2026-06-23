@@ -563,7 +563,7 @@ export default function PiegesPage() {
       <section className="section-padding pb-6">
         <div className="container-be max-w-3xl">
           <div className="bg-ivory border border-cloud rounded-2xl p-6 md:p-8">
-            <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
+            <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-3">
               Comment lire ce guide
             </p>
             <p className="text-charcoal leading-relaxed">
@@ -615,7 +615,7 @@ export default function PiegesPage() {
         <div className="container-be max-w-3xl">
           <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
             <div>
-              <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-2">
+              <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-2">
                 Sommaire
               </p>
               <h2
@@ -641,15 +641,15 @@ export default function PiegesPage() {
                 <li key={ch.id}>
                   <a
                     href={`#${ch.id}`}
-                    className="flex items-start gap-3 py-2.5 px-3 rounded-lg hover:bg-white border border-transparent hover:border-cloud transition-colors group"
+                    className="flex items-start gap-4 py-2.5 px-3 rounded-lg hover:bg-white border border-transparent hover:border-amber/30 hover:shadow-[0_1px_0_rgba(12,18,32,0.04)] hover:translate-x-0.5 transition-all group"
                   >
-                    <span className="shrink-0 inline-block w-7 text-[11px] data-figure text-amber-dark mt-1 tabular-nums">
+                    <span className="shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-md bg-amber/12 text-amber-dark text-[12px] font-bold tabular-nums ring-1 ring-amber/30">
                       {String(ch.number).padStart(2, "0")}
                     </span>
-                    <span className="flex-1 text-charcoal group-hover:text-midnight transition-colors leading-snug">
+                    <span className="flex-1 text-charcoal group-hover:text-midnight transition-colors leading-snug pt-1">
                       {ch.title}
                     </span>
-                    <span className={`ml-auto shrink-0 text-[10px] font-semibold px-2 py-0.5 rounded-full mt-1 ${severityBadge[ch.severity]}`}>
+                    <span className={`ml-auto shrink-0 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-[0.1em] mt-0.5 ${severityBadge[ch.severity]}`}>
                       {severityLabel[ch.severity]}
                     </span>
                   </a>
@@ -669,24 +669,25 @@ export default function PiegesPage() {
         >
           <div className="container-be max-w-3xl">
             {/* Chapter header */}
-            <div className="flex items-center gap-3 mb-5">
-              <span className="shrink-0 w-10 h-10 flex items-center justify-center bg-midnight text-white font-bold rounded-full">
-                {ch.number}
+            <div className="flex items-center gap-4 mb-6">
+              <span className="step-badge step-badge-inverted shrink-0">
+                {String(ch.number).padStart(2, "0")}
               </span>
-              <span className={`text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide ${severityBadge[ch.severity]}`}>
+              <span className={`text-[11.5px] font-bold px-3 py-1.5 rounded-full uppercase tracking-[0.12em] inline-flex items-center gap-1.5 ${severityBadge[ch.severity]}`}>
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-current opacity-80" aria-hidden="true" />
                 {severityLabel[ch.severity]}
               </span>
             </div>
 
-            <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-5 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-[34px] font-[family-name:var(--font-heading)] text-midnight mb-5 leading-[1.1] text-balance">
               {ch.title}
             </h2>
 
             {/* Le piege - 1-line synthesis */}
-            <div className="mb-8 flex items-start gap-3 bg-danger/5 border-l-4 border-danger rounded-r-xl p-4 md:p-5">
+            <div className="mb-8 flex items-start gap-3 bg-danger/8 ring-1 ring-danger/15 border-l-[5px] border-danger rounded-r-xl p-4 md:p-5">
               <AlertTriangleIcon size={20} className="text-danger shrink-0 mt-0.5" />
               <div>
-                <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-danger mb-1">
+                <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-danger mb-1.5">
                   Le piège
                 </p>
                 <p className="text-charcoal leading-snug text-[15px] md:text-base">
@@ -719,16 +720,16 @@ export default function PiegesPage() {
 
             {/* Checklist */}
             {ch.checklist && (
-              <div className="mt-8 bg-white border border-cloud rounded-2xl p-6">
-                <h3 className="flex items-center gap-2 font-semibold text-midnight text-sm uppercase tracking-wide mb-4">
+              <div className="mt-8 card p-6 md:p-7">
+                <h3 className="flex items-center gap-2 font-bold text-midnight text-[12.5px] uppercase tracking-[0.16em] mb-5">
                   <CheckIcon size={16} className="text-success" />
                   Checklist : ce que vous devez vérifier
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {ch.checklist.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-charcoal">
-                      <span className="shrink-0 w-5 h-5 flex items-center justify-center border-2 border-cloud rounded mt-0.5" />
-                      <span className="text-sm leading-relaxed">{item}</span>
+                    <li key={item} className="flex items-start gap-3 text-charcoal">
+                      <span className="shrink-0 w-5 h-5 flex items-center justify-center border-[1.5px] border-midnight/35 bg-white rounded-md mt-0.5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.6)]" />
+                      <span className="text-[14.5px] leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -738,25 +739,26 @@ export default function PiegesPage() {
             {/* Founder insight */}
             {ch.founderInsight && (
               <blockquote className="mt-6 border-l-4 border-amber pl-5 py-2">
-                <p className="italic text-steel leading-relaxed">
-                  &ldquo;{ch.founderInsight}&rdquo;
+                <p className="italic text-charcoal leading-relaxed">
+                  <span className="text-amber font-[family-name:var(--font-heading)] text-2xl leading-none mr-1 align-top">&ldquo;</span>
+                  {ch.founderInsight}&rdquo;
                 </p>
-                <cite className="not-italic text-sm text-steel/70 mt-1 block">
-                  Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT
+                <cite className="not-italic text-sm text-steel mt-1 block">
+                  <span className="font-semibold text-midnight">Benoît Dezso</span>, ancien inspecteur en installation électrique, certifié RESCERT
                 </cite>
               </blockquote>
             )}
 
             {/* Question to ask the installer - designed to be copied verbatim */}
             {ch.questionToAsk && (
-              <div className="mt-6 bg-midnight text-white rounded-xl p-5 md:p-6">
-                <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber mb-2">
+              <div className="mt-6 bg-midnight text-white rounded-2xl p-5 md:p-6 ring-1 ring-amber/25 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.5)]">
+                <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber mb-2.5">
                   Question à poser à votre installateur
                 </p>
-                <p className="text-[15px] md:text-base leading-relaxed">
+                <p className="font-[family-name:var(--font-heading)] text-[17px] md:text-[19px] leading-snug">
                   « {ch.questionToAsk} »
                 </p>
-                <p className="mt-3 text-[11.5px] text-white/80">
+                <p className="mt-3 text-[12px] text-white/85">
                   Pas de réponse claire en moins d&apos;une minute : signal
                   d&apos;alerte.
                 </p>
@@ -764,8 +766,8 @@ export default function PiegesPage() {
             )}
 
             {/* Preuve a demander - concrete document/datasheet to request */}
-            <div className="mt-4 bg-ivory border border-cloud rounded-xl p-4 md:p-5">
-              <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-1.5">
+            <div className="mt-4 bg-white border-[1.5px] border-midnight/10 ring-1 ring-amber/15 rounded-xl p-4 md:p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+              <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-1.5">
                 Preuve à demander
               </p>
               <p className="text-charcoal text-[14px] md:text-[15px] leading-relaxed">

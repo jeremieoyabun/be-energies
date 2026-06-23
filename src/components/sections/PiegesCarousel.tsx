@@ -39,28 +39,33 @@ export function PiegesCarousel({
           {items.map((piege) => (
             <div
               key={piege.slug}
-              className="card-dark rounded-xl p-6"
+              className="card-dark rounded-2xl p-6 md:p-7"
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-5">
                 <AlertTriangleIcon size={16} className="text-amber shrink-0" />
                 <span
-                  className={`text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide ${severityColors[piege.severity]}`}
+                  className={`text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] ${severityColors[piege.severity]}`}
                 >
-                  {piege.severity}
+                  {piege.severity.toUpperCase()}
                 </span>
-                <span className="text-[10px] font-[family-name:var(--font-data)] text-steel tracking-wider ml-auto">
-                  #{String(piege.number).padStart(2, "0")}
+                <span className="ml-auto inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber/15 text-amber ring-1 ring-amber/40 font-bold text-[13px] tabular-nums font-[family-name:var(--font-data)]">
+                  {String(piege.number).padStart(2, "0")}
                 </span>
               </div>
-              <h3 className="text-[17px] font-semibold text-white mb-3 leading-snug">
+              <h3 className="text-[18px] font-semibold text-white mb-3 leading-snug">
                 {piege.title}
               </h3>
-              <p className="text-sm text-white/85 leading-relaxed">
+              <p className="text-[14px] text-white/90 leading-relaxed">
                 {piege.problem}
               </p>
-              <p className="mt-3 text-sm text-amber-light/80 leading-relaxed">
-                {piege.solution.slice(0, 120)}...
-              </p>
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <p className="text-[10.5px] font-bold tracking-[0.16em] uppercase text-amber/80 mb-1.5">
+                  La parade
+                </p>
+                <p className="text-[14px] text-amber-light leading-relaxed">
+                  {piege.solution.slice(0, 120)}...
+                </p>
+              </div>
             </div>
           ))}
         </div>

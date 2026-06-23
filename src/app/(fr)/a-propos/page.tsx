@@ -166,7 +166,7 @@ export default function AboutPage() {
           </p>
 
           <div className="space-y-6">
-            <div className="bg-white border border-cloud rounded-xl p-6">
+            <div className="card p-6">
               <h3 className="font-semibold text-midnight mb-2">
                 L&apos;onduleur qui ne pouvait pas suivre
               </h3>
@@ -181,7 +181,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white border border-cloud rounded-xl p-6">
+            <div className="card p-6">
               <h3 className="font-semibold text-midnight mb-2">
                 Le coffret qui n&apos;avait jamais été adapté
               </h3>
@@ -197,7 +197,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white border border-cloud rounded-xl p-6">
+            <div className="card p-6">
               <h3 className="font-semibold text-midnight mb-2">
                 Le surdimensionnement calculé
               </h3>
@@ -214,7 +214,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white border border-cloud rounded-xl p-6">
+            <div className="card p-6">
               <h3 className="font-semibold text-midnight mb-2">
                 Le devis signé sans visite technique
               </h3>
@@ -328,7 +328,7 @@ export default function AboutPage() {
             ].map(({ icon: Icon, title, paragraphs }) => (
               <article
                 key={title}
-                className="grid sm:grid-cols-[64px_1fr] gap-5 bg-white border border-cloud rounded-2xl p-6 md:p-7"
+                className="grid sm:grid-cols-[64px_1fr] gap-5 card p-6 md:p-7"
               >
                 <div className="shrink-0 w-14 h-14 rounded-xl bg-amber/10 text-amber-dark flex items-center justify-center">
                   <Icon size={26} />
@@ -400,7 +400,7 @@ export default function AboutPage() {
             ].map(({ icon: Icon, title, body }) => (
               <article
                 key={title}
-                className="bg-white border border-cloud rounded-2xl p-6 hover:border-amber/40 transition-colors"
+                className="card p-6 hover:border-amber/40 transition-colors"
               >
                 <div className="w-11 h-11 rounded-xl bg-amber/10 text-amber-dark flex items-center justify-center mb-4">
                   <Icon size={20} />
@@ -432,7 +432,7 @@ export default function AboutPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white border border-cloud rounded-xl p-6">
+            <div className="card p-6">
               <h3 className="font-semibold text-midnight mb-3">
                 Certification RESCERT
               </h3>
@@ -452,7 +452,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white border border-cloud rounded-xl p-6">
+            <div className="card p-6">
               <h3 className="font-semibold text-midnight mb-3">
                 Partenaires fabricants : pourquoi ces marques
               </h3>

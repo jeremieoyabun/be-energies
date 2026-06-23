@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRightIcon, CheckIcon, AlertTriangleIcon } from "@/lib/icons";
+import { SectionLabel } from "@/components/sections/SectionLabel";
 
 /**
  * Server-side summary card module for the photovoltaic service page.
@@ -26,16 +27,14 @@ export function PVRegimesSummary() {
   return (
     <section className="section-padding bg-ivory" aria-labelledby="pv-regimes-heading">
       <div className="container-be max-w-5xl">
-        <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
-          Comprendre en 2 minutes
-        </p>
+        <SectionLabel>Comprendre en 2 minutes</SectionLabel>
         <h2
           id="pv-regimes-heading"
-          className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance max-w-2xl"
+          className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight leading-[1.1] text-balance max-w-2xl"
         >
           Avant ou après 2024 : votre régime fait toute la différence
         </h2>
-        <p className="mt-3 text-charcoal max-w-2xl">
+        <p className="mt-4 text-charcoal/85 max-w-2xl text-[15.5px] leading-relaxed">
           Deux régimes coexistent en Wallonie depuis le passage au compteur
           communicant. Trouvez le vôtre : la suite de la page s&apos;applique
           différemment à chaque cas.
@@ -44,17 +43,15 @@ export function PVRegimesSummary() {
         {/* Two regime cards side-by-side on md+, stacked on mobile */}
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {/* Régime 1 - pre-2024 */}
-          <article className="bg-white border border-cloud rounded-2xl p-6 md:p-7 flex flex-col">
+          <article className="card relative p-6 md:p-7 flex flex-col before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-steel/60 before:rounded-t-[1rem]">
             <div className="flex items-center justify-between gap-3 mb-4">
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-midnight text-amber font-bold text-sm">
-                  1
-                </span>
-                <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-midnight">
+                <span className="step-badge step-badge-on-white">1</span>
+                <span className="text-[12px] font-bold tracking-[0.18em] uppercase text-midnight">
                   Régime 1
                 </span>
               </div>
-              <span className="font-[family-name:var(--font-data)] text-[11px] tracking-[0.05em] text-steel tabular-nums">
+              <span className="font-[family-name:var(--font-data)] text-[11.5px] font-semibold text-charcoal tabular-nums bg-cloud/60 px-2 py-0.5 rounded">
                 avant 01/01/2024
               </span>
             </div>
@@ -117,17 +114,15 @@ export function PVRegimesSummary() {
           </article>
 
           {/* Régime 2 - post-2024 */}
-          <article className="bg-white border border-cloud rounded-2xl p-6 md:p-7 flex flex-col">
+          <article className="card relative p-6 md:p-7 flex flex-col before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-amber before:rounded-t-[1rem]">
             <div className="flex items-center justify-between gap-3 mb-4">
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber text-midnight font-bold text-sm">
-                  2
-                </span>
-                <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-midnight">
+                <span className="step-badge step-badge-on-white">2</span>
+                <span className="text-[12px] font-bold tracking-[0.18em] uppercase text-midnight">
                   Régime 2
                 </span>
               </div>
-              <span className="font-[family-name:var(--font-data)] text-[11px] tracking-[0.05em] text-steel tabular-nums">
+              <span className="font-[family-name:var(--font-data)] text-[11.5px] font-semibold text-charcoal tabular-nums bg-cloud/60 px-2 py-0.5 rounded">
                 depuis 01/01/2024
               </span>
             </div>

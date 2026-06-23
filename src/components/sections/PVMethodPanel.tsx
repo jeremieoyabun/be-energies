@@ -23,7 +23,7 @@ const ITEMS: string[] = [
  */
 export function PVMethodPanel() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-ivory">
       <div className="container-be">
         <SectionLabel>Méthode Be&apos;energies</SectionLabel>
         <div className="grid md:grid-cols-[1.4fr_1fr] gap-6 md:gap-10 items-end mb-10 md:mb-12">
@@ -44,31 +44,15 @@ export function PVMethodPanel() {
             return (
               <li
                 key={item}
-                className="group flex items-start gap-3 bg-white border border-cloud rounded-xl p-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-elevated hover:border-amber/40"
+                className="card flex items-start gap-3.5 p-4 md:p-5"
               >
                 <span
                   aria-hidden="true"
-                  className="shrink-0 inline-flex items-center justify-center min-w-[2rem] h-7 px-1.5 rounded-md bg-midnight text-ivory text-[11px] font-semibold tracking-[0.08em] font-[family-name:var(--font-mono)]"
+                  className="shrink-0 inline-flex items-center justify-center min-w-[2.25rem] h-8 px-2 rounded-md bg-midnight text-ivory text-[12.5px] font-bold tracking-[0.1em] font-[family-name:var(--font-mono)] ring-1 ring-amber/30"
                 >
                   {number}
                 </span>
-                <span
-                  aria-hidden="true"
-                  className="shrink-0 mt-0.5 inline-flex items-center justify-center w-6 h-6 rounded-md bg-amber/15 text-amber-dark"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-3.5 h-3.5"
-                  >
-                    <path d="M5 12l4 4L19 7" />
-                  </svg>
-                </span>
-                <span className="text-[14px] text-charcoal leading-snug">
+                <span className="text-[15px] font-medium text-midnight leading-relaxed pt-0.5">
                   {item}
                 </span>
               </li>

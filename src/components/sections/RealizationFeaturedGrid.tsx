@@ -84,7 +84,7 @@ export function RealizationFeaturedGrid({
   if (featured.length === 0) return null;
 
   return (
-    <section className="bg-warm-gradient py-14 md:py-20 border-y border-cloud">
+    <section className="bg-warm-gradient py-14 md:py-20 border-t-[3px] border-t-amber/40 border-b border-cloud">
       <div className="container-be">
         <div className="max-w-2xl mb-10">
           <SectionLabel>Projets en vedette</SectionLabel>
@@ -148,8 +148,8 @@ export function RealizationFeaturedGrid({
                   )}
 
                   {r.keyResult && (
-                    <p className="mt-4 inline-flex items-start gap-2 text-[13px] font-semibold text-success bg-success/8 border border-success/15 rounded-xl px-3 py-2">
-                      <CheckIcon size={13} className="shrink-0 mt-0.5" />
+                    <p className="mt-4 inline-flex items-start gap-2 text-[13.5px] font-semibold text-[#047857] bg-success/12 border border-success/35 rounded-xl px-3 py-2">
+                      <CheckIcon size={14} className="shrink-0 mt-0.5" />
                       <span>{r.keyResult}</span>
                     </p>
                   )}

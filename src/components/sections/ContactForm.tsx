@@ -293,7 +293,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
 
       {/* Block 1: vous */}
       <fieldset className="space-y-5">
-        <legend className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-3">
+        <legend className="text-[12.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-4 inline-flex items-center gap-2 before:content-[''] before:w-6 before:h-[2px] before:bg-amber">
           1 · Vous
         </legend>
         <div className="grid sm:grid-cols-2 gap-5">
@@ -368,7 +368,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
 
       {/* Block 2: votre projet */}
       <fieldset className="space-y-5">
-        <legend className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-3">
+        <legend className="text-[12.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-4 inline-flex items-center gap-2 before:content-[''] before:w-6 before:h-[2px] before:bg-amber">
           2 · Votre projet
         </legend>
         <div className="grid sm:grid-cols-2 gap-5">
@@ -463,7 +463,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
 
       {/* Block 3: pieces jointes */}
       <fieldset>
-        <legend className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-3">
+        <legend className="text-[12.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-4 inline-flex items-center gap-2 before:content-[''] before:w-6 before:h-[2px] before:bg-amber">
           3 · Pièces jointes (facultatif)
         </legend>
         <p className="text-[13px] text-steel leading-relaxed mb-3">
@@ -571,7 +571,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
 
       {/* Block 4: message libre */}
       <fieldset>
-        <legend className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-3">
+        <legend className="text-[12.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-4 inline-flex items-center gap-2 before:content-[''] before:w-6 before:h-[2px] before:bg-amber">
           4 · Précisions (facultatif)
         </legend>
         <label htmlFor="message" className="form-label">

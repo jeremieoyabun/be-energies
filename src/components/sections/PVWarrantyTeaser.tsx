@@ -55,15 +55,15 @@ export function PVWarrantyTeaser() {
           {ROWS.map((row) => (
             <div
               key={row.label}
-              className="relative bg-white border border-cloud rounded-2xl p-6 md:p-7 flex flex-col"
+              className="card relative p-6 md:p-7 flex flex-col before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-amber before:rounded-t-[1rem]"
             >
-              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-amber-dark">
+              <p className="text-[12px] font-bold tracking-[0.12em] uppercase text-amber-dark font-[family-name:var(--font-mono)]">
                 {row.label}
               </p>
               <p className="mt-3 text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight leading-tight tabular-nums">
                 {row.value}
               </p>
-              <p className="mt-3 text-[13.5px] text-charcoal/85 leading-relaxed">
+              <p className="mt-3 text-[14px] text-charcoal leading-relaxed">
                 {row.detail}
               </p>
             </div>

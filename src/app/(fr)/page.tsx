@@ -79,8 +79,8 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {/* LEFT - start a project */}
-            <div className="p-7 md:p-9 flex flex-col rounded-lg bg-white/[0.03] border border-white/10">
-              <div className="text-xs font-semibold tracking-[0.18em] uppercase text-amber mb-3 font-[family-name:var(--font-mono)]">
+            <div className="p-7 md:p-9 flex flex-col rounded-2xl bg-white/[0.06] border-[1.5px] border-amber/30 border-l-[3px] border-l-amber shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div className="text-[13px] font-bold tracking-[0.16em] uppercase text-amber mb-3 font-[family-name:var(--font-mono)]">
                 Étape 1
               </div>
               <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
@@ -99,8 +99,8 @@ export default function HomePage() {
             </div>
 
             {/* RIGHT - already have a quote */}
-            <div className="p-7 md:p-9 flex flex-col rounded-lg bg-white/[0.03] border border-white/10">
-              <div className="text-xs font-semibold tracking-[0.18em] uppercase text-white/70 mb-3 font-[family-name:var(--font-mono)]">
+            <div className="p-7 md:p-9 flex flex-col rounded-2xl bg-white/[0.06] border-[1.5px] border-white/20 border-l-[3px] border-l-white/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div className="text-[13px] font-bold tracking-[0.16em] uppercase text-white/90 mb-3 font-[family-name:var(--font-mono)]">
                 Deuxième avis
               </div>
               <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
@@ -111,7 +111,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/devis-analyse/"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-6 py-3 rounded-md hover:bg-white hover:text-midnight transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-[1.5px] border-white text-white font-semibold px-6 py-3 rounded-md hover:border-amber hover:text-amber hover:bg-white/5 transition-colors"
               >
                 Faire vérifier mon devis
                 <ArrowRightIcon size={16} />

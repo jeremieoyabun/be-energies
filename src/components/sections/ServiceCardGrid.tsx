@@ -174,11 +174,11 @@ function CompactCard({
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
         )}
-        <div className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-sm pl-2 pr-2.5 py-1.5 shadow-sm ring-1 ring-midnight/10">
+        <div className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-full bg-white pl-2 pr-2.5 py-1.5 shadow-sm ring-1 ring-midnight/20">
           <span className="flex items-center justify-center w-6 h-6 rounded-full bg-midnight text-amber">
             <ServiceIcon name={service.icon} size={13} />
           </span>
-          <span className="text-[10.5px] font-semibold tracking-[0.08em] uppercase text-midnight">
+          <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-midnight">
             {locale === "fr" ? "Service" : "Dienst"}
           </span>
         </div>
@@ -186,15 +186,15 @@ function CompactCard({
 
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-[15px] font-semibold text-midnight group-hover:text-amber-dark transition-colors leading-tight">
+          <h3 className="text-[16px] md:text-[17px] font-bold text-midnight group-hover:text-amber-dark transition-colors leading-snug">
             {title}
           </h3>
           <ArrowRightIcon
             size={15}
-            className="text-cloud group-hover:text-amber transition-colors group-hover:translate-x-1 transform duration-300 shrink-0 mt-0.5"
+            className="text-midnight/30 group-hover:text-amber transition-colors group-hover:translate-x-1 transform duration-300 shrink-0 mt-0.5"
           />
         </div>
-        <p className="mt-1.5 text-[13px] text-steel leading-snug line-clamp-3 flex-1">
+        <p className="mt-2 text-[13.5px] text-charcoal leading-relaxed line-clamp-3 flex-1">
           {description}
         </p>
       </div>

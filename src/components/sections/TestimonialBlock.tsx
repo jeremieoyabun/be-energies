@@ -171,7 +171,7 @@ export function TestimonialBlock({
 
               {/* Outcome badge - when a measurable result was reported */}
               {t.outcome && (
-                <div className="mt-4 inline-flex self-start items-center gap-1.5 bg-success/8 text-success text-xs font-semibold px-3 py-1.5 rounded-full border border-success/15">
+                <div className="mt-4 inline-flex self-start items-center gap-1.5 bg-success/12 text-[#047857] text-[12.5px] font-bold px-3 py-1.5 rounded-full border border-success/35">
                   <svg
                     width="10"
                     height="10"
@@ -206,7 +206,7 @@ export function TestimonialBlock({
                   </div>
                 </div>
                 {t.service && (
-                  <span className="text-[10px] font-medium text-amber-dark bg-amber/8 border border-amber/20 px-2.5 py-1 rounded-full whitespace-nowrap">
+                  <span className="text-[11px] font-bold text-amber-dark bg-amber/15 border border-amber/35 px-2.5 py-1 rounded-full whitespace-nowrap">
                     {SERVICE_LABEL[t.service] ?? t.service}
                   </span>
                 )}

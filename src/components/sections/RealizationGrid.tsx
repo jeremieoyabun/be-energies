@@ -167,7 +167,7 @@ export function RealizationGrid({
                 </div>
               )}
               {featuredItem.keyResult && (
-                <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-success bg-success/8 border border-success/15 rounded-full px-3 py-1.5 self-start">
+                <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#047857] bg-success/12 border border-success/35 rounded-full px-3 py-1.5 self-start">
                   <CheckIcon size={13} className="shrink-0" />
                   {featuredItem.keyResult}
                 </p>

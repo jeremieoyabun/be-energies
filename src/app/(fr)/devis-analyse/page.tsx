@@ -140,7 +140,7 @@ export default function DevisAnalysePage() {
         <div className="container-be relative z-10">
           <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber/15 border border-amber/25 text-amber-light text-[10.5px] font-semibold tracking-[0.14em] uppercase mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber/15 border-[1.5px] border-amber/40 text-amber-light text-[12px] font-bold tracking-[0.14em] uppercase mb-6">
                 <AlertTriangleIcon size={13} />
                 Avant de signer
               </div>
@@ -202,7 +202,7 @@ export default function DevisAnalysePage() {
       {/* 4 points we check */}
       <section className="section-padding bg-white">
         <div className="container-be max-w-5xl">
-          <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
+          <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-3">
             Ce qu&apos;on regarde
           </p>
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance max-w-3xl">
@@ -239,7 +239,7 @@ export default function DevisAnalysePage() {
       {/* 3-step process */}
       <section className="section-padding bg-ivory">
         <div className="container-be max-w-5xl">
-          <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
+          <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-3">
             Comment ça marche
           </p>
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance max-w-3xl">
@@ -254,7 +254,7 @@ export default function DevisAnalysePage() {
               >
                 <span
                   aria-hidden="true"
-                  className="absolute -top-4 left-6 inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber text-midnight font-bold text-sm shadow-sm"
+                  className="absolute -top-5 left-6 step-badge step-badge-on-light"
                 >
                   {p.step}
                 </span>
@@ -274,7 +274,7 @@ export default function DevisAnalysePage() {
       <section className="section-padding bg-white">
         <div className="container-be max-w-5xl grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-14 items-start">
           <div>
-            <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
+            <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-3">
               Ce que vous recevez
             </p>
             <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance">
@@ -308,7 +308,7 @@ export default function DevisAnalysePage() {
         <div className="container-be max-w-5xl">
           <div className="grid lg:grid-cols-[1fr_360px] gap-10 lg:gap-14">
             <div>
-              <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark mb-3">
+              <p className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-3">
                 Envoyer le devis
               </p>
               <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance">

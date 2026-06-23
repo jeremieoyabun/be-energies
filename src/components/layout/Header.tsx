@@ -27,7 +27,7 @@ interface HeaderProps {
 export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
   return (
     <header
-      className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-cloud/50"
+      className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-cloud shadow-[0_1px_3px_rgba(12,18,32,0.04)]"
     >
       <div className="container-be flex items-center justify-between h-16 md:h-[4.5rem]">
         {/* Logo */}
@@ -74,7 +74,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
                   />
                   <div
                     role="menu"
-                    className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg border border-cloud/60 py-2 min-w-56 transition-all duration-200 opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto"
+                    className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg border border-cloud py-2 min-w-56 transition-all duration-200 opacity-0 -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto"
                   >
                     {item.children.map((child) => {
                       const Icon = child.icon ? getServiceIcon(child.icon) : null;

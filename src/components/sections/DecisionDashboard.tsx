@@ -30,13 +30,13 @@ type DecisionDashboardProps = {
 };
 
 const TONE_CIRCLE: Record<DashboardTone, string> = {
-  neutral: "bg-ivory border border-cloud text-charcoal",
-  accent: "bg-amber text-midnight border border-amber",
-  decision: "bg-midnight text-white border border-midnight",
+  neutral: "bg-white border-[1.5px] border-midnight/30 text-midnight shadow-sm",
+  accent: "bg-amber text-midnight border-[1.5px] border-amber shadow-[0_2px_8px_rgba(245,158,11,0.35)]",
+  decision: "bg-midnight text-white border-[1.5px] border-midnight shadow-[0_2px_8px_rgba(12,18,32,0.25)]",
 };
 
 const TONE_LABEL: Record<DashboardTone, string> = {
-  neutral: "text-charcoal/70",
+  neutral: "text-midnight",
   accent: "text-amber-dark",
   decision: "text-midnight",
 };
@@ -73,7 +73,7 @@ export function DecisionDashboard({ children, steps }: DecisionDashboardProps) {
               {!isLast && (
                 <span
                   aria-hidden="true"
-                  className="flex-1 h-px bg-cloud min-w-[24px]"
+                  className="flex-1 h-[1.5px] bg-midnight/15 min-w-[24px]"
                 />
               )}
             </li>
@@ -103,7 +103,7 @@ export function DecisionDashboard({ children, steps }: DecisionDashboardProps) {
               {!isLast && (
                 <span
                   aria-hidden="true"
-                  className="block w-4 h-px bg-cloud"
+                  className="block w-4 h-[1.5px] bg-midnight/20"
                 />
               )}
             </li>

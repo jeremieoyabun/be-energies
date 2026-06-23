@@ -13,7 +13,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+            <h3 className="text-white font-bold text-[13px] uppercase tracking-[0.14em] mb-4">
               Services
             </h3>
             <ul className="space-y-2.5">
@@ -62,7 +62,7 @@ export function Footer() {
 
           {/* Informations */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+            <h3 className="text-white font-bold text-[13px] uppercase tracking-[0.14em] mb-4">
               Informations
             </h3>
             <ul className="space-y-2.5">
@@ -81,7 +81,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+            <h3 className="text-white font-bold text-[13px] uppercase tracking-[0.14em] mb-4">
               Contact
             </h3>
             <ul className="space-y-3">
@@ -140,11 +140,12 @@ export function Footer() {
 
           {/* Certifications */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
+            <h3 className="text-white font-bold text-[13px] uppercase tracking-[0.14em] mb-4">
               Certifications
             </h3>
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 bg-cyan/10 rounded-md px-3 py-2 text-xs font-medium text-cyan border border-cyan/20">
+              <div className="inline-flex items-center gap-2 bg-cyan/15 rounded-md px-3 py-2 text-[13px] font-bold tracking-[0.1em] text-cyan-light border border-cyan/40">
+                <span aria-hidden="true">✓</span>
                 RESCERT
               </div>
               <p className="text-xs text-steel leading-relaxed">
@@ -162,7 +163,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Be'energies sur Facebook"
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-charcoal text-silver hover:text-white hover:border-white/30 transition-colors"
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-white/15 text-silver hover:text-white hover:border-white/30 transition-colors"
                   >
                     <svg
                       width="14"
@@ -181,7 +182,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Be'energies sur Google"
-                    className="inline-flex items-center gap-2 text-xs text-silver hover:text-white px-3 h-8 rounded-md border border-charcoal hover:border-white/30 transition-colors"
+                    className="inline-flex items-center gap-2 text-xs text-silver hover:text-white px-3 h-8 rounded-md border border-white/15 hover:border-white/30 transition-colors"
                   >
                     <span className="text-amber">★</span>
                     Avis Google
@@ -203,7 +204,7 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-charcoal flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-steel">
             &copy; {new Date().getFullYear()} {siteConfig.name} SARL. Tous droits réservés.
           </p>

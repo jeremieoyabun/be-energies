@@ -96,27 +96,29 @@ const TONE_STYLES: Record<
   }
 > = {
   light: {
-    card: "bg-ivory border border-cloud",
-    eyebrow: "text-charcoal/70",
+    card: "bg-white border-[1.5px] border-midnight/12 shadow-[0_1px_2px_rgba(12,18,32,0.04),0_8px_24px_-12px_rgba(12,18,32,0.12)]",
+    eyebrow: "text-midnight",
     title: "text-midnight",
     body: "text-charcoal",
-    badge: "bg-amber/15 text-amber-dark",
+    // step-badge solves the "01 quasi invisible" complaint: solid amber
+    // disc with ivory halo so it punches through the section bg.
+    badge: "step-badge step-badge-on-light",
     link: "text-amber-dark hover:text-midnight",
   },
   dark: {
-    card: "bg-midnight text-white border border-midnight",
-    eyebrow: "text-amber-light/80",
+    card: "bg-midnight text-white border-[1.5px] border-amber/30 shadow-[0_8px_24px_-8px_rgba(12,18,32,0.4)]",
+    eyebrow: "text-amber-light",
     title: "text-white",
-    body: "text-white/85",
-    badge: "bg-amber text-midnight",
+    body: "text-white/90",
+    badge: "step-badge step-badge-on-dark",
     link: "text-amber-light hover:text-white",
   },
   warm: {
-    card: "bg-warm-gradient border border-amber/25",
-    eyebrow: "text-amber-dark",
+    card: "bg-warm-gradient border-[1.5px] border-amber/45 shadow-[0_1px_2px_rgba(245,158,11,0.06),0_8px_24px_-12px_rgba(245,158,11,0.18)]",
+    eyebrow: "text-midnight",
     title: "text-midnight",
     body: "text-charcoal",
-    badge: "bg-amber text-midnight",
+    badge: "step-badge step-badge-on-light",
     link: "text-amber-dark hover:text-midnight",
   },
 };
@@ -161,34 +163,30 @@ export function RentabilityObjection2026() {
                         and lets the three cards read as a sequence: 01 → 02
                         → 03. The meta-rail above echoes this sequence at
                         section altitude. */}
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3.5 mb-5">
+                      <span className={t.badge}>{number}</span>
                       <span
-                        className={`inline-flex items-center justify-center w-9 h-9 rounded-full text-[13px] font-bold tabular-nums ${t.badge}`}
-                      >
-                        {number}
-                      </span>
-                      <span
-                        className={`text-[12.5px] md:text-[13px] font-bold tracking-[0.1em] uppercase ${t.eyebrow}`}
+                        className={`text-[13px] font-bold tracking-[0.14em] uppercase ${t.eyebrow}`}
                       >
                         {eyebrow}
                       </span>
                     </div>
                     <h3
-                      className={`text-[17px] md:text-lg font-[family-name:var(--font-heading)] leading-snug ${t.title}`}
+                      className={`text-[18px] md:text-xl font-[family-name:var(--font-heading)] leading-snug ${t.title}`}
                     >
                       {title}
                     </h3>
                     <p
-                      className={`mt-3 text-[14.5px] leading-relaxed ${t.body}`}
+                      className={`mt-3 text-[15px] md:text-[15.5px] leading-relaxed ${t.body}`}
                     >
                       {body}
                     </p>
                     <Link
                       href={link.href}
-                      className={`mt-auto pt-5 inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors ${t.link}`}
+                      className={`mt-auto pt-5 inline-flex items-center gap-1.5 text-[14px] font-bold underline underline-offset-4 decoration-[1.5px] decoration-amber/40 hover:decoration-amber transition-colors ${t.link}`}
                     >
                       {link.label}
-                      <ArrowRightIcon size={13} />
+                      <ArrowRightIcon size={14} />
                     </Link>
                   </article>
                 );

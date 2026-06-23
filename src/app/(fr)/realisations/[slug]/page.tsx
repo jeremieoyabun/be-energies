@@ -139,7 +139,7 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
               </div>
 
               {/* Solution */}
-              <div className="border-l-4 border-emerald-600 pl-6">
+              <div className="border-l-4 border-success pl-6">
                 <h2 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight mb-3">
                   Notre solution
                 </h2>
@@ -149,7 +149,7 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
               </div>
 
               {/* Result */}
-              <div className="border-l-4 border-sky-600 pl-6">
+              <div className="border-l-4 border-cyan pl-6">
                 <h2 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight mb-3">
                   Le résultat
                 </h2>
@@ -187,7 +187,7 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
             <div className="mt-10">
               <Link
                 href={`/services/${service.slug}/`}
-                className="inline-flex items-center gap-2 text-amber hover:text-amber-dark font-medium transition-colors"
+                className="inline-flex items-center gap-2 text-amber-dark hover:text-midnight font-medium transition-colors"
               >
                 En savoir plus sur {service.title.toLowerCase()}
               </Link>

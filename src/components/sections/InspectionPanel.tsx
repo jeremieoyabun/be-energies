@@ -31,12 +31,12 @@ export function InspectionPanel({
             <path d="M5 12l4 4L19 7" />
           </svg>
         </span>
-        <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-amber-dark font-[family-name:var(--font-mono)]">
+        <p className="text-[12px] font-bold tracking-[0.16em] uppercase text-amber-dark font-[family-name:var(--font-mono)]">
           {eyebrow}
         </p>
         <span
           aria-hidden="true"
-          className="ml-auto hidden sm:inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-steel font-[family-name:var(--font-mono)] border border-cloud rounded-md px-2 py-0.5"
+          className="ml-auto hidden sm:inline-flex items-center gap-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-charcoal font-[family-name:var(--font-mono)] border-[1.5px] border-midnight/20 rounded-md px-2 py-0.5 bg-white"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-amber" />
           Rapport
@@ -59,11 +59,11 @@ export function InspectionPanel({
           return (
             <li
               key={item}
-              className="group flex items-start gap-3 bg-white border border-cloud rounded-xl p-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-elevated hover:border-amber/40"
+              className="card group flex items-start gap-3 p-4"
             >
               <span
                 aria-hidden="true"
-                className="shrink-0 inline-flex items-center justify-center min-w-[2rem] h-7 px-1.5 rounded-md bg-midnight text-ivory text-[11px] font-semibold tracking-[0.08em] font-[family-name:var(--font-mono)]"
+                className="shrink-0 inline-flex items-center justify-center min-w-[2.25rem] h-8 px-2 rounded-md bg-midnight text-ivory text-[12px] font-bold tracking-[0.1em] font-[family-name:var(--font-mono)] ring-1 ring-amber/30"
               >
                 {number}
               </span>
@@ -83,7 +83,7 @@ export function InspectionPanel({
                   <path d="M5 12l4 4L19 7" />
                 </svg>
               </span>
-              <span className="text-[14px] text-charcoal leading-snug">
+              <span className="text-[14.5px] text-charcoal leading-snug">
                 {item}
               </span>
             </li>

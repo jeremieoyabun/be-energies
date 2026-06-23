@@ -78,7 +78,7 @@ export default function ContactPage() {
 
               {/* Reassurance row + Google rating — visible BEFORE the
                   fields so the visitor knows what they're committing to. */}
-              <div className="mt-7 mb-7 bg-ivory border border-cloud rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="mt-7 mb-7 card border-l-4 border-l-amber p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <ul className="space-y-1.5 text-[13.5px] text-charcoal">
                   {[
                     "Diagnostic gratuit, sans engagement",
@@ -106,8 +106,8 @@ export default function ContactPage() {
             <div className="space-y-5 lg:sticky lg:top-24 self-start">
               <FounderCredibility variant="compact" />
 
-              <div className="bg-midnight rounded-xl p-6 space-y-4">
-                <h3 className="font-semibold text-white text-sm tracking-wide">
+              <div className="bg-midnight rounded-xl p-6 space-y-4 ring-1 ring-white/10 shadow-[0_8px_24px_-12px_rgba(12,18,32,0.4)]">
+                <h3 className="text-[12px] font-bold tracking-[0.16em] uppercase text-amber-light">
                   Contact direct
                 </h3>
                 <ul className="space-y-3">

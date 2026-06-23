@@ -77,10 +77,10 @@ export function RealizationsClient({ realizations }: RealizationsClientProps) {
             <button
               key={filter.slug}
               onClick={() => setActiveFilter(filter.slug)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
                 isActive
-                  ? "bg-midnight text-white"
-                  : "bg-ivory text-steel hover:bg-cloud hover:text-midnight border border-cloud"
+                  ? "bg-midnight text-white shadow-[0_4px_12px_-4px_rgba(12,18,32,0.3)]"
+                  : "bg-white text-midnight border-[1.5px] border-midnight/15 hover:border-amber hover:bg-amber/5"
               }`}
             >
               {filter.label} ({count})
@@ -90,11 +90,21 @@ export function RealizationsClient({ realizations }: RealizationsClientProps) {
       </div>
 
       {correctionCount > 0 && activeFilter === "all" && (
-        <p className="mb-8 text-sm text-steel bg-ivory rounded-xl p-4 border border-cloud">
-          Dont <strong className="text-midnight">{correctionCount} corrections</strong> d&apos;installations
-          défaillantes réalisées par d&apos;autres entreprises, un travail
-          que seul un ancien contrôleur sait diagnostiquer avec précision.
-        </p>
+        <div className="mb-8 bg-midnight text-white p-5 md:p-6 rounded-2xl border-l-4 border-amber shadow-[0_8px_24px_-12px_rgba(12,18,32,0.4)]">
+          <div className="flex items-baseline gap-3 flex-wrap">
+            <span className="text-2xl md:text-3xl font-bold text-amber tabular-nums font-[family-name:var(--font-heading)]">
+              {correctionCount}
+            </span>
+            <span className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-light">
+              Corrections
+            </span>
+          </div>
+          <p className="mt-2 text-[14.5px] text-white/90 leading-relaxed">
+            Installations défaillantes réalisées par d&apos;autres
+            entreprises et reprises par Be&apos;energies — un travail que
+            seul un ancien contrôleur sait diagnostiquer avec précision.
+          </p>
+        </div>
       )}
 
       {/* Featured project */}

@@ -118,9 +118,9 @@ export function HeroSection({
             {(badge || true) && (
               <div className={`inline-flex flex-wrap items-center gap-2 mb-8 hero-reveal hero-reveal-0 ${video ? "justify-center" : ""}`}>
                 {badge && (
-                  <span className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10">
-                    <span className="w-2 h-2 rounded-full bg-amber" />
-                    <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-light">
+                  <span className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/[0.10] border-[1.5px] border-amber/35">
+                    <span className="w-2 h-2 rounded-full bg-amber shadow-[0_0_0_3px_rgba(245,158,11,0.18)]" />
+                    <span className="text-[12.5px] font-bold tracking-[0.14em] uppercase text-amber-light">
                       {badge}
                     </span>
                   </span>
@@ -146,7 +146,7 @@ export function HeroSection({
               {secondaryCta && (
                 <Link
                   href={secondaryCta.href}
-                  className="inline-flex items-center justify-center gap-2 font-medium px-8 py-4 rounded-xl transition-colors text-base border border-white/20 text-white/80 hover:text-white hover:border-white/40 hover:bg-white/5"
+                  className="inline-flex items-center justify-center gap-2 font-semibold px-8 py-4 rounded-xl transition-colors text-base border-[1.5px] border-white/45 text-white hover:border-amber hover:text-amber-light hover:bg-white/5"
                 >
                   {secondaryCta.label}
                 </Link>
@@ -155,15 +155,15 @@ export function HeroSection({
 
             {reassurances && reassurances.length > 0 && (
               <ul
-                className={`mt-6 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-x-5 gap-y-2 text-[13px] text-white/85 hero-reveal hero-reveal-4 ${video ? "sm:justify-center" : ""}`}
+                className={`mt-6 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-x-5 gap-y-2 text-[14px] font-medium text-white hero-reveal hero-reveal-4 ${video ? "sm:justify-center" : ""}`}
                 aria-label="Engagements Be'energies"
               >
                 {reassurances.map((item) => (
                   <li
                     key={item}
-                    className="inline-flex items-center gap-1.5 whitespace-nowrap leading-none"
+                    className="inline-flex items-center gap-2 whitespace-nowrap leading-none"
                   >
-                    <CheckIcon size={13} className="text-amber-light shrink-0" />
+                    <CheckIcon size={14} className="text-amber shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
