@@ -83,7 +83,7 @@ export default function ContactPage() {
               <div className="mt-6 flex items-center gap-4 bg-white border border-cloud rounded-xl p-4 shadow-sm">
                 <div className="w-14 h-14 rounded-full bg-slate/20 shrink-0 overflow-hidden ring-2 ring-amber/25">
                   <Image
-                    src="/img/misc/worker.webp"
+                    src="/img/services/benoit-inspection-tableau.png"
                     alt={siteConfig.founder.name}
                     width={56}
                     height={56}

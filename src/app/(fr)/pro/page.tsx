@@ -269,7 +269,7 @@ export default function ProPage() {
               <figcaption className="mt-6 pt-5 border-t border-white/10 flex items-center gap-3.5">
                 <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-amber/30 shrink-0">
                   <Image
-                    src="/img/misc/worker.webp"
+                    src="/img/services/benoit-inspection-tableau.png"
                     alt={siteConfig.founder.name}
                     width={48}
                     height={48}

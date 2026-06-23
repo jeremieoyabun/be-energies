@@ -261,7 +261,7 @@ export function personSchema() {
     "@type": "Person",
     name: siteConfig.founder.name,
     jobTitle: siteConfig.founder.role,
-    image: `${BASE_URL}/img/misc/worker.webp`,
+    image: `${BASE_URL}/img/services/benoit-inspection-tableau.png`,
     hasCredential: {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "certification",
