@@ -27,6 +27,7 @@ import { ServiceTOC } from "@/components/sections/ServiceTOC";
 import { GlossaryInline } from "@/components/sections/GlossaryInline";
 import { ReadMore } from "@/components/ReadMore";
 import { PVRegimesSummary } from "@/components/sections/PVRegimesSummary";
+import { WarrantyLadder } from "@/components/sections/WarrantyLadder";
 import { siteConfig } from "@/lib/site-config";
 import { CheckIcon } from "@/lib/icons";
 import Link from "next/link";
@@ -197,6 +198,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
       {/* PV-only: regimes summary above the long-form content for fast
           decision-making before the deep reading. */}
       {slug === "panneaux-photovoltaiques" && <PVRegimesSummary />}
+
+      {/* PV-only: warranty ladder - concrete trust block with sourced figures
+          from panel and inverter datasheets. Sits right after the regime
+          framing so the trust signals are grouped before the deep content. */}
+      {slug === "panneaux-photovoltaiques" && <WarrantyLadder />}
 
       {/* Deep content sections - with alternating backgrounds */}
       {content?.sections.map((section, index) => (
