@@ -1,6 +1,12 @@
 "use client";
 
-import { useId, useRef, useState, type FormEvent } from "react";
+import {
+  useId,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+} from "react";
 import Link from "next/link";
 import {
   validateContact,
@@ -18,12 +24,85 @@ interface ContactFormProps {
   defaultProjectType?: string;
 }
 
+// Keep in sync with the server-side limits in /api/contact/route.ts.
+// 3 MB total raw size leaves comfortable headroom under Vercel's ~4.5 MB
+// serverless body limit once we factor in multipart boundaries and the
+// other form fields.
+const MAX_FILES = 5;
+const MAX_TOTAL_BYTES = 3 * 1024 * 1024;
+const ACCEPTED_MIME = new Set([
+  "application/pdf",
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+]);
+const ACCEPTED_ATTR =
+  ".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp";
+
+function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} o`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} Ko`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} Mo`;
+}
+
 export function ContactForm({ defaultProjectType }: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [globalError, setGlobalError] = useState<string | null>(null);
+  const [attachments, setAttachments] = useState<File[]>([]);
+  const [fileError, setFileError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const liveRegionId = useId();
+
+  const totalAttachmentBytes = attachments.reduce((s, f) => s + f.size, 0);
+
+  function handleFilesPicked(e: ChangeEvent<HTMLInputElement>) {
+    const picked = Array.from(e.target.files ?? []);
+    if (picked.length === 0) return;
+
+    setFileError(null);
+    const accepted: File[] = [];
+    for (const f of picked) {
+      // Some browsers leave .type empty for niche cases; fall back to extension.
+      const ext = f.name.split(".").pop()?.toLowerCase() ?? "";
+      const okType =
+        ACCEPTED_MIME.has(f.type) ||
+        ["pdf", "jpg", "jpeg", "png", "webp"].includes(ext);
+      if (!okType) {
+        setFileError(
+          `Format non supporté pour "${f.name}". PDF, JPG, PNG ou WebP uniquement.`,
+        );
+        continue;
+      }
+      accepted.push(f);
+    }
+
+    const combined = [...attachments, ...accepted];
+    if (combined.length > MAX_FILES) {
+      setFileError(`Maximum ${MAX_FILES} fichiers par envoi.`);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      return;
+    }
+    const combinedSize = combined.reduce((s, f) => s + f.size, 0);
+    if (combinedSize > MAX_TOTAL_BYTES) {
+      setFileError(
+        `Taille totale dépassée (max ${formatBytes(MAX_TOTAL_BYTES)}). ` +
+          "Compressez le PDF ou réduisez les photos.",
+      );
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      return;
+    }
+
+    setAttachments(combined);
+    // Reset the input so the same file can be re-selected after removal.
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  }
+
+  function removeAttachment(index: number) {
+    setAttachments((prev) => prev.filter((_, i) => i !== index));
+    setFileError(null);
+  }
 
   const fieldError = (name: string) =>
     errors[name] ? (
@@ -49,24 +128,24 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
     setGlobalError(null);
     setErrors({});
 
-    const formData = new FormData(e.currentTarget);
+    const rawForm = new FormData(e.currentTarget);
     const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      postal: formData.get("postal"),
-      projectType: formData.get("projectType"),
-      buildingType: formData.get("buildingType"),
-      timeline: formData.get("timeline"),
-      existingQuote: formData.get("existingQuote") === "yes",
-      message: formData.get("message"),
-      gdpr: formData.get("gdpr") === "on",
-      company: formData.get("company"), // honeypot
+      name: rawForm.get("name"),
+      email: rawForm.get("email"),
+      phone: rawForm.get("phone"),
+      postal: rawForm.get("postal"),
+      projectType: rawForm.get("projectType"),
+      buildingType: rawForm.get("buildingType"),
+      timeline: rawForm.get("timeline"),
+      existingQuote: rawForm.get("existingQuote") === "yes",
+      message: rawForm.get("message"),
+      gdpr: rawForm.get("gdpr") === "on",
+      company: rawForm.get("company"), // honeypot
     };
 
     // Client-side validation first to avoid a round trip for obvious mistakes.
     const local = validateContact(payload);
-    if (!local.ok) {
+    if (!local.ok || !local.data) {
       setErrors(local.errors);
       setStatus("error");
       // Focus the first invalid field.
@@ -77,17 +156,39 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
       el?.focus();
       return;
     }
+    const clean = local.data;
+
+    // Build a fresh multipart payload from the validated scalars + curated
+    // file list. We do NOT submit the form's own FormData because the native
+    // <input type="file"> reflects the last picker selection, not the user's
+    // curated state (after removals or repeated picks).
+    const body = new FormData();
+    body.append("name", clean.name);
+    body.append("email", clean.email);
+    body.append("phone", clean.phone);
+    body.append("postal", clean.postal);
+    body.append("projectType", clean.projectType);
+    if (clean.buildingType) body.append("buildingType", clean.buildingType);
+    if (clean.timeline) body.append("timeline", clean.timeline);
+    body.append("existingQuote", clean.existingQuote ? "yes" : "no");
+    if (clean.message) body.append("message", clean.message);
+    body.append("gdpr", "on");
+    for (const f of attachments) {
+      body.append("attachments", f, f.name);
+    }
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(local.data),
+        // Do NOT set Content-Type — the browser writes the multipart boundary.
+        body,
       });
 
       if (res.ok) {
         setStatus("success");
         formRef.current?.reset();
+        setAttachments([]);
+        setFileError(null);
         return;
       }
 
@@ -131,9 +232,8 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
         </h3>
         <p className="text-charcoal leading-relaxed mb-4">
           Benoît analyse votre demande personnellement et vous recontacte
-          sous 24&nbsp;h ouvrées. Si vous avez déjà un devis à faire analyser,
-          vous pouvez nous le transférer en réponse à l&apos;email de
-          confirmation.
+          sous 24&nbsp;h ouvrées. Si vous voulez ajouter un devis ou des
+          photos après coup, il suffit de répondre au mail de confirmation.
         </p>
         <ul className="text-sm text-charcoal/70 leading-relaxed mb-4 space-y-1">
           <li>· Pas d&apos;appel surprise dans l&apos;heure</li>
@@ -355,16 +455,124 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
             <span className="font-semibold text-midnight">
               J&apos;ai déjà reçu un devis
             </span>{" "}
-            et je souhaite un avis avant de signer. Vous pourrez nous l&apos;envoyer
-            en réponse au mail de confirmation.
+            et je souhaite un avis avant de signer. Joignez-le ci-dessous, ou
+            envoyez-le en réponse au mail de confirmation.
           </label>
         </div>
       </fieldset>
 
-      {/* Block 3: message libre */}
+      {/* Block 3: pieces jointes */}
       <fieldset>
         <legend className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-3">
-          3 · Précisions (facultatif)
+          3 · Pièces jointes (facultatif)
+        </legend>
+        <p className="text-[13px] text-steel leading-relaxed mb-3">
+          Devis solaire, photos de toiture, factures d&apos;électricité, plan
+          de coffret… Tout document utile à l&apos;analyse.
+        </p>
+
+        <label
+          htmlFor="attachments"
+          className="group flex flex-col items-center justify-center gap-2 cursor-pointer rounded-xl border-2 border-dashed border-cloud bg-ivory/60 hover:border-amber hover:bg-amber/5 transition-colors px-4 py-6 text-center"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className="h-6 w-6 text-amber-dark"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21.44 11.05 12.25 20.24a6 6 0 0 1-8.49-8.49l8.57-8.57a4 4 0 0 1 5.66 5.66L9.41 17.41a2 2 0 1 1-2.83-2.83l7.07-7.07" />
+          </svg>
+          <span className="text-[14px] font-semibold text-midnight">
+            Cliquer pour joindre des fichiers
+          </span>
+          <span className="text-[11.5px] text-steel">
+            PDF, JPG, PNG, WebP · {MAX_FILES} fichiers max · {formatBytes(MAX_TOTAL_BYTES)} au total
+          </span>
+          <input
+            ref={fileInputRef}
+            id="attachments"
+            name="attachments"
+            type="file"
+            multiple
+            accept={ACCEPTED_ATTR}
+            onChange={handleFilesPicked}
+            className="sr-only"
+          />
+        </label>
+
+        {attachments.length > 0 && (
+          <ul className="mt-3 space-y-2" aria-label="Fichiers joints">
+            {attachments.map((f, i) => (
+              <li
+                key={`${f.name}-${i}`}
+                className="flex items-center gap-3 rounded-lg border border-cloud bg-white px-3 py-2"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4 text-amber-dark shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2v6h6" />
+                </svg>
+                <span className="flex-1 min-w-0 text-[13px] text-midnight truncate">
+                  {f.name}
+                </span>
+                <span className="text-[11.5px] text-steel font-[family-name:var(--font-mono)] tabular-nums">
+                  {formatBytes(f.size)}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => removeAttachment(i)}
+                  aria-label={`Retirer ${f.name}`}
+                  className="text-steel hover:text-danger transition-colors p-1 -m-1 rounded"
+                >
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {attachments.length > 0 && (
+          <p className="mt-2 text-[11.5px] text-steel">
+            {attachments.length} fichier{attachments.length > 1 ? "s" : ""} ·{" "}
+            {formatBytes(totalAttachmentBytes)} / {formatBytes(MAX_TOTAL_BYTES)}
+          </p>
+        )}
+
+        {fileError && (
+          <p role="alert" className="mt-2 text-xs text-danger">
+            {fileError}
+          </p>
+        )}
+      </fieldset>
+
+      {/* Block 4: message libre */}
+      <fieldset>
+        <legend className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-3">
+          4 · Précisions (facultatif)
         </legend>
         <label htmlFor="message" className="form-label">
           Votre message
