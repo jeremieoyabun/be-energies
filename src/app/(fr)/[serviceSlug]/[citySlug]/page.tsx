@@ -12,6 +12,7 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { LocalProof } from "@/components/sections/LocalProof";
 import { LocalContextBlock } from "@/components/sections/LocalContextBlock";
+import { LocalCityDeepDive } from "@/components/sections/LocalCityDeepDive";
 import { RealisationsLocales } from "@/components/sections/RealisationsLocales";
 import { PiegesCarousel } from "@/components/sections/PiegesCarousel";
 import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
@@ -28,6 +29,7 @@ import {
   getLocalMetaDescription,
 } from "@/data/local-content";
 import { getCityContext } from "@/data/city-context";
+import { getCityDeepDive } from "@/data/city-deep-dive";
 
 interface LocalPageProps {
   params: Promise<{ serviceSlug: string; citySlug: string }>;
@@ -72,6 +74,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
   const grd = getGrdTariff(city.grd);
   const localFaqs = generateLocalFaq(city, service, "fr");
   const cityContext = getCityContext(citySlug);
+  const cityDeepDive = getCityDeepDive(citySlug);
 
   const headline = getLocalHeadline(service, city.name, "fr");
   const subheadline = `Installation de ${service.title.toLowerCase()} à ${city.name} (${city.province}) par Be'energies. Visite technique, calcul de rentabilité réaliste et conformité pensée dès la conception par Benoît Dezso, certifié RESCERT.`;
@@ -134,6 +137,14 @@ export default async function LocalPage({ params }: LocalPageProps) {
           <LocalProof city={city} locale="fr" />
         </div>
       </section>
+
+      {cityDeepDive && cityDeepDive.locale === "fr" && (
+        <LocalCityDeepDive
+          cityName={city.name}
+          cityDeepDive={cityDeepDive}
+          locale="fr"
+        />
+      )}
 
       {/* Bundle pièges teaser + PDF lead magnet so density stays low on
           SEO-heavy local pages. If there are no pièges for this service,

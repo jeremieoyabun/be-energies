@@ -10,6 +10,7 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { LocalProof } from "@/components/sections/LocalProof";
 import { LocalContextBlock } from "@/components/sections/LocalContextBlock";
+import { LocalCityDeepDive } from "@/components/sections/LocalCityDeepDive";
 import { RealisationsLocales } from "@/components/sections/RealisationsLocales";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
@@ -24,6 +25,7 @@ import {
   getLocalMetaDescription,
 } from "@/data/local-content";
 import { getCityContext } from "@/data/city-context";
+import { getCityDeepDive } from "@/data/city-deep-dive";
 
 interface NlLocalPageProps {
   params: Promise<{ serviceSlug: string; citySlug: string }>;
@@ -66,6 +68,7 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
   const grd = getGrdTariff(city.grd);
   const localFaqs = generateLocalFaq(city, service, "nl");
   const cityContext = getCityContext(citySlug);
+  const cityDeepDive = getCityDeepDive(citySlug);
 
   const headline = getLocalHeadline(service, city.name, "nl");
   const subheadline = `Installatie van ${service.titleNl.toLowerCase()} in ${city.name} (${city.province}) door Be'energies. Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd.`;
@@ -124,6 +127,14 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
           <LocalProof city={city} locale="nl" />
         </div>
       </section>
+
+      {cityDeepDive && cityDeepDive.locale === "nl" && (
+        <LocalCityDeepDive
+          cityName={city.name}
+          cityDeepDive={cityDeepDive}
+          locale="nl"
+        />
+      )}
 
       <RealisationsLocales
         citySlug={citySlug}
