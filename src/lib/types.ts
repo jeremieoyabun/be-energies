@@ -87,9 +87,10 @@ export interface BlogArticle {
   readingTime: number;
   tags: string[];
   relatedServices: string[];
-  body?: string;
   /** Hero image. Falls back to a generic photo when absent. */
   image?: string;
+  // Body lives in /src/content/blog/{slug}.mdx and is loaded on-demand by the
+  // article route via a dynamic MDX import - no body field on the metadata.
 }
 
 export interface FAQItem {

@@ -27,11 +27,12 @@ export async function GET() {
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .map((a) => {
       const url = `${BASE}/blog/${a.slug}/`;
-      // Plain-text excerpt for description; full body in content:encoded.
+      // Plain-text excerpt for description; same as content:encoded since the
+      // full body lives in MDX files (/src/content/blog/*.mdx) and isn't
+      // available as raw HTML at runtime. Feed readers fall back to the
+      // article URL for full content, which is the expected pattern.
       const description = escapeXml(a.excerpt);
-      const contentHtml = a.body
-        ? `<![CDATA[${a.body}]]>`
-        : `<![CDATA[<p>${escapeXml(a.excerpt)}</p>]]>`;
+      const contentHtml = `<![CDATA[<p>${escapeXml(a.excerpt)}</p><p><a href="${url}">Lire l'article complet</a></p>]]>`;
       const imageEnclosure = a.image
         ? `\n      <enclosure url="${BASE}${a.image}" type="image/webp" />`
         : "";

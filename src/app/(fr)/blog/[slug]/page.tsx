@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { ComponentType } from "react";
 import { blogArticles, getBlogArticleBySlug } from "@/data/blog";
 import { getServiceBySlugFr } from "@/data/services";
 import { generatePageMetadata } from "@/lib/metadata";
@@ -29,10 +30,32 @@ export async function generateMetadata({ params }: BlogPageProps) {
   });
 }
 
+/**
+ * Dynamically import the MDX body for an article. Each blog post lives in
+ * /src/content/blog/{slug}.mdx. Webpack / Turbopack statically resolves this
+ * template literal to a dynamic require context limited to that directory,
+ * so the build still tree-shakes correctly and prerenders every slug returned
+ * by generateStaticParams.
+ */
+async function loadArticleContent(
+  slug: string
+): Promise<ComponentType | null> {
+  try {
+    const mod = (await import(`@/content/blog/${slug}.mdx`)) as {
+      default: ComponentType;
+    };
+    return mod.default;
+  } catch {
+    return null;
+  }
+}
+
 export default async function BlogArticlePage({ params }: BlogPageProps) {
   const { slug } = await params;
   const article = getBlogArticleBySlug(slug);
   if (!article) notFound();
+
+  const ArticleContent = await loadArticleContent(slug);
 
   const relatedServices = article.relatedServices
     .map((s) => getServiceBySlugFr(s))
@@ -110,11 +133,10 @@ export default async function BlogArticlePage({ params }: BlogPageProps) {
           </header>
 
           {/* Article body */}
-          {article.body ? (
-            <div
-              className="article-prose"
-              dangerouslySetInnerHTML={{ __html: article.body }}
-            />
+          {ArticleContent ? (
+            <div className="article-prose">
+              <ArticleContent />
+            </div>
           ) : (
             <div className="article-prose">
               <p className="lead">{article.excerpt}</p>
