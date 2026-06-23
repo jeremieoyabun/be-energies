@@ -57,7 +57,7 @@ export default function HomePage() {
         ctaHref="/contact/"
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
         badge="Certifié RESCERT · Ancien inspecteur en électricité"
-        reassurances={["Devis clair sous 48 h", "Visite technique réelle", "Un seul interlocuteur"]}
+        reassurances={["Devis clair sous 48 h", "Visite technique réelle", "Un seul interlocuteur"]}
         video="/vds/Be-energies_video_header.optimized.webm"
       />
 

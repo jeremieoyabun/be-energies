@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import { useId } from "react";
 import { ChevronDownIcon } from "@/lib/icons";
 import { JsonLd, faqSchema } from "@/lib/schema";
 import type { FAQItem } from "@/lib/types";
@@ -14,7 +12,12 @@ export function FAQSection({
   items,
   title = "Questions fréquentes",
 }: FAQSectionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // Stable group name so all <details> in this instance form one exclusive
+  // accordion group natively (HTML 2024 `name` attribute on <details>).
+  // Modern Chromium, Safari and Firefox 2024+ support it; in older browsers
+  // the attribute is simply ignored and the FAQ falls back to multi-open,
+  // which is still a perfectly fine UX for an FAQ.
+  const groupName = `faq-${useId()}`;
 
   return (
     <section className="section-padding">
@@ -24,36 +27,26 @@ export function FAQSection({
           {title}
         </h2>
         <div className="space-y-3">
-          {items.map((item, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div
-                key={index}
-                className="border border-cloud rounded-xl overflow-hidden"
-              >
-                <button
-                  className="flex items-center justify-between w-full text-left p-5 hover:bg-ivory transition-colors"
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  aria-expanded={isOpen}
-                >
-                  <span className="font-medium text-midnight pr-4">
-                    {item.question}
-                  </span>
-                  <ChevronDownIcon
-                    size={18}
-                    className={`shrink-0 text-steel transition-transform ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="px-5 pb-5 text-sm text-charcoal leading-relaxed border-t border-cloud pt-4">
-                    {item.answer}
-                  </div>
-                )}
+          {items.map((item, index) => (
+            <details
+              key={index}
+              name={groupName}
+              className="group border border-cloud rounded-xl overflow-hidden"
+            >
+              <summary className="flex items-center justify-between w-full text-left p-5 hover:bg-ivory transition-colors cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <span className="font-medium text-midnight pr-4">
+                  {item.question}
+                </span>
+                <ChevronDownIcon
+                  size={18}
+                  className="shrink-0 text-steel transition-transform duration-200 group-open:rotate-180"
+                />
+              </summary>
+              <div className="px-5 pb-5 text-sm text-charcoal leading-relaxed border-t border-cloud pt-4">
+                {item.answer}
               </div>
-            );
-          })}
+            </details>
+          ))}
         </div>
       </div>
     </section>
