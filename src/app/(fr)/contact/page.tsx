@@ -97,7 +97,7 @@ export default function ContactPage() {
                   </p>
                   <p className="text-steel mt-0.5">
                     Il reprend personnellement chaque demande sous 24 h
-                    ouvrées. Pas de call center.
+                    ouvrées.
                   </p>
                 </div>
               </div>
