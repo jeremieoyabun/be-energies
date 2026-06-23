@@ -1,0 +1,149 @@
+import Link from "next/link";
+import { ArrowRightIcon, CheckIcon, AlertTriangleIcon } from "@/lib/icons";
+import { SectionLabel } from "@/components/sections/SectionLabel";
+import { DataSources } from "@/components/sections/DataSources";
+
+/**
+ * RentabilityObjection2026
+ *
+ * Most installer sites bury "les panneaux ne sont plus rentables avec le
+ * compteur communicant et le tarif prosumer" inside the FAQ. We name the
+ * objection on the homepage (H2), resolve it in three sourced sub-blocks,
+ * then CTA out to deeper pages — pattern borrowed from 1KOMMA5° and
+ * Octopus Energy.
+ *
+ * Placed between ServiceCardGrid (bg-ivory) and FounderCredibility so the
+ * warm gradient breaks the ivory rhythm and signals "this is the part you
+ * actually came here to read".
+ */
+
+type Block = {
+  number: "01" | "02" | "03";
+  title: string;
+  body: React.ReactNode;
+  source: string;
+  Icon: typeof CheckIcon;
+};
+
+const BLOCKS: Block[] = [
+  {
+    number: "01",
+    title: "Le tarif prosumer existe, mais ne tue pas la rentabilité",
+    body: (
+      <>
+        Pour les installations mises en service avant le 01/01/2024, le tarif
+        prosumer s&apos;applique (montant fixé annuellement par la CWaPE, varie
+        selon le GRD). Comparé à l&apos;autoconsommation directe
+        (<strong className="text-midnight">~38 c/kWh</strong> économisés contre{" "}
+        <strong className="text-midnight">~85 à 99 EUR/kWe/an</strong> de
+        prosumer), le solde reste largement positif sur la durée de vie de
+        l&apos;installation.
+      </>
+    ),
+    source: "Sources : CWaPE, grilles GRD 2026.",
+    Icon: CheckIcon,
+  },
+  {
+    number: "02",
+    title: "Le compteur communicant change le calcul, pas le résultat",
+    body: (
+      <>
+        Depuis 2024, les nouvelles installations passent en facturation séparée
+        (injection vs prélèvement). L&apos;autoconsommation directe devient la
+        variable clé : la production qui sert chez vous vaut{" "}
+        <strong className="text-midnight">~7 à 46 fois plus</strong> que celle
+        injectée. Un dimensionnement honnête vise donc la consommation réelle,
+        pas la surface disponible.
+      </>
+    ),
+    source: "Sources : CWaPE, fournisseurs d'énergie 2026.",
+    Icon: CheckIcon,
+  },
+  {
+    number: "03",
+    title: "Ce qui plombe vraiment la rentabilité : un mauvais devis",
+    body: (
+      <>
+        Sur le terrain, ce qu&apos;on voit le plus souvent : surdimensionnement
+        vendu sur surface plutôt que profil, choix de matériel sous-garanti,
+        oubli de la mise à niveau du tableau. Trois erreurs qui coûtent plus
+        que la réforme tarifaire. C&apos;est pour ça que l&apos;analyse du
+        devis vaut le détour avant de signer.
+      </>
+    ),
+    source: "Sources : retours terrain Be'energies, guide pièges PDF.",
+    Icon: AlertTriangleIcon,
+  },
+];
+
+export function RentabilityObjection2026() {
+  return (
+    <section className="section-padding bg-warm-gradient">
+      <div className="container-be">
+        <div className="max-w-3xl">
+          <SectionLabel>L&apos;objection qu&apos;on entend le plus</SectionLabel>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+            Les panneaux sont-ils encore rentables en 2026 ?
+          </h2>
+          <p className="mt-4 text-charcoal leading-relaxed text-[17px]">
+            Réponse honnête : oui, mais la logique a changé. Trois choses ont
+            basculé depuis 2024, et c&apos;est ce qui rend la lecture du devis
+            plus importante que jamais.
+          </p>
+        </div>
+
+        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {BLOCKS.map(({ number, title, body, source, Icon }) => (
+            <article
+              key={number}
+              className="card p-6 md:p-7 flex flex-col h-full"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span className="inline-flex items-center justify-center min-w-10 h-7 px-2.5 rounded-full bg-amber/15 text-amber-dark text-[12px] font-bold tracking-[0.08em]">
+                  {number}
+                </span>
+                <Icon
+                  size={18}
+                  className={
+                    number === "03" ? "text-amber-dark" : "text-amber-dark/70"
+                  }
+                />
+              </div>
+              <h3 className="text-[17px] md:text-lg font-[family-name:var(--font-heading)] text-midnight leading-snug">
+                {title}
+              </h3>
+              <p className="mt-3 text-[14.5px] text-charcoal leading-relaxed">
+                {body}
+              </p>
+              <p className="mt-4 pt-3 border-t border-cloud text-[11.5px] text-steel/90 leading-snug">
+                {source}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 md:mt-12 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4">
+          <Link
+            href="/pieges-a-eviter/"
+            className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-7 py-3.5 rounded-xl transition-colors"
+          >
+            Lire les 10 pièges à éviter
+            <ArrowRightIcon size={16} />
+          </Link>
+          <Link
+            href="/devis-analyse/"
+            className="inline-flex items-center justify-center gap-2 font-medium px-7 py-3.5 rounded-xl transition-colors border border-charcoal/30 text-charcoal hover:bg-midnight hover:text-white hover:border-midnight"
+          >
+            Faire vérifier mon devis
+            <ArrowRightIcon size={15} />
+          </Link>
+        </div>
+
+        <DataSources
+          className="max-w-3xl"
+          sources="CWaPE, GRD wallons, fournisseurs d'énergie, retours terrain Be'energies"
+        />
+      </div>
+    </section>
+  );
+}

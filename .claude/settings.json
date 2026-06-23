@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"c:/Users/conta/Documents/BE-ENERGIES/src/app/\\(fr\\)/realisations/\")"
+    ]
+  }
+}

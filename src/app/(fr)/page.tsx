@@ -10,6 +10,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { RentabilityProof } from "@/components/sections/RentabilityProof";
 import { ServiceCardGrid } from "@/components/sections/ServiceCardGrid";
+import { RentabilityObjection2026 } from "@/components/sections/RentabilityObjection2026";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { PiegesCarousel } from "@/components/sections/PiegesCarousel";
 import { ComparisonTable } from "@/components/sections/ComparisonTable";
@@ -69,6 +70,13 @@ export default function HomePage() {
 
       {/* 4. SERVICES - what we do */}
       <ServiceCardGrid />
+
+      {/* 4b. RENTABILITY OBJECTION 2026 - name the #1 Walloon objection
+              (prosumer + smart meter killing solar profitability) on the
+              homepage instead of burying it in the FAQ. Pattern: 1KOMMA5° +
+              Octopus Energy — H2 the objection, resolve in 3 sourced
+              sub-blocks, CTA to deeper pages. */}
+      <RentabilityObjection2026 />
 
       {/* 5. FOUNDER CREDIBILITY - Benoît's inspector story */}
       <FounderCredibility variant="full" />

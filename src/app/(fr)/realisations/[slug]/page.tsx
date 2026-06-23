@@ -95,20 +95,30 @@ export default async function RealizationDetailPage({ params }: RealizationPageP
             ))}
           </div>
 
-          {/* Image gallery */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {realization.images.map((img, i) => (
-              <div key={i} className="aspect-[16/10] rounded-2xl overflow-hidden bg-slate/10 relative">
-                <Image
-                  src={img}
-                  alt={`${realization.title} -- photo ${i + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            ))}
-          </div>
+          {/* Image gallery — only when we have project-specific photos.
+              Empty array means we are waiting on Benoit to send the real
+              ones; we render a small placeholder note instead of a broken
+              empty grid. */}
+          {realization.images.length > 0 ? (
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {realization.images.map((img, i) => (
+                <div key={i} className="aspect-[16/10] rounded-2xl overflow-hidden bg-slate/10 relative">
+                  <Image
+                    src={img}
+                    alt={`${realization.title} -- photo ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-8 bg-ivory border border-cloud rounded-2xl p-6 text-sm text-steel">
+              Photos du chantier à venir. Les détails techniques et le retour
+              client sont en revanche déjà documentés ci-dessous.
+            </div>
+          )}
 
           {/* Description */}
           <div className="mt-8 prose prose-lg max-w-none text-charcoal">

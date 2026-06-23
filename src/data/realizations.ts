@@ -18,7 +18,6 @@ export const realizations: Realization[] = [
       "Installation de 32 panneaux SunPower Maxeon 6 avec optimiseurs SolarEdge sur une toiture en tuiles orientée sud-ouest à Riemst. Le dimensionnement a été calculé pour couvrir la consommation du ménage, y compris la recharge d'un véhicule électrique. Taux d'autoconsommation estimé à 62%, avec un retour sur investissement projeté à 7 ans sous le régime actuel du tarif prosommateur en Flandre.",
     images: [
       "/img/realisations/riemst.webp",
-      "/img/realisations/panneaux-tongres.webp",
     ],
     caseStudy: {
       challenge:
@@ -182,10 +181,7 @@ export const realizations: Realization[] = [
     keyResult: "COP saisonnier mesuré 4.1 (au-dessus du prévisionnel)",
     description:
       "Installation couplée d'une pompe à chaleur air-eau Daikin Altherma 3 et de 24 panneaux photovoltaïques Longi sur une maison 4 façades à Namur. Le dimensionnement de la PAC a été calculé sur base d'une étude thermique réelle, pas d'une estimation au m2. L'objectif : couvrir 65% des besoins électriques de la PAC par la production solaire sur l'année.",
-    images: [
-      "/img/realisations/engis.webp",
-      "/img/realisations/engis-01.webp",
-    ],
+    images: [],
     caseStudy: {
       challenge:
         "Le propriétaire avait reçu une offre pour une PAC de 14 kW d'un concurrent, basée uniquement sur la surface habitable (220 m2). Benoît soupçonnait un surdimensionnement : la maison avait été isolée récemment (murs et toiture) et les déperditions réelles étaient bien inférieures à ce que la surface seule suggère.",
@@ -247,10 +243,7 @@ export const realizations: Realization[] = [
     keyResult: "+12 % de production récupérée + 2 connecteurs à risque détectés",
     description:
       "Nettoyage complet d'une toiture en tuiles béton colonisée par de la mousse sur une maison à Mons. L'intervention a été couplée à une inspection visuelle et électrique des 18 panneaux SunPower installés 8 ans plus tôt. Deux connecteurs MC4 présentaient des signes d'oxydation et ont été remplacés. Le rendement des panneaux a été mesuré avant et après nettoyage : gain de 12% de production récupéré.",
-    images: [
-      "/img/realisations/engis-02.webp",
-      "/img/realisations/engis-03.webp",
-    ],
+    images: [],
     caseStudy: {
       challenge:
         "Le client constatait une baisse progressive du rendement de ses panneaux sur les deux dernières années, sans en comprendre la cause. Un nettoyeur de toiture classique lui proposait un traitement anti-mousse sans vérifier l'état électrique des panneaux.",
@@ -313,10 +306,7 @@ export const realizations: Realization[] = [
     keyResult: "+8 % vs simulation grâce aux micro-onduleurs sur 2 pans",
     description:
       "Installation haut de gamme de 28 panneaux SunPower Maxeon 6 avec micro-onduleurs Enphase IQ8+ sur une villa à Wavre. La toiture présentait deux orientations différentes (sud et est), ce qui imposait un système capable de gérer des productions asymétriques. Le choix des micro-onduleurs Enphase permet à chaque panneau de fonctionner indépendamment, sans perte liée à l'effet de chaîne.",
-    images: [
-      "/img/realisations/panneaux-tongres.webp",
-      "/img/realisations/panneaux-tongres-02.webp",
-    ],
+    images: [],
     caseStudy: {
       challenge:
         "Le propriétaire voulait une installation capable de couvrir la consommation d'un ménage de 5 personnes, incluant une pompe à chaleur et deux véhicules électriques. La toiture imposait une répartition sur deux pans (sud 60%, est 40%). Plusieurs installateurs avaient proposé un onduleur string classique, ce qui aurait pénalisé la production du pan sud à cause du pan est moins performant.",
@@ -384,10 +374,7 @@ export const realizations: Realization[] = [
     keyResult: "+18 % de production après remplacement de l'onduleur sous-dimensionné",
     description:
       "Reprise complète d'une installation photovoltaïque de 14 panneaux à Tournai, initialement posée par un concurrent aujourd'hui en faillite. L'installation présentait des défauts graves : câblage DC non protégé, onduleur sous-dimensionné, fixations non conformes et absence de mise à la terre des cadres. Benoît a corrigé l'ensemble et fait passer le contrôle de conformité qui n'avait jamais été réalisé.",
-    images: [
-      "/img/realisations/engis-01.webp",
-      "/img/realisations/engis-02.webp",
-    ],
+    images: [],
     caseStudy: {
       challenge:
         "Le propriétaire avait fait installer des panneaux en 2021 par une entreprise qui a depuis fait faillite. Il n'avait jamais reçu d'attestation de conformité et l'installation n'avait jamais été contrôlée. En la faisant vérifier pour une vente, il a découvert que l'installation était dangereuse et non conforme.",
