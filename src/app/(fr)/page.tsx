@@ -37,11 +37,11 @@ export default function HomePage() {
       {/* 1. HERO */}
       <HeroSection
         headline="Votre installation énergétique, conçue comme si elle devait passer le contrôle demain."
-        subheadline="Avant d'installer, on vient voir. Diagnostic gratuit, devis clair sous 48 h. Sans pression commerciale."
+        subheadline="Avant d'installer, on vient voir. Diagnostic gratuit, devis clair sous 48 h, sans pression commerciale."
         ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
-        badge="Certifié RESCERT · Ancien inspecteur en électricité"
+        badge="Ancien inspecteur en électricité · Certifié RESCERT"
         reassurances={["Devis clair sous 48 h", "Visite technique réelle", "Un seul interlocuteur"]}
         video="/vds/Be-energies_video_header.optimized.webm"
       />
@@ -87,7 +87,7 @@ export default function HomePage() {
                 Je démarre un projet
               </h3>
               <p className="text-white/85 leading-relaxed mb-7 flex-1">
-                Vous réfléchissez à des panneaux, une batterie, une borne ou une pompe à chaleur, et vous voulez savoir ce qui tient debout chez vous. On vient voir, on mesure, on chiffre.
+                Vous démarrez un projet et vous voulez des chiffres défendables. On vient voir, on mesure, on chiffre. Sans pression commerciale.
               </p>
               <Link
                 href="/contact/"
@@ -107,7 +107,7 @@ export default function HomePage() {
                 J&apos;ai déjà un devis à vérifier
               </h3>
               <p className="text-white/85 leading-relaxed mb-7 flex-1">
-                Un installateur vous a déjà remis une offre et quelque chose vous chiffonne. Envoyez-la, Benoît la lit avec son œil d&apos;ancien inspecteur et vous dit ce qui mérite d&apos;être challengé.
+                Vous avez un devis et quelque chose vous chiffonne. Benoît le lit comme un inspecteur et vous renvoie ses points d&apos;attention écrits.
               </p>
               <Link
                 href="/devis-analyse/"

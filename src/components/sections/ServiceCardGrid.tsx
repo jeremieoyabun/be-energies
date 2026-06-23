@@ -34,15 +34,15 @@ export function ServiceCardGrid({ locale = "fr" }: ServiceCardGridProps) {
         <SectionLabel>
           {locale === "fr" ? "Nos expertises" : "Onze expertises"}
         </SectionLabel>
-        <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.1]">
           {locale === "fr"
             ? "Un interlocuteur, six expertises"
             : "Eén aanspreekpunt, zes expertises"}
         </h2>
-        <p className="mt-3 text-steel max-w-xl mb-10">
+        <p className="mt-4 text-charcoal/85 text-[15.5px] leading-relaxed max-w-xl mb-12">
           {locale === "fr"
-            ? "Chaque installation est conçue pour la conformité, la performance et la durée. Le photovoltaïque reste notre cœur de métier : les autres services s'y greffent quand c'est pertinent."
-            : "Elke installatie is ontworpen voor conformiteit, prestaties en duurzaamheid. Zonnepanelen blijven onze kernactiviteit; andere diensten worden toegevoegd wanneer dat zinvol is."}
+            ? "Le photovoltaïque, notre cœur de métier. Les autres services se greffent au bon moment."
+            : "Zonnepanelen, onze kernactiviteit. De andere diensten haken aan op het juiste moment."}
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -122,8 +122,8 @@ function FeatureCard({
 
         <p className="mt-3 text-[15px] text-white/90 leading-relaxed">
           {locale === "fr"
-            ? "Conception, dimensionnement et installation par un ancien inspecteur certifié RESCERT. Le calcul de rentabilité est basé sur votre consommation réelle, pas sur un modèle générique."
-            : "Ontwerp, dimensionering en installatie door een voormalig inspecteur, RESCERT-gecertificeerd. De rendabiliteitsberekening is gebaseerd op uw werkelijke verbruik, niet op een generiek model."}
+            ? "Conception, dimensionnement et installation par un ancien inspecteur, certifié RESCERT. Rentabilité calculée sur votre consommation réelle, pas sur un modèle générique."
+            : "Ontwerp, dimensionering en installatie door een voormalig inspecteur, RESCERT-gecertificeerd. Rendabiliteit berekend op uw werkelijke verbruik, niet op een generiek model."}
         </p>
 
         <ul className="mt-5 grid sm:grid-cols-2 gap-x-5 gap-y-1.5 text-[13px] text-white/90">

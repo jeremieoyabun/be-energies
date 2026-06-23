@@ -81,7 +81,7 @@ export function ProofSystem({
   testimonials,
   featuredSlugs = DEFAULT_FEATURED,
   title = "La preuve, sur le terrain",
-  intro = "Chantiers récents, projets phares, avis vérifiés. Trois échelles de preuve, regroupées au même endroit pour éviter d'avoir à chercher.",
+  intro = "Chantiers récents, projets phares, avis vérifiés. Trois angles de preuve, un seul endroit.",
 }: ProofSystemProps) {
   // Strip: 6 most recent realizations with at least one image.
   const stripItems = realizations
