@@ -4,28 +4,28 @@ const STEPS = {
       number: "01",
       title: "Diagnostic",
       description:
-        "Visite technique sur site. Analyse de votre consommation, toiture, et réseau électrique.",
+        "Visite technique sur site pour analyser consommation, toiture et installation existante.",
       detail: "Gratuit, sans engagement",
     },
     {
       number: "02",
       title: "Proposition",
       description:
-        "Devis détaillé avec calcul de rentabilité basé sur les tarifs 2026 réels de votre GRD.",
+        "Devis détaillé avec calcul de rentabilité basé sur les tarifs réels de votre GRD.",
       detail: "Sous 48h",
     },
     {
       number: "03",
       title: "Installation",
       description:
-        "Installation professionnelle par notre équipe. Chaque étape conçue pour passer le contrôle.",
+        "Pose réalisée par notre équipe interne, pensée pour passer le contrôle du premier coup.",
       detail: "Équipe interne",
     },
     {
       number: "04",
       title: "Suivi",
       description:
-        "Vérification de conformité, mise en service, et suivi post-installation inclus.",
+        "Vérification de conformité, mise en service et suivi post-installation inclus.",
       detail: "Inclus",
     },
   ],
@@ -34,28 +34,28 @@ const STEPS = {
       number: "01",
       title: "Diagnose",
       description:
-        "Technisch bezoek ter plaatse. Analyse van uw verbruik, dak en elektrische installatie.",
+        "Technisch bezoek ter plaatse om verbruik, dak en bestaande installatie te analyseren.",
       detail: "Gratis, vrijblijvend",
     },
     {
       number: "02",
       title: "Voorstel",
       description:
-        "Gedetailleerde offerte met rendabiliteitsberekening op basis van de werkelijke tarieven 2026 van uw netbeheerder.",
+        "Gedetailleerde offerte met rendabiliteitsberekening op basis van de werkelijke tarieven van uw netbeheerder.",
       detail: "Binnen 48 u",
     },
     {
       number: "03",
       title: "Installatie",
       description:
-        "Professionele installatie door ons team. Elke stap is ontworpen om de keuring de eerste keer te doorstaan.",
+        "Plaatsing door ons intern team, ontworpen om de keuring de eerste keer te doorstaan.",
       detail: "Intern team",
     },
     {
       number: "04",
       title: "Opvolging",
       description:
-        "Conformiteitscontrole, ingebruikname en opvolging na installatie zijn inbegrepen.",
+        "Conformiteitscontrole, ingebruikname en opvolging na installatie inbegrepen.",
       detail: "Inbegrepen",
     },
   ],
@@ -66,13 +66,17 @@ const HEADINGS = {
     eyebrow: "Notre processus",
     title: "On commence par une visite. Pas par un devis.",
     subtitle:
-      "Un processus rigoureux : visite technique réelle, devis détaillé, conformité pensée dès la conception.",
+      "Visite technique réelle, devis détaillé, conformité pensée dès la conception.",
+    linkLabel: "Voir la méthode complète",
+    linkHref: "/a-propos/",
   },
   nl: {
     eyebrow: "Ons proces",
     title: "Wij beginnen met een bezoek. Niet met een offerte.",
     subtitle:
-      "Een rigoureus proces: echt technisch bezoek, gedetailleerde offerte, conformiteit van bij het ontwerp.",
+      "Echt technisch bezoek, gedetailleerde offerte, conformiteit van bij het ontwerp.",
+    linkLabel: "Bekijk de volledige methode",
+    linkHref: "/nl/over-ons/",
   },
 } as const;
 
@@ -127,6 +131,16 @@ export function ProcessTimeline({
               )}
             </div>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <a
+            href={h.linkHref}
+            className="inline-flex items-center gap-2 text-sm font-medium text-cyan hover:text-amber transition-colors"
+          >
+            {h.linkLabel}
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>

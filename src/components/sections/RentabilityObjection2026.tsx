@@ -22,6 +22,7 @@ type Block = {
   title: string;
   body: React.ReactNode;
   source: string;
+  link: { href: string; label: string };
   Icon: typeof CheckIcon;
 };
 
@@ -31,16 +32,17 @@ const BLOCKS: Block[] = [
     title: "Le tarif prosumer existe, mais ne tue pas la rentabilité",
     body: (
       <>
-        Pour les installations mises en service avant le 01/01/2024, le tarif
-        prosumer s&apos;applique (montant fixé annuellement par la CWaPE, varie
-        selon le GRD). Comparé à l&apos;autoconsommation directe
-        (<strong className="text-midnight">~38 c/kWh</strong> économisés contre{" "}
-        <strong className="text-midnight">~85 à 99 EUR/kWe/an</strong> de
-        prosumer), le solde reste largement positif sur la durée de vie de
-        l&apos;installation.
+        Avant 2024, le prosumer s&apos;applique (
+        <strong className="text-midnight">~85 EUR/kWe/an</strong> chez ORES).
+        Comparé à l&apos;autoconsommation directe, le solde reste largement
+        positif sur 25 ans.
       </>
     ),
     source: "Sources : CWaPE, grilles GRD 2026.",
+    link: {
+      href: "/guides/prix-panneaux-solaires-wallonie-2026/",
+      label: "Voir le tarif par GRD",
+    },
     Icon: CheckIcon,
   },
   {
@@ -48,15 +50,17 @@ const BLOCKS: Block[] = [
     title: "Le compteur communicant change le calcul, pas le résultat",
     body: (
       <>
-        Depuis 2024, les nouvelles installations passent en facturation séparée
-        (injection vs prélèvement). L&apos;autoconsommation directe devient la
-        variable clé : la production qui sert chez vous vaut{" "}
-        <strong className="text-midnight">~7 à 46 fois plus</strong> que celle
-        injectée. Un dimensionnement honnête vise donc la consommation réelle,
-        pas la surface disponible.
+        Depuis 2024, l&apos;autoconsommation directe vaut{" "}
+        <strong className="text-midnight">~7 à 46 fois plus</strong> que
+        l&apos;injection. Un dimensionnement honnête vise la consommation
+        réelle, pas la surface du toit.
       </>
     ),
     source: "Sources : CWaPE, fournisseurs d'énergie 2026.",
+    link: {
+      href: "/guides/prix-panneaux-solaires-wallonie-2026/",
+      label: "Lire le guide dimensionnement",
+    },
     Icon: CheckIcon,
   },
   {
@@ -64,14 +68,16 @@ const BLOCKS: Block[] = [
     title: "Ce qui plombe vraiment la rentabilité : un mauvais devis",
     body: (
       <>
-        Sur le terrain, ce qu&apos;on voit le plus souvent : surdimensionnement
-        vendu sur surface plutôt que profil, choix de matériel sous-garanti,
-        oubli de la mise à niveau du tableau. Trois erreurs qui coûtent plus
-        que la réforme tarifaire. C&apos;est pour ça que l&apos;analyse du
-        devis vaut le détour avant de signer.
+        Surdimensionnement vendu sur surface, matériel sous-garanti, oubli du
+        tableau : trois erreurs qui coûtent plus que la réforme tarifaire.
+        D&apos;où l&apos;intérêt de faire relire le devis avant de signer.
       </>
     ),
     source: "Sources : retours terrain Be'energies, guide pièges PDF.",
+    link: {
+      href: "/pieges-a-eviter/",
+      label: "Voir les 10 pièges",
+    },
     Icon: AlertTriangleIcon,
   },
 ];
@@ -86,21 +92,19 @@ export function RentabilityObjection2026() {
             Les panneaux sont-ils encore rentables en 2026 ?
           </h2>
           <p className="mt-4 text-charcoal leading-relaxed text-[17px]">
-            Réponse honnête : oui, mais la logique a changé. Trois choses ont
-            basculé depuis 2024, et c&apos;est ce qui rend la lecture du devis
-            plus importante que jamais.
+            Réponse honnête : oui, mais la logique a changé.
           </p>
         </div>
 
         <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
-          {BLOCKS.map(({ number, title, body, source, Icon }) => (
+          {BLOCKS.map(({ number, title, body, source, link, Icon }) => (
             <article
               key={number}
               className="card p-6 md:p-7 flex flex-col h-full relative"
             >
               {/* Top row: prominent eyebrow number + icon. The number is
                   intentionally oversized and treated as a tabular figure to
-                  anchor the scan path: number → title → body → source. */}
+                  anchor the scan path: number → title → body → link → source. */}
               <div className="flex items-start justify-between mb-3">
                 <span className="data-figure text-[40px] md:text-[44px] font-bold leading-none tracking-tight text-amber-dark">
                   {number}
@@ -118,6 +122,13 @@ export function RentabilityObjection2026() {
               <p className="mt-3 text-[14.5px] text-charcoal leading-relaxed">
                 {body}
               </p>
+              <Link
+                href={link.href}
+                className="mt-3 inline-flex items-center gap-1 text-[13px] font-medium text-amber-dark hover:text-midnight transition-colors"
+              >
+                {link.label}
+                <ArrowRightIcon size={13} />
+              </Link>
               <p className="mt-auto pt-4 border-t border-cloud text-[11.5px] text-steel/90 leading-snug tracking-wide">
                 {source}
               </p>

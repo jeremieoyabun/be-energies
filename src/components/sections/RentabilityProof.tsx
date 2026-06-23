@@ -17,17 +17,11 @@ export function RentabilityProof() {
               Le photovoltaïque reste un investissement défendable
             </h2>
             <p className="mt-4 text-charcoal leading-relaxed">
-              Les subventions ont disparu parce que les panneaux sont devenus
-              bien moins chers. Chaque kWh autoconsommé vous fait économiser{" "}
-              <strong className="text-midnight">~38 centimes</strong>. Chaque
-              kWh revendu ne rapporte que{" "}
-              <strong className="text-midnight">1 à 6 centimes</strong>. Le
-              ratio favorise massivement l&apos;autoconsommation.
-            </p>
-            <p className="mt-3 text-steel text-[15px]">
-              Concrètement, c&apos;est pour ça que nous dimensionnons en
-              fonction de votre consommation réelle, pas du nombre de panneaux
-              qui rentrent sur votre toit.
+              Chaque kWh autoconsommé économise{" "}
+              <strong className="text-midnight">~38 centimes</strong>, chaque
+              kWh revendu rapporte{" "}
+              <strong className="text-midnight">1 à 6 centimes</strong> : le
+              calcul favorise l&apos;autoconsommation.
             </p>
             <Link
               href="/services/panneaux-photovoltaiques/"
@@ -45,7 +39,7 @@ export function RentabilityProof() {
                 {
                   display: <span>5-7</span>,
                   unit: "ans",
-                  label: "Retour estimé selon votre consommation",
+                  label: "Retour sur investissement estimé",
                   accent: true,
                 },
                 {
@@ -63,7 +57,7 @@ export function RentabilityProof() {
                 {
                   display: <CountUp to={25} suffix="+" decimals={0} />,
                   unit: "ans",
-                  label: "Durée de vie attendue du système",
+                  label: "Durée de vie du système",
                   accent: false,
                 },
               ] as const

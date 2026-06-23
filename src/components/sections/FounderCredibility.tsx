@@ -1,7 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { SectionLabel } from "@/components/sections/SectionLabel";
-import { InspectorInsight } from "@/components/sections/InspectorInsight";
 
 interface FounderCredibilityProps {
   variant?: "full" | "compact" | "local";
@@ -130,40 +130,23 @@ export function FounderCredibility({
               J&apos;ai vu ce que les autres font mal. Aujourd&apos;hui, je fais mieux.
             </h2>
 
-            <div className="mt-6 space-y-4 text-charcoal leading-relaxed text-[15px]">
-              <p>
-                Avant de fonder Be&apos;energies, Benoît a inspecté des installations
-                électriques et photovoltaïques en Belgique pour le compte d&apos;organismes
-                agréés. Il a constaté, documenté et corrigé les erreurs les plus fréquentes
-                du secteur, celles qui font recaler une installation au contrôle.
-              </p>
-              <p>
-                Il fonde Be&apos;energies avec une conviction simple : chaque installation
-                mérite le niveau de rigueur qu&apos;il exigeait en tant qu&apos;inspecteur.
-              </p>
-            </div>
+            <p className="mt-6 text-charcoal leading-relaxed text-[15px]">
+              Avant Be&apos;energies, Benoît inspectait des installations électriques et
+              photovoltaïques pour des organismes agréés. Aujourd&apos;hui, il conçoit
+              chaque chantier comme un inspecteur : pensé pour le contrôle avant
+              d&apos;être pensé pour la vente.
+            </p>
 
-            <div className="mt-8">
-              <InspectorInsight>
-                En tant qu&apos;inspecteur, j&apos;ai recalé des installations pour des
-                sections de câble inadaptées, des protections manquantes, des mises à la
-                terre défaillantes. Aujourd&apos;hui, chaque installation que je conçois
-                est pensée pour le contrôle avant d&apos;être pensée pour la vente.
-              </InspectorInsight>
-            </div>
-
-            {/* Ce qu'il regarde en premier - field-grounded mini-checklist
-                that mirrors the inspector reflex. Reinforces "l'installateur
-                qui a d'abord été l'inspecteur" with three concrete signals. */}
+            {/* Sa méthode - 3 inspector reflexes, 1 line each. */}
             <div className="mt-8 rounded-2xl border border-cloud bg-ivory p-5 md:p-6">
               <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-4">
-                Ce qu&apos;il regarde en premier
+                Sa méthode
               </p>
               <ul className="space-y-3">
                 {[
-                  "Le tableau électrique : âge, schéma, état des protections (en particulier sur les maisons d'avant 1985).",
-                  "La charpente : état réel après rénovation ou isolation, capacité à porter la structure de pose.",
-                  "Le profil de consommation : courbe horaire, présence d'une pompe à chaleur ou d'une borne, pour dimensionner sur l'usage et pas sur la surface.",
+                  "Tableau électrique : âge, schéma, état des protections.",
+                  "Charpente : état réel et capacité de pose après rénovation.",
+                  "Profil de consommation : dimensionner sur l'usage, pas sur la surface.",
                 ].map((item) => (
                   <li
                     key={item}
@@ -179,29 +162,14 @@ export function FounderCredibility({
               </ul>
             </div>
 
-            {/* Key differentiators - qualitative until quantified data is confirmed */}
-            <div className="mt-8 grid sm:grid-cols-3 gap-4">
-              {[
-                {
-                  figure: "Inspecteur",
-                  label: "expérience terrain en conformité électrique",
-                },
-                {
-                  figure: "RESCERT",
-                  label: "installateur agréé en Wallonie",
-                },
-                {
-                  figure: "Pré-audit",
-                  label: "approche pensée pour limiter les non-conformités",
-                },
-              ].map((item) => (
-                <div key={item.label} className="text-center p-4 bg-ivory rounded-xl border border-cloud">
-                  <div className="stat-value text-base font-bold text-midnight uppercase tracking-wide">
-                    {item.figure}
-                  </div>
-                  <div className="text-xs text-steel mt-1 leading-snug">{item.label}</div>
-                </div>
-              ))}
+            <div className="mt-6">
+              <Link
+                href="/a-propos/"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-midnight underline-offset-4 hover:underline"
+              >
+                En savoir plus sur Benoît
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </div>

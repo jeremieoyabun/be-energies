@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CheckIcon, CloseIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
 
@@ -14,34 +15,29 @@ interface ComparisonTableProps {
 
 const defaultRows: ComparisonRow[] = [
   {
-    aspect: "Visite technique",
-    others: "Devis par téléphone ou en ligne",
-    beEnergies: "Visite sur site obligatoire",
+    aspect: "Diagnostic énergétique",
+    others: "Estimation générique sur base d'une facture",
+    beEnergies: "Courbe de charge réelle et tarifs 2026 de votre GRD",
   },
   {
-    aspect: "Calcul de rentabilité",
-    others: "Estimations génériques, ROI gonflé",
-    beEnergies: "Tarifs 2026 réels de votre GRD",
+    aspect: "Devis",
+    others: "« Panneaux 400 Wc », onduleur non précisé",
+    beEnergies: "Marque, modèle et datasheet pour chaque composant",
   },
   {
-    aspect: "Dimensionnement",
-    others: "Maximum de panneaux pour maximiser la facture",
-    beEnergies: "Optimisé pour l'autoconsommation",
+    aspect: "Conformité électrique",
+    others: "Contre-visite fréquente, corrections à votre charge",
+    beEnergies: "Pensée dès la conception, passage du premier coup",
   },
   {
-    aspect: "Conformité",
-    others: "Pas toujours vérifiée avant le contrôle",
-    beEnergies: "Pensée dès la conception pour passer le contrôle",
+    aspect: "Garantie long terme",
+    others: "« Garantie 25 ans » sans précision de rendement",
+    beEnergies: "Rendement garanti chiffré à 25 ans (% contractuel)",
   },
   {
-    aspect: "Suivi post-installation",
-    others: "Support limité après la vente",
-    beEnergies: "Suivi et maintenance inclus",
-  },
-  {
-    aspect: "Conseil batterie",
-    others: "Toujours recommandée (marge plus élevée)",
-    beEnergies: "Recommandée seulement si rentable",
+    aspect: "Interlocuteur",
+    others: "Commercial, puis sous-traitants, puis SAV externe",
+    beEnergies: "Un seul interlocuteur du diagnostic au contrôle final",
   },
 ];
 
@@ -128,6 +124,16 @@ export function ComparisonTable({
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="mt-8 text-center">
+          <Link
+            href="/pieges-a-eviter/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-midnight underline underline-offset-4 decoration-amber/60 hover:decoration-amber transition-colors"
+          >
+            Voir la grille complète, chapitre par chapitre
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     </section>

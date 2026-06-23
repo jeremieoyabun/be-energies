@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { generatePageMetadata } from "@/lib/metadata";
 import {
   JsonLd,
@@ -26,7 +27,7 @@ import { testimonials } from "@/data/testimonials";
 import { realizations } from "@/data/realizations";
 import { homepageFaq } from "@/data/faq";
 import { siteConfig } from "@/lib/site-config";
-import { MapPinIcon } from "@/lib/icons";
+import { MapPinIcon, ArrowRightIcon } from "@/lib/icons";
 
 export const metadata = generatePageMetadata({
   title: "Installateur photovoltaïque en Belgique | Ancien inspecteur RESCERT",
@@ -170,11 +171,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 12. FAQ */}
+      {/* 12. FAQ - teaser: only the 4 most strategic questions on home
+              (rentabilité 2026, prosumer, inspecteur RESCERT, services).
+              Full list lives on /contact/#faq. */}
       <FAQSection
-        items={homepageFaq}
+        items={homepageFaq.slice(0, 4)}
         title="Questions fréquentes"
       />
+      <div className="container-be max-w-3xl -mt-10 mb-16 md:-mt-12 md:mb-20 text-center">
+        <Link
+          href="/contact/#faq"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-amber-dark hover:text-amber transition-colors"
+        >
+          Voir toutes les questions
+          <ArrowRightIcon size={15} />
+        </Link>
+      </div>
 
       {/* 13. FINAL CTA - direct address + dual ladder (diagnostic vs devis
               check) so the visitor can self-route based on whether they
