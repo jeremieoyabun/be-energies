@@ -54,7 +54,7 @@ export default function HomePage() {
       {/* 1. HERO */}
       <HeroSection
         headline="Votre installation énergétique, conçue comme si elle devait passer le contrôle demain."
-        subheadline="Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT."
+        subheadline="Avant d'installer, on vient voir. Diagnostic gratuit, devis clair sous 48 h. Sans pression commerciale."
         ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
