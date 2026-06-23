@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRightIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
 import { DataSources } from "@/components/sections/DataSources";
+import { DecisionDashboard } from "@/components/sections/DecisionDashboard";
 
 /**
  * RentabilityObjection2026
@@ -135,49 +136,65 @@ export function RentabilityObjection2026() {
           </p>
         </div>
 
-        <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {CARDS.map(({ number, eyebrow, title, body, link, tone }) => {
-            const t = TONE_STYLES[tone];
-            return (
-              <article
-                key={number}
-                className={`rounded-2xl p-6 md:p-7 flex flex-col h-full relative ${t.card}`}
-              >
-                {/* Top row: amber circle badge with the step number plus the
-                    eyebrow label. The badge anchors the scan path and lets
-                    the three cards read as a sequence: 01 → 02 → 03. */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span
-                    className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-[12px] font-bold tabular-nums ${t.badge}`}
+        <div className="mt-10 md:mt-12">
+          <DecisionDashboard
+            steps={[
+              { number: "01", label: "Avant 2024", tone: "neutral" },
+              { number: "02", label: "Après 2024", tone: "accent" },
+              {
+                number: "03",
+                label: "Ce qui compte vraiment",
+                tone: "decision",
+              },
+            ]}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+              {CARDS.map(({ number, eyebrow, title, body, link, tone }) => {
+                const t = TONE_STYLES[tone];
+                return (
+                  <article
+                    key={number}
+                    className={`rounded-2xl p-6 md:p-7 flex flex-col h-full relative ${t.card}`}
                   >
-                    {number}
-                  </span>
-                  <span
-                    className={`text-[11px] font-semibold tracking-[0.14em] uppercase ${t.eyebrow}`}
-                  >
-                    {eyebrow}
-                  </span>
-                </div>
-                <h3
-                  className={`text-[17px] md:text-lg font-[family-name:var(--font-heading)] leading-snug ${t.title}`}
-                >
-                  {title}
-                </h3>
-                <p
-                  className={`mt-3 text-[14.5px] leading-relaxed ${t.body}`}
-                >
-                  {body}
-                </p>
-                <Link
-                  href={link.href}
-                  className={`mt-auto pt-5 inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors ${t.link}`}
-                >
-                  {link.label}
-                  <ArrowRightIcon size={13} />
-                </Link>
-              </article>
-            );
-          })}
+                    {/* Top row: amber circle badge with the step number plus
+                        the eyebrow label. The badge anchors the scan path
+                        and lets the three cards read as a sequence: 01 → 02
+                        → 03. The meta-rail above echoes this sequence at
+                        section altitude. */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <span
+                        className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-[12px] font-bold tabular-nums ${t.badge}`}
+                      >
+                        {number}
+                      </span>
+                      <span
+                        className={`text-[11px] font-semibold tracking-[0.14em] uppercase ${t.eyebrow}`}
+                      >
+                        {eyebrow}
+                      </span>
+                    </div>
+                    <h3
+                      className={`text-[17px] md:text-lg font-[family-name:var(--font-heading)] leading-snug ${t.title}`}
+                    >
+                      {title}
+                    </h3>
+                    <p
+                      className={`mt-3 text-[14.5px] leading-relaxed ${t.body}`}
+                    >
+                      {body}
+                    </p>
+                    <Link
+                      href={link.href}
+                      className={`mt-auto pt-5 inline-flex items-center gap-1.5 text-[13px] font-medium transition-colors ${t.link}`}
+                    >
+                      {link.label}
+                      <ArrowRightIcon size={13} />
+                    </Link>
+                  </article>
+                );
+              })}
+            </div>
+          </DecisionDashboard>
         </div>
 
         <DataSources

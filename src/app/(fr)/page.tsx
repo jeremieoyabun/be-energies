@@ -14,6 +14,7 @@ import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { ProofSystem } from "@/components/sections/ProofSystem";
 import { testimonials } from "@/data/testimonials";
 import { ArrowRightIcon } from "@/lib/icons";
+import { ComplianceBadge } from "@/components/sections/ComplianceBadge";
 
 export const metadata = generatePageMetadata({
   title: "Installateur photovoltaïque en Belgique | Ancien inspecteur RESCERT",
@@ -63,28 +64,29 @@ export default function HomePage() {
       <ProofSystem testimonials={proofTestimonials} />
 
       {/* 6. FINAL CONVERSION SPLIT - dual ladder: starting a project vs.
-              already holding a quote. Single H2, 2 cards, one reassurance line. */}
-      <section className="section-padding bg-ivory">
+              already holding a quote. Single H2, 2 cards, one reassurance line.
+              Dark "decision moment" close. */}
+      <section className="section-padding bg-midnight text-white">
         <div className="container-be max-w-5xl">
           <div className="text-center mb-10 md:mb-14">
             <div className="section-label justify-center">
               <span>Prochaine étape</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
+            <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-heading)] text-white text-balance">
               Vous êtes à quel moment ?
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {/* LEFT - start a project */}
-            <div className="card p-7 md:p-9 flex flex-col bg-white">
-              <div className="text-xs font-semibold tracking-[0.18em] uppercase text-amber-dark mb-3">
+            <div className="p-7 md:p-9 flex flex-col rounded-lg bg-white/[0.03] border border-white/10">
+              <div className="text-xs font-semibold tracking-[0.18em] uppercase text-amber mb-3 font-[family-name:var(--font-mono)]">
                 Étape 1
               </div>
-              <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight mb-4">
+              <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
                 Je démarre un projet
               </h3>
-              <p className="text-steel leading-relaxed mb-7 flex-1">
+              <p className="text-white/85 leading-relaxed mb-7 flex-1">
                 Vous réfléchissez à des panneaux, une batterie, une borne ou une pompe à chaleur, et vous voulez savoir ce qui tient debout chez vous. On vient voir, on mesure, on chiffre.
               </p>
               <Link
@@ -97,19 +99,19 @@ export default function HomePage() {
             </div>
 
             {/* RIGHT - already have a quote */}
-            <div className="card p-7 md:p-9 flex flex-col bg-white">
-              <div className="text-xs font-semibold tracking-[0.18em] uppercase text-steel mb-3">
+            <div className="p-7 md:p-9 flex flex-col rounded-lg bg-white/[0.03] border border-white/10">
+              <div className="text-xs font-semibold tracking-[0.18em] uppercase text-white/70 mb-3 font-[family-name:var(--font-mono)]">
                 Deuxième avis
               </div>
-              <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-midnight mb-4">
+              <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
                 J&apos;ai déjà un devis à vérifier
               </h3>
-              <p className="text-steel leading-relaxed mb-7 flex-1">
+              <p className="text-white/85 leading-relaxed mb-7 flex-1">
                 Un installateur vous a déjà remis une offre et quelque chose vous chiffonne. Envoyez-la, Benoît la lit avec son œil d&apos;ancien inspecteur et vous dit ce qui mérite d&apos;être challengé.
               </p>
               <Link
                 href="/devis-analyse/"
-                className="inline-flex items-center justify-center gap-2 border-2 border-midnight text-midnight font-semibold px-6 py-3 rounded-md hover:bg-midnight hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-6 py-3 rounded-md hover:bg-white hover:text-midnight transition-colors"
               >
                 Faire vérifier mon devis
                 <ArrowRightIcon size={16} />
@@ -117,9 +119,16 @@ export default function HomePage() {
             </div>
           </div>
 
-          <p className="mt-8 text-center text-sm text-steel">
-            Réponse de Benoît sous 24 h ouvrées. Pas de call center, pas de pression.
-          </p>
+          <div className="mt-8 flex flex-col items-center gap-4">
+            <ComplianceBadge
+              tone="white"
+              icon="clock"
+              label="Réponse sous 24 h ouvrées"
+            />
+            <p className="text-center text-sm text-white/70">
+              Réponse de Benoît sous 24 h ouvrées. Pas de call center, pas de pression.
+            </p>
+          </div>
         </div>
       </section>
     </>

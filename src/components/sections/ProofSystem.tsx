@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRightIcon, MapPinIcon, CheckIcon, StarIcon } from "@/lib/icons";
+import { ArrowRightIcon, MapPinIcon, StarIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
+import { ProjectProofCard } from "@/components/sections/ProjectProofCard";
+import { SourceNote } from "@/components/sections/SourceNote";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { JsonLd, reviewListSchema } from "@/lib/schema";
 import { cities } from "@/data/cities";
@@ -176,65 +178,19 @@ export function ProofSystem({
               Projets phares
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {featured.map((r) => {
-                const isCorrection = r.category === "correction";
-                const problem = shortProblem(r);
-                return (
-                  <Link
-                    key={r.slug}
-                    href={`/realisations/${r.slug}/`}
-                    className="group relative bg-ivory border border-cloud rounded-2xl overflow-hidden flex flex-col hover:border-amber/40 hover:shadow-md transition-all"
-                  >
-                    <div className="relative aspect-[16/10] bg-midnight/5 overflow-hidden">
-                      {r.images[0] ? (
-                        <Image
-                          src={r.images[0]}
-                          alt={r.title}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      ) : (
-                        <Image
-                          src="/img/misc/realisation-hero.jpg"
-                          alt="Chantier Be'energies"
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      )}
-                      {isCorrection && (
-                        <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-md bg-danger text-white text-[10.5px] font-semibold tracking-[0.08em] uppercase px-2 py-1 shadow-sm">
-                          Correction
-                        </span>
-                      )}
-                    </div>
-                    <div className="p-5 md:p-6 flex flex-col gap-3 flex-1">
-                      <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-dark">
-                        {buildPrimaryLabel(r)}
-                      </p>
-                      <h3 className="text-[15.5px] md:text-base font-semibold text-midnight leading-snug">
-                        {r.title}
-                      </h3>
-                      {problem && (
-                        <p className="text-[13px] text-charcoal/80 leading-relaxed">
-                          {problem}
-                        </p>
-                      )}
-                      {r.keyResult && (
-                        <p className="mt-auto inline-flex items-start gap-1.5 text-[13px] font-semibold text-success">
-                          <CheckIcon
-                            size={13}
-                            className="shrink-0 mt-0.5"
-                          />
-                          {r.keyResult}
-                        </p>
-                      )}
-                    </div>
-                  </Link>
-                );
-              })}
+              {featured.map((r) => (
+                <ProjectProofCard
+                  key={r.slug}
+                  realization={r}
+                  primaryLabel={buildPrimaryLabel(r)}
+                  problem={shortProblem(r)}
+                />
+              ))}
             </div>
+            <SourceNote>
+              Chiffres extraits des dossiers de chantier vérifiés. Détail
+              technique complet sur chaque page projet.
+            </SourceNote>
           </div>
         )}
 
