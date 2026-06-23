@@ -45,7 +45,7 @@ export function Term({ k, children }: TermProps) {
     };
   }, [open]);
 
-  // Unknown key — render as plain text. Console-warn to flag a typo.
+  // Unknown key - render as plain text. Console-warn to flag a typo.
   if (!entry) {
     if (process.env.NODE_ENV !== "production") {
       console.warn(`<Term k="${k}"> not found in glossary.`);

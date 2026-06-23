@@ -220,7 +220,7 @@ export default async function NlServicePage({ params }: NlServicePageProps) {
         </section>
       )}
 
-      {/* First Pièges surface on the NL service page — replaces the missing
+      {/* First Pièges surface on the NL service page - replaces the missing
           carousel with a high-density PDF download. */}
       <PDFLeadMagnetCard variant="card" locale="nl" />
 

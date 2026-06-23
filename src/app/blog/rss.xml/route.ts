@@ -64,7 +64,7 @@ ${categories}
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>${escapeXml(siteConfig.name)} — Blog</title>
+    <title>${escapeXml(siteConfig.name)} - Blog</title>
     <link>${BASE}/blog/</link>
     <description>${escapeXml(
       "Articles sur le photovoltaïque, les batteries, les bornes de recharge, et la réglementation énergétique en Belgique. Par " +

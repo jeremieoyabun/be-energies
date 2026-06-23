@@ -8,7 +8,7 @@ import type { Testimonial } from "@/lib/types";
 
 interface TestimonialBlockFallbackContext {
   /** City slug currently being rendered (used only to filter the fallback
-   *  pool — we don't try to re-derive city-level testimonials from it). */
+   *  pool - we don't try to re-derive city-level testimonials from it). */
   citySlug?: string;
   /** Province name as stored on the City record (e.g. "Liege", "Hainaut",
    *  "Bruxelles-Capitale"). Used for the first fallback tier. */
@@ -37,7 +37,7 @@ const SERVICE_LABEL: Record<string, string> = {
 };
 
 /** Normalize a city display name (potentially accented) to the slug shape
- *  used by `City.slug` — lower-case, accent-stripped, space → dash. */
+ *  used by `City.slug` - lower-case, accent-stripped, space → dash. */
 function normalizeCityToSlug(cityName: string): string {
   return cityName
     .normalize("NFD")
@@ -63,7 +63,7 @@ function resolveFallbackTestimonials(
 ): { items: Testimonial[]; reason: "province" | "service" | null } {
   const { provinceName, serviceSlug, citySlug } = ctx;
 
-  // Tier 1 — same province (excluding the current city to avoid pretending
+  // Tier 1 - same province (excluding the current city to avoid pretending
   // a different-city testimonial actually belongs here).
   if (provinceName) {
     const provinceItems = ALL_TESTIMONIALS.filter((t) => {
@@ -75,7 +75,7 @@ function resolveFallbackTestimonials(
     }
   }
 
-  // Tier 2 — same service, any location.
+  // Tier 2 - same service, any location.
   if (serviceSlug) {
     const serviceItems = ALL_TESTIMONIALS.filter(
       (t) => t.service === serviceSlug,
@@ -117,7 +117,7 @@ export function TestimonialBlock({
       fallbackLabel = `Témoignage ${svcLabel}`;
     }
   }
-  // Nothing to show after fallback either — hide the section entirely
+  // Nothing to show after fallback either - hide the section entirely
   // rather than rendering a title with an empty grid below it.
   if (displayedTestimonials.length === 0) return null;
 
@@ -169,7 +169,7 @@ export function TestimonialBlock({
                 &ldquo;{t.quote}&rdquo;
               </p>
 
-              {/* Outcome badge — when a measurable result was reported */}
+              {/* Outcome badge - when a measurable result was reported */}
               {t.outcome && (
                 <div className="mt-4 inline-flex self-start items-center gap-1.5 bg-success/8 text-success text-xs font-semibold px-3 py-1.5 rounded-full border border-success/15">
                   <svg

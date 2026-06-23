@@ -6,13 +6,22 @@ import { blogArticles } from "@/data/blog";
 
 interface BlogPreviewProps {
   maxItems?: number;
+  showFooterLink?: boolean;
+  tightTop?: boolean;
 }
 
-export function BlogPreview({ maxItems = 3 }: BlogPreviewProps) {
-  const articles = blogArticles.slice(0, maxItems);
+export function BlogPreview({
+  maxItems = 3,
+  showFooterLink = true,
+  tightTop = false,
+}: BlogPreviewProps) {
+  const articles =
+    typeof maxItems === "number" ? blogArticles.slice(0, maxItems) : blogArticles;
 
   return (
-    <section className="section-padding bg-ivory">
+    <section
+      className={`${tightTop ? "pb-20 md:pb-24 pt-8 md:pt-10" : "section-padding"} bg-ivory`}
+    >
       <div className="container-be">
         <SectionLabel>Blog</SectionLabel>
         <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight mb-10">
@@ -67,15 +76,17 @@ export function BlogPreview({ maxItems = 3 }: BlogPreviewProps) {
             </Link>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <Link
-            href="/blog/"
-            className="inline-flex items-center gap-2 text-amber hover:text-amber-dark font-medium transition-colors"
-          >
-            Tous nos articles
-            <ArrowRightIcon size={16} />
-          </Link>
-        </div>
+        {showFooterLink && (
+          <div className="mt-8 text-center">
+            <Link
+              href="/blog/"
+              className="inline-flex items-center gap-2 text-amber hover:text-amber-dark font-medium transition-colors"
+            >
+              Tous nos articles
+              <ArrowRightIcon size={16} />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

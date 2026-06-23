@@ -10,7 +10,7 @@ import { NextResponse, type NextRequest } from "next/server";
  *   header can stay on FR after their first redirect (we never re-redirect
  *   once the cookie is set).
  * - The cookie is also set when the user opens the language switcher in the
- *   footer (read by an inline script, see Footer.tsx) — but for now the
+ *   footer (read by an inline script, see Footer.tsx) - but for now the
  *   middleware writes it on first NL detection.
  *
  * Matcher (config below) excludes API routes, static assets, the showcase
@@ -31,12 +31,12 @@ function preferredIsNl(acceptLanguage: string | null): boolean {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Already on a NL path — nothing to do.
+  // Already on a NL path - nothing to do.
   if (pathname === "/nl" || pathname.startsWith("/nl/")) {
     return NextResponse.next();
   }
 
-  // User locked their language explicitly — never override.
+  // User locked their language explicitly - never override.
   const stored = request.cookies.get(LOCALE_COOKIE)?.value;
   if (stored === "fr" || stored === "nl") {
     // If they explicitly chose NL but landed on FR (e.g. via direct URL),
@@ -58,7 +58,7 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // Default — keep them on FR and remember it so future Accept-Language
+  // Default - keep them on FR and remember it so future Accept-Language
   // changes don't ping-pong them.
   const response = NextResponse.next();
   response.cookies.set(LOCALE_COOKIE, "fr", {

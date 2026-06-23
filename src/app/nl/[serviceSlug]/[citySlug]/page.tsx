@@ -117,7 +117,7 @@ export default async function NlLocalPage({ params }: NlLocalPageProps) {
             />
           )}
 
-          {/* First PDF lead-magnet surface on NL local pages — slotted into
+          {/* First PDF lead-magnet surface on NL local pages - slotted into
               the existing intro section to keep the page tight. */}
           <PDFLeadMagnetCard variant="compact" locale="nl" />
 

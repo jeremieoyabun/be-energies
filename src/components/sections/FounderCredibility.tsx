@@ -121,7 +121,7 @@ export function FounderCredibility({
             </div>
           </div>
 
-          {/* Bio — top-aligned with the photo via leading-none + tracking-tight to remove font baseline offset */}
+          {/* Bio - top-aligned with the photo via leading-none + tracking-tight to remove font baseline offset */}
           <div className="md:pt-1">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.05]">
               J&apos;ai vu ce que les autres font mal. Aujourd&apos;hui, je fais mieux.
@@ -132,7 +132,7 @@ export function FounderCredibility({
                 Avant de fonder Be&apos;energies, Benoît a inspecté des installations
                 électriques et photovoltaïques en Belgique pour le compte d&apos;organismes
                 agréés. Il a constaté, documenté et corrigé les erreurs les plus fréquentes
-                du secteur — celles qui font recaler une installation au contrôle.
+                du secteur, celles qui font recaler une installation au contrôle.
               </p>
               <p>
                 Il fonde Be&apos;energies avec une conviction simple : chaque installation
@@ -149,7 +149,7 @@ export function FounderCredibility({
               </InspectorInsight>
             </div>
 
-            {/* Key differentiators — qualitative until quantified data is confirmed */}
+            {/* Key differentiators - qualitative until quantified data is confirmed */}
             <div className="mt-8 grid sm:grid-cols-3 gap-4">
               {[
                 {

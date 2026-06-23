@@ -362,7 +362,7 @@ export default function ControleTechnique() {
                   En tant qu&apos;ancien inspecteur certifie RESCERT, Benoit a recale des installations
                   pour des sections de cable inadaptees, des protections manquantes, des
                   mises a la terre defaillantes. Aujourd&apos;hui, il concoit chaque
-                  installation pour passer le controle — parce qu&apos;il sait exactement
+                  installation pour passer le controle, parce qu&apos;il sait exactement
                   ce qui sera verifie.
                 </p>
               </div>

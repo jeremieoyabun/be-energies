@@ -1,4 +1,4 @@
-// NL versions of service deep content — Belgian Dutch (nl-BE), formal U.
+// NL versions of service deep content - Belgian Dutch (nl-BE), formal U.
 // Mirror the structure of service-content.ts. Numerical values, brand names
 // and technical terms (kWc, kWh, kWh, IMPACT, RESCERT, ORES, etc.) are kept
 // identical to the FR source so the data stays consistent across locales.
@@ -39,7 +39,7 @@ export const serviceContentNl: Record<string, ServicePageContent> = {
         id: "twee-regimes",
         title:
           "Voor of na 2024: twee regimes, twee volledig verschillende logica's",
-        body: `<p>Dit is het belangrijkste onderscheid op de markt — en degene die de meeste installateurs niet de moeite nemen uit te leggen.</p>
+        body: `<p>Dit is het belangrijkste onderscheid op de markt, en degene die de meeste installateurs niet de moeite nemen uit te leggen.</p>
 <h4>Regime 1: installaties in gebruik genomen vóór 1 januari 2024</h4>
 <ul>
 <li>De meter draaide achterwaarts. Dit compensatiemechanisme blijft actief <strong>tot 31 december 2030</strong>.</li>

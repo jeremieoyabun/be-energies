@@ -151,7 +151,7 @@ export default function AtelierSolaire() {
               <p className="text-[#57534e] leading-relaxed">
                 Le marche a change, c&apos;est vrai. Le compteur qui tourne a l&apos;envers,
                 c&apos;est fini. Le tarif prosumer, c&apos;est une realite. Mais la
-                rentabilite n&apos;a pas disparu — elle s&apos;est deplacee vers
+                rentabilite n&apos;a pas disparu, elle s&apos;est deplacee vers
                 l&apos;autoconsommation.
               </p>
               <p className="text-[#57534e] leading-relaxed">
@@ -278,7 +278,7 @@ export default function AtelierSolaire() {
                 <p>
                   Cette experience forge chaque projet. Quand Benoit concoit une
                   installation, il sait deja exactement ce que l&apos;inspecteur va
-                  verifier — parce qu&apos;il a ete cet inspecteur.
+                  verifier, parce qu&apos;il a ete cet inspecteur.
                 </p>
               </div>
 
@@ -290,7 +290,7 @@ export default function AtelierSolaire() {
                   dimensionnees juste.&rdquo;
                 </p>
                 <cite className="block mt-3 text-sm text-[#78716c] not-italic">
-                  — Benoit Dezso, fondateur de Be&apos;energies
+                  Benoit Dezso, fondateur de Be&apos;energies
                 </cite>
               </blockquote>
             </div>
@@ -343,7 +343,7 @@ export default function AtelierSolaire() {
                       {review.name}
                     </div>
                     <div className="text-xs text-[#78716c]">
-                      {review.location} — {review.service}
+                      {review.location}, {review.service}
                     </div>
                   </div>
                 </div>

@@ -36,7 +36,7 @@ export function GoogleReviewsBadge({
         href={googleBusinessProfileUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Note Google : ${ratingLabel} sur 5 — ${count} avis. Ouvrir dans Google.`}
+        aria-label={`Note Google : ${ratingLabel} sur 5, ${count} avis. Ouvrir dans Google.`}
         className={`inline-flex items-center gap-1.5 text-[12px] font-medium hover:opacity-80 transition-opacity ${className}`}
       >
         <span className="flex items-center gap-0.5" aria-hidden="true">
@@ -61,7 +61,7 @@ export function GoogleReviewsBadge({
         href={googleBusinessProfileUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Note Google : ${ratingLabel} sur 5 — ${count} avis. Ouvrir dans Google.`}
+        aria-label={`Note Google : ${ratingLabel} sur 5, ${count} avis. Ouvrir dans Google.`}
         className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.07] border border-white/15 hover:bg-white/10 transition-colors text-[12px] ${className}`}
       >
         <span className="flex items-center gap-0.5" aria-hidden="true">
@@ -86,7 +86,7 @@ export function GoogleReviewsBadge({
       href={googleBusinessProfileUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Note Google : ${ratingLabel} sur 5 — ${count} avis. Ouvrir dans Google.`}
+      aria-label={`Note Google : ${ratingLabel} sur 5, ${count} avis. Ouvrir dans Google.`}
       className={`group flex items-center gap-3 bg-white border border-cloud rounded-xl px-4 py-3 hover:border-amber/40 transition-colors ${className}`}
     >
       <div className="flex flex-col">

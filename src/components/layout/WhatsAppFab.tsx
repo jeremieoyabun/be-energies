@@ -2,7 +2,7 @@ import { siteConfig } from "@/lib/site-config";
 import { WhatsAppIcon } from "@/lib/icons";
 
 /**
- * Floating WhatsApp button — circular, mobile-only.
+ * Floating WhatsApp button - circular, mobile-only.
  * Sits above the CTASticky bar (which itself is 72 px tall + safe area)
  * so neither overlaps the other on small screens.
  *

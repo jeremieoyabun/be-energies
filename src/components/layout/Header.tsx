@@ -45,7 +45,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
           />
         </Link>
 
-        {/* Desktop nav — show only at xl+ so the row never tries to fit at the
+        {/* Desktop nav - show only at xl+ so the row never tries to fit at the
             cross-over breakpoint where labels wrap mid-word. Below xl, the
             hamburger takes over. ml-10 pushes the nav away from the logo so
             "Services" doesn't visually stick to the brand. */}
@@ -53,7 +53,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
           {navigation.map((item) => (
             <div
               key={item.href}
-              // `group` enables pure-CSS hover/focus-within dropdown reveal —
+              // `group` enables pure-CSS hover/focus-within dropdown reveal -
               // no React state, no JS, no `openDropdown`.
               className="relative group"
             >
@@ -112,12 +112,12 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
           ))}
         </nav>
 
-        {/* Right side — Google reviews badge and inline phone number moved
+        {/* Right side - Google reviews badge and inline phone number moved
             out of the header to leave room for the nav. Reviews are still
             visible on the homepage hero + contact form; phone is still in
             footer and on every mobile screen via the icon link below. */}
         <div className="flex items-center gap-2">
-          {/* CTA button (desktop) — whitespace-nowrap so the label can never
+          {/* CTA button (desktop) - whitespace-nowrap so the label can never
               split across two lines even when the surrounding row is tight. */}
           <Link
             href={ctaHref}
@@ -126,7 +126,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
             {ctaLabel}
           </Link>
 
-          {/* Phone (mobile only — small icon for one-tap call) */}
+          {/* Phone (mobile only - small icon for one-tap call) */}
           <a
             href={`tel:${siteConfig.contact.phones[0].raw}`}
             className="md:hidden p-2 text-midnight"
@@ -135,7 +135,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
             <PhoneIcon size={20} />
           </a>
 
-          {/* Mobile menu — the only client-side island in the header */}
+          {/* Mobile menu - the only client-side island in the header */}
           <MobileMenu
             navigation={navigation}
             ctaLabel={ctaLabel}

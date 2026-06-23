@@ -11,7 +11,7 @@ interface RealizationGridProps {
   featured?: boolean;
 }
 
-// Human-readable service labels — keep card chips clean (no raw slugs).
+// Human-readable service labels - keep card chips clean (no raw slugs).
 const SERVICE_LABEL: Record<string, string> = {
   "panneaux-photovoltaiques": "Panneaux solaires",
   "batteries-domestiques": "Batterie",

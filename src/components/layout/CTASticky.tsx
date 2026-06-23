@@ -8,7 +8,7 @@ interface CTAStickyProps {
 
 /**
  * Bottom-of-viewport mobile bar: phone icon + main CTA only.
- * (WhatsApp moved to its own floating action button — see WhatsAppFab —
+ * (WhatsApp moved to its own floating action button - see WhatsAppFab -
  * to give each tappable target enough surface area for a thumb.)
  */
 export function CTASticky({

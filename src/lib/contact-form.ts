@@ -38,7 +38,7 @@ export interface ContactPayload {
   timeline?: Timeline;
   existingQuote: boolean;
   message?: string;
-  // Honeypot field — must remain empty for real users.
+  // Honeypot field - must remain empty for real users.
   company?: string;
   // GDPR consent
   gdpr: boolean;

@@ -19,7 +19,7 @@ interface NavigatorConnection {
  * The webm asset is ~7 MB and dominates the LCP if loaded eagerly. To keep
  * the homepage fast (especially on mobile 4G), we:
  *
- * 1. Paint the poster image immediately (priority next/image) — that's the
+ * 1. Paint the poster image immediately (priority next/image) - that's the
  *    LCP candidate.
  * 2. Only mount the <video> AFTER the page has had a beat to settle:
  *    - never before requestIdleCallback / 1500 ms timeout
@@ -78,7 +78,7 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
 
   return (
     <>
-      {/* Poster — paints first, IS the LCP element */}
+      {/* Poster - paints first, IS the LCP element */}
       <Image
         src={poster}
         alt=""
@@ -89,7 +89,7 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
         aria-hidden="true"
       />
 
-      {/* Video — mounted only after a beat */}
+      {/* Video - mounted only after a beat */}
       {mountVideo && (
         <video
           autoPlay

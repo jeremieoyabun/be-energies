@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export const metadata = generatePageMetadata({
   title: "Mentions légales",
-  description: "Mentions légales du site Be'energies — éditeur, hébergeur et propriété intellectuelle.",
+  description: "Mentions légales du site Be'energies : éditeur, hébergeur et propriété intellectuelle.",
   path: "/mentions-legales/",
 });
 

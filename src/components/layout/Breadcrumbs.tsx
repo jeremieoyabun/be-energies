@@ -14,7 +14,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
       <JsonLd data={breadcrumbSchema(items)} />
       <nav aria-label="Fil d'Ariane" className="container-be py-3">
         {/* items-baseline + leading-snug avoids the staggered look when one
-            item (the current page) is `font-medium` and the others aren't —
+            item (the current page) is `font-medium` and the others aren't -
             baselines align cleanly regardless of weight. */}
         <ol className="flex flex-wrap items-baseline gap-x-1.5 gap-y-1 text-sm text-steel leading-snug">
           {items.map((item, index) => {

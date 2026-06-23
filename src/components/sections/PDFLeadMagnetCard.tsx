@@ -37,7 +37,7 @@ const COPY = {
 const HREF = "/api/guide/pieges/";
 
 /**
- * Small download arrow — matches the stroke style of the icon set in
+ * Small download arrow - matches the stroke style of the icon set in
  * `@/lib/icons` (no `ArrowDownIcon` exists yet so we inline a minimal one
  * to keep the export path self-contained).
  */
@@ -119,7 +119,7 @@ export function PDFLeadMagnetCard({
   );
 
   // `compact` and `inline` are meant to drop into existing parent containers
-  // — no section padding, no container wrapper.
+  // - no section padding, no container wrapper.
   if (variant === "compact" || variant === "inline") {
     return (
       <div

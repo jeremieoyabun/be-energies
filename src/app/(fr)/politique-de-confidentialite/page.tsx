@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h3>1 — Nature des données collectées</h3>
+          <h3>1. Nature des données collectées</h3>
           <p>
             Dans le cadre de l&apos;utilisation du Site, l&apos;Éditeur est
             susceptible de collecter les catégories de données suivantes
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
             convictions religieuses ou philosophiques) n&apos;est collectée.
           </p>
 
-          <h3>2 — Communication des données personnelles à des tiers</h3>
+          <h3>2. Communication des données personnelles à des tiers</h3>
           <p>
             <strong>Pas de communication à des tiers.</strong> Vos données ne
             font l&apos;objet d&apos;aucune communication à des tiers à des
@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h3>
-            3 — Information préalable en cas de fusion / absorption
+            3. Information préalable en cas de fusion / absorption
           </h3>
           <p>
             Dans le cas où l&apos;Éditeur prendrait part à une opération de
@@ -113,7 +113,7 @@ export default function PrivacyPolicyPage() {
             confidentialité.
           </p>
 
-          <h3>4 — Agrégation des données</h3>
+          <h3>4. Agrégation des données</h3>
           <p>
             <strong>Agrégation avec des données non personnelles.</strong> Nous
             pouvons publier, divulguer et utiliser des informations agrégées
@@ -125,7 +125,7 @@ export default function PrivacyPolicyPage() {
             et à d&apos;autres fins commerciales.
           </p>
 
-          <h3>5 — Collecte des données d&apos;identité</h3>
+          <h3>5. Collecte des données d&apos;identité</h3>
           <p>
             <strong>Consultation libre.</strong> La consultation du Site ne
             nécessite pas d&apos;inscription ni d&apos;identification
@@ -135,7 +135,7 @@ export default function PrivacyPolicyPage() {
             simple consultation du Site.
           </p>
 
-          <h3>6 — Collecte des données d&apos;identification</h3>
+          <h3>6. Collecte des données d&apos;identification</h3>
           <p>
             Vos identifiants électroniques (email, téléphone) sont utilisés
             uniquement pour répondre à votre demande de diagnostic ou de devis
@@ -143,7 +143,7 @@ export default function PrivacyPolicyPage() {
             découle.
           </p>
 
-          <h3>7 — Collecte des données du terminal</h3>
+          <h3>7. Collecte des données du terminal</h3>
           <p>
             Nous ne collectons ni ne conservons aucune donnée technique de
             votre appareil (adresse IP, fournisseur d&apos;accès internet,
@@ -152,7 +152,7 @@ export default function PrivacyPolicyPage() {
             pendant une durée limitée.
           </p>
 
-          <h3>8 — Cookies</h3>
+          <h3>8. Cookies</h3>
           <p>
             <strong>Durée de conservation.</strong> Conformément aux
             recommandations de l&apos;Autorité de protection des données
@@ -175,7 +175,7 @@ export default function PrivacyPolicyPage() {
             les désactiver dans leurs paramètres.
           </p>
 
-          <h3>9 — Conservation des données techniques</h3>
+          <h3>9. Conservation des données techniques</h3>
           <p>
             Les données techniques éventuellement conservées par
             l&apos;hébergeur sont conservées pour la durée strictement
@@ -184,7 +184,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h3>
-            10 — Délai de conservation des données personnelles
+            10. Délai de conservation des données personnelles
           </h3>
           <p>
             Conformément au Règlement général sur la protection des données
@@ -201,7 +201,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h3>
-            11 — Suppression à la demande
+            11. Suppression à la demande
           </h3>
           <p>
             Vous avez la possibilité de demander la suppression de vos données
@@ -213,7 +213,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h3>
-            12 — Failles de sécurité
+            12. Failles de sécurité
           </h3>
           <p>
             Nous mettons en œuvre les mesures techniques et organisationnelles
@@ -227,7 +227,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h3>
-            13 — Transfert des données personnelles hors UE
+            13. Transfert des données personnelles hors UE
           </h3>
           <p>
             L&apos;Éditeur s&apos;engage à ne pas transférer les données
@@ -238,7 +238,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h3>
-            14 — Vos droits RGPD
+            14. Vos droits RGPD
           </h3>
           <p>
             Vous disposez à tout moment des droits suivants sur vos données
@@ -262,7 +262,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h3>
-            15 — Modification de la politique
+            15. Modification de la politique
           </h3>
           <p>
             Nous nous engageons à vous informer en cas de modification
@@ -272,7 +272,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h3>
-            16 — Droit applicable
+            16. Droit applicable
           </h3>
           <p>
             La présente Politique de confidentialité et l&apos;utilisation du

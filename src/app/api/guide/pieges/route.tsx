@@ -19,7 +19,7 @@ async function loadImageBuffers(): Promise<Record<number, Buffer>> {
         const absPath = path.join(cwd, s.imageRelativePath);
         result[s.number] = await readFile(absPath);
       } catch (err) {
-        // Missing image is non-fatal — the PDF will just skip it.
+        // Missing image is non-fatal - the PDF will just skip it.
         console.warn(
           `[guide-pieges] failed to load image for section ${s.number}:`,
           err instanceof Error ? err.message : "unknown",

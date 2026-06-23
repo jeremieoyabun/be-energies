@@ -80,7 +80,7 @@ export function HeroSection({
             }
       }
     >
-      {/* Video background — poster paints first, video mounts deferred */}
+      {/* Video background - poster paints first, video mounts deferred */}
       {video && <HeroVideo src={video} poster={VIDEO_POSTER} />}
 
       {/* Image background (service pages) */}

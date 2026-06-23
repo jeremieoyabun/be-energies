@@ -43,7 +43,7 @@ export const mainNavNl: NavItem[] = [
   },
   // NB: pages Valstrikken / Realisaties / Pro / Over ons restent en cours
   // de traduction côté contenu. On garde les liens en français le temps
-  // que les pages NL soient prêtes — la nav doit rester complète pour la
+  // que les pages NL soient prêtes - la nav doit rester complète pour la
   // découverte.
   { label: "Valstrikken", href: "/pieges-a-eviter/" },
   { label: "Realisaties", href: "/realisations/" },

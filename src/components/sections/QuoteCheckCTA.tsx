@@ -104,7 +104,7 @@ export function QuoteCheckCTA({
             </div>
           </div>
 
-          {/* Illustration — character with magnifying glass */}
+          {/* Illustration - character with magnifying glass */}
           <div className="hidden md:flex items-center justify-center shrink-0 w-[180px] lg:w-[210px]">
             <Image
               src="/img/searching.png"

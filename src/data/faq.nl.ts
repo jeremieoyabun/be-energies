@@ -1,4 +1,4 @@
-// NL versions of FAQ blocks — Belgian Dutch (nl-BE), formal U.
+// NL versions of FAQ blocks - Belgian Dutch (nl-BE), formal U.
 // Keep technical terms (kWh, kWp, RESCERT, prosumer, IMPACT, CWaPE, COP,
 // LFP, NMC) identical to the FR source.
 
@@ -69,7 +69,7 @@ export const pvServiceFaqNl: FAQItem[] = [
   {
     question: "Wat gebeurt er na de installatie?",
     answer:
-      "De opvolging na installatie is inbegrepen: conformiteitscontrole, indienstelling, configuratie van de productiemonitoring en doorlopende ondersteuning. Verzwakt een paneel of meldt uw omvormer een probleem, dan detecteren wij dit via de monitoring en grijpen in. Be'energies verdwijnt niet na de verkoop — dat was trouwens een van de criteria die Benoît systematisch controleerde bij zijn inspecties.",
+      "De opvolging na installatie is inbegrepen: conformiteitscontrole, indienstelling, configuratie van de productiemonitoring en doorlopende ondersteuning. Verzwakt een paneel of meldt uw omvormer een probleem, dan detecteren wij dit via de monitoring en grijpen in. Be'energies verdwijnt niet na de verkoop : dat was trouwens een van de criteria die Benoît systematisch controleerde bij zijn inspecties.",
   },
   {
     question: "Kan er later een batterij worden toegevoegd?",
@@ -86,7 +86,7 @@ export const pvServiceFaqNl: FAQItem[] = [
     question:
       "Wat gebeurt er als mijn omvormer uitvalt door een netspanningspiek?",
     answer:
-      "Het uitvallen van de omvormer door overspanning is een reëel en groeiend probleem in België. Wanneer te veel zonne-installaties tegelijk injecteren op hetzelfde lokale net, overschrijdt de spanning 253 V en valt de omvormer 15 minuten uit, wat productieverlies betekent. Tijdens de diagnose controleert Benoît de spanning van het lokale net — een stap die veel installateurs overslaan. Is het net verzadigd, dan signaleert hij dit vóór de ondertekening en stelt aangepaste oplossingen voor, zoals een omvormer met dynamisch vermogensbeheer.",
+      "Het uitvallen van de omvormer door overspanning is een reëel en groeiend probleem in België. Wanneer te veel zonne-installaties tegelijk injecteren op hetzelfde lokale net, overschrijdt de spanning 253 V en valt de omvormer 15 minuten uit, wat productieverlies betekent. Tijdens de diagnose controleert Benoît de spanning van het lokale net, een stap die veel installateurs overslaan. Is het net verzadigd, dan signaleert hij dit vóór de ondertekening en stelt aangepaste oplossingen voor, zoals een omvormer met dynamisch vermogensbeheer.",
   },
 ];
 
@@ -161,7 +161,7 @@ export const complianceFaqNl: FAQItem[] = [
     question:
       "Welke risico's loopt men met een niet-conforme elektrische installatie?",
     answer:
-      "De gevolgen van niet-conformiteit zijn concreet en ernstig. Ten eerste kan uw woonverzekering weigeren tussenbeide te komen bij brand of elektrische schade als de installatie niet conform is — een punt dat eigenaars vaak negeren. Ten tweede vormt een niet-conforme installatie reële risico's op brand, elektrocutie of overspanning. Ten derde verlaagt een niet-conformiteitsrapport bij een vastgoedverkoop de waarde van het goed en bemoeilijkt het de transactie. De conformiteitskeuring is geen administratieve formaliteit: het is bescherming voor uw gezin en uw vermogen.",
+      "De gevolgen van niet-conformiteit zijn concreet en ernstig. Ten eerste kan uw woonverzekering weigeren tussenbeide te komen bij brand of elektrische schade als de installatie niet conform is, een punt dat eigenaars vaak negeren. Ten tweede vormt een niet-conforme installatie reële risico's op brand, elektrocutie of overspanning. Ten derde verlaagt een niet-conformiteitsrapport bij een vastgoedverkoop de waarde van het goed en bemoeilijkt het de transactie. De conformiteitskeuring is geen administratieve formaliteit: het is bescherming voor uw gezin en uw vermogen.",
   },
   {
     question:

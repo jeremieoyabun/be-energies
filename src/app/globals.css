@@ -12,18 +12,18 @@
   --brand-ivory: #f8fafc;
   --brand-white: #ffffff;
 
-  /* Accent: Warm amber — energy, warmth, action */
+  /* Accent: Warm amber - energy, warmth, action */
   --brand-amber: #f59e0b;
   --brand-amber-light: #fbbf24;
   --brand-amber-dark: #d97706;
   --brand-amber-glow: rgba(245, 158, 11, 0.15);
 
-  /* Secondary accent: Electric blue — trust, tech, precision */
+  /* Secondary accent: Electric blue - trust, tech, precision */
   --brand-electric: #3b82f6;
   --brand-electric-light: #60a5fa;
   --brand-electric-dark: #2563eb;
 
-  /* Tertiary accent: Cyan — from logo, data, inspector authority */
+  /* Tertiary accent: Cyan - from logo, data, inspector authority */
   --brand-cyan: #06b6d4;
   --brand-cyan-light: #22d3ee;
   --brand-cyan-dark: #0891b2;
@@ -225,7 +225,7 @@ html {
 .stagger-5 { animation-delay: 0.40s; }
 .stagger-6 { animation-delay: 0.48s; }
 
-/* Hero reveal — cinematic sequence at first paint */
+/* Hero reveal - cinematic sequence at first paint */
 @keyframes heroRise {
   from {
     opacity: 0;
@@ -256,14 +256,14 @@ html {
   }
 }
 
-/* Data figure styling — monospace for stats, prices, measurements */
+/* Data figure styling - monospace for stats, prices, measurements */
 .data-figure {
   font-family: var(--font-data), 'JetBrains Mono', ui-monospace, monospace;
   font-feature-settings: "tnum" 1;
   letter-spacing: -0.02em;
 }
 
-/* Section label — compact technical style */
+/* Section label - compact technical style */
 .section-label {
   display: flex;
   align-items: center;
@@ -294,7 +294,7 @@ html {
   color: var(--brand-silver);
 }
 
-/* Diagonal hatch pattern — use sparingly */
+/* Diagonal hatch pattern - use sparingly */
 .hatch-pattern {
   background-image: repeating-linear-gradient(
     45deg,
@@ -362,12 +362,12 @@ html {
 
 /* ── Section backgrounds ── */
 
-/* Subtle warm gradient — for sections needing soft warmth */
+/* Subtle warm gradient - for sections needing soft warmth */
 .bg-warm-gradient {
   background: linear-gradient(180deg, var(--brand-ivory) 0%, color-mix(in srgb, var(--brand-amber) 3%, var(--brand-white)) 100%);
 }
 
-/* Deep dark section — for contrast breaks */
+/* Deep dark section - for contrast breaks */
 .bg-deep {
   background: linear-gradient(180deg, var(--brand-midnight) 0%, var(--brand-slate) 100%);
 }
@@ -378,7 +378,7 @@ html {
   background-size: 24px 24px;
 }
 
-/* ── Dotted separator — amber dashes ── */
+/* ── Dotted separator - amber dashes ── */
 .dotted-line {
   background-image: repeating-linear-gradient(
     to right,
@@ -390,7 +390,7 @@ html {
   height: 2px;
 }
 
-/* Divider — subtle gradient horizontal rule */
+/* Divider - subtle gradient horizontal rule */
 .divider {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--brand-cloud), transparent);
@@ -433,12 +433,12 @@ html {
   letter-spacing: 0.01em;
 }
 
-/* Text balance — better heading line wrapping */
+/* Text balance - better heading line wrapping */
 .text-balance {
   text-wrap: balance;
 }
 
-/* ── Blog article prose — professional editorial style ── */
+/* ── Blog article prose - professional editorial style ── */
 .article-prose {
   font-size: 1.125rem;
   line-height: 1.85;
@@ -688,7 +688,7 @@ html {
 
 /* ── Premium utility classes ── */
 
-/* Small section padding — for transition/bridge sections */
+/* Small section padding - for transition/bridge sections */
 .section-padding-sm {
   padding-block: 4rem;
 }
@@ -698,7 +698,7 @@ html {
   }
 }
 
-/* Glass card — premium floating card with frosted backdrop */
+/* Glass card - premium floating card with frosted backdrop */
 .glass-card {
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(4px);
@@ -707,7 +707,7 @@ html {
   border-radius: 1rem;
 }
 
-/* Stat card — for stats/metrics blocks */
+/* Stat card - for stats/metrics blocks */
 .stat-card {
   background: var(--brand-white);
   box-shadow: inset 0 2px 4px rgba(12, 18, 32, 0.04);
@@ -715,7 +715,7 @@ html {
   padding: 1.5rem;
 }
 
-/* Accent border left — amber left-border highlight */
+/* Accent border left - amber left-border highlight */
 .accent-border-left {
   border-left: 4px solid var(--brand-amber);
 }

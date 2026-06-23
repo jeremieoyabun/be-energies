@@ -3,7 +3,7 @@
  * <GlossaryInline>.
  *
  * Each entry exposes a `short`, `full` (FR) and `fullNl` (NL). If `fullNl`
- * is omitted, consumers fall back to the FR definition — only the priority
+ * is omitted, consumers fall back to the FR definition - only the priority
  * terms get a Belgian Dutch version for now.
  */
 export const glossary: Record<

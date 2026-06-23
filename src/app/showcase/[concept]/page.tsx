@@ -24,7 +24,7 @@ export async function generateMetadata({
   const concept = concepts.find((c) => c.slug === slug);
   if (!concept) return {};
   return {
-    title: `${concept.title} — Concept Preview`,
+    title: `${concept.title} - Concept Preview`,
   };
 }
 

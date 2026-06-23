@@ -4,7 +4,7 @@
  * Surfaces a 3-paragraph "context note" that differentiates each city page,
  * lifting it above the "thin programmatic content" perception by Google.
  *
- * The block reads as editorial commentary — not a marketing card. It pairs
+ * The block reads as editorial commentary - not a marketing card. It pairs
  * three short, fact-based paragraphs covering:
  *   1. Housing / roof character typical of the area
  *   2. Local photovoltaic / energy context (distance, project shape, regulation)
@@ -13,7 +13,7 @@
  * Bilingual: locale prop drives FR / NL labels. The actual paragraph copy is
  * passed in by the caller (already localized).
  *
- * Pure server component — no JS shipped.
+ * Pure server component - no JS shipped.
  */
 
 type LocalContextBlockProps = {
@@ -25,7 +25,7 @@ type LocalContextBlockProps = {
   housingNote: string;
   /** 2-3 sentences about local PV context, distance, project shape. */
   contextNote: string;
-  /** Optional 1-2 sentences in Benoît's voice — founder positioning. */
+  /** Optional 1-2 sentences in Benoît's voice - founder positioning. */
   positioningNote?: string;
   /** Locale for labels. Defaults to "fr". */
   locale?: "fr" | "nl";

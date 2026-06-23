@@ -19,7 +19,7 @@ export const metadata = {
     ...baseMeta.alternates,
     types: {
       "application/rss+xml": [
-        { url: "/blog/rss.xml", title: "Be'energies — Blog" },
+        { url: "/blog/rss.xml", title: "Be'energies - Blog" },
       ],
     },
   },
@@ -42,7 +42,7 @@ export default function BlogIndexPage() {
         ctaHref="/contact/"
         variant="compact"
       />
-      <BlogPreview maxItems={20} />
+      <BlogPreview maxItems={100} showFooterLink={false} tightTop />
     </>
   );
 }

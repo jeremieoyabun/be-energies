@@ -118,7 +118,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     },
     "nettoyage-toiture": {
       title: "Toiture en bon état, panneaux qui produisent",
-      description: "Inspection toiture, nettoyage, traitement et — si pertinent — peinture. Une visite suffit pour évaluer.",
+      description: "Inspection toiture, nettoyage, traitement et, si pertinent, peinture. Une visite suffit pour évaluer.",
       label: "Demander un devis nettoyage",
     },
   };
@@ -159,7 +159,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       <TrustBar />
 
-      {/* RESCERT Credibility Bar — highly visible */}
+      {/* RESCERT Credibility Bar - highly visible */}
       <section className="section-padding-sm bg-warm-gradient">
         <div className="container-be">
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -198,7 +198,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           decision-making before the deep reading. */}
       {slug === "panneaux-photovoltaiques" && <PVRegimesSummary />}
 
-      {/* Deep content sections — with alternating backgrounds */}
+      {/* Deep content sections - with alternating backgrounds */}
       {content?.sections.map((section, index) => (
         <section
           key={section.id}
@@ -207,7 +207,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         >
           <div className="container-be">
             <div className="xl:grid xl:grid-cols-[220px_1fr] xl:gap-12">
-              {/* Sticky TOC — only render on the first section so it doesn't duplicate */}
+              {/* Sticky TOC - only render on the first section so it doesn't duplicate */}
               {index === 0 && content && (
                 <ServiceTOC
                   sections={content.sections.map((s) => ({
@@ -283,7 +283,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <PiegesCarousel pieges={servicePieges} maxItems={3} />
       )}
 
-      {/* PDF lead magnet — the natural next step right after the piège teasers */}
+      {/* PDF lead magnet - the natural next step right after the piège teasers */}
       <PDFLeadMagnetCard variant="card" />
 
       {/* Pre-signature analysis (only relevant on services where the user shops around) */}

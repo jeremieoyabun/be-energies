@@ -88,11 +88,11 @@ export function TrustBar({ citySpecificStat, locale = "fr" }: TrustBarProps) {
     <section className="relative bg-midnight border-b border-charcoal">
       <div className="container-be py-5 md:py-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-5 md:gap-8">
-          {/* RESCERT certification — large and prominent */}
+          {/* RESCERT certification - large and prominent */}
           <div className="flex items-center gap-5 shrink-0">
             <Image
               src="/img/branding/certificat-rescert.png"
-              alt="Certification RESCERT — Renewable Energy Systems — Numéro 07717"
+              alt="Certification RESCERT, Renewable Energy Systems, Numéro 07717"
               width={360}
               height={180}
               className="h-auto w-[200px] object-contain"

@@ -27,7 +27,7 @@ const contactFAQ: FAQItem[] = [
   {
     question: "Qui me répondra ?",
     answer:
-      "Benoît Dezso lui-même. Pas un call center, pas un sous-traitant commercial. Quand vous appelez ou envoyez un message, c\u2019est le fondateur — ancien inspecteur en installation électrique, certifié RESCERT — qui prend en charge votre demande du début à la fin.",
+      "Benoît Dezso lui-même. Pas un call center, pas un sous-traitant commercial. Quand vous appelez ou envoyez un message, c\u2019est le fondateur, ancien inspecteur en installation électrique, certifié RESCERT, qui prend en charge votre demande du début à la fin.",
   },
   {
     question: "Combien de temps pour recevoir un devis ?",
@@ -37,12 +37,12 @@ const contactFAQ: FAQItem[] = [
   {
     question: "Intervenez-vous dans ma région ?",
     answer:
-      "Nous intervenons dans toute la Wallonie, à Bruxelles, et dans le Limbourg flamand : Riemst, Tongeren, Hasselt, Bilzen et les communes environnantes. Contactez-nous pour confirmer votre zone — dans la grande majorité des cas, nous couvrons votre secteur.",
+      "Nous intervenons dans toute la Wallonie, à Bruxelles, et dans le Limbourg flamand : Riemst, Tongeren, Hasselt, Bilzen et les communes environnantes. Contactez-nous pour confirmer votre zone : dans la grande majorité des cas, nous couvrons votre secteur.",
   },
   {
     question: "Que comprend le diagnostic énergétique ?",
     answer:
-      "Le diagnostic comprend : une analyse de votre consommation électrique actuelle, une évaluation de votre toiture (orientation, inclinaison, ombrage), un contrôle de votre tableau électrique et de la tension réseau, et un calcul de rentabilité personnalisé basé sur vos données réelles — pas sur des moyennes génériques.",
+      "Le diagnostic comprend : une analyse de votre consommation électrique actuelle, une évaluation de votre toiture (orientation, inclinaison, ombrage), un contrôle de votre tableau électrique et de la tension réseau, et un calcul de rentabilité personnalisé basé sur vos données réelles, pas sur des moyennes génériques.",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function ContactPage() {
         ]}
       />
 
-      {/* Hero + form — merged into one tight section so the form is visible
+      {/* Hero + form - merged into one tight section so the form is visible
           above the fold. Previous layout stacked a tall hero (py-20) on top
           of section-padding which buried the fields. */}
       <section className="pt-8 md:pt-12 pb-16 md:pb-20">
@@ -70,13 +70,13 @@ export default function ContactPage() {
                 Parlons de votre projet
               </h1>
               <p className="mt-3 text-base md:text-[17px] text-charcoal leading-relaxed">
-                Benoît vous répond personnellement — pas un call center, pas
+                Benoît vous répond personnellement, pas un call center, pas
                 de pression commerciale. Diagnostic gratuit, calcul de
                 rentabilité basé sur vos vraies données. Moins de 2 minutes
                 pour remplir.
               </p>
 
-              {/* Reassurance row + Google rating — visible BEFORE the form fields */}
+              {/* Reassurance row + Google rating - visible BEFORE the form fields */}
               <div className="mt-5 mb-7 bg-ivory border border-cloud rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <ul className="space-y-1.5 text-[13px] text-charcoal">
                   {[

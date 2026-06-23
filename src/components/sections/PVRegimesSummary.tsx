@@ -8,7 +8,7 @@ import { ArrowRightIcon, CheckIcon, AlertTriangleIcon } from "@/lib/icons";
  * a scannable answer to "what's the current PV situation in Belgium and
  * which regime applies to me?" before they dive into the long-form content.
  *
- * Pure server component — no JS shipped.
+ * Pure server component - no JS shipped.
  *
  * Regulatory notes (verify before edits):
  * - Pre-2024 PV installations in Wallonia keep compensation ("compteur
@@ -20,7 +20,7 @@ import { ArrowRightIcon, CheckIcon, AlertTriangleIcon } from "@/lib/icons";
  * - In Brussels, since 2026 small PV installations eligible for green
  *   certificates require a RESCERT-certified installer.
  * - All numerical figures depend on the GRD, supplier and consumption
- *   profile — never promise a fixed return without context.
+ *   profile - never promise a fixed return without context.
  */
 export function PVRegimesSummary() {
   return (
@@ -37,13 +37,13 @@ export function PVRegimesSummary() {
         </h2>
         <p className="mt-3 text-charcoal max-w-2xl">
           Deux régimes coexistent en Wallonie depuis le passage au compteur
-          communicant. Trouvez le vôtre — la suite de la page s&apos;applique
+          communicant. Trouvez le vôtre : la suite de la page s&apos;applique
           différemment à chaque cas.
         </p>
 
         {/* Two regime cards side-by-side on md+, stacked on mobile */}
         <div className="mt-10 grid md:grid-cols-2 gap-5">
-          {/* Régime 1 — pre-2024 */}
+          {/* Régime 1 - pre-2024 */}
           <article className="bg-white border border-cloud rounded-2xl p-6 md:p-7 flex flex-col">
             <div className="flex items-center gap-3 mb-4">
               <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-midnight text-amber font-bold text-sm">
@@ -104,7 +104,7 @@ export function PVRegimesSummary() {
             </div>
           </article>
 
-          {/* Régime 2 — post-2024 */}
+          {/* Régime 2 - post-2024 */}
           <article className="bg-white border border-cloud rounded-2xl p-6 md:p-7 flex flex-col">
             <div className="flex items-center gap-3 mb-4">
               <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-amber text-midnight font-bold text-sm">
@@ -121,7 +121,7 @@ export function PVRegimesSummary() {
               <li className="flex items-start gap-2">
                 <CheckIcon size={14} className="text-success shrink-0 mt-0.5" />
                 <span>
-                  <strong>Pas de tarif prosumer</strong> — vous payez
+                  <strong>Pas de tarif prosumer</strong> : vous payez
                   uniquement votre consommation réelle.
                 </span>
               </li>
@@ -135,7 +135,7 @@ export function PVRegimesSummary() {
               <li className="flex items-start gap-2">
                 <CheckIcon size={14} className="text-success shrink-0 mt-0.5" />
                 <span>
-                  Accès au tarif IMPACT (tri-horaire) — la batterie y prend
+                  Accès au tarif IMPACT (tri-horaire) : la batterie y prend
                   tout son sens.
                 </span>
               </li>
@@ -146,7 +146,7 @@ export function PVRegimesSummary() {
                 />
                 <span>
                   Chaque kWh injecté rapporte 7 à 46× moins que ce qu&apos;il
-                  coûte à l&apos;achat — l&apos;autoconsommation devient la
+                  coûte à l&apos;achat : l&apos;autoconsommation devient la
                   variable clé.
                 </span>
               </li>
@@ -160,14 +160,14 @@ export function PVRegimesSummary() {
                 <strong className="text-midnight">
                   l&apos;autoconsommation maximale
                 </strong>{" "}
-                — pas la production maximale. Une batterie ou un véhicule
+                , pas la production maximale. Une batterie ou un véhicule
                 électrique change vite la rentabilité.
               </p>
             </div>
           </article>
         </div>
 
-        {/* Bottom CTA — the decision point */}
+        {/* Bottom CTA - the decision point */}
         <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:justify-between bg-midnight text-white rounded-2xl p-5 md:p-6">
           <div className="flex-1">
             <p className="font-semibold text-white text-[15px] mb-1">
@@ -175,7 +175,7 @@ export function PVRegimesSummary() {
             </p>
             <p className="text-silver text-[13px] leading-relaxed">
               Visite technique sur site, lecture de votre compteur et de
-              votre dernière facture — on tranche en 20 minutes.
+              votre dernière facture : on tranche en 20 minutes.
             </p>
           </div>
           <Link
@@ -187,13 +187,13 @@ export function PVRegimesSummary() {
           </Link>
         </div>
 
-        {/* Brussels regulatory note — soft callout, source-tagged */}
+        {/* Brussels regulatory note - soft callout, source-tagged */}
         <p className="mt-6 text-[12px] text-steel leading-relaxed border-l-2 border-amber/40 pl-3">
           <strong className="text-charcoal">Région bruxelloise :</strong>{" "}
           depuis 2026, les nouvelles installations photovoltaïques
           résidentielles éligibles aux certificats verts doivent être
           réalisées par un installateur certifié RESCERT. Sources :
-          Brugel, arrêté du Gouvernement bruxellois 2024/2025 — à vérifier
+          Brugel, arrêté du Gouvernement bruxellois 2024/2025 - à vérifier
           selon votre commune et la nature exacte de votre projet.
         </p>
       </div>

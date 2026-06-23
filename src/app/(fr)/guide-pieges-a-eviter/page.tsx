@@ -67,7 +67,7 @@ export default function LeadMagnetPage() {
           <div className="grid md:grid-cols-5 gap-10 items-center">
             <div className="md:col-span-3">
               <p className="text-amber text-sm font-semibold uppercase tracking-wider mb-3">
-                Guide gratuit — PDF immédiat
+                Guide gratuit : PDF immédiat
               </p>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-white leading-tight">
                 Les 10 pièges à éviter avant de signer avec un installateur
@@ -88,7 +88,7 @@ export default function LeadMagnetPage() {
               </ul>
             </div>
 
-            {/* Download card — direct PDF, no email gate */}
+            {/* Download card - direct PDF, no email gate */}
             <div className="md:col-span-2">
               <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl">
                 <p className="text-midnight font-semibold text-center mb-1">
@@ -172,7 +172,7 @@ export default function LeadMagnetPage() {
                 de signer.
               </p>
               <p className="text-steel text-sm mt-2">
-                — Benoît Dezso, ancien inspecteur, certifié RESCERT, fondateur de Be&apos;energies
+                Benoît Dezso, ancien inspecteur, certifié RESCERT, fondateur de Be&apos;energies
               </p>
             </div>
           </div>

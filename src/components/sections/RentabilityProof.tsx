@@ -26,7 +26,7 @@ export function RentabilityProof() {
             </p>
             <p className="mt-3 text-steel text-[15px]">
               C&apos;est pour ça que nous dimensionnons en fonction de votre
-              consommation réelle — pas du nombre de panneaux qui rentrent sur
+              consommation réelle, pas du nombre de panneaux qui rentrent sur
               votre toit.
             </p>
             <Link

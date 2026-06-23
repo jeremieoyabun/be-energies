@@ -31,7 +31,7 @@ interface CountUpProps {
  *   - the element is scrolled into view
  *
  * If any of the above fails, the element keeps its server-rendered final
- * value — never reverts to 0.
+ * value - never reverts to 0.
  */
 export function CountUp({
   to,
@@ -67,7 +67,7 @@ export function CountUp({
         // first tick.
         setValue(0);
         const start = performance.now();
-        // Ease-out cubic — fast start, gentle settle.
+        // Ease-out cubic - fast start, gentle settle.
         const ease = (t: number) => 1 - Math.pow(1 - t, 3);
         function tick(now: number) {
           const t = Math.min(1, (now - start) / duration);

@@ -118,7 +118,7 @@ export function getServiceBySlugNl(slug: string): Service | undefined {
 /**
  * Services exposed on discovery surfaces (nav, grids, footer, sitemap,
  * city-x-service pages, related services). Services with `hidden: true`
- * are filtered out — their detail page stays accessible but no link
+ * are filtered out - their detail page stays accessible but no link
  * points to it.
  */
 export const visibleServices: Service[] = services.filter((s) => !s.hidden);

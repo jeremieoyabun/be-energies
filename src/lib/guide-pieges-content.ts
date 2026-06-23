@@ -22,8 +22,8 @@ export const GUIDE_SUBTITLE =
 
 export const GUIDE_INTRO_PARAGRAPHS = [
   "Ce guide n'est pas une liste de peurs. C'est un outil de décision.",
-  "Pendant des années, j'ai inspecté des installations électriques et photovoltaïques en Belgique pour le compte d'organismes agréés. J'ai rédigé des rapports — conformes ou non conformes. Et j'ai vu, à de nombreuses reprises, les mêmes erreurs revenir. Toujours les mêmes. Toujours payées par les propriétaires.",
-  "Si vous lisez ce guide et posez les questions associées à votre installateur, vous éliminerez la grande majorité des risques d'une mauvaise installation — qu'elle soit photovoltaïque, batterie, borne de recharge ou pompe à chaleur.",
+  "Pendant des années, j'ai inspecté des installations électriques et photovoltaïques en Belgique pour le compte d'organismes agréés. J'ai rédigé des rapports : conformes ou non conformes. Et j'ai vu, à de nombreuses reprises, les mêmes erreurs revenir. Toujours les mêmes. Toujours payées par les propriétaires.",
+  "Si vous lisez ce guide et posez les questions associées à votre installateur, vous éliminerez la grande majorité des risques d'une mauvaise installation : qu'elle soit photovoltaïque, batterie, borne de recharge ou pompe à chaleur.",
 ];
 
 export const SEVERITY_LABEL = {
@@ -76,7 +76,7 @@ export const piegePdfSections: PiegePdfSection[] = [
     severity: "important",
     title: "Comparer des devis sur du matériel non équivalent",
     intro:
-      "Trois devis à 9 500, 11 000 et 12 500 €, et le réflexe est de prendre le moins cher. Mais les trois ne proposent jamais la même chose : panneaux, onduleur, fixation, câblage, visite technique — tout varie. Le devis le moins cher est rarement le moins cher à 25 ans.",
+      "Trois devis à 9 500, 11 000 et 12 500 €, et le réflexe est de prendre le moins cher. Mais les trois ne proposent jamais la même chose : panneaux, onduleur, fixation, câblage, visite technique, tout varie. Le devis le moins cher est rarement le moins cher à 25 ans.",
     redFlags: [
       "Devis vague sur les marques et modèles (« panneau 400 W »).",
       "Pas de mention du type d'onduleur (string vs micro-onduleur).",
@@ -119,7 +119,7 @@ export const piegePdfSections: PiegePdfSection[] = [
     severity: "important",
     title: "Le côté AC sous-dimensionné : le coupable oublié",
     intro:
-      "Tout le monde parle des panneaux et de l'onduleur. Personne ne parle du côté AC — la partie entre l'onduleur et le tableau électrique. C'est pourtant là que se concentre une part importante des non-conformités.",
+      "Tout le monde parle des panneaux et de l'onduleur. Personne ne parle du côté AC, la partie entre l'onduleur et le tableau électrique. C'est pourtant là que se concentre une part importante des non-conformités.",
     redFlags: [
       "Section de câble AC insuffisante.",
       "Protection différentielle de mauvais type (AC au lieu de A).",
@@ -182,7 +182,7 @@ export const GUIDE_CONCLUSION =
   "Si après lecture de ce guide vous avez le moindre doute sur un devis reçu, envoyez-le-nous : nous l'analysons gratuitement et vous renvoyons un avis écrit, sans pression commerciale.";
 
 export const GUIDE_CONTACT_LINES = [
-  "Be'energies SARL — Komveld 35, 3770 Riemst, Belgique",
+  "Be'energies SARL, Komveld 35, 3770 Riemst, Belgique",
   "+32 (0)472 12 70 55 · +32 (0)474 36 73 27",
   "info@be-energies.be · be-energies.be",
 ];

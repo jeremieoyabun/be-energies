@@ -69,7 +69,7 @@ const chapters: Chapter[] = [
     serviceLink: { label: "Installation photovoltaïque", href: "/services/panneaux-photovoltaiques/" },
     image: {
       src: "/img/pieges/primes.webp",
-      alt: "Main qui tape sur une calculatrice à côté d'un ordinateur — calcul de devis",
+      alt: "Main qui tape sur une calculatrice à côté d'un ordinateur, calcul de devis",
     },
   },
   {
@@ -172,7 +172,7 @@ const chapters: Chapter[] = [
       "Les incendies photovoltaïques sont rares mais réels. Dans mes années d'inspection, j'ai vu des connecteurs MC4 noircis par la chaleur, des onduleurs installés dans des combles à 60 C, et des câbles DC qui passaient à travers l'isolation sans protection. Ce sont des erreurs évitables.",
     image: {
       src: "/img/pieges/04-onduleur.webp",
-      alt: "Onduleur photovoltaïque mural — composant clé de l'installation",
+      alt: "Onduleur photovoltaïque mural, composant clé de l'installation",
     },
   },
   {
@@ -357,7 +357,7 @@ const chapters: Chapter[] = [
       "Un bon dimensionnement commence par votre facture d'électricité, pas par la surface de votre toit. Si l'installateur commence par mesurer votre toiture au lieu de lire votre facture, posez-vous la question.",
     image: {
       src: "/img/pieges/09-surdimensionnement.webp",
-      alt: "Personne montrant un panneau solaire — discussion sur le dimensionnement adapté",
+      alt: "Personne montrant un panneau solaire, discussion sur le dimensionnement adapté",
     },
   },
   {
@@ -395,7 +395,7 @@ const chapters: Chapter[] = [
       "Chez Be'energies, le diagnostic est gratuit et sans engagement. On ne demande jamais de signature le jour même. Si vous avez besoin de deux semaines pour comparer, prenez-les. Notre devis sera toujours valable.",
     image: {
       src: "/img/pieges/07-pression.webp",
-      alt: "Propriétaire en réflexion devant un devis — éviter la pression commerciale",
+      alt: "Propriétaire en réflexion devant un devis, éviter la pression commerciale",
     },
   },
 ];
@@ -485,7 +485,7 @@ export default function PiegesPage() {
           <div className="mb-6">
             <Image
               src="/img/branding/certificat-rescert.png"
-              alt="Certification RESCERT — Numéro 07717"
+              alt="Certification RESCERT - Numéro 07717"
               width={360}
               height={180}
               className="h-auto w-[220px] object-contain"
@@ -616,7 +616,7 @@ export default function PiegesPage() {
               </div>
             )}
 
-            {/* Body content — clipped on mobile to reduce vertical fatigue */}
+            {/* Body content - clipped on mobile to reduce vertical fatigue */}
             <ReadMore collapsedHeight={380}>
               <div
                 className="prose prose-lg max-w-none text-charcoal prose-headings:text-midnight prose-headings:font-[family-name:var(--font-heading)] prose-strong:text-midnight"
@@ -649,12 +649,12 @@ export default function PiegesPage() {
                   &ldquo;{ch.founderInsight}&rdquo;
                 </p>
                 <cite className="not-italic text-sm text-steel/70 mt-1 block">
-                  — Benoît Dezso, ancien inspecteur, certifié RESCERT
+                  Benoît Dezso, ancien inspecteur, certifié RESCERT
                 </cite>
               </blockquote>
             )}
 
-            {/* Question to ask the installer — designed to be copied verbatim */}
+            {/* Question to ask the installer - designed to be copied verbatim */}
             {ch.questionToAsk && (
               <div className="mt-6 bg-midnight text-white rounded-xl p-5 md:p-6">
                 <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber mb-2">

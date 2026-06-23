@@ -64,7 +64,7 @@ export default function AboutPage() {
 
               <p>
                 Chaque jour, il entrait dans des maisons, ouvrait des coffrets,
-                analysait des schémas et rédigeait des rapports —{" "}
+                analysait des schémas et rédigeait des rapports :{" "}
                 <strong>conformes ou non conformes</strong>.
               </p>
 
@@ -101,7 +101,7 @@ export default function AboutPage() {
                 de l&apos;autre côté du métier tout ce qu&apos;il avait appris
                 en tant qu&apos;inspecteur. Pas pour prouver que les autres
                 avaient tort, mais parce qu&apos;il savait à quoi ressemble une
-                installation bien faite —{" "}
+                installation bien faite, {" "}
                 <strong>et qu&apos;il voulait n&apos;en produire que de celles-là</strong>.
               </p>
             </div>
@@ -111,7 +111,7 @@ export default function AboutPage() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-midnight border border-cloud relative shadow-elevated">
                 <Image
                   src="/img/hero/electrician-rooftop.webp"
-                  alt="Silhouette d'un électricien sur toiture solaire au coucher du soleil, tablette en main — Be'energies sur le terrain"
+                  alt="Silhouette d'un électricien sur toiture solaire au coucher du soleil, tablette en main, Be'energies sur le terrain"
                   fill
                   sizes="(max-width: 1024px) 100vw, 400px"
                   className="object-cover"
@@ -135,7 +135,7 @@ export default function AboutPage() {
                 <blockquote className="text-charcoal text-[15px] leading-relaxed italic">
                   Une installation bien faite, c&apos;est celle qui n&apos;a
                   rien à craindre d&apos;un contrôle. Le reste, ce sont des
-                  raccourcis qui coûtent cher à quelqu&apos;un — toujours au
+                  raccourcis qui coûtent cher à quelqu&apos;un, toujours au
                   propriétaire.
                 </blockquote>
                 <figcaption className="mt-4 pt-4 border-t border-cloud/70 text-sm">
@@ -241,7 +241,7 @@ export default function AboutPage() {
               <span>Notre méthode</span>
             </div>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance">
-              Nos valeurs — pas des slogans, des méthodes de travail
+              Nos valeurs : pas des slogans, des méthodes de travail
             </h2>
           </div>
 
@@ -255,7 +255,7 @@ export default function AboutPage() {
                   <>
                     Chez Be&apos;energies, chaque installation est conçue{" "}
                     <strong>comme si elle allait être inspectée le lendemain</strong>.
-                    Parce que c&apos;est littéralement le cas — et parce que
+                    Parce que c&apos;est littéralement le cas, et parce que
                     Benoît sait exactement ce que l&apos;inspecteur va
                     vérifier. Sections de câbles, protections différentielles,
                     mise à la terre, schémas unifilaires, étiquetage : tout
@@ -289,7 +289,7 @@ export default function AboutPage() {
                     <strong>tarifs réels de votre gestionnaire de réseau</strong>,
                     votre consommation mesurée, et un taux
                     d&apos;autoconsommation réaliste. Quand le retour se situe
-                    entre 5 et 7 ans, on vous le dit — et on vous explique
+                    entre 5 et 7 ans, on vous le dit, et on vous explique
                     pourquoi c&apos;est un excellent investissement.
                   </>,
                   <>

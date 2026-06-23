@@ -13,7 +13,7 @@ interface MobileMenuProps {
 
 /**
  * Minimal client component owning the mobile slide-down panel toggle.
- * Sub-section expand/collapse uses native <details> — no React state.
+ * Sub-section expand/collapse uses native <details> - no React state.
  * Closing the panel happens on any Link / CTA click.
  */
 export function MobileMenu({ navigation, ctaLabel, ctaHref }: MobileMenuProps) {
@@ -22,7 +22,7 @@ export function MobileMenu({ navigation, ctaLabel, ctaHref }: MobileMenuProps) {
 
   return (
     <>
-      {/* Hamburger — visible below xl (matches the desktop nav threshold) */}
+      {/* Hamburger - visible below xl (matches the desktop nav threshold) */}
       <button
         className="xl:hidden p-2 text-midnight rounded-lg hover:bg-ivory transition-colors"
         onClick={() => setMobileOpen((v) => !v)}

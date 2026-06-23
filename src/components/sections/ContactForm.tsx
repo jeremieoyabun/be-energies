@@ -169,7 +169,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
       className="space-y-6"
       aria-describedby={liveRegionId}
     >
-      {/* Honeypot — hidden from sighted users + screen readers */}
+      {/* Honeypot - hidden from sighted users + screen readers */}
       <div aria-hidden="true" className="hidden">
         <label htmlFor="company">Ne pas remplir</label>
         <input
@@ -274,7 +274,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
               className="form-input"
               {...ariaProps("projectType")}
             >
-              <option value="">Sélectionnez —</option>
+              <option value="">Sélectionnez...</option>
               {services.map((s) => (
                 <option key={s.slug} value={s.slug}>
                   {PROJECT_LABELS[
@@ -299,7 +299,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
               className="form-input"
               {...ariaProps("buildingType")}
             >
-              <option value="">Sélectionnez —</option>
+              <option value="">Sélectionnez...</option>
               {Object.entries(BUILDING_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>
                   {label}
@@ -320,7 +320,7 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
             className="form-input"
             {...ariaProps("timeline")}
           >
-            <option value="">Sélectionnez —</option>
+            <option value="">Sélectionnez...</option>
             {Object.entries(TIMELINE_LABELS).map(([value, label]) => (
               <option key={value} value={value}>
                 {label}

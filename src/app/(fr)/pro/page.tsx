@@ -24,7 +24,7 @@ import {
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
-  title: "Espace Pro — Solutions énergétiques pour PME, entreprises et institutions",
+  title: "Espace Pro : solutions énergétiques pour PME, entreprises et institutions",
   description:
     "PME, grandes entreprises, syndics et institutions en Belgique et au Luxembourg : panneaux solaires, batteries, bornes de recharge, conformité électrique. Étude sur mesure par Benoît Dezso, certifié RESCERT.",
   path: "/pro/",
@@ -42,7 +42,7 @@ const proServices = services.filter(
   (s) => PRO_SERVICE_SLUGS.includes(s.slug) && !s.hidden,
 );
 
-// 7 raisons de l'ancien WP — réécrites pour Be'energies tone of voice
+// 7 raisons de l'ancien WP - réécrites pour Be'energies tone of voice
 const reasons: { icon: typeof SolarIcon; title: string; body: string }[] = [
   {
     icon: SolarIcon,
@@ -52,7 +52,7 @@ const reasons: { icon: typeof SolarIcon; title: string; body: string }[] = [
   {
     icon: StarIcon,
     title: "Expertise et qualité professionnelle",
-    body: "Installation et maintenance assurées par notre équipe interne. Benoît Dezso, ancien inspecteur certifié RESCERT, supervise chaque projet — pas de sous-traitance en cascade.",
+    body: "Installation et maintenance assurées par notre équipe interne. Benoît Dezso, ancien inspecteur certifié RESCERT, supervise chaque projet : pas de sous-traitance en cascade.",
   },
   {
     icon: BatteryIcon,
@@ -214,9 +214,9 @@ export default function ProPage() {
         ]}
       />
 
-      {/* Hero — direct quote from the founder, on a dark surface */}
+      {/* Hero - direct quote from the founder, on a dark surface */}
       <section className="relative overflow-hidden bg-midnight">
-        {/* Background photo (industrial PV roof) — subtle, behind dark overlay */}
+        {/* Background photo (industrial PV roof) - subtle, behind dark overlay */}
         <Image
           src="/img/pro/hero.webp"
           alt=""
@@ -359,7 +359,7 @@ export default function ProPage() {
           <p className="mt-4 text-charcoal max-w-2xl">
             Chaque projet professionnel a ses contraintes : budget, délais,
             conformité réglementaire, continuité d&apos;activité. Nous adaptons
-            nos services à votre contexte — pas l&apos;inverse.
+            nos services à votre contexte, pas l&apos;inverse.
           </p>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -393,7 +393,7 @@ export default function ProPage() {
         </div>
       </section>
 
-      {/* Why Be'energies for your company — 7 reasons */}
+      {/* Why Be'energies for your company - 7 reasons */}
       <section className="section-padding bg-ivory">
         <div className="container-be">
           <div className="section-label">
@@ -437,7 +437,7 @@ export default function ProPage() {
         </div>
       </section>
 
-      {/* Use cases — structured studies (real numbers stay confidential until shared in private) */}
+      {/* Use cases - structured studies (real numbers stay confidential until shared in private) */}
       <section className="section-padding">
         <div className="container-be">
           <div className="section-label">
@@ -449,7 +449,7 @@ export default function ProPage() {
           <p className="mt-4 text-charcoal max-w-2xl">
             Trois projets représentatifs, chacun dimensionné sur les données
             réelles du client. Les chiffres détaillés (kWc, ROI, économies)
-            sont partagés en privé lors de l&apos;étude — pour respecter la
+            sont partagés en privé lors de l&apos;étude, pour respecter la
             confidentialité de nos clients pros.
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -487,7 +487,7 @@ export default function ProPage() {
                     ))}
                   </ul>
 
-                  {/* Deliverables — what the customer receives */}
+                  {/* Deliverables - what the customer receives */}
                   <div className="mt-5 pt-5 border-t border-cloud">
                     <p className="text-[10.5px] font-semibold tracking-[0.12em] uppercase text-amber-dark mb-2">
                       Livrables fournis
@@ -499,7 +499,7 @@ export default function ProPage() {
                     </ul>
                   </div>
 
-                  {/* Verified outcome — only rendered if client gave hard numbers */}
+                  {/* Verified outcome - only rendered if client gave hard numbers */}
                   {useCase.verifiedOutcome &&
                     useCase.verifiedOutcome.length > 0 && (
                       <div className="mt-5 pt-5 border-t border-cloud grid grid-cols-2 gap-3">
@@ -617,7 +617,7 @@ export default function ProPage() {
 
       <FAQSection
         items={faqItems}
-        title="Questions fréquentes — Projets professionnels"
+        title="Questions fréquentes : projets professionnels"
       />
 
       <CTADiagnostic

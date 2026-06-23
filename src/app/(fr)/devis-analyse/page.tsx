@@ -19,7 +19,7 @@ import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
   title:
-    "Faire vérifier mon devis solaire — par un ancien inspecteur",
+    "Faire vérifier mon devis solaire, par un ancien inspecteur",
   description:
     "Un devis photovoltaïque, batterie ou borne de recharge sur la table ? Benoît Dezso, ancien inspecteur en installation électrique certifié RESCERT, l'analyse personnellement et vous renvoie un avis écrit sous 48 h. Sans pression commerciale. Sans engagement.",
   path: "/devis-analyse/",
@@ -30,7 +30,7 @@ const checks: { title: string; detail: string }[] = [
   {
     title: "Hypothèses tarifaires",
     detail:
-      "Prix d'achat, tarif d'injection, prosumer, IMPACT 2026, scénarios futurs — on vérifie que les chiffres tiennent face à votre GRD et votre fournisseur réel.",
+      "Prix d'achat, tarif d'injection, prosumer, IMPACT 2026, scénarios futurs : on vérifie que les chiffres tiennent face à votre GRD et votre fournisseur réel.",
   },
   {
     title: "Dimensionnement réel",
@@ -45,7 +45,7 @@ const checks: { title: string; detail: string }[] = [
   {
     title: "Garanties et SAV",
     detail:
-      "Garanties produit, rendement et main-d'œuvre — ce qui est inclus, ce qui est exclu, qui intervient en cas de panne, qui paie quoi.",
+      "Garanties produit, rendement et main-d'œuvre : ce qui est inclus, ce qui est exclu, qui intervient en cas de panne, qui paie quoi.",
   },
 ];
 
@@ -54,13 +54,13 @@ const process: { step: string; title: string; detail: string }[] = [
     step: "1",
     title: "Vous envoyez le devis",
     detail:
-      "PDF, photo, scan, capture — le format n'a pas d'importance. Joignez aussi votre dernière facture d'électricité si vous l'avez sous la main.",
+      "PDF, photo, scan, capture : le format n'a pas d'importance. Joignez aussi votre dernière facture d'électricité si vous l'avez sous la main.",
   },
   {
     step: "2",
     title: "Benoît l'analyse personnellement",
     detail:
-      "Pas un commercial. Pas un sous-traitant. Le fondateur — ancien inspecteur en installation électrique, certifié RESCERT — lit le devis ligne par ligne.",
+      "Pas un commercial. Pas un sous-traitant. Le fondateur, ancien inspecteur en installation électrique, certifié RESCERT, lit le devis ligne par ligne.",
   },
   {
     step: "3",
@@ -82,14 +82,14 @@ const reassurances = [
   "Réponse écrite sous 48 h ouvrées",
   "Pas de pression commerciale, pas de relances",
   "Vos données ne sont pas revendues",
-  "Avis honnête — y compris si le devis est correct",
+  "Avis honnête, y compris si le devis est correct",
 ];
 
 const devisAnalyseFAQ: FAQItem[] = [
   {
     question: "C'est vraiment gratuit ?",
     answer:
-      "Oui. L'analyse d'un premier devis est gratuite et sans engagement. C'est une façon de vous montrer notre sérieux avant même de parler chiffrage. Vous n'avez aucune obligation de travailler avec nous ensuite — beaucoup de personnes nous écrivent simplement pour avoir un avis avant de signer ailleurs, et c'est très bien comme ça.",
+      "Oui. L'analyse d'un premier devis est gratuite et sans engagement. C'est une façon de vous montrer notre sérieux avant même de parler chiffrage. Vous n'avez aucune obligation de travailler avec nous ensuite : beaucoup de personnes nous écrivent simplement pour avoir un avis avant de signer ailleurs, et c'est très bien comme ça.",
   },
   {
     question: "Qui analyse réellement mon devis ?",
@@ -99,12 +99,12 @@ const devisAnalyseFAQ: FAQItem[] = [
   {
     question: "Et si le devis qu'on m'a fait est correct ?",
     answer:
-      "Alors on vous le dit. L'objectif n'est pas de vous faire douter de votre installateur — c'est de vous donner les éléments pour décider. Si le dimensionnement est cohérent, le matériel sérieux et les garanties claires, vous repartez rassuré et vous pouvez signer en confiance.",
+      "Alors on vous le dit. L'objectif n'est pas de vous faire douter de votre installateur : c'est de vous donner les éléments pour décider. Si le dimensionnement est cohérent, le matériel sérieux et les garanties claires, vous repartez rassuré et vous pouvez signer en confiance.",
   },
   {
     question: "Combien de devis puis-je faire analyser ?",
     answer:
-      "Un premier devis, gratuitement. Si vous en avez plusieurs en parallèle (ce qui est plutôt malin), on vous propose un comparatif rapide à un tarif transparent. Vous saurez le prix avant de commencer — pas de surprise.",
+      "Un premier devis, gratuitement. Si vous en avez plusieurs en parallèle (ce qui est plutôt malin), on vous propose un comparatif rapide à un tarif transparent. Vous saurez le prix avant de commencer, pas de surprise.",
   },
   {
     question: "Mes données restent-elles confidentielles ?",
@@ -114,7 +114,7 @@ const devisAnalyseFAQ: FAQItem[] = [
   {
     question: "Et si je suis hors de Belgique ?",
     answer:
-      "On analyse le devis quoi qu'il en soit — la lecture technique vaut partout. En revanche, on ne pourra pas commenter le cadre tarifaire ou réglementaire si vous êtes hors Wallonie, Bruxelles ou Limbourg flamand. On vous le signalera honnêtement.",
+      "On analyse le devis quoi qu'il en soit : la lecture technique vaut partout. En revanche, on ne pourra pas commenter le cadre tarifaire ou réglementaire si vous êtes hors Wallonie, Bruxelles ou Limbourg flamand. On vous le signalera honnêtement.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function DevisAnalysePage() {
         ]}
       />
 
-      {/* Hero — premium, asymmetric, dense above-the-fold */}
+      {/* Hero - premium, asymmetric, dense above-the-fold */}
       <section className="relative overflow-hidden bg-deep pt-8 md:pt-12 pb-16 md:pb-20">
         <div
           className="absolute inset-0 texture-dots opacity-60"
@@ -150,8 +150,8 @@ export default function DevisAnalysePage() {
               </h1>
 
               <p className="mt-5 text-[16px] md:text-[17px] text-white/90 leading-relaxed max-w-2xl">
-                Benoît Dezso — ancien inspecteur en installation électrique,
-                certifié RESCERT — analyse personnellement votre devis
+                Benoît Dezso, ancien inspecteur en installation électrique,
+                certifié RESCERT, analyse personnellement votre devis
                 photovoltaïque, batterie ou borne de recharge. Vous recevez un
                 avis écrit sous 48&nbsp;h. Sans pression commerciale. Sans
                 engagement.
@@ -184,7 +184,7 @@ export default function DevisAnalysePage() {
               </div>
             </div>
 
-            {/* Illustration — reuses the searching character used on the homepage CTA */}
+            {/* Illustration - reuses the searching character used on the homepage CTA */}
             <div className="hidden lg:flex items-center justify-center">
               <Image
                 src="/img/searching.png"
@@ -206,7 +206,7 @@ export default function DevisAnalysePage() {
             Ce qu&apos;on regarde
           </p>
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance max-w-3xl">
-            4 axes de lecture — ceux qui font la différence entre un bon devis
+            4 axes de lecture, ceux qui font la différence entre un bon devis
             et un devis qui semble bon.
           </h2>
 
@@ -270,7 +270,7 @@ export default function DevisAnalysePage() {
         </div>
       </section>
 
-      {/* Deliverables — what you get */}
+      {/* Deliverables - what you get */}
       <section className="section-padding bg-white">
         <div className="container-be max-w-5xl grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-14 items-start">
           <div>
@@ -303,7 +303,7 @@ export default function DevisAnalysePage() {
         </div>
       </section>
 
-      {/* Form — anchored target of the hero CTA */}
+      {/* Form - anchored target of the hero CTA */}
       <section id="form" className="section-padding bg-ivory scroll-mt-24">
         <div className="container-be max-w-5xl">
           <div className="grid lg:grid-cols-[1fr_360px] gap-10 lg:gap-14">
@@ -315,7 +315,7 @@ export default function DevisAnalysePage() {
                 On vous répond personnellement.
               </h2>
               <p className="mt-3 text-[15px] text-charcoal leading-relaxed max-w-2xl">
-                Remplissez le formulaire — moins de 2 minutes. Vous pourrez
+                Remplissez le formulaire : moins de 2 minutes. Vous pourrez
                 joindre votre devis (PDF, photo, capture) en réponse à
                 l&apos;email de confirmation. Benoît reprend chaque demande
                 personnellement.
@@ -343,7 +343,7 @@ export default function DevisAnalysePage() {
               <ContactForm defaultProjectType="devis-analyse" />
             </div>
 
-            {/* Sidebar — direct contact + RESCERT */}
+            {/* Sidebar - direct contact + RESCERT */}
             <aside className="space-y-5">
               <div className="bg-midnight rounded-xl p-6 space-y-4">
                 <h3 className="font-semibold text-white text-sm">
@@ -372,7 +372,7 @@ export default function DevisAnalysePage() {
                   </li>
                 </ul>
                 <p className="pt-3 mt-3 border-t border-charcoal text-xs text-white/85 leading-relaxed">
-                  Joignez votre devis directement à l&apos;email — il atterrit
+                  Joignez votre devis directement à l&apos;email, il atterrit
                   dans la boîte de Benoît.
                 </p>
               </div>
@@ -396,7 +396,7 @@ export default function DevisAnalysePage() {
               </div>
 
               {/* Upgrades the weakest CTA in the sidebar into a direct PDF
-                  download — high-intent quote-checkers are primed for it. */}
+                  download - high-intent quote-checkers are primed for it. */}
               <PDFLeadMagnetCard variant="compact" />
             </aside>
           </div>

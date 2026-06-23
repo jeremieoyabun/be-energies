@@ -73,10 +73,10 @@ export async function POST(request: Request) {
   const projectLabel = PROJECT_LABELS[data.projectType];
   const buildingLabel = data.buildingType
     ? BUILDING_LABELS[data.buildingType]
-    : "—";
-  const timelineLabel = data.timeline ? TIMELINE_LABELS[data.timeline] : "—";
+    : "-";
+  const timelineLabel = data.timeline ? TIMELINE_LABELS[data.timeline] : "-";
 
-  const subject = `Nouvelle demande — ${projectLabel} — ${data.name}`;
+  const subject = `Nouvelle demande - ${projectLabel} - ${data.name}`;
 
   const html = `
 <!doctype html>
@@ -93,14 +93,14 @@ export async function POST(request: Request) {
         <tr><td style="padding:6px 0; color:#7a7f8a;">Type de projet</td><td>${escapeHtml(projectLabel)}</td></tr>
         <tr><td style="padding:6px 0; color:#7a7f8a;">Type de bâtiment</td><td>${escapeHtml(buildingLabel)}</td></tr>
         <tr><td style="padding:6px 0; color:#7a7f8a;">Délai</td><td>${escapeHtml(timelineLabel)}</td></tr>
-        <tr><td style="padding:6px 0; color:#7a7f8a;">Devis existant ?</td><td><strong>${data.existingQuote ? "Oui — à faire analyser" : "Non"}</strong></td></tr>
+        <tr><td style="padding:6px 0; color:#7a7f8a;">Devis existant ?</td><td><strong>${data.existingQuote ? "Oui, à faire analyser" : "Non"}</strong></td></tr>
       </table>
       ${
         safeMessage
           ? `<div style="margin-top:18px; padding:14px 16px; background:#f7f4ee; border-left:3px solid #f59e0b; border-radius:6px;"><p style="margin:0 0 6px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#7a7f8a;">Message</p><div style="font-size:14px; color:#1f2430; white-space:pre-wrap;">${safeMessage}</div></div>`
           : ""
       }
-      <p style="margin-top:24px; font-size:12px; color:#7a7f8a;">Reçu via le formulaire be-energies.be — ${new Date().toLocaleString("fr-BE")}</p>
+      <p style="margin-top:24px; font-size:12px; color:#7a7f8a;">Reçu via le formulaire be-energies.be, ${new Date().toLocaleString("fr-BE")}</p>
     </div>
   </body>
 </html>`;
@@ -143,7 +143,7 @@ export async function POST(request: Request) {
       );
     }
   } catch (err) {
-    // Never log raw user input — only the failure shape.
+    // Never log raw user input - only the failure shape.
     console.error(
       "[contact] unexpected error:",
       err instanceof Error ? err.message : "unknown",

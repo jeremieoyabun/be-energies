@@ -20,7 +20,7 @@ interface RevealProps {
  * once, and respects prefers-reduced-motion (renders fully visible
  * immediately).
  *
- * - SSR: renders content opacity:0, translateY(offset) — but since the
+ * - SSR: renders content opacity:0, translateY(offset) - but since the
  *   block is hydrated quickly, the user only sees the animation if their
  *   browser is fast enough to register the IntersectionObserver before
  *   the page is scrolled.

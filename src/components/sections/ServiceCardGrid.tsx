@@ -42,12 +42,12 @@ export function ServiceCardGrid({ locale = "fr" }: ServiceCardGridProps) {
         </h2>
         <p className="mt-3 text-steel max-w-xl mb-10">
           {locale === "fr"
-            ? "Chaque installation est conçue pour la conformité, la performance et la durée. Le photovoltaïque reste notre cœur de métier — les autres services s'y greffent quand c'est pertinent."
+            ? "Chaque installation est conçue pour la conformité, la performance et la durée. Le photovoltaïque reste notre cœur de métier : les autres services s'y greffent quand c'est pertinent."
             : "Elke installatie is ontworpen voor conformiteit, prestaties en duurzaamheid. Zonnepanelen blijven onze kernactiviteit; andere diensten worden toegevoegd wanneer dat zinvol is."}
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          {/* Featured card — Panneaux photovoltaïques */}
+          {/* Featured card - Panneaux photovoltaïques */}
           {feature && (
             <FeatureCard
               service={feature}

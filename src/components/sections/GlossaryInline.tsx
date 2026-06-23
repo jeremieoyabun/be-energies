@@ -35,7 +35,7 @@ const COPY = {
 } as const;
 
 /**
- * Lexique block — surfaces the technical terms from /lib/glossary at the
+ * Lexique block - surfaces the technical terms from /lib/glossary at the
  * bottom of long pages. Native <details> so it doesn't ship JS and stays
  * print/SEO-friendly (the content is still in the DOM).
  */

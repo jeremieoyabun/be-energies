@@ -59,7 +59,7 @@ export function RealizationsClient({ realizations }: RealizationsClientProps) {
       {correctionCount > 0 && activeFilter === "all" && (
         <p className="mb-8 text-sm text-steel bg-ivory rounded-xl p-4 border border-cloud">
           Dont <strong className="text-midnight">{correctionCount} corrections</strong> d&apos;installations
-          défaillantes réalisées par d&apos;autres entreprises — un travail
+          défaillantes réalisées par d&apos;autres entreprises, un travail
           que seul un ancien contrôleur sait diagnostiquer avec précision.
         </p>
       )}

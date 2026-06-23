@@ -8,7 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
  * Privacy-aware analytics gate.
  *
  * - SpeedInsights collects anonymous Core Web Vitals (no PII, no cookies).
- *   Mounted unconditionally — legal under GDPR/Belgian APD recommendations.
+ *   Mounted unconditionally - legal under GDPR/Belgian APD recommendations.
  * - Analytics (page-view tracking) is gated behind the cookie banner choice.
  *   Only mounts after the user clicks "J'accepte" in the cookie banner.
  *

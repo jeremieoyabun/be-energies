@@ -346,7 +346,7 @@ export const realizations: Realization[] = [
     date: "2025-10",
     clientType: "professional",
     category: "premium",
-    keyResult: "82 % d'autoconsommation — ROI projeté à 5 ans",
+    keyResult: "82 % d'autoconsommation, ROI projeté à 5 ans",
     description:
       "Installation de 60 panneaux Longi Hi-MO 6 sur le toit plat d'un entrepôt PME à Nivelles. Le système de 30 kWc est équipé de deux onduleurs Huawei SUN2000-15KTL en cascade et d'un système de monitoring avancé pour le suivi de production. L'installation est dimensionnée pour couvrir 70% de la consommation de l'activité en journée, où la production solaire correspond aux heures d'exploitation.",
     images: [

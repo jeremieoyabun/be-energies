@@ -14,7 +14,7 @@ interface RealisationsLocalesProps {
   locale?: "fr" | "nl";
 }
 
-// Human-readable service labels (FR + NL) — keep cards clean (no raw slugs).
+// Human-readable service labels (FR + NL) - keep cards clean (no raw slugs).
 const SERVICE_LABEL_FR: Record<string, string> = {
   "panneaux-photovoltaiques": "Panneaux solaires",
   "batteries-domestiques": "Batterie",
@@ -56,7 +56,7 @@ function pickLocalRealizations(
     }
   };
 
-  // Pass 1 — same city + same service (if provided).
+  // Pass 1 - same city + same service (if provided).
   if (serviceSlug) {
     add(
       realizations.filter(
@@ -65,12 +65,12 @@ function pickLocalRealizations(
     );
   }
 
-  // Pass 2 — same city, any service.
+  // Pass 2 - same city, any service.
   if (picked.length < maxItems) {
     add(realizations.filter((r) => r.city === citySlug));
   }
 
-  // Pass 3 — same province (resolve via cities), any service.
+  // Pass 3 - same province (resolve via cities), any service.
   if (picked.length < maxItems) {
     const provinceCitySlugs = new Set(
       cities.filter((c) => c.province === provinceName).map((c) => c.slug),

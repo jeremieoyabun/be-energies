@@ -1,4 +1,4 @@
-// Service page deep content — production-ready
+// Service page deep content - production-ready
 // All regulatory numbers verified against REGULATORY_INTELLIGENCE.md (March 2026)
 // All messaging aligned with POSITIONING_MESSAGING.md
 

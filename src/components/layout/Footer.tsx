@@ -28,6 +28,37 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+
+            {/* Lead magnet - compact PDF capture, sits under Services */}
+            <div className="mt-6">
+              <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-light">
+                Checklist gratuite
+              </p>
+              {/* API route returning a PDF - keep <a> for direct download (no client nav). */}
+              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+              <a
+                href="/api/guide/pieges/"
+                className="mt-1.5 inline-flex items-center gap-1.5 text-sm text-white hover:text-amber-light transition-colors font-semibold"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-amber shrink-0"
+                  aria-hidden="true"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <path d="M12 18v-6m0 6l-3-3m3 3l3-3" />
+                </svg>
+                Télécharger le PDF (10 pièges)
+              </a>
+            </div>
           </div>
 
           {/* Informations */}
@@ -47,57 +78,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-
-            {/* Lead magnet — sitewide PDF capture, runs on every page */}
-            <div className="mt-6 rounded-xl bg-amber/10 border border-amber/20 p-4">
-              <div className="flex items-start gap-3">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-amber shrink-0 mt-0.5"
-                  aria-hidden="true"
-                >
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <path d="M12 18v-6m0 6l-3-3m3 3l3-3" />
-                </svg>
-                <div className="min-w-0">
-                  <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-light">
-                    Guide PDF
-                  </p>
-                  <p className="mt-1 text-sm text-white font-semibold leading-snug">
-                    10 pièges à éviter
-                  </p>
-                  {/* API route returning a PDF — keep <a> for direct download (no client nav). */}
-                  {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-                  <a
-                    href="/api/guide/pieges/"
-                    className="mt-2 inline-flex items-center gap-1.5 text-xs text-amber-light hover:text-amber transition-colors font-semibold"
-                  >
-                    Télécharger le PDF
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Contact */}
@@ -230,7 +210,7 @@ export function Footer() {
               {siteConfig.tagline}
             </span>
             <span className="text-charcoal">·</span>
-            {/* Language switcher — sets a long-lived cookie so the
+            {/* Language switcher - sets a long-lived cookie so the
                 middleware never re-detects the browser language after an
                 explicit choice. */}
             <LanguageSwitch />

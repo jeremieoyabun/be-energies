@@ -19,7 +19,7 @@ type Consent = "accepted" | "rejected";
  */
 
 // useSyncExternalStore subscribers (so SSR renders nothing and the banner
-// pops in once hydrated — no React 19 setState-in-effect warning).
+// pops in once hydrated - no React 19 setState-in-effect warning).
 function subscribe(callback: () => void): () => void {
   if (typeof window === "undefined") return () => {};
   window.addEventListener("storage", callback);

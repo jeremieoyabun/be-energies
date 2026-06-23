@@ -11,7 +11,7 @@ export interface Service {
   relatedServices: string[]; // service slugs
   /** When true, the service is hidden from all discovery surfaces (nav,
    *  grids, footer, related services, sitemap, city pages). The detail
-   *  page itself stays accessible (200) so existing bookmarks don't 404 —
+   *  page itself stays accessible (200) so existing bookmarks don't 404 -
    *  set the route to notFound() manually if you want a hard hide. */
   hidden?: boolean;
 }

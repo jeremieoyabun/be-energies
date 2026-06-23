@@ -124,7 +124,7 @@ export default async function BlogArticlePage({ params }: BlogPageProps) {
 
           <DataSources />
 
-          {/* Inline PDF lead magnet — a better next step than the dark
+          {/* Inline PDF lead magnet - a better next step than the dark
               sales-call CTA below for early-funnel blog readers. */}
           <div className="mt-12">
             <PDFLeadMagnetCard variant="inline" />
