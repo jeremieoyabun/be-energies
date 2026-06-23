@@ -93,55 +93,54 @@ function FeatureCard({
   return (
     <Link
       href={href}
-      className="group relative rounded-2xl border border-charcoal/40 shadow-[0_2px_8px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.18)] p-7 md:p-8 flex flex-col bg-midnight text-white overflow-hidden hover:bg-deep hover:-translate-y-0.5 transition-all duration-300 animate-fade-in-up"
+      className="group relative rounded-2xl border border-charcoal/40 shadow-[0_2px_8px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.18)] flex flex-col bg-midnight text-white overflow-hidden hover:bg-deep hover:-translate-y-0.5 transition-all duration-300 animate-fade-in-up"
     >
-      <div className="relative flex items-center gap-3 mb-5">
-        <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-amber text-midnight shrink-0">
-          <ServiceIcon name={service.icon} size={24} />
+      {service.heroImage && (
+        <div className="relative aspect-[21/9] w-full overflow-hidden">
+          <Image
+            src={service.heroImage}
+            alt={title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-midnight via-midnight/40 to-transparent" aria-hidden="true" />
         </div>
-        <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-light">
-          {locale === "fr" ? "Cœur de métier" : "Kernactiviteit"}
-        </span>
-      </div>
-
-      <div className="relative grid md:grid-cols-[1fr_280px] gap-6 md:gap-8 items-stretch flex-1">
-        <div className="min-w-0 flex flex-col">
-          <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white leading-tight">
-            {title}
-          </h3>
-
-          <p className="mt-3 text-[15px] text-white/90 leading-relaxed">
-            {locale === "fr"
-              ? "Conception, dimensionnement et installation par un ancien inspecteur certifié RESCERT. Le calcul de rentabilité est basé sur votre consommation réelle, pas sur un modèle générique."
-              : "Ontwerp, dimensionering en installatie door een voormalig inspecteur, RESCERT-gecertificeerd. De rendabiliteitsberekening is gebaseerd op uw werkelijke verbruik, niet op een generiek model."}
-          </p>
-
-          <ul className="mt-5 grid sm:grid-cols-2 gap-x-5 gap-y-1.5 text-[13px] text-white/90">
-            {benefits.map((b) => (
-              <li key={b} className="flex items-start gap-1.5">
-                <CheckIcon size={13} className="text-amber-light shrink-0 mt-0.5" />
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-
-          <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-amber group-hover:gap-3 transition-all">
-            {locale === "fr" ? "Voir le service complet" : "Bekijk de volledige dienst"}
-            <ArrowRightIcon size={16} />
+      )}
+      <div className="p-7 md:p-8 flex flex-col flex-1">
+        <div className="relative flex items-center gap-3 mb-5">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-amber text-midnight shrink-0">
+            <ServiceIcon name={service.icon} size={24} />
+          </div>
+          <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-amber-light">
+            {locale === "fr" ? "Cœur de métier" : "Kernactiviteit"}
           </span>
         </div>
 
-        {service.heroImage && (
-          <div className="hidden md:block relative rounded-xl overflow-hidden ring-1 ring-white/10 shadow-lg min-h-[260px]">
-            <Image
-              src={service.heroImage}
-              alt={title}
-              fill
-              sizes="280px"
-              className="object-cover"
-            />
-          </div>
-        )}
+        <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white leading-tight">
+          {title}
+        </h3>
+
+        <p className="mt-3 text-[15px] text-white/90 leading-relaxed">
+          {locale === "fr"
+            ? "Conception, dimensionnement et installation par un ancien inspecteur certifié RESCERT. Le calcul de rentabilité est basé sur votre consommation réelle, pas sur un modèle générique."
+            : "Ontwerp, dimensionering en installatie door een voormalig inspecteur, RESCERT-gecertificeerd. De rendabiliteitsberekening is gebaseerd op uw werkelijke verbruik, niet op een generiek model."}
+        </p>
+
+        <ul className="mt-5 grid sm:grid-cols-2 gap-x-5 gap-y-1.5 text-[13px] text-white/90">
+          {benefits.map((b) => (
+            <li key={b} className="flex items-start gap-1.5">
+              <CheckIcon size={13} className="text-amber-light shrink-0 mt-0.5" />
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+
+        <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-amber group-hover:gap-3 transition-all">
+          {locale === "fr" ? "Voir le service complet" : "Bekijk de volledige dienst"}
+          <ArrowRightIcon size={16} />
+        </span>
       </div>
     </Link>
   );
