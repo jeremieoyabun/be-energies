@@ -187,7 +187,7 @@ export default function DevisAnalysePage() {
             {/* Illustration - reuses the searching character used on the homepage CTA */}
             <div className="hidden lg:flex items-center justify-center">
               <Image
-                src="/img/searching.png"
+                src="/img/Mascotte.png"
                 alt="Personnage à la loupe inspectant un devis solaire"
                 width={360}
                 height={612}
