@@ -34,10 +34,15 @@ interface ProofSystemProps {
   intro?: string;
 }
 
+// Hand-picked featured trio. Each slug MUST point at a realization that
+// carries at least one image in its `images` array — otherwise multiple
+// cards fall back to the same /img/misc/realisation-hero.jpg placeholder
+// and the trio looks duplicated. When Benoit sends real chantier photos
+// for Tournai correction / Wavre premium, swap those slugs back in.
 const DEFAULT_FEATURED: string[] = [
-  "tournai-correction-installation-defaillante",
-  "wavre-pv-premium-28-panneaux",
-  "nivelles-pv-pme",
+  "charleroi-conformite",          // correction trust angle
+  "riemst-32-panneaux",            // premium PV (Benoit's real install)
+  "nivelles-pv-pme",               // B2B breadth
 ];
 
 function formatCity(slug: string): string {
