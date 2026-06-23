@@ -42,6 +42,9 @@ export default function NlHomePage() {
         ctaLabel="Gratis energiediagnose"
         ctaHref="/nl/contact/"
         secondaryCta={{ label: "Onze diensten", href: "/nl/diensten/" }}
+        badge="RESCERT-gecertificeerd · Voormalig inspecteur"
+        reassurances={["Helder bestek binnen 48 u", "Echte technische bezoek", "Eén aanspreekpunt"]}
+        video="/vds/Be-energies_video_header.optimized.webm"
       />
 
       <TrustBar locale="nl" />
