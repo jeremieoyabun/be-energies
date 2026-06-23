@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { visibleServices, services } from "@/data/services";
 import { ServiceIcon, ArrowRightIcon, CheckIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
@@ -103,15 +104,31 @@ function FeatureCard({
         </span>
       </div>
 
-      <h3 className="relative text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white leading-tight">
-        {title}
-      </h3>
+      <div className="relative grid md:grid-cols-[1fr_auto] gap-6 md:gap-7 items-start">
+        <div className="min-w-0">
+          <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white leading-tight">
+            {title}
+          </h3>
 
-      <p className="relative mt-3 text-[15px] text-white/90 leading-relaxed">
-        {locale === "fr"
-          ? "Conception, dimensionnement et installation par un ancien inspecteur certifié RESCERT. Le calcul de rentabilité est basé sur votre consommation réelle, pas sur un modèle générique."
-          : "Ontwerp, dimensionering en installatie door een voormalig inspecteur, RESCERT-gecertificeerd. De rendabiliteitsberekening is gebaseerd op uw werkelijke verbruik, niet op een generiek model."}
-      </p>
+          <p className="mt-3 text-[15px] text-white/90 leading-relaxed">
+            {locale === "fr"
+              ? "Conception, dimensionnement et installation par un ancien inspecteur certifié RESCERT. Le calcul de rentabilité est basé sur votre consommation réelle, pas sur un modèle générique."
+              : "Ontwerp, dimensionering en installatie door een voormalig inspecteur, RESCERT-gecertificeerd. De rendabiliteitsberekening is gebaseerd op uw werkelijke verbruik, niet op een generiek model."}
+          </p>
+        </div>
+
+        {service.heroImage && (
+          <div className="hidden md:block relative w-[200px] aspect-[16/10] rounded-xl overflow-hidden ring-1 ring-white/10 shadow-lg shrink-0">
+            <Image
+              src={service.heroImage}
+              alt={title}
+              fill
+              sizes="200px"
+              className="object-cover"
+            />
+          </div>
+        )}
+      </div>
 
       <ul className="relative mt-5 grid sm:grid-cols-2 gap-x-5 gap-y-1.5 text-[13px] text-white/90">
         {benefits.map((b) => (
@@ -146,25 +163,44 @@ function CompactCard({
   return (
     <Link
       href={href}
-      className={`group card p-5 flex flex-col animate-fade-in-up stagger-${
+      className={`group card p-0 overflow-hidden flex flex-col animate-fade-in-up stagger-${
         index + 1
       } hover:border-amber/40`}
     >
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-midnight text-amber">
-          <ServiceIcon name={service.icon} size={20} />
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-cloud/40">
+        {service.heroImage && (
+          <Image
+            src={service.heroImage}
+            alt={title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        )}
+        <div className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-sm pl-2 pr-2.5 py-1.5 shadow-sm ring-1 ring-midnight/10">
+          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-midnight text-amber">
+            <ServiceIcon name={service.icon} size={13} />
+          </span>
+          <span className="text-[10.5px] font-semibold tracking-[0.08em] uppercase text-midnight">
+            {locale === "fr" ? "Service" : "Dienst"}
+          </span>
         </div>
-        <ArrowRightIcon
-          size={15}
-          className="text-cloud group-hover:text-amber transition-colors group-hover:translate-x-1 transform duration-300"
-        />
       </div>
-      <h3 className="text-[15px] font-semibold text-midnight group-hover:text-amber-dark transition-colors leading-tight">
-        {title}
-      </h3>
-      <p className="mt-1.5 text-[13px] text-steel leading-snug line-clamp-3 flex-1">
-        {description}
-      </p>
+
+      <div className="p-5 flex flex-col flex-1">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-[15px] font-semibold text-midnight group-hover:text-amber-dark transition-colors leading-tight">
+            {title}
+          </h3>
+          <ArrowRightIcon
+            size={15}
+            className="text-cloud group-hover:text-amber transition-colors group-hover:translate-x-1 transform duration-300 shrink-0 mt-0.5"
+          />
+        </div>
+        <p className="mt-1.5 text-[13px] text-steel leading-snug line-clamp-3 flex-1">
+          {description}
+        </p>
+      </div>
     </Link>
   );
 }

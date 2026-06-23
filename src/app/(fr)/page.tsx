@@ -18,6 +18,7 @@ import { ComparisonTable } from "@/components/sections/ComparisonTable";
 import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { RealizationGrid } from "@/components/sections/RealizationGrid";
+import { TerrainStrip } from "@/components/sections/TerrainStrip";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTADiagnostic } from "@/components/sections/CTADiagnostic";
 import { QuoteCheckCTA } from "@/components/sections/QuoteCheckCTA";
@@ -104,6 +105,9 @@ export default function HomePage() {
       </section>
 
       {/* 8. PROOF - real realizations (white bg, visual) */}
+      {/* Terrain strip: silent visual proof of field activity right before
+              the curated RealizationGrid. Pure photos, no copy. */}
+      <TerrainStrip />
       <RealizationGrid
         realizations={realizations}
         maxItems={4}
