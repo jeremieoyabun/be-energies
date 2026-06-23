@@ -4,10 +4,13 @@ import path from "node:path";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { GuidePiegesDocument } from "@/lib/guide-pieges-pdf";
 import { piegePdfSections } from "@/lib/guide-pieges-content";
+import { verifyLeadToken } from "@/lib/lead-token";
 
 export const runtime = "nodejs";
-// PDF generation is expensive; cache aggressively at the edge.
-export const revalidate = 3600;
+// Token-gated, per-user: must be dynamic so the token check actually runs
+// instead of being cached. The PDF buffer itself is still rendered once
+// per cold start and reused thanks to Next's response caching.
+export const dynamic = "force-dynamic";
 
 async function loadImageBuffers(): Promise<Record<number, Buffer>> {
   const result: Record<number, Buffer> = {};
@@ -30,7 +33,31 @@ async function loadImageBuffers(): Promise<Record<number, Buffer>> {
   return result;
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  // Token gate — the only way to reach this PDF is to have gone through
+  // the lead-magnet form (which signed a short-lived HMAC token). Direct
+  // hits get a friendly 403 explaining how to retry.
+  const url = new URL(request.url);
+  const verdict = verifyLeadToken(
+    "pieges-a-eviter",
+    url.searchParams.get("exp"),
+    url.searchParams.get("sig"),
+  );
+  if (!verdict.ok) {
+    const status = verdict.reason === "expired" ? 410 : 403;
+    return NextResponse.json(
+      {
+        ok: false,
+        reason: verdict.reason ?? "missing",
+        error:
+          verdict.reason === "expired"
+            ? "Le lien de téléchargement a expiré. Demandez à nouveau le guide pour recevoir un lien frais."
+            : "Le téléchargement nécessite de remplir le formulaire d'accès. Retournez sur la page du guide pour le récupérer.",
+      },
+      { status },
+    );
+  }
+
   // Construct JSX outside try/catch (React 19 error-boundaries rule).
   let imageBuffers: Record<number, Buffer> = {};
   try {

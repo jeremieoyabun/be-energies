@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRightIcon } from "@/lib/icons";
+import { LeadMagnetButton } from "./LeadMagnetButton";
 
 type Variant = "compact" | "card" | "inline";
 type Locale = "fr" | "nl";
@@ -15,6 +15,8 @@ interface PDFLeadMagnetCardProps {
   variant?: Variant;
   locale?: Locale;
   className?: string;
+  /** Optional path of the page rendering this card, for analytics. */
+  sourcePage?: string;
 }
 
 const COPY = {
@@ -22,25 +24,18 @@ const COPY = {
     eyebrow: "CHECKLIST GRATUITE",
     title: "Les 10 pièges à éviter avant de signer",
     subline: "Pour vérifier votre devis solaire en 5 minutes",
-    cta: "Télécharger le guide PDF",
+    cta: "Recevoir le guide PDF",
     micro: "PDF · 12 pages · Gratuit",
   },
   nl: {
     eyebrow: "GRATIS CHECKLIST",
     title: "De 10 valkuilen om te vermijden vóór u tekent",
     subline: "Om uw zonneoffert te controleren in 5 minuten",
-    cta: "Download de PDF",
+    cta: "Ontvang de PDF",
     micro: "PDF · 12 pagina's · Gratis",
   },
 } as const;
 
-const HREF = "/api/guide/pieges/";
-
-/**
- * Small download arrow - matches the stroke style of the icon set in
- * `@/lib/icons` (no `ArrowDownIcon` exists yet so we inline a minimal one
- * to keep the export path self-contained).
- */
 function DownloadIcon({ size = 18 }: { size?: number }) {
   return (
     <svg
@@ -63,6 +58,7 @@ export function PDFLeadMagnetCard({
   variant = "card",
   locale = "fr",
   className = "",
+  sourcePage,
 }: PDFLeadMagnetCardProps) {
   const c = COPY[locale];
 
@@ -75,7 +71,10 @@ export function PDFLeadMagnetCard({
     >
       <div className="relative z-10 flex flex-col gap-4">
         <div className="flex items-center gap-2">
-          <span className="inline-flex h-2 w-2 rounded-full bg-amber" aria-hidden="true" />
+          <span
+            className="inline-flex h-2 w-2 rounded-full bg-amber"
+            aria-hidden="true"
+          />
           <span className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-dark">
             {c.eyebrow}
           </span>
@@ -101,15 +100,16 @@ export function PDFLeadMagnetCard({
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-          <Link
-            href={HREF}
+          <LeadMagnetButton
+            leadMagnetSlug="pieges-a-eviter"
+            sourcePage={sourcePage}
             className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-bold px-5 py-3 rounded-xl transition-colors text-sm"
-            aria-label={c.cta}
+            ariaLabel={c.cta}
           >
             <DownloadIcon size={16} />
             <span>{c.cta}</span>
             <ArrowRightIcon size={14} className="hidden sm:inline" />
-          </Link>
+          </LeadMagnetButton>
           <span className="text-[12px] text-steel font-[family-name:var(--font-data)] tracking-wide">
             {c.micro}
           </span>
@@ -118,8 +118,6 @@ export function PDFLeadMagnetCard({
     </div>
   );
 
-  // `compact` and `inline` are meant to drop into existing parent containers
-  // - no section padding, no container wrapper.
   if (variant === "compact" || variant === "inline") {
     return (
       <div
@@ -130,8 +128,6 @@ export function PDFLeadMagnetCard({
     );
   }
 
-  // `card` variant: full section, matches the rhythm of CTADiagnostic /
-  // QuoteCheckCTA so it can stand alone between two other sections.
   return (
     <section className={`section-padding bg-warm-gradient ${className}`}>
       <div className="container-be max-w-3xl">{innerCard}</div>

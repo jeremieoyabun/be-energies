@@ -100,6 +100,20 @@ export default function PrivacyPolicyPage() {
             au sens du RGPD), qui ne conserve ces données que le temps
             strictement nécessaire à l&apos;acheminement du message.
           </p>
+          <p>
+            <strong>Téléchargements de guides PDF.</strong> Lorsque vous
+            demandez l&apos;un de nos guides gratuits (par exemple « 10 pièges
+            à éviter »), votre email et, le cas échéant, votre prénom sont
+            transmis à notre prestataire <strong>Brevo</strong> (sous-traitant
+            au sens du RGPD, serveurs situés dans l&apos;Union européenne)
+            qui héberge la liste de contacts et envoie le mail de
+            confirmation contenant le lien de téléchargement. Vous
+            n&apos;êtes pas inscrit·e à une newsletter sans avoir explicitement
+            coché la case correspondante dans le formulaire. Vous pouvez
+            demander à tout moment la suppression de votre adresse en
+            écrivant à {""}
+            <a href="mailto:info@be-energies.be">info@be-energies.be</a>.
+          </p>
 
           <h3>
             3. Information préalable en cas de fusion / absorption

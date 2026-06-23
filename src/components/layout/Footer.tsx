@@ -29,15 +29,14 @@ export function Footer() {
               ))}
             </ul>
 
-            {/* Lead magnet - compact PDF capture, sits under Services */}
+            {/* Lead magnet - sends the visitor to the gated landing page
+                so the email-capture form runs (no direct PDF link). */}
             <div className="mt-6">
               <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-light">
                 Checklist gratuite
               </p>
-              {/* API route returning a PDF - keep <a> for direct download (no client nav). */}
-              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-              <a
-                href="/api/guide/pieges/"
+              <Link
+                href="/guide-pieges-a-eviter/"
                 className="mt-1.5 inline-flex items-center gap-1.5 text-sm text-white hover:text-amber-light transition-colors font-semibold"
               >
                 <svg
@@ -56,8 +55,8 @@ export function Footer() {
                   <polyline points="14 2 14 8 20 8" />
                   <path d="M12 18v-6m0 6l-3-3m3 3l3-3" />
                 </svg>
-                Télécharger le PDF (10 pièges)
-              </a>
+                Recevoir le guide (10 pièges)
+              </Link>
             </div>
           </div>
 

@@ -2,14 +2,13 @@ import { generatePageMetadata } from "@/lib/metadata";
 import { JsonLd, faqSchema } from "@/lib/schema";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CheckIcon, ArrowRightIcon } from "@/lib/icons";
+import { LeadMagnetButton } from "@/components/sections/LeadMagnetButton";
 import type { FAQItem } from "@/lib/types";
-
-const GUIDE_PDF_URL = "/api/guide/pieges";
 
 export const metadata = generatePageMetadata({
   title: "Guide gratuit -- Les 10 pièges à éviter avant de signer",
   description:
-    "Téléchargez le guide gratuit par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. 10 pièges concrets, la checklist des 10 questions à poser, et les vrais chiffres 2026. PDF immédiat.",
+    "Recevez le guide gratuit par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. 10 pièges concrets, la checklist des 10 questions à poser, et les vrais chiffres 2026.",
   path: "/guide-pieges-a-eviter/",
 });
 
@@ -88,29 +87,27 @@ export default function LeadMagnetPage() {
               </ul>
             </div>
 
-            {/* Download card - direct PDF, no email gate */}
+            {/* Download card - email-gated for lead capture */}
             <div className="md:col-span-2">
               <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl">
                 <p className="text-midnight font-semibold text-center mb-1">
-                  Téléchargement immédiat
+                  Recevoir le guide
                 </p>
                 <p className="text-steel text-xs text-center mb-6">
                   PDF · Sommaire + 7 fiches piège + checklist
                 </p>
-                <a
-                  href={GUIDE_PDF_URL}
-                  download="be-energies-7-pieges-a-eviter.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <LeadMagnetButton
+                  leadMagnetSlug="pieges-a-eviter"
+                  sourcePage="/guide-pieges-a-eviter/"
                   className="cta-glow w-full inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold py-3.5 rounded-lg transition-colors text-sm"
+                  ariaLabel="Recevoir le guide gratuit par email"
                 >
-                  Télécharger le guide gratuit
+                  Recevoir le guide gratuit
                   <ArrowRightIcon size={16} />
-                </a>
+                </LeadMagnetButton>
                 <p className="mt-3 text-[11px] text-steel text-center leading-relaxed">
-                  Gratuit · sans email · sans inscription.
-                  <br />
-                  Lisible dans n&apos;importe quel navigateur ou imprimable.
+                  Email + prénom (optionnel) suffisent. Pas de newsletter
+                  sans votre accord explicite.
                 </p>
               </div>
             </div>
@@ -185,18 +182,16 @@ export default function LeadMagnetPage() {
           <h2 className="text-2xl font-[family-name:var(--font-heading)] text-midnight mb-4">
             Prêt à éviter les erreurs qui coûtent cher ?
           </h2>
-          <a
-            href={GUIDE_PDF_URL}
-            download="be-energies-7-pieges-a-eviter.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <LeadMagnetButton
+            leadMagnetSlug="pieges-a-eviter"
+            sourcePage="/guide-pieges-a-eviter/"
             className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-midnight font-semibold px-8 py-4 rounded-xl transition-colors"
           >
-            Télécharger le guide gratuit (PDF)
+            Recevoir le guide gratuit (PDF)
             <ArrowRightIcon size={17} />
-          </a>
+          </LeadMagnetButton>
           <p className="mt-4 text-xs text-steel">
-            Gratuit · sans email · ouvre directement le PDF.
+            Gratuit · email + prénom optionnel · livré par email.
           </p>
         </div>
       </section>
