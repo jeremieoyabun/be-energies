@@ -180,7 +180,7 @@ export default function DevisAnalysePage() {
                   Envoyer mon devis
                   <ArrowRightIcon size={17} />
                 </a>
-                <GoogleReviewsBadge variant="inline" className="shrink-0" />
+                <GoogleReviewsBadge variant="dark" className="shrink-0" />
               </div>
             </div>
 
@@ -214,18 +214,25 @@ export default function DevisAnalysePage() {
             {checks.map((c) => (
               <article
                 key={c.title}
-                className="bg-ivory border border-cloud rounded-2xl p-6 md:p-7"
+                className="card p-6 md:p-7"
               >
-                <div className="flex items-start gap-3">
-                  <ComplianceIcon
-                    size={22}
-                    className="text-amber-dark shrink-0 mt-0.5"
-                  />
-                  <div>
-                    <h3 className="font-semibold text-midnight text-[17px] leading-snug">
+                <div className="flex items-start gap-4">
+                  {/* Icon container height matches the title's first
+                      line so they share an optical center: text-[17px]
+                      with leading-[1.3] ≈ 22px ≈ h-[22px]. The square
+                      pill grows on either side of that line without
+                      pushing the title down. */}
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 inline-flex items-center justify-center w-9 h-9 -my-1 rounded-lg bg-amber/12 ring-1 ring-amber/30 text-amber-dark"
+                  >
+                    <ComplianceIcon size={20} />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="font-bold text-midnight text-[17px] leading-[1.3]">
                       {c.title}
                     </h3>
-                    <p className="mt-2 text-[14px] text-charcoal leading-relaxed">
+                    <p className="mt-2 text-[14.5px] text-charcoal leading-relaxed">
                       {c.detail}
                     </p>
                   </div>

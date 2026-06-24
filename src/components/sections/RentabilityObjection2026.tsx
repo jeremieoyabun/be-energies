@@ -133,8 +133,7 @@ export function RentabilityObjection2026() {
             Ce qui a changé, et ce qui compte vraiment
           </h2>
           <p className="mt-4 text-charcoal leading-relaxed text-[17px]">
-            Le calcul de rentabilité a changé avec le compteur communicant.
-            Trois repères simples pour vous repérer.
+            Le compteur communicant a redéfini le calcul de rentabilité — voici les trois points qui décident vraiment.
           </p>
         </div>
 

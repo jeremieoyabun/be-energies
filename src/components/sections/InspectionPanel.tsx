@@ -13,11 +13,13 @@ export function InspectionPanel({
 }: InspectionPanelProps) {
   return (
     <div>
-      {/* Header */}
+      {/* Header — all children forced to the same line-height-less leading
+          so the check icon container (28px), the eyebrow glyphs, and the
+          right-aligned "Rapport" chip share a single optical baseline. */}
       <div className="flex items-center gap-3">
         <span
           aria-hidden="true"
-          className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-amber/15 text-amber-dark border border-amber/30"
+          className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-amber/15 text-amber-dark border border-amber/30 shrink-0"
         >
           <svg
             viewBox="0 0 24 24"
@@ -31,12 +33,12 @@ export function InspectionPanel({
             <path d="M5 12l4 4L19 7" />
           </svg>
         </span>
-        <p className="text-[12px] font-bold tracking-[0.16em] uppercase text-amber-dark font-[family-name:var(--font-mono)]">
+        <p className="text-[12px] font-bold tracking-[0.16em] uppercase text-amber-dark font-[family-name:var(--font-mono)] leading-none m-0">
           {eyebrow}
         </p>
         <span
           aria-hidden="true"
-          className="ml-auto hidden sm:inline-flex items-center gap-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-charcoal font-[family-name:var(--font-mono)] border-[1.5px] border-midnight/20 rounded-md px-2 py-0.5 bg-white"
+          className="ml-auto hidden sm:inline-flex items-center gap-1.5 text-[11px] font-bold tracking-[0.16em] uppercase text-charcoal font-[family-name:var(--font-mono)] border-[1.5px] border-midnight/20 rounded-md px-2 py-1 bg-white leading-none"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-amber" />
           Rapport

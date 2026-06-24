@@ -78,9 +78,13 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {/* LEFT - start a project */}
-            <div className="p-7 md:p-9 flex flex-col rounded-2xl bg-white/[0.06] border-[1.5px] border-amber/30 border-l-[3px] border-l-amber shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-              <div className="text-[13px] font-bold tracking-[0.16em] uppercase text-amber mb-3 font-[family-name:var(--font-mono)]">
+            {/* LEFT - start a project — primary path. The card carries
+                its identity through (a) a fuller amber border, (b) a
+                slightly warmer translucent fill, and (c) the eyebrow
+                colored amber — no decorative vertical bar. */}
+            <div className="p-7 md:p-9 flex flex-col rounded-2xl bg-gradient-to-br from-amber/[0.08] to-white/[0.04] border-[1.5px] border-amber/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_8px_24px_-12px_rgba(245,158,11,0.18)]">
+              <div className="inline-flex items-center gap-2 text-[13px] font-bold tracking-[0.16em] uppercase text-amber mb-4 font-[family-name:var(--font-mono)] leading-none">
+                <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-amber shadow-[0_0_0_3px_rgba(245,158,11,0.25)]" />
                 Étape 1
               </div>
               <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
@@ -98,9 +102,12 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* RIGHT - already have a quote */}
-            <div className="p-7 md:p-9 flex flex-col rounded-2xl bg-white/[0.06] border-[1.5px] border-white/20 border-l-[3px] border-l-white/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-              <div className="text-[13px] font-bold tracking-[0.16em] uppercase text-white/90 mb-3 font-[family-name:var(--font-mono)]">
+            {/* RIGHT - already have a quote — secondary path. Neutral
+                white-tinted card, eyebrow in white/cool tone to read as
+                "alternate route" rather than the primary action. */}
+            <div className="p-7 md:p-9 flex flex-col rounded-2xl bg-white/[0.05] border-[1.5px] border-white/18 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div className="inline-flex items-center gap-2 text-[13px] font-bold tracking-[0.16em] uppercase text-white/85 mb-4 font-[family-name:var(--font-mono)] leading-none">
+                <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-white/60" />
                 Deuxième avis
               </div>
               <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
