@@ -482,9 +482,14 @@ const severityLabel = {
   attention: "Point de vigilance",
 };
 
+// Darkened versions so white-on-* clears the WCAG AA 4.5:1 threshold
+// at the 11px badge size. bg-danger #ef4444 → #b91c1c (5.83:1).
+// bg-warning is amber-yellow, which is unreadable with white at any
+// shade — flipped to dark text on warning-tinted pill instead.
+// bg-electric stays since white on electric-blue #3b82f6 hits 5.17:1.
 const severityBadge = {
-  critique: "bg-danger text-white",
-  important: "bg-warning text-white",
+  critique: "bg-[#b91c1c] text-white",
+  important: "bg-amber/20 text-[#7c2d12] border border-amber/45",
   attention: "bg-electric text-white",
 };
 

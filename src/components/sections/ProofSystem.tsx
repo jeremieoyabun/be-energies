@@ -210,7 +210,7 @@ export function ProofSystem({
                   key={`${t.name}-${idx}`}
                   className="card p-5 md:p-6"
                 >
-                  <div className="flex items-center gap-0.5 mb-3" aria-label={`Note ${t.rating} sur 5`}>
+                  <div role="img" className="flex items-center gap-0.5 mb-3" aria-label={`Note ${t.rating} sur 5`}>
                     {Array.from({ length: t.rating }).map((_, i) => (
                       <StarIcon key={i} size={14} className="text-amber" />
                     ))}

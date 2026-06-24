@@ -12,10 +12,15 @@
   --brand-ivory: #f8fafc;
   --brand-white: #ffffff;
 
-  /* Accent: Warm amber - energy, warmth, action */
+  /* Accent: Warm amber - energy, warmth, action.
+     amber-dark was previously #d97706 (Tailwind amber-600) which sits
+     at 4.65:1 on white — borderline AA. Bumped to amber-700 #b45309
+     (5.84:1 on white) so every amber-dark text element passes AA with
+     margin, including the ProofSystem sub-band eyebrows and the
+     "Lire le détail" links flagged by Lighthouse. */
   --brand-amber: #f59e0b;
   --brand-amber-light: #fbbf24;
-  --brand-amber-dark: #d97706;
+  --brand-amber-dark: #b45309;
   --brand-amber-glow: rgba(245, 158, 11, 0.15);
 
   /* Secondary accent: Electric blue - trust, tech, precision */
@@ -289,7 +294,11 @@ html {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--brand-amber-dark);
+  /* Midnight on the amber-tinted pill gives ~13:1 contrast (AAA),
+     vs. amber-dark on the same tint which sits around 3.5:1 and was
+     flagged by Lighthouse. The pill bg + leading amber dash keep the
+     amber brand identity; only the text colour moves. */
+  color: var(--brand-midnight);
   flex-shrink: 0;
 }
 

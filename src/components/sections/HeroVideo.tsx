@@ -44,6 +44,13 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
     ).matches;
     if (reduceMotion) return;
 
+    // Skip the video entirely on mobile/tablet widths: the .webm is
+    // ~2.6 MB and dominates LCP on slow 4G, while the poster image is
+    // visually identical with the dark overlay. Saves ~2.5 MB and drops
+    // the video from the LCP candidate set on phones. Desktop visitors
+    // (≥ 1024 px, typically on faster connections) still get the video.
+    if (window.innerWidth < 1024) return;
+
     const conn = (
       navigator as Navigator & { connection?: NavigatorConnection }
     ).connection;
@@ -89,14 +96,14 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
         aria-hidden="true"
       />
 
-      {/* Video - mounted only after a beat */}
+      {/* Video - mounted only after a beat AND only on desktop. */}
       {mountVideo && (
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           poster={poster}
           className="absolute inset-0 w-full h-full object-cover animate-fade-in"
           aria-hidden="true"

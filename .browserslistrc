@@ -1,0 +1,14 @@
+# Modern targets only — drops legacy polyfills that Next.js 16 / SWC
+# would otherwise inject for Array.prototype.at, flat, flatMap,
+# Object.fromEntries, Object.hasOwn, String.prototype.trimStart/trimEnd
+# (~14 KiB saved on the main chunk per Lighthouse).
+#
+# All listed features are baseline-supported in these versions:
+# Chrome 92+, Firefox 90+, Safari 14+, Edge 92+.
+chrome >= 92
+firefox >= 90
+safari >= 14
+edge >= 92
+not dead
+not op_mini all
+not ie 11

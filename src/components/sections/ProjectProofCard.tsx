@@ -43,7 +43,7 @@ export function ProjectProofCard({
           {primaryLabel}
         </p>
         {isCorrection && (
-          <span className="shrink-0 inline-flex items-center rounded-md bg-danger text-white text-[10.5px] md:text-[11px] font-semibold tracking-[0.08em] uppercase px-2 py-0.5">
+          <span className="shrink-0 inline-flex items-center rounded-md bg-[#b91c1c] text-white text-[10.5px] md:text-[11px] font-bold tracking-[0.08em] uppercase px-2 py-0.5">
             Correction
           </span>
         )}
