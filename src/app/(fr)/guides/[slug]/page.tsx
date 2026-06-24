@@ -120,6 +120,20 @@ export default async function GuidePage({ params }: GuidePageProps) {
     { name: guide.h1 },
   ];
 
+  // Per-guide editorial banner image. Slugs without an entry fall back
+  // to no banner (the bare HeroSection compact still reads cleanly).
+  const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
+    "prix-panneaux-solaires-wallonie-2026": {
+      src: "/img/guides/guide-pv-toiture-golden.webp",
+      alt: "Maison wallonne en brique avec installation photovoltaïque en lumière dorée",
+    },
+    "tarif-impact-wallonie-explication": {
+      src: "/img/guides/guide-tarif-impact-bureau.webp",
+      alt: "Analyse d'un devis solaire avec calculatrice et facture",
+    },
+  };
+  const heroImage = HERO_IMAGES[guide.slug];
+
   return (
     <>
       <ReadingProgress />
@@ -143,6 +157,26 @@ export default async function GuidePage({ params }: GuidePageProps) {
       />
 
       <Breadcrumbs items={breadcrumbItems} />
+
+      {heroImage && (
+        <section className="bg-ivory pt-8 md:pt-12">
+          <div className="container-be max-w-5xl">
+            <figure className="relative aspect-[21/9] rounded-2xl overflow-hidden ring-1 ring-midnight/8 shadow-[0_8px_28px_-12px_rgba(12,18,32,0.25)] image-reveal">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={heroImage.src}
+                alt={heroImage.alt}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight/35 to-transparent"
+              />
+            </figure>
+          </div>
+        </section>
+      )}
 
       <HeroSection
         headline={guide.h1}

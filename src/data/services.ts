@@ -11,7 +11,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Op maat geinstalleerde zonnepanelen, gedimensioneerd door een voormalig inspecteur om uw zelfconsumptie te maximaliseren.",
     icon: "solar",
-    heroImage: "/img/Be-energies_Panneaux_photovoltaiques.webp",
+    heroImage: "/img/guides/service-pv-facade.webp",
     pieges: [
       "retour-investissement-gonfle",
       "installation-gratuite",
@@ -64,7 +64,7 @@ export const services: Service[] = [
     shortDescriptionNl:
       "Conformiteit door een voormalig inspecteur. Uw installatie is klaar voor de eerste keuring.",
     icon: "compliance",
-    heroImage: "/img/services/electricite.jpg",
+    heroImage: "/img/guides/service-conformite-tableau.webp",
     pieges: ["devis-sans-visite", "installation-non-conforme"],
     relatedServices: ["panneaux-photovoltaiques", "pompes-a-chaleur", "batteries-domestiques"],
   },

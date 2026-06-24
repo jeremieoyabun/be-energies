@@ -45,8 +45,26 @@ export default function RealizationsPage() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="py-14 md:py-20 bg-ivory">
+      {/* Hero — aerial banner over a Walloon residential neighbourhood
+          gives an immediate "we install here" cue before the H1. */}
+      <section className="bg-ivory pt-8 md:pt-12">
+        <div className="container-be max-w-5xl">
+          <figure className="relative aspect-[21/9] rounded-2xl overflow-hidden ring-1 ring-midnight/8 shadow-[0_8px_28px_-12px_rgba(12,18,32,0.25)] image-reveal">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/img/guides/guide-pv-drone.webp"
+              alt="Vue aérienne d'un quartier résidentiel wallon avec installation photovoltaïque"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight/40 to-transparent"
+            />
+          </figure>
+        </div>
+      </section>
+      <section className="pt-10 md:pt-14 pb-10 md:pb-16 bg-ivory">
         <div className="container-be">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance">

@@ -79,6 +79,24 @@ export default function Page() {
         ]}
       />
 
+      <section className="bg-ivory pt-8 md:pt-12">
+        <div className="container-be max-w-5xl">
+          <figure className="relative aspect-[21/9] rounded-2xl overflow-hidden ring-1 ring-midnight/8 shadow-[0_8px_28px_-12px_rgba(12,18,32,0.25)] image-reveal">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/img/guides/guide-inverter-mural.webp"
+              alt="Onduleur photovoltaïque mural dans une cave technique"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-midnight/35 to-transparent"
+            />
+          </figure>
+        </div>
+      </section>
+
       {/* HERO */}
       <section className="section-padding bg-white">
         <div className="container-be max-w-4xl">
