@@ -56,83 +56,60 @@ export async function POST(request: Request) {
   const data = result.data;
   const magnet = LEAD_MAGNETS[data.leadMagnetSlug];
 
-  const apiKey = process.env.BREVO_API_KEY;
-  const listId = process.env.BREVO_LEAD_MAGNET_LIST_ID;
+  const brevoApiKey = process.env.BREVO_API_KEY;
+  const brevoListId = process.env.BREVO_LEAD_MAGNET_LIST_ID;
+  const brevoConfigured = Boolean(brevoApiKey && brevoListId);
   const senderEmail =
     process.env.BREVO_FROM_EMAIL ?? process.env.CONTACT_FROM_EMAIL;
   const senderName = process.env.BREVO_FROM_NAME ?? "Be'energies";
-  const tokenSecret = process.env.LEAD_MAGNET_TOKEN_SECRET;
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.be-energies.be";
 
-  if (!apiKey || !listId || !senderEmail || !tokenSecret) {
-    console.error(
-      "[lead-magnet] missing env: BREVO_API_KEY / BREVO_LEAD_MAGNET_LIST_ID / BREVO__OR_CONTACT_FROM_EMAIL / LEAD_MAGNET_TOKEN_SECRET",
-    );
-    return NextResponse.json(
-      {
-        ok: false,
-        error:
-          "Service de téléchargement temporairement indisponible. Merci d'écrire à info@be-energies.be ou de réessayer dans quelques minutes.",
-      },
-      { status: 503 },
-    );
-  }
+  // The download flow runs even if Brevo is not configured: the modal
+  // hands the visitor a signed download URL straight away, and the
+  // Resend notification to info@be-energies.be (step 4) captures the
+  // lead so it's never lost. Brevo (steps 1 + 3) is only the CRM /
+  // long-term contact storage — nice to have, not a blocker.
 
-  // 1. Create or update the contact in the Brevo lead-magnet list.
-  //    We treat any non-2xx as a hard failure so we never silently lose
-  //    a lead — the user can retry.
-  try {
-    const brevoContactRes = await fetch(`${BREVO_BASE}/v3/contacts`, {
-      method: "POST",
-      headers: {
-        "api-key": apiKey,
-        "content-type": "application/json",
-        accept: "application/json",
-      },
-      body: JSON.stringify({
-        email: data.email,
-        attributes: {
-          FIRSTNAME: data.firstName ?? "",
-          LAST_LEAD_MAGNET: data.leadMagnetSlug,
-          LAST_LEAD_MAGNET_AT: new Date().toISOString(),
-          SOURCE_PAGE: data.sourcePage ?? "",
-          OPTIN_MARKETING: data.consentMarketing,
+  // 1. (Optional) Create or update the contact in the Brevo lead-magnet
+  //    list. Skipped when Brevo env is not configured.
+  if (brevoConfigured) {
+    try {
+      const brevoContactRes = await fetch(`${BREVO_BASE}/v3/contacts`, {
+        method: "POST",
+        headers: {
+          "api-key": brevoApiKey as string,
+          "content-type": "application/json",
+          accept: "application/json",
         },
-        listIds: [Number(listId)],
-        updateEnabled: true,
-      }),
-    });
+        body: JSON.stringify({
+          email: data.email,
+          attributes: {
+            FIRSTNAME: data.firstName ?? "",
+            LAST_LEAD_MAGNET: data.leadMagnetSlug,
+            LAST_LEAD_MAGNET_AT: new Date().toISOString(),
+            SOURCE_PAGE: data.sourcePage ?? "",
+            OPTIN_MARKETING: data.consentMarketing,
+          },
+          listIds: [Number(brevoListId)],
+          updateEnabled: true,
+        }),
+      });
 
-    if (!brevoContactRes.ok) {
-      const detail = await tryReadJson(brevoContactRes);
+      if (!brevoContactRes.ok) {
+        const detail = await tryReadJson(brevoContactRes);
+        console.error(
+          "[lead-magnet] brevo contact failed (download will still complete):",
+          brevoContactRes.status,
+          detail,
+        );
+      }
+    } catch (err) {
       console.error(
-        "[lead-magnet] brevo contact failed:",
-        brevoContactRes.status,
-        detail,
-      );
-      return NextResponse.json(
-        {
-          ok: false,
-          error:
-            "Impossible d'enregistrer votre demande pour le moment. Merci de réessayer ou de nous écrire directement.",
-        },
-        { status: 502 },
+        "[lead-magnet] brevo contact error (download will still complete):",
+        err instanceof Error ? err.message : "unknown",
       );
     }
-  } catch (err) {
-    console.error(
-      "[lead-magnet] brevo contact error:",
-      err instanceof Error ? err.message : "unknown",
-    );
-    return NextResponse.json(
-      {
-        ok: false,
-        error:
-          "Impossible d'enregistrer votre demande pour le moment. Merci de réessayer ou de nous écrire directement.",
-      },
-      { status: 502 },
-    );
   }
 
   // 2. Mint two tokens:
@@ -147,10 +124,11 @@ export async function POST(request: Request) {
   });
   const emailDownloadUrl = `${siteUrl}${magnet.pdfPath}?exp=${emailToken.exp}&sig=${encodeURIComponent(emailToken.sig)}`;
 
-  // 3. Send the transactional confirmation email via Brevo.
-  //    A failure here does NOT fail the user flow — they already got the
-  //    download URL in the modal. We just log it for ops.
-  try {
+  // 3. (Optional) Send the transactional confirmation email via Brevo.
+  //    Skipped when Brevo is not configured OR when no sender address
+  //    is available. The Resend notification at step 4 acts as the
+  //    leads-never-lost backstop.
+  if (brevoConfigured && senderEmail) try {
     const greeting = data.firstName
       ? `Bonjour ${escapeHtml(data.firstName)},`
       : "Bonjour,";
@@ -182,7 +160,7 @@ export async function POST(request: Request) {
     const brevoEmailRes = await fetch(`${BREVO_BASE}/v3/smtp/email`, {
       method: "POST",
       headers: {
-        "api-key": apiKey,
+        "api-key": brevoApiKey as string,
         "content-type": "application/json",
         accept: "application/json",
       },

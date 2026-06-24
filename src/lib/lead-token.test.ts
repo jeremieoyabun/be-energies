@@ -86,11 +86,23 @@ describe("signLeadToken / verifyLeadToken", () => {
     expect(result.reason).toBe("malformed");
   });
 
-  it("throws if the secret is missing or too short at sign time", () => {
+  it("falls back to an ephemeral process secret if the env secret is missing or too short", () => {
+    // Without an env secret, sign+verify should still round-trip
+    // using a process-lifetime fallback. This keeps the download flow
+    // working in environments where the env var hasn't been set yet.
     process.env.LEAD_MAGNET_TOKEN_SECRET = undefined;
-    expect(() => signLeadToken("pieges-a-eviter")).toThrow();
+    const a = signLeadToken("pieges-a-eviter");
+    expect(a.sig.length).toBeGreaterThan(20);
+    expect(
+      verifyLeadToken("pieges-a-eviter", String(a.exp), a.sig).ok,
+    ).toBe(true);
+
     process.env.LEAD_MAGNET_TOKEN_SECRET = "short";
-    expect(() => signLeadToken("pieges-a-eviter")).toThrow();
+    const b = signLeadToken("pieges-a-eviter");
+    expect(b.sig.length).toBeGreaterThan(20);
+    expect(
+      verifyLeadToken("pieges-a-eviter", String(b.exp), b.sig).ok,
+    ).toBe(true);
   });
 });
 

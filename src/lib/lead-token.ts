@@ -17,14 +17,22 @@ import type { LeadMagnetSlug } from "./lead-magnet";
 const ALG = "sha256";
 const DEFAULT_TTL_MS = 30 * 60 * 1000;
 
+// Process-lifetime fallback secret. Used only when LEAD_MAGNET_TOKEN_SECRET
+// is not configured on the host — keeps the download flow working in
+// pre-launch / staging environments. Tokens minted with this secret are
+// valid only within the same Node.js process; deploys invalidate them,
+// which is fine since modal-flow tokens are used within seconds anyway.
+let RUNTIME_FALLBACK_SECRET: string | null = null;
 function getSecret(): string {
-  const s = process.env.LEAD_MAGNET_TOKEN_SECRET;
-  if (!s || s.length < 16) {
-    throw new Error(
-      "LEAD_MAGNET_TOKEN_SECRET is not configured (need at least 16 chars).",
+  const env = process.env.LEAD_MAGNET_TOKEN_SECRET;
+  if (env && env.length >= 16) return env;
+  if (!RUNTIME_FALLBACK_SECRET) {
+    RUNTIME_FALLBACK_SECRET = crypto.randomBytes(32).toString("hex");
+    console.warn(
+      "[lead-token] LEAD_MAGNET_TOKEN_SECRET not set on host — minting an ephemeral process secret. Set the env var on Vercel for cross-deploy stability.",
     );
   }
-  return s;
+  return RUNTIME_FALLBACK_SECRET;
 }
 
 function sign(payload: string, secret: string): string {
