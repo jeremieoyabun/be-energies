@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 import { PhoneIcon, ChevronDownIcon, getServiceIcon } from "@/lib/icons";
 import type { NavItem } from "@/data/navigation";
 import { MobileMenu } from "./MobileMenu";
+import { CloseMenuOnNavigate } from "./CloseMenuOnNavigate";
 
 interface HeaderProps {
   navigation: NavItem[];
@@ -144,6 +145,7 @@ export function Header({ navigation, locale, ctaLabel, ctaHref }: HeaderProps) {
           />
         </div>
       </div>
+      <CloseMenuOnNavigate />
     </header>
   );
 }
