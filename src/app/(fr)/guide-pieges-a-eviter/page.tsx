@@ -127,10 +127,10 @@ export default function LeadMagnetPage() {
             Les deux vous coûtent cher.
           </p>
           <div className="space-y-4">
-            {piegesPreviews.map((piege) => (
+            {piegesPreviews.map((piege, idx) => (
               <div
                 key={piege.number}
-                className="card flex items-start gap-5 p-5 md:p-6 hover:-translate-y-0.5 transition-all duration-200"
+                className={`card reveal reveal-${(idx % 6) + 1} flex items-start gap-5 p-5 md:p-6 hover:-translate-y-0.5 transition-all duration-200`}
               >
                 <span className="step-badge step-badge-inverted shrink-0">
                   {String(piege.number).padStart(2, "0")}

@@ -91,7 +91,7 @@ function FeatureCard({
   return (
     <Link
       href={href}
-      className="group relative rounded-2xl border border-charcoal/40 shadow-[0_2px_8px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.18)] flex flex-col bg-midnight text-white overflow-hidden hover:bg-deep hover:-translate-y-0.5 transition-all duration-300 animate-fade-in-up"
+      className="group relative rounded-2xl border border-charcoal/40 shadow-[0_2px_8px_rgba(0,0,0,0.12),0_8px_24px_rgba(0,0,0,0.18)] flex flex-col bg-midnight text-white overflow-hidden hover:bg-deep hover:-translate-y-0.5 transition-all duration-300 reveal"
     >
       {service.heroImage && (
         <div className="relative aspect-[21/9] w-full overflow-hidden">
@@ -160,8 +160,8 @@ function CompactCard({
   return (
     <Link
       href={href}
-      className={`group card p-0 overflow-hidden flex flex-col animate-fade-in-up stagger-${
-        index + 1
+      className={`group card p-0 overflow-hidden flex flex-col reveal reveal-${
+        (index % 6) + 1
       } hover:border-amber/40`}
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-cloud/40">

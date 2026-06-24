@@ -144,11 +144,11 @@ export function ProofSystem({
               </Link>
             </div>
             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
-              {stripItems.map((r) => (
+              {stripItems.map((r, idx) => (
                 <Link
                   key={r.slug}
                   href={`/realisations/${r.slug}/`}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-midnight/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber"
+                  className={`group relative aspect-[4/3] rounded-xl overflow-hidden bg-midnight/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber image-reveal reveal-${(idx % 6) + 1}`}
                   aria-label={`Voir la réalisation : ${r.title}`}
                 >
                   <Image
@@ -178,13 +178,14 @@ export function ProofSystem({
               Projets phares
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {featured.map((r) => (
-                <ProjectProofCard
-                  key={r.slug}
-                  realization={r}
-                  primaryLabel={buildPrimaryLabel(r)}
-                  problem={shortProblem(r)}
-                />
+              {featured.map((r, idx) => (
+                <div key={r.slug} className={`reveal reveal-${idx + 1}`}>
+                  <ProjectProofCard
+                    realization={r}
+                    primaryLabel={buildPrimaryLabel(r)}
+                    problem={shortProblem(r)}
+                  />
+                </div>
               ))}
             </div>
             <SourceNote>
@@ -208,7 +209,7 @@ export function ProofSystem({
               {reviewItems.map((t, idx) => (
                 <figure
                   key={`${t.name}-${idx}`}
-                  className="card p-5 md:p-6"
+                  className={`card reveal reveal-${idx + 1} p-5 md:p-6`}
                 >
                   <div role="img" className="flex items-center gap-0.5 mb-3" aria-label={`Note ${t.rating} sur 5`}>
                     {Array.from({ length: t.rating }).map((_, i) => (

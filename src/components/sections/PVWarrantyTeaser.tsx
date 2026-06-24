@@ -52,10 +52,10 @@ export function PVWarrantyTeaser() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-          {ROWS.map((row) => (
+          {ROWS.map((row, idx) => (
             <div
               key={row.label}
-              className="card relative p-6 md:p-7 flex flex-col before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-amber before:rounded-t-[1rem]"
+              className={`card reveal reveal-${idx + 1} relative p-6 md:p-7 flex flex-col before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-amber before:rounded-t-[1rem]`}
             >
               <p className="text-[12px] font-bold tracking-[0.12em] uppercase text-amber-dark font-[family-name:var(--font-mono)]">
                 {row.label}

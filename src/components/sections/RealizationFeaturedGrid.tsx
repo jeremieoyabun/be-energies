@@ -99,7 +99,7 @@ export function RealizationFeaturedGrid({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {featured.map((r) => {
+          {featured.map((r, idx) => {
             const categoryBadge = r.category ? CATEGORY_BADGE[r.category] : null;
             const problem = buildProblemSolved(r);
             const serviceLabel = SERVICE_LABEL[r.service] ?? r.service;
@@ -107,7 +107,7 @@ export function RealizationFeaturedGrid({
               <Link
                 key={r.slug}
                 href={`/realisations/${r.slug}/`}
-                className="group card overflow-hidden flex flex-col"
+                className={`group card reveal reveal-${idx + 1} overflow-hidden flex flex-col`}
               >
                 <div className="aspect-[16/10] bg-ivory relative overflow-hidden">
                   <Image

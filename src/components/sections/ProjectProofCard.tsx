@@ -49,8 +49,9 @@ export function ProjectProofCard({
         )}
       </div>
 
-      {/* Image — slight rounding inside the card */}
-      <div className="relative aspect-[16/10] bg-midnight/5 overflow-hidden mx-3 mt-3 rounded-lg">
+      {/* Image — slight rounding inside the card, with a clip-path
+          sweep reveal as the card scrolls into view. */}
+      <div className="relative aspect-[16/10] bg-midnight/5 overflow-hidden mx-3 mt-3 rounded-lg image-reveal">
         {r.images[0] ? (
           <Image
             src={r.images[0]}

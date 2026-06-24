@@ -44,7 +44,7 @@ export function PVMethodPanel() {
             return (
               <li
                 key={item}
-                className="card flex items-start gap-3.5 p-4 md:p-5"
+                className={`card reveal reveal-${(idx % 6) + 1} flex items-start gap-3.5 p-4 md:p-5`}
               >
                 <span
                   aria-hidden="true"

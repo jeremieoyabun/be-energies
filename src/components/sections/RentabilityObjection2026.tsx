@@ -150,12 +150,12 @@ export function RentabilityObjection2026() {
             ]}
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-              {CARDS.map(({ number, eyebrow, title, body, link, tone }) => {
+              {CARDS.map(({ number, eyebrow, title, body, link, tone }, idx) => {
                 const t = TONE_STYLES[tone];
                 return (
                   <article
                     key={number}
-                    className={`rounded-2xl p-6 md:p-7 flex flex-col h-full relative ${t.card}`}
+                    className={`rounded-2xl p-6 md:p-7 flex flex-col h-full relative reveal reveal-${idx + 1} ${t.card}`}
                   >
                     {/* Top row: amber circle badge with the step number plus
                         the eyebrow label. The badge anchors the scan path

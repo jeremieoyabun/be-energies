@@ -16,6 +16,7 @@ import {
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { FAQSection } from "@/components/sections/FAQSection";
+import { ReadingProgress } from "@/components/animations/ReadingProgress";
 import { ChevronDownIcon } from "@/lib/icons";
 
 interface GuidePageProps {
@@ -121,6 +122,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
 
   return (
     <>
+      <ReadingProgress />
       {/* Schemas: Article + FAQPage + LocalBusiness + Breadcrumb */}
       <JsonLd
         data={[
