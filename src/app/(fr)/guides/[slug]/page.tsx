@@ -180,7 +180,10 @@ export default async function GuidePage({ params }: GuidePageProps) {
 
       <HeroSection
         headline={guide.h1}
-        subheadline={guide.introduction}
+        // When the guide ships its own rich introductionHtml, the
+        // HeroSection only carries the H1 + CTAs so the rich intro
+        // can render below in a proper 2-column editorial spread.
+        subheadline={guide.introductionHtml ? "" : guide.introduction}
         ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{
@@ -189,6 +192,17 @@ export default async function GuidePage({ params }: GuidePageProps) {
         }}
         variant="compact"
       />
+
+      {guide.introductionHtml && (
+        <section className="bg-ivory pb-10 md:pb-14">
+          <div className="container-be max-w-5xl">
+            <div
+              className="text-charcoal text-[16px] md:text-[17px] leading-[1.7] lg:columns-2 lg:gap-12 [&_p]:mb-5 [&_p:last-child]:mb-0 [&_strong]:font-bold [&_strong]:text-midnight"
+              dangerouslySetInnerHTML={{ __html: guide.introductionHtml }}
+            />
+          </div>
+        </section>
+      )}
 
       {/* Last-updated stamp + table of contents */}
       <section className="section-padding bg-ivory">

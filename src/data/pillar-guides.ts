@@ -34,6 +34,12 @@ export interface PillarGuide {
   metaDescription: string;
   h1: string;
   introduction: string;
+  /** Optional rich-HTML introduction. When present, the [slug] page
+   *  renders this in a 2-column layout on desktop with selective
+   *  <strong> emphasis on key terms. Allows pillar guides to break the
+   *  long single-block intro into a more readable editorial spread.
+   *  Use plain <p> and <strong> tags only. */
+  introductionHtml?: string;
   sections: PillarGuideSection[];
   faq: FAQItem[];
   sources_cited?: string[];
@@ -54,6 +60,12 @@ export const pillarGuides: Record<string, PillarGuide> = {
     h1: "Combien coûtent vraiment des panneaux solaires en Wallonie en 2026 ?",
     introduction:
       "La question revient chaque semaine en rendez-vous : combien coûte aujourd'hui une installation photovoltaïque en Wallonie, et est-ce que cela vaut encore la peine ? La réponse honnête est moins simple qu'en 2020. Depuis le 1er janvier 2024, le compteur qui tourne à l'envers est terminé pour les nouvelles installations résidentielles wallonnes, le tarif prosumer reste dû et le compteur communicant devient progressivement la norme. Le calcul a changé, mais la rentabilité existe encore, à condition de bien dimensionner l'installation et de comprendre comment lire un devis. Cette page rassemble ce que je dis à mes clients en visite technique : les fourchettes de prix réelles en 2026, la TVA à 6 % et qui peut en bénéficier, ce qu'il reste comme aides régionales, le temps de retour sous le nouveau régime, et surtout les signaux qui distinguent un devis solaire sérieux d'une promesse marketing. Pas de chiffres inventés, uniquement des données sourcées et qualifiées.",
+    introductionHtml:
+      "<p>La question revient chaque semaine en rendez-vous : <strong>combien coûte aujourd'hui une installation photovoltaïque en Wallonie</strong>, et est-ce que cela vaut encore la peine ? La réponse honnête est moins simple qu'en 2020.</p>" +
+      "<p>Depuis le <strong>1<sup>er</sup> janvier 2024</strong>, le compteur qui tourne à l'envers est terminé pour les nouvelles installations résidentielles wallonnes, <strong>le tarif prosumer reste dû</strong> et le compteur communicant devient progressivement la norme.</p>" +
+      "<p>Le calcul a changé, mais <strong>la rentabilité existe encore</strong>, à condition de bien dimensionner l'installation et de comprendre comment lire un devis.</p>" +
+      "<p>Cette page rassemble ce que je dis à mes clients en visite technique : les fourchettes de prix réelles en 2026, la <strong>TVA à 6 %</strong> et qui peut en bénéficier, ce qu'il reste comme aides régionales, le temps de retour sous le nouveau régime, et surtout les signaux qui distinguent un devis solaire sérieux d'une promesse marketing.</p>" +
+      "<p><strong>Pas de chiffres inventés</strong>, uniquement des données sourcées et qualifiées.</p>",
     sections: [
       {
         id: "combien-coute-installation-photovoltaique-wallonie-2026",

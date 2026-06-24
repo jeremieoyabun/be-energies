@@ -42,9 +42,11 @@ export function HeroSection({
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-midnight leading-tight text-balance">
               {headline}
             </h1>
-            <p className="mt-5 text-lg md:text-xl leading-relaxed max-w-2xl text-charcoal">
-              {subheadline}
-            </p>
+            {subheadline ? (
+              <p className="mt-5 text-lg md:text-xl leading-relaxed max-w-2xl text-charcoal">
+                {subheadline}
+              </p>
+            ) : null}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 href={ctaHref}
