@@ -117,7 +117,7 @@ export default function HomePage() {
                 Vous avez un devis et quelque chose vous chiffonne. Benoît le lit comme un inspecteur et vous renvoie ses points d&apos;attention écrits.
               </p>
               <Link
-                href="/devis-analyse/"
+                href="/contact/?intent=devis"
                 className="inline-flex items-center justify-center gap-2 border-[1.5px] border-white text-white font-semibold px-6 py-3 rounded-md hover:border-amber hover:text-amber hover:bg-white/5 transition-colors"
               >
                 Faire vérifier mon devis

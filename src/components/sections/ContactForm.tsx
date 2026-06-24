@@ -22,6 +22,10 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 interface ContactFormProps {
   defaultProjectType?: string;
+  /** Pre-checks the "J'ai déjà reçu un devis" box on mount. Used when
+   *  the visitor lands on /contact/?intent=devis from a "Faire vérifier
+   *  mon devis" CTA elsewhere on the site. */
+  defaultExistingQuote?: boolean;
 }
 
 // Keep in sync with the server-side limits in /api/contact/route.ts.
@@ -45,7 +49,10 @@ function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} Mo`;
 }
 
-export function ContactForm({ defaultProjectType }: ContactFormProps) {
+export function ContactForm({
+  defaultProjectType,
+  defaultExistingQuote = false,
+}: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [globalError, setGlobalError] = useState<string | null>(null);
@@ -440,17 +447,24 @@ export function ContactForm({ defaultProjectType }: ContactFormProps) {
           {fieldError("timeline")}
         </div>
 
-        <div className="flex items-start gap-3 bg-ivory border border-cloud rounded-lg p-3.5">
+        <div
+          className={`flex items-start gap-3 rounded-lg p-3.5 transition-colors ${
+            defaultExistingQuote
+              ? "bg-amber/10 border-[1.5px] border-amber/40 shadow-[0_1px_2px_rgba(245,158,11,0.08)]"
+              : "bg-ivory border border-cloud"
+          }`}
+        >
           <input
             type="checkbox"
             id="existingQuote"
             name="existingQuote"
             value="yes"
-            className="mt-1 accent-amber"
+            defaultChecked={defaultExistingQuote}
+            className="mt-1 h-5 w-5 accent-amber cursor-pointer"
           />
           <label
             htmlFor="existingQuote"
-            className="text-sm text-charcoal leading-relaxed"
+            className="text-sm text-charcoal leading-relaxed cursor-pointer"
           >
             <span className="font-semibold text-midnight">
               J&apos;ai déjà reçu un devis

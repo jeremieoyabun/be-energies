@@ -161,10 +161,16 @@ export function HeroSection({
                 {reassurances.map((item) => (
                   <li
                     key={item}
-                    className="inline-flex items-center gap-2 whitespace-nowrap leading-none"
+                    className="inline-flex items-center gap-2 whitespace-nowrap h-5"
                   >
+                    {/* Both the check icon and the label live inside an
+                        h-5 row; each child individually centers in that
+                        row, so digits ("48 h") and lowercase glyphs land
+                        on the same optical baseline. */}
                     <CheckIcon size={14} className="text-amber shrink-0" />
-                    <span>{item}</span>
+                    <span className="inline-flex items-center h-5 leading-none">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>

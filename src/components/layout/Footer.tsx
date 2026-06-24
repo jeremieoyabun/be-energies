@@ -31,32 +31,59 @@ export function Footer() {
 
             {/* Lead magnet - sends the visitor to the gated landing page
                 so the email-capture form runs (no direct PDF link). */}
-            <div className="mt-6">
-              <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-light">
-                Checklist gratuite
-              </p>
-              <Link
-                href="/guide-pieges-a-eviter/"
-                className="mt-1.5 inline-flex items-center gap-1.5 text-sm text-white hover:text-amber-light transition-colors font-semibold"
-              >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-amber shrink-0"
-                  aria-hidden="true"
+            <div className="mt-6 space-y-4">
+              <div>
+                <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-light">
+                  Checklist gratuite
+                </p>
+                <Link
+                  href="/guide-pieges-a-eviter/"
+                  className="mt-1.5 inline-flex items-center gap-1.5 text-sm text-white hover:text-amber-light transition-colors font-semibold"
                 >
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <path d="M12 18v-6m0 6l-3-3m3 3l3-3" />
-                </svg>
-                Recevoir le guide (10 pièges)
-              </Link>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-amber shrink-0"
+                    aria-hidden="true"
+                  >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <path d="M12 18v-6m0 6l-3-3m3 3l3-3" />
+                  </svg>
+                  Recevoir le guide (10 pièges)
+                </Link>
+              </div>
+              <div>
+                <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber-light">
+                  Vous avez déjà un devis ?
+                </p>
+                <Link
+                  href="/contact/?intent=devis"
+                  className="mt-1.5 inline-flex items-center gap-1.5 text-sm text-white hover:text-amber-light transition-colors font-semibold"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-amber shrink-0"
+                    aria-hidden="true"
+                  >
+                    <path d="M21.44 11.05 12.25 20.24a6 6 0 0 1-8.49-8.49l8.57-8.57a4 4 0 0 1 5.66 5.66L9.41 17.41a2 2 0 1 1-2.83-2.83l7.07-7.07" />
+                  </svg>
+                  Faire vérifier mon devis
+                </Link>
+              </div>
             </div>
           </div>
 

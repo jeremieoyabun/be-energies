@@ -149,7 +149,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
         ctaHref="/contact/"
         secondaryCta={{
           label: "Faire vérifier mon devis",
-          href: "/devis-analyse/",
+          href: "/contact/?intent=devis",
         }}
         variant="compact"
       />
@@ -255,7 +255,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
           </p>
           <div className="grid sm:grid-cols-2 gap-4">
             <Link
-              href="/devis-analyse/"
+              href="/contact/?intent=devis"
               className="block bg-white/5 border border-white/10 hover:border-amber/60 rounded-2xl p-6 transition-colors group"
             >
               <p className="text-[10.5px] font-semibold tracking-[0.14em] uppercase text-amber mb-2">

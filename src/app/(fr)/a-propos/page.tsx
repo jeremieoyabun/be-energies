@@ -511,6 +511,10 @@ export default function AboutPage() {
         title="Vous avez un projet ? Parlons-en."
         description="Benoît vous répond personnellement. Diagnostic énergétique gratuit, sans engagement, basé sur les tarifs 2026 réels de votre gestionnaire de réseau."
         variant="dark"
+        secondaryCta={{
+          label: "J'ai déjà un devis à vérifier",
+          href: "/contact/?intent=devis",
+        }}
       />
     </>
   );

@@ -318,7 +318,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           ctaHref="/contact/"
           secondaryCta={{
             label: "Faire vérifier mon devis",
-            href: "/devis-analyse/",
+            href: "/contact/?intent=devis",
           }}
           badge={`Certifié RESCERT · ${siteConfig.founder.credential}`}
           variant="service"
@@ -402,8 +402,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   vous renvoie une analyse écrite sous 48 h ouvrées.
                 </p>
                 <Link
-                  href="/devis-analyse/"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold px-6 py-3 rounded-md hover:bg-white hover:text-midnight transition-colors"
+                  href="/contact/?intent=devis"
+                  className="inline-flex items-center justify-center gap-2 border-[1.5px] border-white text-white font-semibold px-6 py-3 rounded-md hover:border-amber hover:text-amber hover:bg-white/5 transition-colors"
                 >
                   Faire vérifier mon devis
                   <ArrowRightIcon size={16} />
