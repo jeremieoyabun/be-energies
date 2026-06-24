@@ -26,6 +26,10 @@ interface ContactFormProps {
    *  the visitor lands on /contact/?intent=devis from a "Faire vérifier
    *  mon devis" CTA elsewhere on the site. */
   defaultExistingQuote?: boolean;
+  /** Pre-fills the postal code / city field on mount. Used when the
+   *  visitor arrives from the MiniDiagnosticCard with ?cp=4000. The
+   *  underlying input remains free-form ("4000" or "4000 Liège"). */
+  defaultPostal?: string;
 }
 
 // Keep in sync with the server-side limits in /api/contact/route.ts.
@@ -52,6 +56,7 @@ function formatBytes(bytes: number): string {
 export function ContactForm({
   defaultProjectType,
   defaultExistingQuote = false,
+  defaultPostal,
 }: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -365,6 +370,7 @@ export function ContactForm({
               required
               autoComplete="postal-code"
               placeholder="4000 Liège"
+              defaultValue={defaultPostal}
               className="form-input"
               {...ariaProps("postal")}
             />

@@ -46,7 +46,7 @@ const contactFAQ: FAQItem[] = [
 ];
 
 interface ContactPageProps {
-  searchParams: Promise<{ intent?: string; projet?: string }>;
+  searchParams: Promise<{ intent?: string; projet?: string; cp?: string }>;
 }
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
@@ -56,6 +56,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   // amber callout highlighted.
   const intentDevis = params.intent === "devis";
   const defaultProjectType = params.projet;
+  // ?cp=4000 from the MiniDiagnosticCard pre-fills the postal field so
+  // the visitor doesn't retype it after the triage step.
+  const defaultPostal = params.cp?.trim();
 
   return (
     <>
@@ -145,6 +148,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               <ContactForm
                 defaultProjectType={defaultProjectType}
                 defaultExistingQuote={intentDevis}
+                defaultPostal={defaultPostal}
               />
             </div>
 

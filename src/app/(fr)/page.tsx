@@ -12,6 +12,7 @@ import { ServiceCardGrid } from "@/components/sections/ServiceCardGrid";
 import { RentabilityObjection2026 } from "@/components/sections/RentabilityObjection2026";
 import { FounderCredibility } from "@/components/sections/FounderCredibility";
 import { ProofSystem } from "@/components/sections/ProofSystem";
+import { MiniDiagnosticCard } from "@/components/sections/MiniDiagnosticCard";
 import { testimonials } from "@/data/testimonials";
 import { ArrowRightIcon } from "@/lib/icons";
 import { ComplianceBadge } from "@/components/sections/ComplianceBadge";
@@ -49,6 +50,13 @@ export default function HomePage() {
       {/* 2. PV 2026 DECISION CARDS - name and resolve the #1 Walloon objection
               (prosumer + smart meter) head-on, right after the hero. */}
       <RentabilityObjection2026 />
+
+      {/* 2b. MINI DIAGNOSTIC - low-friction triage card. Catches the
+              hesitant visitor who is not ready for the full contact form,
+              and routes them to /contact/ with the right intent and project
+              already selected. Sits intentionally light between the dense
+              objection block above and the service grid below. */}
+      <MiniDiagnosticCard />
 
       {/* 3. SERVICES - 4 core services */}
       <ServiceCardGrid />

@@ -35,9 +35,11 @@ import { RentabilityObjection2026 } from "@/components/sections/RentabilityObjec
 import { ProofSystem } from "@/components/sections/ProofSystem";
 import { PVMethodPanel } from "@/components/sections/PVMethodPanel";
 import { PVWarrantyTeaser } from "@/components/sections/PVWarrantyTeaser";
+import { MiniDiagnosticCard } from "@/components/sections/MiniDiagnosticCard";
+import { SectionLabel } from "@/components/sections/SectionLabel";
 import { ArrowRightIcon } from "@/lib/icons";
 import { siteConfig } from "@/lib/site-config";
-import { CheckIcon } from "@/lib/icons";
+import { CheckIcon, AlertTriangleIcon } from "@/lib/icons";
 import Link from "next/link";
 
 interface ServicePageProps {
@@ -285,6 +287,413 @@ export default async function ServicePage({ params }: ServicePageProps) {
   // explication, garanties-panneaux-solaires-onduleurs). The service page is
   // now a clean 7-section conversion path. Non-PV services keep the previous
   // long structure untouched below.
+  // ---------------------------------------------------------------------------
+  // BATTERIES DOMESTIQUES — decision-first 7-section structure
+  // ---------------------------------------------------------------------------
+  // The old long-article version is preserved in service-content.ts for SEO,
+  // but the visible page is now a decision tool: hero -> fit cards -> no-fit
+  // cards -> method -> real figures -> double CTA -> short FAQ. The proof
+  // strip features PV-with-battery realisations only.
+  if (slug === "batteries-domestiques") {
+    const battFaq = serviceFaq.slice(0, 5);
+
+    const FIT_ITEMS: { title: string; detail: string }[] = [
+      {
+        title: "Vous produisez plus que vous ne consommez en journée",
+        detail:
+          "Votre installation solaire couvre largement la consommation diurne, et le surplus part au réseau pour presque rien.",
+      },
+      {
+        title: "Votre consommation du soir est importante",
+        detail:
+          "Cuisson, machines, télévision, chauffage électrique d'appoint, recharge VE : la courbe 17h-22h pèse lourd sur la facture.",
+      },
+      {
+        title: "Votre installation photovoltaïque est déjà bien dimensionnée",
+        detail:
+          "Panneaux et onduleur calibrés sur votre profil réel, pas surdimensionnés pour gonfler un devis.",
+      },
+      {
+        title: "Vous cherchez plus d'autonomie",
+        detail:
+          "Réduire votre exposition aux hausses de tarif réseau et aux coupures ponctuelles compte autant que le retour comptable.",
+      },
+      {
+        title: "Le calcul économique reste cohérent",
+        detail:
+          "Le retour sur investissement ne dépasse pas la durée de vie de la batterie, dans votre situation précise, pas dans un cas générique.",
+      },
+    ];
+
+    const NO_FIT_ITEMS: { title: string; detail: string }[] = [
+      {
+        title: "Votre consommation est surtout en journée",
+        detail:
+          "Vous autoconsommez déjà la majorité de votre production en direct. La batterie n'aurait presque rien à stocker.",
+      },
+      {
+        title: "Votre installation est trop petite",
+        detail:
+          "Sans surplus solaire significatif, la batterie reste vide la plupart des soirs. L'investissement ne se justifie pas.",
+      },
+      {
+        title: "Le retour est trop long",
+        detail:
+          "Quand le retour estimé dépasse la durée de vie réelle de la batterie, le calcul ne tient pas, peu importe le discours commercial.",
+      },
+      {
+        title: "Le devis est basé sur des promesses floues",
+        detail:
+          "Autonomie totale annoncée sans chiffres, économies estimées sans lire votre consommation : c'est un signal de vente, pas une étude.",
+      },
+      {
+        title: "La batterie est vendue comme solution automatique",
+        detail:
+          "Si elle est proposée avant même de regarder votre facture, votre profil et votre installation, ce n'est pas un conseil technique.",
+      },
+    ];
+
+    const METHOD_STEPS: { title: string; detail: string }[] = [
+      {
+        title: "Analyse de la facture",
+        detail:
+          "Lecture détaillée de votre facture d'électricité : consommation totale, répartition jour-nuit, tarif et régime GRD.",
+      },
+      {
+        title: "Lecture du profil de consommation",
+        detail:
+          "Identification de la courbe horaire réelle : quand vous tirez du réseau, quand vous injectez, et de combien.",
+      },
+      {
+        title: "Vérification de la production photovoltaïque",
+        detail:
+          "Contrôle du dimensionnement actuel, du rendement de l'onduleur, et du surplus réellement disponible pour une batterie.",
+      },
+      {
+        title: "Calcul du taux d'autoconsommation",
+        detail:
+          "Estimation précise du gain qu'apporterait une batterie sur votre profil, avant et après installation.",
+      },
+      {
+        title: "Estimation du retour réaliste",
+        detail:
+          "Calcul du retour sur investissement basé sur les tarifs 2026 réels de votre GRD, pas sur une moyenne nationale.",
+      },
+      {
+        title: "Recommandation honnête : installer, attendre ou refuser",
+        detail:
+          "Trois sorties possibles. Si le calcul ne tient pas, on vous le dit clairement, plutôt que de vendre un équipement qui ne se justifie pas.",
+      },
+    ];
+
+    return (
+      <>
+        <JsonLd data={serviceSchema(service)} />
+        <JsonLd
+          data={howToSchema(
+            `Diagnostic batterie domestique`,
+            METHOD_STEPS.map((s) => ({ name: s.title, text: s.detail })),
+          )}
+        />
+        {battFaq.length > 0 && <JsonLd data={faqSchema(battFaq)} />}
+
+        <Breadcrumbs
+          items={[
+            { name: "Accueil", href: "/" },
+            { name: "Services", href: "/services/" },
+            { name: service.title },
+          ]}
+        />
+
+        {/* 1. HERO */}
+        <HeroSection
+          headline="Batterie domestique : rentable seulement dans certains cas"
+          subheadline="Avant de recommander une batterie, on vérifie votre consommation, votre profil horaire, votre installation existante, votre tarif et le retour réel. Si le calcul ne tient pas, on vous le dit."
+          ctaLabel="Demander un diagnostic gratuit"
+          ctaHref="/contact/?projet=batteries-domestiques"
+          secondaryCta={{
+            label: "Faire vérifier mon devis batterie",
+            href: "/contact/?intent=devis&projet=batteries-domestiques",
+          }}
+          badge={`Certifié RESCERT · ${siteConfig.founder.credential}`}
+          variant="service"
+          image={service.heroImage}
+        />
+
+        {/* 2. UNE BATTERIE PEUT ÊTRE INTÉRESSANTE SI... */}
+        <section className="section-padding bg-white">
+          <div className="container-be">
+            <SectionLabel>Décision</SectionLabel>
+            <div className="grid md:grid-cols-[1.4fr_1fr] gap-6 md:gap-10 items-end mb-10 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.1]">
+                Une batterie peut être intéressante si…
+              </h2>
+              <p className="text-charcoal/85 text-[15.5px] leading-relaxed max-w-prose">
+                Cinq situations dans lesquelles le stockage domestique a une
+                vraie utilité technique et financière. Pas une promesse,
+                cinq vérifications.
+              </p>
+            </div>
+
+            <ul className="grid sm:grid-cols-2 gap-4 md:gap-5">
+              {FIT_ITEMS.map((item) => (
+                <li key={item.title} className="card p-5 md:p-6">
+                  <div className="flex items-start gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 inline-flex items-center justify-center w-9 h-9 -my-1 rounded-lg bg-success/15 ring-1 ring-success/35 text-success"
+                    >
+                      <CheckIcon size={18} />
+                    </span>
+                    <h3 className="text-[16.5px] md:text-[17.5px] font-semibold text-midnight leading-[1.3] pt-1">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-[14.5px] text-charcoal/85 leading-relaxed">
+                    {item.detail}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* 3. ELLE EST SOUVENT INUTILE SI... — caution tone */}
+        <section className="section-padding bg-ivory">
+          <div className="container-be">
+            <SectionLabel>Cas où ça ne se justifie pas</SectionLabel>
+            <div className="grid md:grid-cols-[1.4fr_1fr] gap-6 md:gap-10 items-end mb-10 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.1]">
+                Elle est souvent inutile si…
+              </h2>
+              <p className="text-charcoal/85 text-[15.5px] leading-relaxed max-w-prose">
+                Cinq signaux qui devraient faire reposer un devis batterie.
+                Si l&apos;un d&apos;eux correspond à votre cas, le calcul
+                ne tient pas, peu importe l&apos;argumentaire commercial.
+              </p>
+            </div>
+
+            <ul className="grid sm:grid-cols-2 gap-4 md:gap-5">
+              {NO_FIT_ITEMS.map((item) => (
+                <li
+                  key={item.title}
+                  className="rounded-2xl bg-white border border-cloud/80 p-5 md:p-6 ring-1 ring-charcoal/[0.04]"
+                >
+                  <div className="flex items-start gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 inline-flex items-center justify-center w-9 h-9 -my-1 rounded-lg bg-danger/12 ring-1 ring-danger/30 text-danger"
+                    >
+                      <AlertTriangleIcon size={18} />
+                    </span>
+                    <h3 className="text-[16.5px] md:text-[17.5px] font-semibold text-midnight leading-[1.3] pt-1">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-[14.5px] text-charcoal/85 leading-relaxed">
+                    {item.detail}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* 4. LE TEST BE'ENERGIES AVANT DE VENDRE — numbered method */}
+        <section className="section-padding bg-white">
+          <div className="container-be">
+            <SectionLabel>Méthode Be&apos;energies</SectionLabel>
+            <div className="grid md:grid-cols-[1.4fr_1fr] gap-6 md:gap-10 items-end mb-10 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.1]">
+                Le test Be&apos;energies avant de vendre
+              </h2>
+              <p className="text-charcoal/85 text-[15.5px] leading-relaxed max-w-prose">
+                Six étapes obligatoires avant de proposer une batterie.
+                À la fin, trois sorties possibles : installer, attendre,
+                ou refuser.
+              </p>
+            </div>
+
+            <ol className="grid md:grid-cols-2 gap-4 md:gap-5">
+              {METHOD_STEPS.map((step, idx) => {
+                const number = String(idx + 1).padStart(2, "0");
+                return (
+                  <li
+                    key={step.title}
+                    className="card p-5 md:p-6 flex items-start gap-4"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="step-badge step-badge-on-white shrink-0"
+                    >
+                      {number}
+                    </span>
+                    <div>
+                      <h3 className="text-[16.5px] md:text-[17.5px] font-semibold text-midnight leading-[1.3]">
+                        {step.title}
+                      </h3>
+                      <p className="mt-2 text-[14.5px] text-charcoal/85 leading-relaxed">
+                        {step.detail}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </section>
+
+        {/* 5. LES VRAIS CHIFFRES — only existing figures from service-content.ts */}
+        <section className="section-padding bg-ivory">
+          <div className="container-be">
+            <SectionLabel>Les vrais chiffres</SectionLabel>
+            <div className="grid md:grid-cols-[1.4fr_1fr] gap-6 md:gap-10 items-end mb-10 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.1]">
+                Coût, économies, durée de vie
+              </h2>
+              <p className="text-charcoal/85 text-[15.5px] leading-relaxed max-w-prose">
+                Ordres de grandeur observés sur des installations réelles
+                en Belgique. Les chiffres exacts pour votre situation
+                arrivent à la fin du diagnostic.
+              </p>
+            </div>
+
+            <dl className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+              <div className="card p-5 md:p-6">
+                <dt className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark">
+                  Investissement
+                </dt>
+                <dd className="mt-3 text-2xl md:text-[28px] font-[family-name:var(--font-heading)] text-midnight leading-[1.1]">
+                  5 000 à 8 000 EUR
+                </dd>
+                <p className="mt-3 text-[13.5px] text-charcoal/85 leading-relaxed">
+                  TTC pour une batterie lithium fer-phosphate (LFP) de 5 à
+                  10 kWh.
+                </p>
+              </div>
+
+              <div className="card p-5 md:p-6">
+                <dt className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark">
+                  Économies annuelles
+                </dt>
+                <dd className="mt-3 text-2xl md:text-[28px] font-[family-name:var(--font-heading)] text-midnight leading-[1.1]">
+                  220 à 600 EUR
+                </dd>
+                <p className="mt-3 text-[13.5px] text-charcoal/85 leading-relaxed">
+                  220 à 400 EUR/an sans véhicule électrique, 400 à 600
+                  EUR/an avec VE et tarif IMPACT.
+                </p>
+              </div>
+
+              <div className="card p-5 md:p-6">
+                <dt className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark">
+                  Retour sur investissement
+                </dt>
+                <dd className="mt-3 text-2xl md:text-[28px] font-[family-name:var(--font-heading)] text-midnight leading-[1.1]">
+                  10 à 15 ans
+                </dd>
+                <p className="mt-3 text-[13.5px] text-charcoal/85 leading-relaxed">
+                  Selon votre profil. Sur certains cas, le retour dépasse
+                  la durée de vie : on vous le dit avant de vendre.
+                </p>
+              </div>
+
+              <div className="card p-5 md:p-6">
+                <dt className="text-[11.5px] font-bold tracking-[0.18em] uppercase text-amber-dark">
+                  Durée de vie
+                </dt>
+                <dd className="mt-3 text-2xl md:text-[28px] font-[family-name:var(--font-heading)] text-midnight leading-[1.1]">
+                  10 à 15 ans
+                </dd>
+                <p className="mt-3 text-[13.5px] text-charcoal/85 leading-relaxed">
+                  Garantie constructeur de 10 ans minimum sur la capacité
+                  résiduelle.
+                </p>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        {/* PROOF — PV-with-battery realisations only */}
+        <ProofSystem
+          testimonials={[]}
+          featuredSlugs={[
+            "liege-installation-pv-batterie",
+            "charleroi-batterie-pv-tarif-capacitaire",
+            "riemst-32-panneaux",
+          ]}
+          title="Batteries installées, chiffres mesurés"
+          intro="Trois projets où la batterie a été dimensionnée après lecture du profil de consommation, pas avant."
+        />
+
+        {/* 6. CTA DOUBLE — quote check vs. fresh diagnostic */}
+        <section className="section-padding bg-midnight text-white">
+          <div className="container-be max-w-5xl">
+            <div className="text-center mb-10 md:mb-14">
+              <div className="section-label justify-center">
+                <span>Prochaine étape</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-[family-name:var(--font-heading)] text-white text-balance">
+                Vous êtes à quel moment ?
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+              <div className="p-7 md:p-9 flex flex-col rounded-lg bg-white/[0.03] border border-white/10">
+                <div className="text-xs font-semibold tracking-[0.18em] uppercase text-white/70 mb-3 font-[family-name:var(--font-mono)]">
+                  Deuxième avis
+                </div>
+                <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
+                  J&apos;ai déjà un devis batterie à vérifier
+                </h3>
+                <p className="text-white/85 leading-relaxed mb-7 flex-1">
+                  Envoyez-nous le devis batterie reçu d&apos;un autre
+                  installateur. Benoît le lit avec son œil d&apos;ancien
+                  inspecteur et vous renvoie une analyse écrite sous 48 h
+                  ouvrées.
+                </p>
+                <Link
+                  href="/contact/?intent=devis&projet=batteries-domestiques"
+                  className="inline-flex items-center justify-center gap-2 border-[1.5px] border-white text-white font-semibold px-6 py-3 rounded-md hover:border-amber hover:text-amber hover:bg-white/5 transition-colors"
+                >
+                  Faire vérifier mon devis batterie
+                  <ArrowRightIcon size={16} />
+                </Link>
+              </div>
+
+              <div className="p-7 md:p-9 flex flex-col rounded-lg bg-white/[0.03] border border-white/10">
+                <div className="text-xs font-semibold tracking-[0.18em] uppercase text-amber mb-3 font-[family-name:var(--font-mono)]">
+                  Étape 1
+                </div>
+                <h3 className="text-xl md:text-2xl font-[family-name:var(--font-heading)] text-white mb-4">
+                  Je veux un diagnostic gratuit
+                </h3>
+                <p className="text-white/85 leading-relaxed mb-7 flex-1">
+                  Visite technique, lecture de votre consommation réelle,
+                  calcul de rentabilité sur les tarifs 2026 de votre GRD.
+                  Vous repartez avec une réponse claire : installer,
+                  attendre ou refuser.
+                </p>
+                <Link
+                  href="/contact/?projet=batteries-domestiques"
+                  className="inline-flex items-center justify-center gap-2 bg-amber text-midnight font-semibold px-6 py-3 rounded-md hover:bg-amber-light transition-colors"
+                >
+                  Demander un diagnostic gratuit
+                  <ArrowRightIcon size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. FAQ COURTE — 5 max */}
+        {battFaq.length > 0 && <FAQSection items={battFaq} />}
+
+        <RelatedServices services={related} />
+      </>
+    );
+  }
+
   if (slug === "panneaux-photovoltaiques") {
     const pvTestimonials = serviceTestimonials.slice(0, 2);
     const pvFaq = serviceFaq.slice(0, 5);
@@ -412,6 +821,16 @@ export default async function ServicePage({ params }: ServicePageProps) {
             </div>
           </div>
         </section>
+
+        {/* 6b. MINI DIAGNOSTIC — one last triage opportunity before the
+                FAQ. PV is pre-selected so the visitor only has to indicate
+                where they are in their reflection. */}
+        <MiniDiagnosticCard
+          eyebrow="Avant de partir"
+          headline="Un doute sur votre projet photovoltaïque ?"
+          subline="Trois questions rapides, et Benoît vous renvoie un premier avis personnel sous 24 h ouvrées. Sans engagement."
+          defaultProject="panneaux-photovoltaiques"
+        />
 
         {/* 7. FAQ COURTE — 5 questions max, with a link to the full set in
                 the pillar guides for visitors who want more. */}
