@@ -49,7 +49,7 @@ export default function RealizationsPage() {
           gives an immediate "we install here" cue before the H1. */}
       <section className="bg-ivory pt-8 md:pt-12">
         <div className="container-be max-w-5xl">
-          <figure className="relative aspect-[21/9] rounded-2xl overflow-hidden ring-1 ring-midnight/8 shadow-[0_8px_28px_-12px_rgba(12,18,32,0.25)] image-reveal">
+          <figure className="relative aspect-[21/9] rounded-2xl overflow-hidden ring-1 ring-midnight/8 shadow-[0_8px_28px_-12px_rgba(12,18,32,0.25)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/img/guides/guide-pv-drone.webp"

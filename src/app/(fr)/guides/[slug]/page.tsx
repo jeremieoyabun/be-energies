@@ -161,7 +161,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
       {heroImage && (
         <section className="bg-ivory pt-8 md:pt-12">
           <div className="container-be max-w-5xl">
-            <figure className="relative aspect-[21/9] rounded-2xl overflow-hidden ring-1 ring-midnight/8 shadow-[0_8px_28px_-12px_rgba(12,18,32,0.25)] image-reveal">
+            <figure className="relative aspect-[21/9] rounded-2xl overflow-hidden ring-1 ring-midnight/8 shadow-[0_8px_28px_-12px_rgba(12,18,32,0.25)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={heroImage.src}
