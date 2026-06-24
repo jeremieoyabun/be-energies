@@ -26,19 +26,21 @@ const CATEGORY_BADGE: Record<
   { label: string; classes: string } | null
 > = {
   standard: null,
+  // Solid backgrounds + high-contrast text so the badges read clearly
+  // whether they sit on the project hero photo or on a plain card.
   premium: {
     label: "Installation premium",
-    classes: "bg-amber/15 text-amber-dark border border-amber/25",
+    classes: "bg-amber text-midnight",
   },
   correction: {
     // Most strategic badge per the brief: signals Be'energies is the team
     // that gets called in when another installer has failed.
     label: "Correction d'installation",
-    classes: "bg-danger/10 text-danger border border-danger/25",
+    classes: "bg-[#b91c1c] text-white",
   },
   renovation: {
     label: "Rénovation",
-    classes: "bg-cyan/10 text-cyan-dark border border-cyan/25",
+    classes: "bg-cyan-dark text-white",
   },
 };
 

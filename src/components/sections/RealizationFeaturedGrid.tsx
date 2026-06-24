@@ -25,17 +25,21 @@ const CATEGORY_BADGE: Record<
   { label: string; classes: string } | null
 > = {
   standard: null,
+  // Solid backgrounds + high-contrast white/midnight text so the badges
+  // stay readable when overlaid on the project hero photo (which varies
+  // wildly in brightness and colour). The tinted-wash variants used to
+  // wash out completely on top of bright sky / snow / asphalt.
   premium: {
     label: "Installation premium",
-    classes: "bg-amber/15 text-amber-dark border border-amber/25",
+    classes: "bg-amber text-midnight",
   },
   correction: {
     label: "Correction d'installation",
-    classes: "bg-danger/10 text-danger border border-danger/25",
+    classes: "bg-[#b91c1c] text-white",
   },
   renovation: {
     label: "Rénovation",
-    classes: "bg-cyan/10 text-cyan-dark border border-cyan/25",
+    classes: "bg-cyan-dark text-white",
   },
 };
 
