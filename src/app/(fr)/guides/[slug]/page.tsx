@@ -280,7 +280,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
                 Pour aller plus loin
               </p>
               <h3 className="text-xl font-[family-name:var(--font-heading)] text-white mb-2 group-hover:text-amber-light transition-colors">
-                Les 10 pièges à éviter avant de signer
+                Les 7 pièges à éviter avant de signer
               </h3>
               <p className="text-sm text-silver leading-relaxed">
                 Le guide complet des erreurs les plus coûteuses, vues sur le

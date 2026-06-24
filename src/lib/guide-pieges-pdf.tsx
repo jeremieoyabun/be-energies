@@ -414,7 +414,7 @@ export function GuidePiegesDocument({
         <View style={styles.pageHeader}>
           <Text style={styles.pageHeaderBrand}>BE&apos;ENERGIES</Text>
           <Text style={styles.pageHeaderRight}>
-            Les 10 pièges · Introduction
+            Les 7 pièges · Introduction
           </Text>
         </View>
 

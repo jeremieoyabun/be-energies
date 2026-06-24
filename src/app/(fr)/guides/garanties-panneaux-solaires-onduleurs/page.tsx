@@ -44,7 +44,7 @@ const RELATED = [
       "Comment le tarif IMPACT change la rentabilité d'un système photovoltaïque.",
   },
   {
-    title: "10 pièges à éviter avant un devis solaire",
+    title: "7 pièges à éviter avant un devis solaire",
     href: "/pieges-a-eviter/",
     description:
       "Checklist de l'inspecteur : ce qu'un devis honnête doit montrer.",

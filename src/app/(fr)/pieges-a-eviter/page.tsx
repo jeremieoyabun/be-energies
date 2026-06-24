@@ -14,9 +14,9 @@ import { AlertTriangleIcon, CheckIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
 
 export const metadata = generatePageMetadata({
-  title: "10 pièges à éviter avant un devis solaire | Guide par un ancien inspecteur",
+  title: "7 pièges à éviter avant un devis solaire | Guide par un ancien inspecteur",
   description:
-    "Panneaux solaires, batterie, borne, pompe à chaleur : les 10 pièges à vérifier avant de signer un devis en Belgique. Checklists et 10 questions à poser. Guide par Benoît Dezso, certifié RESCERT.",
+    "Panneaux solaires, batterie, borne, pompe à chaleur : les 7 pièges à vérifier avant de signer un devis en Belgique. Checklists et 7 questions à poser. Guide par Benoît Dezso, certifié RESCERT.",
   path: "/pieges-a-eviter/",
 });
 
@@ -506,9 +506,9 @@ export default function PiegesPage() {
       {/* Schema: Article + FAQ */}
       <JsonLd
         data={articleSchema({
-          title: "Les 10 pièges à éviter avant d'installer des panneaux solaires, une borne ou une pompe à chaleur en Belgique",
+          title: "Les 7 pièges à éviter avant d'installer des panneaux solaires, une borne ou une pompe à chaleur en Belgique",
           description:
-            "Guide complet par un ancien inspecteur, certifié RESCERT. 10 pièges détaillés, checklists pratiques, et les vrais chiffres 2026.",
+            "Guide complet par un ancien inspecteur, certifié RESCERT. 7 pièges détaillés, checklists pratiques, et les vrais chiffres 2026.",
           url: "/pieges-a-eviter/",
           datePublished: "2026-01-15",
           dateModified: "2026-03-07",
@@ -539,7 +539,7 @@ export default function PiegesPage() {
             Guide par un ancien inspecteur, certifié RESCERT
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-white leading-tight">
-            Les 10 pièges à éviter avant d&apos;installer des panneaux solaires,
+            Les 7 pièges à éviter avant d&apos;installer des panneaux solaires,
             une borne ou une pompe à chaleur
           </h1>
           <p className="mt-6 text-lg md:text-xl text-silver leading-relaxed max-w-3xl">
@@ -553,7 +553,7 @@ export default function PiegesPage() {
               href="/guide-pieges-a-eviter/"
               className="inline-flex items-center bg-amber hover:bg-amber-dark text-midnight font-semibold px-6 py-3.5 rounded-lg transition-colors"
             >
-              Télécharger le guide complet (10 pièges)
+              Télécharger le guide complet (7 pièges)
             </Link>
             <Link
               href="/contact/"
@@ -642,9 +642,9 @@ export default function PiegesPage() {
               Télécharger le PDF
             </Link>
           </div>
-          <nav aria-label="Sommaire des 10 chapitres">
+          <nav aria-label="Sommaire des 7 chapitres">
             <ol className="space-y-1.5">
-              {chapters.map((ch) => (
+              {chapters.slice(0, 7).map((ch) => (
                 <li key={ch.id}>
                   <a
                     href={`#${ch.id}`}
@@ -668,7 +668,7 @@ export default function PiegesPage() {
       </section>
 
       {/* Chapters */}
-      {chapters.map((ch, i) => (
+      {chapters.slice(0, 7).map((ch, i) => (
         <section
           key={ch.id}
           id={ch.id}
@@ -805,11 +805,11 @@ export default function PiegesPage() {
         </div>
       </section>
 
-      {/* 10 questions */}
+      {/* 7 questions */}
       <section className="section-padding bg-midnight">
         <div className="container-be max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-[family-name:var(--font-heading)] text-white text-center mb-3">
-            Les 10 questions à poser à votre installateur
+            Les 7 questions à poser à votre installateur
           </h2>
           <p className="text-silver text-center mb-10 max-w-xl mx-auto">
             Imprimez cette liste. Posez chaque question. Si l&apos;installateur ne peut
@@ -850,7 +850,7 @@ export default function PiegesPage() {
             Ce guide existe aussi en PDF
           </h2>
           <p className="text-charcoal max-w-xl mx-auto mb-6">
-            Les 10 pièges, les 10 questions, et chaque preuve à demander, rassemblés
+            Les 7 pièges, les 7 questions, et chaque preuve à demander, rassemblés
             dans un document imprimable. Gardez-le sous la main quand vous comparez
             vos devis.
           </p>
@@ -858,7 +858,7 @@ export default function PiegesPage() {
             href="/guide-pieges-a-eviter/"
             className="inline-flex items-center bg-amber hover:bg-amber-dark text-midnight font-semibold px-8 py-4 rounded-lg transition-colors"
           >
-            Télécharger le guide complet (10 pièges)
+            Télécharger le guide complet (7 pièges)
           </Link>
           <p className="mt-3 text-xs text-steel">PDF · gratuit · sans email</p>
         </div>

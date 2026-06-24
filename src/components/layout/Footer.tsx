@@ -56,7 +56,7 @@ export function Footer() {
                     <polyline points="14 2 14 8 20 8" />
                     <path d="M12 18v-6m0 6l-3-3m3 3l3-3" />
                   </svg>
-                  Recevoir le guide (10 pièges)
+                  Recevoir le guide (7 pièges)
                 </Link>
               </div>
               <div>

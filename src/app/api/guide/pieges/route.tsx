@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import sharp from "sharp";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { GuidePiegesDocument } from "@/lib/guide-pieges-pdf";
 import { piegePdfSections } from "@/lib/guide-pieges-content";
@@ -20,9 +21,18 @@ async function loadImageBuffers(): Promise<Record<number, Buffer>> {
       if (!s.imageRelativePath) return;
       try {
         const absPath = path.join(cwd, s.imageRelativePath);
-        result[s.number] = await readFile(absPath);
+        const raw = await readFile(absPath);
+        // @react-pdf/renderer only accepts JPEG / PNG. The source images
+        // in /public/img/pieges/ are WebP for the web pages, so we
+        // transcode to JPEG here. Sharp handles WebP → JPEG natively
+        // and is already pulled in as a Next.js peer dependency for
+        // image optimisation, so there's no extra runtime cost.
+        const jpeg = await sharp(raw)
+          .jpeg({ quality: 82, mozjpeg: true })
+          .toBuffer();
+        result[s.number] = jpeg;
       } catch (err) {
-        // Missing image is non-fatal - the PDF will just skip it.
+        // Missing or undecodable image is non-fatal — the PDF skips it.
         console.warn(
           `[guide-pieges] failed to load image for section ${s.number}:`,
           err instanceof Error ? err.message : "unknown",

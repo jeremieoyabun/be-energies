@@ -184,7 +184,7 @@ function ModalContent({
           type="button"
           onClick={onClose}
           aria-label="Fermer"
-          className="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-md text-steel hover:text-midnight hover:bg-ivory transition-colors"
+          className="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-md text-steel hover:text-midnight hover:bg-ivory transition-colors cursor-pointer"
         >
           <svg
             width="18"

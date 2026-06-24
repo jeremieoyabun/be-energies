@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
           </p>
           <p>
             <strong>Téléchargements de guides PDF.</strong> Lorsque vous
-            demandez l&apos;un de nos guides gratuits (par exemple « 10 pièges
+            demandez l&apos;un de nos guides gratuits (par exemple « 7 pièges
             à éviter »), votre email et, le cas échéant, votre prénom sont
             transmis à notre prestataire <strong>Brevo</strong> (sous-traitant
             au sens du RGPD, serveurs situés dans l&apos;Union européenne)

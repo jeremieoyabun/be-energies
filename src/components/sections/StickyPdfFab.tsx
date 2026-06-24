@@ -43,7 +43,7 @@ export function StickyPdfFab() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        aria-label="Recevoir le guide complet (10 pièges)"
+        aria-label="Recevoir le guide complet (7 pièges)"
         className={`fixed z-40 bottom-[88px] left-4 md:bottom-6 md:left-auto md:right-6 inline-flex items-center gap-2.5 px-4 md:px-5 py-3 md:py-3.5 rounded-full bg-amber hover:bg-amber-dark text-midnight font-semibold text-[13px] md:text-sm shadow-2xl ring-1 ring-amber-dark/20 transition-all duration-300 ${
           show
             ? "opacity-100 translate-y-0 pointer-events-auto"
@@ -65,8 +65,8 @@ export function StickyPdfFab() {
             strokeLinejoin="round"
           />
         </svg>
-        <span className="hidden sm:inline">Recevoir le guide (10 pièges)</span>
-        <span className="sm:hidden">Guide PDF (10 pièges)</span>
+        <span className="hidden sm:inline">Recevoir le guide (7 pièges)</span>
+        <span className="sm:hidden">Guide PDF (7 pièges)</span>
         <ArrowRightIcon size={14} className="hidden md:inline" />
       </button>
       <LeadMagnetModal

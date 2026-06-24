@@ -22,7 +22,7 @@ interface PDFLeadMagnetCardProps {
 const COPY = {
   fr: {
     eyebrow: "CHECKLIST GRATUITE",
-    title: "Les 10 pièges à éviter avant de signer",
+    title: "Les 7 pièges à éviter avant de signer",
     subline: "Pour vérifier votre devis solaire en 5 minutes",
     cta: "Recevoir le guide PDF",
     micro: "PDF · 12 pages · Gratuit",

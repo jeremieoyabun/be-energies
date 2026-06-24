@@ -26,10 +26,10 @@ export interface LeadMagnetDefinition {
 export const LEAD_MAGNETS: Record<LeadMagnetSlug, LeadMagnetDefinition> = {
   "pieges-a-eviter": {
     slug: "pieges-a-eviter",
-    title: "Les 10 pièges à éviter avant de signer",
+    title: "Les 7 pièges à éviter avant de signer",
     pdfPath: "/api/guide/pieges/",
     downloadFilename: "be-energies-10-pieges-a-eviter.pdf",
-    emailSubject: "Votre guide : 10 pièges à éviter avant de signer",
+    emailSubject: "Votre guide : 7 pièges à éviter avant de signer",
     description:
       "Checklist gratuite par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
   },

@@ -16,7 +16,7 @@ export interface PiegePdfSection {
 }
 
 export const GUIDE_TITLE =
-  "Les 10 pièges à éviter avant de signer avec un installateur";
+  "Les 7 pièges à éviter avant de signer avec un installateur";
 export const GUIDE_SUBTITLE =
   "Guide pratique par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT";
 
