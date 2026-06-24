@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { SectionLabel } from "@/components/sections/SectionLabel";
-import { InspectionPanel } from "@/components/sections/InspectionPanel";
 import { ExpertNote } from "@/components/sections/ExpertNote";
 
 interface FounderCredibilityProps {
@@ -85,16 +84,12 @@ export function FounderCredibility({
     );
   }
 
-  // Full variant
-  const inspectorChecks = [
-    "L'orientation et l'ombrage réels de la toiture",
-    "L'état du tableau électrique et des protections existantes",
-    "La courbe de consommation réelle, pas une moyenne",
-    "Le profil de prélèvement réseau et l'autoconsommation possible",
-    "La conformité RGIE de l'installation existante",
-    "La capacité du raccordement et la marge disponible",
-  ];
-
+  // Full variant — lighter than the previous version. The 6-item
+  // inspector checklist that used to live here now lives on its
+  // dedicated PVMethodPanel (and the about page carries Benoît's full
+  // story). Homepage version is now just portrait + ExpertNote + link,
+  // which is enough credibility lift without doubling the inspector
+  // narrative against the rest of the page.
   return (
     <section className="section-padding">
       <div className="container-be">
@@ -122,15 +117,16 @@ export function FounderCredibility({
               </p>
               <Link
                 href="/a-propos/"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-midnight underline-offset-4 hover:underline"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-midnight underline-offset-4 hover:underline"
               >
-                En savoir plus sur Benoît
+                Lire son parcours complet
                 <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
 
-          {/* RIGHT column : heading + intro + inspector checklist */}
+          {/* RIGHT column : heading + ExpertNote + soft CTA. No
+              checklist — that content lives on the PV service page. */}
           <div className="md:pt-1">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-heading)] text-midnight text-balance leading-[1.05]">
               J&apos;ai vu ce que les autres font mal. Aujourd&apos;hui, je fais mieux.
@@ -138,17 +134,25 @@ export function FounderCredibility({
 
             <ExpertNote
               quote="Avant Be'energies, Benoît inspectait des installations électriques et photovoltaïques pour des organismes agréés. Il conçoit chaque chantier comme un inspecteur : pensé pour le contrôle avant d'être pensé pour la vente."
-              attribution="Benoît Dezso, ancien inspecteur"
+              attribution="Benoît Dezso"
             />
 
-            {/* Inspector checklist */}
-            <div className="mt-8">
-              <InspectionPanel
-                eyebrow="Protocole d'inspection"
-                title="Ce que je vérifie avant de chiffrer"
-                subtitle="Liste extraite du protocole d'inspection que j'utilisais en agrément."
-                items={inspectorChecks}
-              />
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 text-[14.5px]">
+              <Link
+                href="/a-propos/"
+                className="inline-flex items-center gap-2 font-bold text-midnight hover:text-amber-dark transition-colors underline underline-offset-4 decoration-[1.5px] decoration-amber/50 hover:decoration-amber"
+              >
+                Le parcours complet
+                <span aria-hidden="true">→</span>
+              </Link>
+              <span aria-hidden="true" className="hidden sm:inline-block h-4 w-px bg-cloud" />
+              <Link
+                href="/realisations/"
+                className="inline-flex items-center gap-2 font-bold text-midnight hover:text-amber-dark transition-colors"
+              >
+                Voir les chantiers
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </div>
