@@ -461,32 +461,15 @@ export function ContactForm({
           {fieldError("timeline")}
         </div>
 
-        <div
-          className={`flex items-start gap-3 rounded-lg p-3.5 transition-colors ${
-            defaultExistingQuote
-              ? "bg-amber/10 border-[1.5px] border-amber/40 shadow-[0_1px_2px_rgba(245,158,11,0.08)]"
-              : "bg-ivory border border-cloud"
-          }`}
-        >
-          <input
-            type="checkbox"
-            id="existingQuote"
-            name="existingQuote"
-            value="yes"
-            defaultChecked={defaultExistingQuote}
-            className="mt-1 h-5 w-5 accent-amber cursor-pointer"
-          />
-          <label
-            htmlFor="existingQuote"
-            className="text-sm text-charcoal leading-relaxed cursor-pointer"
-          >
-            <span className="font-semibold text-midnight">
-              J&apos;ai déjà reçu un devis
-            </span>{" "}
-            et je souhaite un avis avant de signer. Joignez-le ci-dessous, ou
-            envoyez-le en réponse au mail de confirmation.
-          </label>
-        </div>
+        {/* The "J'ai déjà reçu un devis" choice is made above the form via
+            the entry tabs (/contact/ vs /contact/?intent=devis). We keep the
+            value flowing to the server through a hidden field instead of a
+            second, redundant checkbox. */}
+        <input
+          type="hidden"
+          name="existingQuote"
+          value={defaultExistingQuote ? "yes" : "no"}
+        />
       </fieldset>
 
       {/* Block 3: pieces jointes - compact single-row trigger */}
