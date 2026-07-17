@@ -79,7 +79,7 @@ export function getGrdTariff(grdName: string): GrdTariff | undefined {
 
 const cityIntrosFr: Record<string, (service: Service) => string> = {
   liege: (s) =>
-    `À Liège, deuxième ville de Wallonie, les installations de ${s.title.toLowerCase()} se multiplient. Desservie par le gestionnaire de réseau RESA, Liège bénéficie d'un tarif prosumer parmi les plus bas de Wallonie (${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an). Benoît intervient dans tous les quartiers liégeois, de Guillemins à Amercoeur.`,
+    `À Liège, deuxième ville de Wallonie, le réseau est exploité par RESA, dont le tarif prosumer figure parmi les plus bas de la région (${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an). Sur les toitures mitoyennes du centre comme sur les coteaux, chaque projet de ${s.title.toLowerCase()} demande un calepinage soigné et un contrôle du tableau avant chiffrage. Benoît intervient sur Liège et son agglomération.`,
   namur: (s) =>
     `Namur, capitale wallonne, est desservie par ORES. Les ${s.title.toLowerCase()} y représentent un investissement avec un retour de 5 à 7 ans. Le tarif prosumer ORES s'élève à ${grdTariffs.ORES.prosumerEurPerKweYear} EUR/kWe/an pour les installations antérieures à 2024. Benoît intervient à Namur et dans les communes environnantes.`,
   bruxelles: (s) =>
@@ -99,7 +99,21 @@ const cityIntrosFr: Record<string, (service: Service) => string> = {
   tournai: (s) =>
     `À Tournai, en Hainaut occidental, les ${s.title.toLowerCase()} sont gérées par ORES (tarif prosumer de ${grdTariffs.ORES.prosumerEurPerKweYear} EUR/kWe/an). Ville historique avec un parc immobilier varié, Tournai offre de bonnes opportunités d'autoconsommation. Benoît intervient à Tournai et dans le Tournaisis.`,
   "la-louviere": (s) =>
-    `À La Louvière, dans le Centre du Hainaut, les ${s.title.toLowerCase()} sont gérées sous ORES avec un tarif prosumer de ${grdTariffs.ORES.prosumerEurPerKweYear} EUR/kWe/an. La région offre un bon ensoleillement et des toitures souvent bien orientées. Benoît intervient dans toute la région du Centre.`,
+    `À La Louvière, dans le Centre du Hainaut, les ${s.title.toLowerCase()} sont gérées sous ORES avec un tarif prosumer de ${grdTariffs.ORES.prosumerEurPerKweYear} EUR/kWe/an. Le parc immobilier y est majoritairement ancien : le contrôle de la charpente et de l'étanchéité avant pose est un préalable, pas un détail. Benoît intervient dans toute la région du Centre.`,
+
+  // -- Expansion agglomeration liegeoise (RESA) --
+  herstal: (s) =>
+    `À Herstal, sur l'axe liégeois, le réseau est exploité par RESA (tarif prosumer de ${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an, parmi les plus bas de Wallonie). Le bâti dense et souvent ancien impose un contrôle du tableau électrique avant l'ajout d'une borne ou d'une batterie. Benoît dimensionne chaque projet de ${s.title.toLowerCase()} sur la consommation réelle, pas sur la surface de toiture.`,
+  seraing: (s) =>
+    `À Seraing, en province de Liège, le réseau est exploité par RESA (tarif prosumer de ${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an). Sur un parc immobilier majoritairement ancien, le contrôle de la charpente et de l'étanchéité précède toujours le chiffrage d'un projet de ${s.title.toLowerCase()}. Benoît couvre Seraing et l'agglomération liégeoise.`,
+  vise: (s) =>
+    `À Visé, sur la Basse-Meuse, le réseau est exploité par RESA (tarif prosumer de ${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an). À quelques minutes du siège de Benoît à Riemst, les projets de ${s.title.toLowerCase()} bénéficient d'un vrai suivi de proximité. Le dimensionnement se fait sur l'orientation mesurée de la toiture et le profil de consommation réel.`,
+
+  // -- Expansion Brabant wallon (ORES) --
+  "ottignies-louvain-la-neuve": (s) =>
+    `À Ottignies-Louvain-la-Neuve, en Brabant wallon, le réseau est exploité par ORES (tarif prosumer de ${grdTariffs.ORES.prosumerEurPerKweYear} EUR/kWe/an). Le profil résidentiel, avec voitures électriques et pompes à chaleur fréquentes, rend le couplage ${s.title.toLowerCase()} plus batterie plus borne particulièrement cohérent. Benoît intervient sur Ottignies, Louvain-la-Neuve et le Brabant wallon.`,
+  waterloo: (s) =>
+    `À Waterloo, en Brabant wallon, le réseau est exploité par ORES (tarif prosumer de ${grdTariffs.ORES.prosumerEurPerKweYear} EUR/kWe/an). Les toitures dégagées et bien orientées permettent un dimensionnement libre des ${s.title.toLowerCase()}, orienté sur la consommation réelle plutôt que sur la surface disponible. Benoît couvre Waterloo et tout le Brabant wallon.`,
 };
 
 // ---------------------------------------------------------------------------
@@ -112,9 +126,17 @@ const cityIntrosNl: Record<string, (service: Service) => string> = {
   tongeren: (s) =>
     `Tongeren, de oudste stad van Belgie, wordt bediend door Fluvius. ${s.titleNl} zijn hier een slimme investering: geen prosumententarief en een sterk potentieel voor zelfverbruik. Benoit bedient heel Zuid-Limburg vanuit zijn thuisbasis.`,
   bilzen: (s) =>
-    `In Bilzen, centraal in Limburg, worden ${s.titleNl.toLowerCase()} beheerd door Fluvius -- zonder prosumententarief. De gunstige dakoriëntaties in de woonwijken maken Bilzen ideaal voor zonne-energie. Benoit komt gratis bij u langs voor een diagnose.`,
+    `In Bilzen, centraal in Limburg, worden ${s.titleNl.toLowerCase()} beheerd door Fluvius -- zonder prosumententarief, maar met capaciteitstarief sinds 2023. De ruime, weinig beschaduwde daken in de woonwijken lenen zich goed voor een correcte dimensionering op het reele verbruik. Benoit komt gratis bij u langs voor een diagnose.`,
   hasselt: (s) =>
-    `Hasselt, de hoofdstad van Limburg, biedt een uitstekend kader voor ${s.titleNl.toLowerCase()}. Fluvius als netbeheerder betekent geen prosumententarief. Met de hoogste bevolkingsdichtheid in de regio is de vraag naar energieoplossingen hier bijzonder groot. Benoit bedient heel Hasselt en omgeving.`,
+    `Hasselt, de hoofdstad van Limburg, wordt bediend door Fluvius: geen prosumententarief, wel het capaciteitstarief dat sinds 2023 de netfactuur mee bepaalt. Voor ${s.titleNl.toLowerCase()} betekent dit dat eigenverbruik en het spreiden van pieken belangrijker zijn dan injectie. Benoit bedient heel Hasselt en omgeving.`,
+
+  // -- Uitbreiding Limburg (Fluvius) - dicht bij de thuisbasis --
+  genk: (s) =>
+    `In Genk, in het hart van Limburg, worden ${s.titleNl.toLowerCase()} beheerd door Fluvius. Geen prosumententarief, maar sinds 2023 wel een capaciteitstarief dat verbruikspieken mee verrekent. De ruime daken lenen zich goed voor installaties tot 12 kWc, vaak met batterij bij een warmtepomp of laadpaal. Benoit maakt een gratis diagnose ter plaatse.`,
+  maasmechelen: (s) =>
+    `In Maasmechelen, langs de Maas, worden ${s.titleNl.toLowerCase()} beheerd door Fluvius -- zonder prosumententarief, met capaciteitstarief. Het reele rendement hangt hier vooral af van eigenverbruik en van het spreiden van pieken, niet van injectie op het net. Benoit dimensioneert elk dossier op het werkelijke verbruik.`,
+  lanaken: (s) =>
+    `In Lanaken, grensgemeente naast Riemst, worden ${s.titleNl.toLowerCase()} beheerd door Fluvius. Op enkele minuten van de thuisbasis van Benoit krijgt elk project een echte opvolging van dichtbij. Geen prosumententarief, wel het capaciteitstarief sinds 2023: het spreiden van pieken wordt een echte hefboom voor het rendement.`,
 };
 
 export function getCityIntro(

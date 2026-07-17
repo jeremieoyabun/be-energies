@@ -111,6 +111,54 @@ export const cityContext: Record<string, CityContextEntry> = {
   },
 
   // -------------------------------------------------------------------------
+  // WALLONIE - tier 2b (agglomeration liegeoise, RESA)
+  // -------------------------------------------------------------------------
+  herstal: {
+    housingNote:
+      "Herstal aligne un tissu urbain dense hérité de son passé industriel, avec beaucoup de maisons mitoyennes du XXe siècle, quelques zones plus récentes en périphérie et une majorité de toitures en pans simples.",
+    contextNote:
+      "Le réseau est exploité par RESA, comme sur l'ensemble de l'agglomération liégeoise. Le raccordement monophasé est majoritaire chez le particulier. Sur les toitures mitoyennes, les ombrages de cheminées et de bâtiments voisins sont fréquents et justifient souvent des optimiseurs ou des micro-onduleurs. Le parc immobilier plus ancien impose un contrôle sérieux du tableau électrique avant l'ajout d'une borne ou d'une batterie.",
+    positioningNote:
+      "À Herstal, comme sur tout l'axe liégeois, le premier point que je vérifie c'est l'état du tableau et des protections. Beaucoup d'installations anciennes ne supportent pas l'ajout d'une borne sans reprise des différentiels par circuit.",
+  },
+  seraing: {
+    housingNote:
+      "Seraing porte un héritage sidérurgique marqué, avec un parc immobilier majoritairement ancien, des maisons mitoyennes en fond de vallée et des quartiers résidentiels étagés sur les hauteurs.",
+    contextNote:
+      "Le réseau est exploité par RESA. La topographie de vallée et le bâti ancien créent des ombrages naturels fréquents et imposent un contrôle sérieux de la charpente avant pose. Les raccordements monophasés dominent en résidentiel. Sur ce type de parc, dimensionner pour la consommation réelle plutôt que pour la surface disponible est presque toujours la bonne approche.",
+    positioningNote:
+      "À Seraing, je vois régulièrement des toitures fatiguées qui auraient dû être reprises avant la pose de panneaux. Sur du bâti ancien, le contrôle de la couverture et de la charpente est un préalable, pas un détail.",
+  },
+  vise: {
+    housingNote:
+      "Visé, sur la Basse-Meuse, mêle un centre historique compact, des faubourgs résidentiels et une périphérie pavillonnaire avec villas et jardins, proche de la frontière néerlandaise.",
+    contextNote:
+      "Le réseau est exploité par RESA. La proximité de la frontière et le profil résidentiel de la périphérie permettent souvent des installations 5 à 10 kWc bien orientées, avec batterie lorsque le profil de consommation le justifie. Dans le centre, le bâti ancien impose de vérifier la zone auprès du service urbanisme avant tout projet visible depuis l'espace public.",
+    positioningNote:
+      "À Visé, je suis à quelques minutes de mon siège de Riemst, ce qui me permet un suivi de proximité réel. Ce que je regarde d'abord, c'est l'orientation mesurée de la toiture et l'état du raccordement, pas la surface disponible.",
+  },
+
+  // -------------------------------------------------------------------------
+  // WALLONIE - tier 2b (Brabant wallon, ORES)
+  // -------------------------------------------------------------------------
+  "ottignies-louvain-la-neuve": {
+    housingNote:
+      "Ottignies-Louvain-la-Neuve associe une ville universitaire récente et bien pensée à des quartiers résidentiels avec villas, maisons 4 façades et jardins, sur un parc immobilier plutôt jeune et entretenu.",
+    contextNote:
+      "Le réseau est exploité par ORES. Le profil résidentiel du Brabant wallon, avec une forte présence de voitures électriques et de pompes à chaleur, rend le couplage PV plus batterie plus borne particulièrement cohérent. Les toitures sont souvent en pans simples bien exposés, ce qui simplifie le calepinage et le dimensionnement sur la consommation réelle.",
+    positioningNote:
+      "À Ottignies et Louvain-la-Neuve, le piège classique c'est de dimensionner le photovoltaïque sans penser la borne et la batterie comme un seul système. Je préfère poser le scénario d'usage complet avant de proposer une puissance.",
+  },
+  waterloo: {
+    housingNote:
+      "Waterloo est un Brabant wallon résidentiel aisé, avec une forte proportion de villas 4 façades, de grands jardins et un parc immobilier généralement récent et bien entretenu.",
+    contextNote:
+      "Le réseau est exploité par ORES. Le profil résidentiel et la présence fréquente de voitures électriques ou de pompes à chaleur rendent le couplage PV plus batterie plus borne cohérent. Les toitures dégagées et bien orientées permettent un dimensionnement libre, orienté sur la consommation réelle plutôt que sur la surface disponible.",
+    positioningNote:
+      "À Waterloo, ce que je regarde en priorité c'est la cohabitation PV plus borne plus pompe à chaleur sur le même tableau. Anticiper une deuxième voiture électrique change le dimensionnement de la ligne dès le départ.",
+  },
+
+  // -------------------------------------------------------------------------
   // FLANDRE - tier 3 - entries en NEERLANDAIS
   // -------------------------------------------------------------------------
   riemst: {
@@ -144,6 +192,34 @@ export const cityContext: Record<string, CityContextEntry> = {
       "Het distributienet wordt beheerd door Fluvius. In het stadscentrum zijn de beschikbare dakvlakken vaak kleiner en gevoeliger voor schaduw van aanpalende gebouwen, wat optimizers of micro-omvormers vaak verantwoord maakt. In de residentiele rand laten grotere daken klassieke installaties van 6 tot 10 kWc toe, met batterij wanneer er voldoende eigenverbruik is via warmtepomp of elektrische wagen.",
     positioningNote:
       "In Hasselt vertrek ik altijd van het reele verbruiksprofiel, niet van het dakoppervlak. Een eerlijke dimensionering is belangrijker dan een groot vermogen op papier.",
+  },
+
+  // -------------------------------------------------------------------------
+  // FLANDRE - tier 3b (Limburg, Fluvius) - proximite du siege
+  // -------------------------------------------------------------------------
+  genk: {
+    housingNote:
+      "Genk is een ruim opgezette stad met veel vrijstaande en halfopen woningen, brede verkavelingen en een naoorlogse bouwvoorraad die over het algemeen goede, eenvoudige dakvlakken oplevert.",
+    contextNote:
+      "Het distributienet wordt beheerd door Fluvius. De ruime, vaak weinig beschaduwde daken laten installaties van 6 tot 12 kWc toe, regelmatig gekoppeld aan een batterij wanneer er een warmtepomp of elektrische wagen is. In Vlaanderen bepaalt sinds 2023 het capaciteitstarief mee de netfactuur: het loont om verbruikspieken te spreiden, wat de logica van batterij en sturing versterkt.",
+    positioningNote:
+      "In Genk kijk ik van bij de start of het elektrisch bord en de aansluiting een latere laadpaal of batterij aankunnen. Met het capaciteitstarief is het spreiden van pieken vandaag een echt onderdeel van een goed dossier.",
+  },
+  maasmechelen: {
+    housingNote:
+      "Maasmechelen heeft een semi-landelijk karakter langs de Maas, met een mix van vrijstaande woningen, oudere mijnwerkerswijken en recente verkavelingen met ruime tuinen.",
+    contextNote:
+      "Het distributienet wordt beheerd door Fluvius. De vaak ruime daken laten installaties van 6 tot 12 kWc toe, met batterij wanneer het verbruiksprofiel het rechtvaardigt. Het Vlaamse kader zonder prosumententarief maar met capaciteitstarief betekent dat het reele rendement vooral afhangt van eigenverbruik en van het spreiden van pieken, niet van injectie op het net.",
+    positioningNote:
+      "In Maasmechelen vertrek ik van het reele verbruik en van de vraag of er later een warmtepomp of laadpaal bijkomt. Dat bepaalt of een batterij vandaag zin heeft of beter nog even wacht.",
+  },
+  lanaken: {
+    housingNote:
+      "Lanaken is een landelijke grensgemeente met veel vrijstaande woningen, grote tuinen en een bouwstijl die typisch is voor het Maasland, op korte afstand van mijn thuisbasis in Riemst.",
+    contextNote:
+      "Het distributienet wordt beheerd door Fluvius. Het landelijke profiel met ruime, weinig beschaduwde daken leent zich goed voor installaties van 8 tot 12 kWc, vaak met batterij bij een warmtepomp of elektrische wagen. Sinds 2023 weegt het capaciteitstarief mee in de netfactuur: het spreiden van verbruikspieken wordt een echte hefboom voor het rendement.",
+    positioningNote:
+      "Lanaken grenst aan Riemst, dus ik ben hier snel ter plaatse voor een diagnose en voor de opvolging. Ik begin altijd bij het verbruiksprofiel, niet bij het beschikbare dakoppervlak.",
   },
 };
 

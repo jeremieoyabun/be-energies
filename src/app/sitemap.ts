@@ -87,6 +87,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly" as const,
       priority: 0.7,
     },
+    {
+      url: `${BASE}/nl/gids/capaciteitstarief-vlaanderen/`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
   ];
 
   return [
