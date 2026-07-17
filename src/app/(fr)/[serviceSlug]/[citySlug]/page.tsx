@@ -238,6 +238,54 @@ export default async function LocalPage({ params }: LocalPageProps) {
                 </Link>
               ))}
             </div>
+
+            {/* Contextual pillar-guide links — push authority from the
+                local pages to the cornerstone guides, chosen by region. */}
+            {(() => {
+              const guides: { label: string; href: string }[] = [];
+              if (city.region === "bruxelles") {
+                guides.push({
+                  label: "Certificats verts à Bruxelles en 2026",
+                  href: "/guides/certificats-verts-bruxelles-2026/",
+                });
+              } else if (city.region === "wallonie") {
+                guides.push({
+                  label: "Prix des panneaux solaires en Wallonie en 2026",
+                  href: "/guides/prix-panneaux-solaires-wallonie-2026/",
+                });
+                guides.push({
+                  label: "Tarif IMPACT Wallonie : ce qui change",
+                  href: "/guides/tarif-impact-wallonie-explication/",
+                });
+              }
+              if (service.slug === "bornes-de-recharge") {
+                guides.push({
+                  label: "Prime borne de recharge en Belgique 2026",
+                  href: "/guides/prime-borne-recharge-belgique-2026/",
+                });
+              }
+              if (guides.length === 0) return null;
+              return (
+                <div className="mt-8 pt-6 border-t border-cloud">
+                  <h3 className="text-[13px] font-bold uppercase tracking-[0.14em] text-amber-dark mb-3">
+                    Pour aller plus loin
+                  </h3>
+                  <ul className="space-y-2">
+                    {guides.map((g) => (
+                      <li key={g.href}>
+                        <Link
+                          href={g.href}
+                          className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-midnight hover:text-amber-dark transition-colors underline underline-offset-4 decoration-amber/40 hover:decoration-amber"
+                        >
+                          {g.label}
+                          <ArrowRightIcon size={14} />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })()}
           </div>
         </section>
       )}

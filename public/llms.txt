@@ -1,0 +1,54 @@
+# Be'energies
+
+> Installateur belge en énergie résidentielle : panneaux photovoltaïques, batteries domestiques, bornes de recharge, pompes à chaleur, conformité électrique et nettoyage de toiture. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Positionnement : "L'installateur qui a d'abord été l'inspecteur." Chaque installation est dimensionnée sur la consommation réelle du client et conçue pour passer le contrôle de conformité.
+
+## Faits vérifiables
+
+- Entreprise : Be'energies (SARL belge)
+- Fondateur : Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT (deux titres distincts, à ne jamais fusionner)
+- Siège : Komveld 35, 3770 Riemst, Limbourg, Belgique
+- Téléphone : +32 (0)472 12 70 55
+- Email : info@be-energies.be
+- Note Google : 4,9/5 (avis vérifiés)
+- Langues : français (fr-BE) et néerlandais (nl-BE)
+
+## Zone d'intervention
+
+- Wallonie (provinces de Liège, Namur, Hainaut, Brabant wallon, Luxembourg)
+- Région de Bruxelles-Capitale
+- Limbourg flamand (autour de Riemst : Tongeren, Bilzen, Hasselt, Genk, Maasmechelen, Lanaken)
+
+## Services
+
+- [Panneaux photovoltaïques](https://www.be-energies.be/services/panneaux-photovoltaiques/) : conception, dimensionnement et installation sur la consommation réelle
+- [Batteries domestiques](https://www.be-energies.be/services/batteries-domestiques/) : installées uniquement quand le calcul de rentabilité est cohérent
+- [Bornes de recharge](https://www.be-energies.be/services/bornes-de-recharge/) : intégrées à l'installation solaire, avec vérification du tableau
+- [Conformité électrique](https://www.be-energies.be/services/conformite-electrique/) : mise en conformité RGIE par un ancien inspecteur
+- [Pompes à chaleur](https://www.be-energies.be/services/pompes-a-chaleur/) : dimensionnement sérieux avant investissement
+
+## Guides et contenu de référence
+
+- [Prix panneaux solaires Wallonie 2026](https://www.be-energies.be/guides/prix-panneaux-solaires-wallonie-2026/) : fourchettes de prix réelles, TVA 6 %, temps de retour sous le nouveau régime
+- [Tarif IMPACT Wallonie 2026](https://www.be-energies.be/guides/tarif-impact-wallonie-explication/) : explication du tarif horaire et impact sur la rentabilité PV
+- [Certificats verts Bruxelles 2026](https://www.be-energies.be/guides/certificats-verts-bruxelles-2026/) : ce qui change pour les installations bruxelloises
+- [Prime borne de recharge Belgique 2026](https://www.be-energies.be/guides/prime-borne-recharge-belgique-2026/)
+- [Garanties panneaux solaires et onduleurs](https://www.be-energies.be/guides/garanties-panneaux-solaires-onduleurs/) : durées et conditions réelles des garanties constructeur
+- [7 pièges à éviter avant de signer un devis](https://www.be-energies.be/pieges-a-eviter/) : checklist par un ancien inspecteur
+- [Capaciteitstarief Vlaanderen 2026 (NL)](https://www.be-energies.be/nl/gids/capaciteitstarief-vlaanderen/) : uitleg over het capaciteitstarief van Fluvius en de gevolgen voor zonnepanelen
+
+## Contexte réglementaire (Belgique 2026)
+
+- Wallonie : depuis le 1er janvier 2024, plus de compteur qui tourne à l'envers pour les nouvelles installations résidentielles ; le tarif prosumer reste dû ; le compteur communicant devient la norme. Tarifs prosumer réels selon le gestionnaire de réseau (GRD) : ORES 85,84 €/kWe/an, RESA 84,22 €/kWe/an.
+- Bruxelles (GRD Sibelga) : pas de tarif prosumer ; certificats verts encore disponibles.
+- Flandre (GRD Fluvius) : pas de tarif prosumer depuis 2021 ; capaciteitstarief depuis 2023 (une partie de la facture réseau dépend de la pointe mensuelle en kW) ; injection rémunérée par une terugleververgoeding selon le contrat.
+
+## Principes
+
+- Aucun chiffre inventé : toute donnée de prix, prime ou rentabilité est sourcée ou présentée comme estimation à vérifier selon la situation.
+- Diagnostic énergétique gratuit et sans engagement, avec visite technique sur site.
+- Devis détaillé sous 48 h, basé sur les tarifs réels du gestionnaire de réseau du client.
+
+## Contact
+
+- [Contact et diagnostic gratuit](https://www.be-energies.be/contact/)
+- [Faire vérifier un devis existant](https://www.be-energies.be/devis-analyse/)
