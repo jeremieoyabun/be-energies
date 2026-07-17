@@ -104,7 +104,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   href="/contact/"
                   role="tab"
                   aria-selected={!intentDevis}
-                  className={`flex items-center gap-3 rounded-xl px-4 py-3.5 border-[1.5px] transition-colors ${
+                  className={`flex items-start gap-3 rounded-xl px-4 py-3.5 border-[1.5px] transition-colors ${
                     !intentDevis
                       ? "bg-amber/10 border-amber/45 shadow-[0_1px_2px_rgba(245,158,11,0.08)]"
                       : "bg-white border-midnight/12 hover:border-amber/40"
@@ -135,7 +135,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   href="/contact/?intent=devis"
                   role="tab"
                   aria-selected={intentDevis}
-                  className={`flex items-center gap-3 rounded-xl px-4 py-3.5 border-[1.5px] transition-colors ${
+                  className={`flex items-start gap-3 rounded-xl px-4 py-3.5 border-[1.5px] transition-colors ${
                     intentDevis
                       ? "bg-amber/10 border-amber/45 shadow-[0_1px_2px_rgba(245,158,11,0.08)]"
                       : "bg-white border-midnight/12 hover:border-amber/40"
