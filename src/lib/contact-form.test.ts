@@ -131,16 +131,27 @@ describe("validateContact", () => {
     expect(result.data?.gdpr).toBe(true);
   });
 
-  it("silently rejects when the honeypot 'company' field is filled", () => {
+  it("silently rejects when the honeypot 'hp_field' is filled", () => {
     const result = validateContact({
       ...validPayload,
-      company: "Acme Spam Co.",
+      hp_field: "Acme Spam Co.",
     });
     expect(result.ok).toBe(false);
     expect(result.errors._form).toBeDefined();
     // No field-level errors leaked back to the bot.
     expect(result.errors.name).toBeUndefined();
     expect(result.errors.email).toBeUndefined();
+  });
+
+  it("accepts a payload when the old 'company' field is present but hp_field is empty", () => {
+    // Regression guard: renaming the honeypot must not resurrect the old
+    // 'company' autofill trap. A real visitor whose browser autofilled a
+    // 'company' value must still pass.
+    const result = validateContact({
+      ...validPayload,
+      company: "Some Real Company the browser autofilled",
+    });
+    expect(result.ok).toBe(true);
   });
 
   it("accepts the payload when buildingType and timeline are omitted", () => {

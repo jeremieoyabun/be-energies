@@ -152,7 +152,7 @@ export function ContactForm({
       existingQuote: rawForm.get("existingQuote") === "yes",
       message: rawForm.get("message"),
       gdpr: rawForm.get("gdpr") === "on",
-      company: rawForm.get("company"), // honeypot
+      hp_field: rawForm.get("hp_field"), // honeypot
     };
 
     // Client-side validation first to avoid a round trip for obvious mistakes.
@@ -160,6 +160,14 @@ export function ContactForm({
     if (!local.ok || !local.data) {
       setErrors(local.errors);
       setStatus("error");
+      // A "_form" error (honeypot / malformed) has no field to attach to,
+      // so surface it as a visible global message rather than failing
+      // silently — otherwise a real visitor sees a dead button.
+      if (local.errors._form) {
+        setGlobalError(
+          "Un souci technique a bloqué l'envoi. Réessayez, ou écrivez-nous directement à info@be-energies.be.",
+        );
+      }
       // Focus the first invalid field.
       const firstField = Object.keys(local.errors)[0];
       const el = formRef.current?.querySelector<HTMLElement>(
@@ -281,34 +289,34 @@ export function ContactForm({
       ref={formRef}
       onSubmit={handleSubmit}
       noValidate
-      className="space-y-6"
+      className="space-y-5"
       aria-describedby={liveRegionId}
     >
       {/* Honeypot - hidden from sighted users and screen readers.
-          Off-screen positioning (instead of display:none) keeps the input in
-          the accessibility tree disabled by aria-hidden, while still being
-          invisible and unfocusable. Belt-and-suspenders against bots that
-          ignore display:none. */}
+          IMPORTANT: the field name must NOT be a real autofill token
+          (company / organization / email / phone…), otherwise Chrome
+          fills it automatically and the anti-bot check silently blocks
+          real visitors. "hp_field" matches no autofill heuristic. */}
       <div
         aria-hidden="true"
         className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden"
       >
-        <label htmlFor="company">Ne pas remplir</label>
+        <label htmlFor="hp_field">Ne pas remplir</label>
         <input
           type="text"
-          id="company"
-          name="company"
+          id="hp_field"
+          name="hp_field"
           tabIndex={-1}
           autoComplete="off"
         />
       </div>
 
       {/* Block 1: vous */}
-      <fieldset className="space-y-5">
+      <fieldset className="space-y-4">
         <legend className="text-[12.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-4 inline-flex items-center gap-2 before:content-[''] before:w-6 before:h-[2px] before:bg-amber">
           1 · Vous
         </legend>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="name" className="form-label">
               Nom complet <span className="text-amber">*</span>
@@ -342,7 +350,7 @@ export function ContactForm({
             {fieldError("email")}
           </div>
         </div>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="phone" className="form-label">
               Téléphone <span className="text-amber">*</span>
@@ -380,11 +388,11 @@ export function ContactForm({
       </fieldset>
 
       {/* Block 2: votre projet */}
-      <fieldset className="space-y-5">
+      <fieldset className="space-y-4">
         <legend className="text-[12.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-4 inline-flex items-center gap-2 before:content-[''] before:w-6 before:h-[2px] before:bg-amber">
           2 · Votre projet
         </legend>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="projectType" className="form-label">
               Type de projet <span className="text-amber">*</span>
@@ -481,24 +489,20 @@ export function ContactForm({
         </div>
       </fieldset>
 
-      {/* Block 3: pieces jointes */}
+      {/* Block 3: pieces jointes - compact single-row trigger */}
       <fieldset>
-        <legend className="text-[12.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-4 inline-flex items-center gap-2 before:content-[''] before:w-6 before:h-[2px] before:bg-amber">
+        <legend className="text-[12.5px] font-bold tracking-[0.18em] uppercase text-amber-dark mb-2.5 inline-flex items-center gap-2 before:content-[''] before:w-6 before:h-[2px] before:bg-amber">
           3 · Pièces jointes (facultatif)
         </legend>
-        <p className="text-[13px] text-steel leading-relaxed mb-3">
-          Devis solaire, photos de toiture, factures d&apos;électricité, plan
-          de coffret… Tout document utile à l&apos;analyse.
-        </p>
 
         <label
           htmlFor="attachments"
-          className="group flex flex-col items-center justify-center gap-2 cursor-pointer rounded-xl border-2 border-dashed border-cloud bg-ivory/60 hover:border-amber hover:bg-amber/5 transition-colors px-4 py-6 text-center"
+          className="group flex items-center gap-3 cursor-pointer rounded-xl border-[1.5px] border-dashed border-steel/40 bg-ivory/60 hover:border-amber hover:bg-amber/5 transition-colors px-4 py-3"
         >
           <svg
             aria-hidden="true"
             viewBox="0 0 24 24"
-            className="h-6 w-6 text-amber-dark"
+            className="h-5 w-5 text-amber-dark shrink-0"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.8"
@@ -507,11 +511,11 @@ export function ContactForm({
           >
             <path d="M21.44 11.05 12.25 20.24a6 6 0 0 1-8.49-8.49l8.57-8.57a4 4 0 0 1 5.66 5.66L9.41 17.41a2 2 0 1 1-2.83-2.83l7.07-7.07" />
           </svg>
-          <span className="text-[14px] font-semibold text-midnight">
-            Cliquer pour joindre des fichiers
+          <span className="text-[13.5px] font-semibold text-midnight">
+            Joindre un devis ou des photos
           </span>
-          <span className="text-[11.5px] text-steel">
-            PDF, JPG, PNG, WebP · {MAX_FILES} fichiers max · {formatBytes(MAX_TOTAL_BYTES)} au total
+          <span className="ml-auto text-[11px] text-steel hidden sm:inline">
+            PDF, JPG, PNG · {formatBytes(MAX_TOTAL_BYTES)} max
           </span>
           <input
             ref={fileInputRef}
@@ -650,7 +654,7 @@ export function ContactForm({
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark disabled:bg-amber/60 disabled:cursor-not-allowed text-midnight font-bold px-10 py-4 rounded-xl transition-colors text-base"
+          className="cta-glow inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark disabled:bg-amber/60 disabled:cursor-not-allowed cursor-pointer text-midnight font-bold px-10 py-3.5 rounded-xl transition-colors text-base"
         >
           {status === "submitting" && (
             <svg

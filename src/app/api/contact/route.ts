@@ -75,7 +75,7 @@ export async function POST(request: Request) {
     existingQuote: fd.get("existingQuote") === "yes",
     message: fd.get("message"),
     gdpr: fd.get("gdpr") === "on",
-    company: fd.get("company"), // honeypot
+    hp_field: fd.get("hp_field"), // honeypot
   };
 
   const result = validateContact(payload);

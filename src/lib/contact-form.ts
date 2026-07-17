@@ -38,8 +38,9 @@ export interface ContactPayload {
   timeline?: Timeline;
   existingQuote: boolean;
   message?: string;
-  // Honeypot field - must remain empty for real users.
-  company?: string;
+  // Honeypot field - must remain empty for real users. Named "hp_field"
+  // (not "company") so browser autofill never populates it.
+  hp_field?: string;
   // GDPR consent
   gdpr: boolean;
 }
@@ -72,7 +73,7 @@ export function validateContact(input: unknown): {
   const buildingType = str(raw.buildingType);
   const timeline = str(raw.timeline);
   const message = str(raw.message);
-  const company = str(raw.company); // honeypot
+  const company = str(raw.hp_field); // honeypot
   const existingQuote = raw.existingQuote === true || raw.existingQuote === "yes";
   const gdpr = raw.gdpr === true || raw.gdpr === "on" || raw.gdpr === "yes";
 
