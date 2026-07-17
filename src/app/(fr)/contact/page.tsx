@@ -104,7 +104,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   href="/contact/"
                   role="tab"
                   aria-selected={!intentDevis}
-                  className={`flex items-start gap-3 rounded-xl p-4 md:p-5 border-[1.5px] transition-colors ${
+                  className={`flex items-center gap-3 rounded-xl px-4 py-3.5 border-[1.5px] transition-colors ${
                     !intentDevis
                       ? "bg-amber/10 border-amber/45 shadow-[0_1px_2px_rgba(245,158,11,0.08)]"
                       : "bg-white border-midnight/12 hover:border-amber/40"
@@ -112,7 +112,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                 >
                   <span
                     aria-hidden="true"
-                    className={`shrink-0 inline-flex items-center justify-center w-9 h-9 -my-1 rounded-lg ring-1 ${
+                    className={`shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-lg ring-1 ${
                       !intentDevis
                         ? "bg-amber/20 ring-amber/45 text-amber-dark"
                         : "bg-ivory ring-midnight/15 text-midnight/70"
@@ -122,12 +122,12 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                       <path d="M5 12h14M13 5l7 7-7 7" />
                     </svg>
                   </span>
-                  <div>
+                  <div className="min-w-0">
                     <p className="font-bold text-midnight text-[15px] leading-tight">
                       Je démarre un projet
                     </p>
-                    <p className="mt-1 text-[13.5px] text-charcoal/85 leading-relaxed">
-                      Diagnostic gratuit sur place, devis sous 48 h.
+                    <p className="mt-0.5 text-[13px] text-charcoal/85 leading-snug">
+                      Diagnostic gratuit, devis sous 48 h.
                     </p>
                   </div>
                 </Link>
@@ -135,7 +135,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   href="/contact/?intent=devis"
                   role="tab"
                   aria-selected={intentDevis}
-                  className={`flex items-start gap-3 rounded-xl p-4 md:p-5 border-[1.5px] transition-colors ${
+                  className={`flex items-center gap-3 rounded-xl px-4 py-3.5 border-[1.5px] transition-colors ${
                     intentDevis
                       ? "bg-amber/10 border-amber/45 shadow-[0_1px_2px_rgba(245,158,11,0.08)]"
                       : "bg-white border-midnight/12 hover:border-amber/40"
@@ -143,7 +143,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                 >
                   <span
                     aria-hidden="true"
-                    className={`shrink-0 inline-flex items-center justify-center w-9 h-9 -my-1 rounded-lg ring-1 ${
+                    className={`shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-lg ring-1 ${
                       intentDevis
                         ? "bg-amber/20 ring-amber/45 text-amber-dark"
                         : "bg-ivory ring-midnight/15 text-midnight/70"
@@ -154,13 +154,12 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                       <path d="M14 2v6h6" />
                     </svg>
                   </span>
-                  <div>
+                  <div className="min-w-0">
                     <p className="font-bold text-midnight text-[15px] leading-tight">
                       J&apos;ai déjà un devis
                     </p>
-                    <p className="mt-1 text-[13.5px] text-charcoal/85 leading-relaxed">
-                      Benoît le relit en 48 h, points d&apos;attention
-                      écrits.
+                    <p className="mt-0.5 text-[13px] text-charcoal/85 leading-snug">
+                      Benoît le relit sous 48 h.
                     </p>
                   </div>
                 </Link>
