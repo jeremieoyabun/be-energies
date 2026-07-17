@@ -107,14 +107,18 @@ export function generateLocalPageMetadata(
   const frPath = `/${service.slug}/${city.slug}/`;
   const nlPath = `/nl/${service.slugNl}/${city.slug}/`;
 
-  // Only set alternates for Limburg cities that have both FR and NL pages
-  const hasAlternate = city.language === "nl";
-
+  // We only emit hreflang alternates when BOTH language versions of a
+  // city page actually exist. Today: FR pages exist for all "fr" cities
+  // (Wallonia + Bruxelles), NL pages exist for "nl" cities (Flemish
+  // Limburg) — no city has both. Emitting a cross-language alternate
+  // that 404s on the other side was the previous bug (thin FR pages
+  // rendered on-demand for NL cities purely to satisfy hreflang).
+  // Self-referencing canonical is handled by generatePageMetadata via
+  // the `path` field.
   return generatePageMetadata({
     title,
     description,
     path: isFr ? frPath : nlPath,
     locale,
-    alternates: hasAlternate ? { fr: frPath, nl: nlPath } : undefined,
   });
 }

@@ -44,12 +44,28 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // First visit. Honour the browser preference.
+  // First visit. Honour the browser preference — but ONLY auto-redirect
+  // on the homepage. Deep FR paths (services, guides, city pages) stay in
+  // FR because service slugs differ between locales (panneaux-photovoltaiques
+  // vs zonnepanelen) and some cities exist in only one language. Naively
+  // prepending /nl to any FR path used to produce 404s. The language
+  // switcher in the header/footer lets the visitor swap language on any
+  // page; we just remember their preference so future navigation doesn't
+  // ping-pong them.
   if (preferredIsNl(request.headers.get("accept-language"))) {
-    const nlUrl = request.nextUrl.clone();
-    nlUrl.pathname = `/nl${pathname === "/" ? "/" : pathname}`;
-    const response = NextResponse.redirect(nlUrl);
-    // Lock the choice for 1 year so the redirect happens only once.
+    if (pathname === "/") {
+      const nlUrl = request.nextUrl.clone();
+      nlUrl.pathname = "/nl/";
+      const response = NextResponse.redirect(nlUrl);
+      response.cookies.set(LOCALE_COOKIE, "nl", {
+        path: "/",
+        maxAge: 60 * 60 * 24 * 365,
+        sameSite: "lax",
+      });
+      return response;
+    }
+    // Deep path: keep them here, just remember the preference.
+    const response = NextResponse.next();
     response.cookies.set(LOCALE_COOKIE, "nl", {
       path: "/",
       maxAge: 60 * 60 * 24 * 365,

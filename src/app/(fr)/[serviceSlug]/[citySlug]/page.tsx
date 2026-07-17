@@ -35,6 +35,13 @@ interface LocalPageProps {
   params: Promise<{ serviceSlug: string; citySlug: string }>;
 }
 
+// Any FR service × city combination that is NOT in generateStaticParams
+// returns 404 instead of rendering with fallback content. Prevents
+// thin FR pages from being generated on-demand for NL-only cities
+// (Riemst, Tongeren, Hasselt, Bilzen) which used to be indexed via
+// hreflang alternates and drag SEO quality down.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const frCities = getFrenchCities();
   return services.flatMap((service) =>

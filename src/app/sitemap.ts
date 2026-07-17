@@ -71,11 +71,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Pillar guides - high commercial value, prioritised above blog posts.
+  // lastModified anchors to the guide's own lastUpdated string (YYYY-MM)
+  // so search engines can prioritise recently-updated guides.
   const guidePages: MetadataRoute.Sitemap = getAllPillarGuides().map((g) => ({
     url: `${BASE}/guides/${g.slug}/`,
+    lastModified: new Date(`${g.lastUpdated}-01`),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
+
+  // Standalone guides that live outside the pillar-guides data model.
+  const standaloneGuides: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE}/guides/garanties-panneaux-solaires-onduleurs/`,
+      changeFrequency: "yearly" as const,
+      priority: 0.7,
+    },
+  ];
 
   return [
     ...staticPages,
@@ -85,5 +97,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...realizationPages,
     ...blogPages,
     ...guidePages,
+    ...standaloneGuides,
   ];
 }

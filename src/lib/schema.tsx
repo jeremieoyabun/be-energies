@@ -30,6 +30,7 @@ export function organizationSchema() {
   return compact({
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${BASE_URL}/#organization`,
     name: siteConfig.legal.companyName,
     legalName: siteConfig.legal.companyName,
     url: BASE_URL,
@@ -48,6 +49,9 @@ export function organizationSchema() {
       availableLanguage: ["French", "Dutch"],
       areaServed: ["BE-WAL", "BE-BRU", "BE-VLG", "LU"],
     })),
+    // Cross-link Organization ↔ LocalBusiness so Google sees them as
+    // the same entity rather than two separate nodes.
+    subOrganization: { "@id": `${BASE_URL}/#localbusiness` },
     sameAs: sameAs(),
   });
 }
@@ -108,6 +112,7 @@ export function localBusinessSchema(city?: City) {
     }),
     sameAs: sameAs(),
     priceRange: "EUR",
+    parentOrganization: { "@id": `${BASE_URL}/#organization` },
   });
 }
 
@@ -117,16 +122,31 @@ export function serviceSchema(service: Service) {
     "@type": "Service",
     name: service.title,
     description: service.shortDescription,
-    provider: {
-      "@type": "LocalBusiness",
-      name: siteConfig.name,
-      url: BASE_URL,
-    },
+    provider: { "@id": `${BASE_URL}/#localbusiness` },
     areaServed: [
       { "@type": "AdministrativeArea", name: "Wallonie" },
       { "@type": "AdministrativeArea", name: "Bruxelles" },
       { "@type": "AdministrativeArea", name: "Limburg" },
     ],
+    // Diagnostic gratuit is a documented free offer — schema-eligible as
+    // an Offer with price=0 EUR. Real installation quotes vary and are
+    // handled off-schema (they need visite technique first).
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "EUR",
+      price: "0",
+      availability: "https://schema.org/InStock",
+      itemOffered: {
+        "@type": "Service",
+        name: `Diagnostic gratuit pour ${service.title.toLowerCase()}`,
+      },
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Wallonie" },
+        { "@type": "AdministrativeArea", name: "Bruxelles" },
+        { "@type": "AdministrativeArea", name: "Limburg" },
+      ],
+      url: `${BASE_URL}/contact/`,
+    },
     url: `${BASE_URL}/services/${service.slug}/`,
   });
 }
@@ -205,7 +225,12 @@ export function articleSchema(article: {
         url: `${BASE_URL}/img/Logo_Be-energies-02.png`,
       },
     },
-    image: article.image ? `${BASE_URL}${article.image}` : undefined,
+    // Fallback to the site's default OG image so every Article schema
+    // has an image property (Google flags rich-results eligibility on
+    // articles without one).
+    image: article.image
+      ? `${BASE_URL}${article.image}`
+      : `${BASE_URL}/img/Be-energies_Panneaux_photovoltaiques.webp`,
   };
 }
 

@@ -193,11 +193,12 @@ describe("serviceSchema", () => {
     expect(schema.description).toBe(sampleService.shortDescription);
   });
 
-  it("emits the LocalBusiness provider (provider mobility)", () => {
-    const provider = schema.provider as { "@type": string; name: string; url: string };
-    expect(provider["@type"]).toBe("LocalBusiness");
-    expect(provider.name).toBe(siteConfig.name);
-    expect(provider.url).toBe(BASE_URL);
+  it("references the LocalBusiness provider via @id (entity graph)", () => {
+    // Since the LocalBusiness lives at #localbusiness, Service now
+    // references it by @id instead of duplicating the provider node.
+    // This is Google's preferred pattern for entity consolidation.
+    const provider = schema.provider as { "@id": string };
+    expect(provider["@id"]).toBe(`${BASE_URL}/#localbusiness`);
   });
 
   it("populates areaServed with the three administrative areas", () => {
@@ -320,12 +321,16 @@ describe("articleSchema", () => {
     expect(schema.dateModified).toBe("2026-06-01");
   });
 
-  it("prefixes image with base URL when supplied, leaves undefined otherwise", () => {
+  it("prefixes image with base URL when supplied, falls back to default OG image otherwise", () => {
     const withImage = articleSchema({ ...baseArticle, image: "/img/hero.webp" });
     expect(withImage.image).toBe(`${BASE_URL}/img/hero.webp`);
 
+    // Fallback ensures every Article schema has an image — Google flags
+    // rich-results eligibility on articles without one.
     const withoutImage = articleSchema(baseArticle);
-    expect(withoutImage.image).toBeUndefined();
+    expect(withoutImage.image).toBe(
+      `${BASE_URL}/img/Be-energies_Panneaux_photovoltaiques.webp`,
+    );
   });
 
   it("stringifies without throwing", () => {
