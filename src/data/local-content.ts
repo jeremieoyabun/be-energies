@@ -108,6 +108,10 @@ const cityIntrosFr: Record<string, (service: Service) => string> = {
     `À Seraing, en province de Liège, le réseau est exploité par RESA (tarif prosumer de ${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an). Sur un parc immobilier majoritairement ancien, le contrôle de la charpente et de l'étanchéité précède toujours le chiffrage d'un projet de ${s.title.toLowerCase()}. Benoît couvre Seraing et l'agglomération liégeoise.`,
   vise: (s) =>
     `À Visé, sur la Basse-Meuse, le réseau est exploité par RESA (tarif prosumer de ${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an). À quelques minutes du siège de Benoît à Riemst, les projets de ${s.title.toLowerCase()} bénéficient d'un vrai suivi de proximité. Le dimensionnement se fait sur l'orientation mesurée de la toiture et le profil de consommation réel.`,
+  huy: (s) =>
+    `À Huy, sur la Meuse entre Liège et Namur, le réseau est exploité par RESA (tarif prosumer de ${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an, parmi les plus bas de Wallonie). Le relief de vallée crée des ombrages qu'il faut mesurer avant de chiffrer un projet de ${s.title.toLowerCase()}. Benoît intervient à Huy et dans la vallée mosane.`,
+  waremme: (s) =>
+    `À Waremme, au cœur de la Hesbaye, le réseau est exploité par RESA (tarif prosumer de ${grdTariffs.RESA.prosumerEurPerKweYear} EUR/kWe/an). Le plateau hesbignon offre de grandes toitures dégagées et peu ombragées, idéales pour des ${s.title.toLowerCase()} bien dimensionnées sur la consommation réelle. Benoît couvre Waremme et la Hesbaye liégeoise.`,
 
   // -- Expansion Brabant wallon (ORES) --
   "ottignies-louvain-la-neuve": (s) =>

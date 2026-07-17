@@ -137,6 +137,22 @@ export const cityContext: Record<string, CityContextEntry> = {
     positioningNote:
       "À Visé, je suis à quelques minutes de mon siège de Riemst, ce qui me permet un suivi de proximité réel. Ce que je regarde d'abord, c'est l'orientation mesurée de la toiture et l'état du raccordement, pas la surface disponible.",
   },
+  huy: {
+    housingNote:
+      "Huy, sur la Meuse entre Liège et Namur, mêle un centre historique dense au pied de la collégiale, des faubourgs en maisons mitoyennes et une périphérie pavillonnaire avec villas et jardins.",
+    contextNote:
+      "Le réseau est exploité par RESA. Le centre patrimonial, marqué par la collégiale et le fort, impose de vérifier la zone auprès du service urbanisme avant tout projet visible depuis l'espace public. En périphérie, les toitures simples et bien orientées permettent des installations 5 à 10 kWc, avec batterie lorsque le profil de consommation le justifie. Le relief de vallée crée des ombrages qu'il faut mesurer avant de chiffrer.",
+    positioningNote:
+      "À Huy, je regarde d'abord l'orientation réelle de la toiture et les ombrages liés au relief de la vallée. Sur un projet à quinze ans, une orientation estimée à l'œil peut coûter cher en production cumulée.",
+  },
+  waremme: {
+    housingNote:
+      "Waremme, au cœur de la Hesbaye liégeoise, offre un profil résidentiel et rural avec beaucoup de villas 4 façades, de fermes rénovées et de grandes toitures dégagées sur un plateau agricole peu accidenté.",
+    contextNote:
+      "Le réseau est exploité par RESA. Le plateau hesbignon, plat et peu boisé, offre des toitures souvent bien exposées et peu ombragées, propices à des installations 6 à 12 kWc, régulièrement couplées à une batterie quand il y a voiture électrique ou pompe à chaleur. Les grandes fermes et bâtiments agricoles rénovés se prêtent à des puissances plus élevées, à condition de vérifier sérieusement la charpente avant pose.",
+    positioningNote:
+      "À Waremme, les grandes toitures dégagées donnent envie de tout couvrir. Je préfère partir du profil de consommation réel du ménage : une installation bien dimensionnée rapporte plus qu'une grande installation qui injecte son surplus à perte.",
+  },
 
   // -------------------------------------------------------------------------
   // WALLONIE - tier 2b (Brabant wallon, ORES)

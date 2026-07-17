@@ -65,22 +65,20 @@ export const mainNavNl: NavItem[] = [
       { label: "Alle diensten", href: "/nl/diensten/" },
     ],
   },
-  // NB: pages Realisaties / Gidsen / Valstrikken / Over ons restent en cours
-  // de traduction côté contenu. On garde les liens vers les pages FR le temps
-  // que les pages NL soient prêtes - mieux vaut une page FR utile qu'un 404.
+  // NB: Realisaties reste en FR le temps que la galerie NL soit prête -
+  // mieux vaut une page FR utile qu'un 404.
   { label: "Realisaties", href: "/realisations/" },
   {
     label: "Gidsen",
-    href: "/nl/gids/capaciteitstarief-vlaanderen/",
+    href: "/nl/valstrikken/",
     children: [
+      { label: "7 valstrikken om te vermijden", href: "/nl/valstrikken/" },
       { label: "Capaciteitstarief Vlaanderen 2026", href: "/nl/gids/capaciteitstarief-vlaanderen/" },
       { label: "Prix panneaux solaires Wallonie 2026", href: "/guides/prix-panneaux-solaires-wallonie-2026/" },
       { label: "Tarif IMPACT Wallonie 2026", href: "/guides/tarif-impact-wallonie-explication/" },
-      { label: "Certificats verts Bruxelles 2026", href: "/guides/certificats-verts-bruxelles-2026/" },
-      { label: "Valstrikken", href: "/pieges-a-eviter/" },
     ],
   },
-  { label: "Over ons", href: "/a-propos/" },
+  { label: "Over ons", href: "/nl/over-ons/" },
   { label: "Contact", href: "/nl/contact/" },
 ];
 

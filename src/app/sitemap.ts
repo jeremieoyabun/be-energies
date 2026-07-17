@@ -92,6 +92,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    {
+      url: `${BASE}/nl/valstrikken/`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE}/nl/over-ons/`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
   ];
 
   return [

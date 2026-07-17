@@ -188,6 +188,32 @@ export const cities: City[] = [
     grd: "RESA",
     nearbyCities: ["liege", "herstal", "riemst"],
   },
+  {
+    slug: "huy",
+    name: "Huy",
+    province: "Liege",
+    region: "wallonie",
+    language: "fr",
+    tier: 2,
+    population: 21700,
+    postalCodes: ["4500"],
+    coordinates: { lat: 50.5186, lng: 5.239 },
+    grd: "RESA",
+    nearbyCities: ["liege", "seraing", "waremme"],
+  },
+  {
+    slug: "waremme",
+    name: "Waremme",
+    province: "Liege",
+    region: "wallonie",
+    language: "fr",
+    tier: 2,
+    population: 15600,
+    postalCodes: ["4300"],
+    coordinates: { lat: 50.6981, lng: 5.2569 },
+    grd: "RESA",
+    nearbyCities: ["huy", "liege", "seraing"],
+  },
 
   // T2b -- Expansion Brabant wallon (ORES)
   {
