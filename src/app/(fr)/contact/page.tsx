@@ -104,98 +104,66 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   href="/contact/"
                   role="tab"
                   aria-selected={!intentDevis}
-                  className={`flex items-start gap-3 rounded-xl px-4 py-3.5 border-[1.5px] transition-colors ${
+                  className={`block rounded-xl px-4 py-3 border-[1.5px] transition-colors ${
                     !intentDevis
                       ? "bg-amber/10 border-amber/45 shadow-[0_1px_2px_rgba(245,158,11,0.08)]"
                       : "bg-white border-midnight/12 hover:border-amber/40"
                   }`}
                 >
-                  <span
-                    aria-hidden="true"
-                    className={`shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-lg ring-1 ${
-                      !intentDevis
-                        ? "bg-amber/20 ring-amber/45 text-amber-dark"
-                        : "bg-ivory ring-midnight/15 text-midnight/70"
-                    }`}
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M5 12h14M13 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                  <div className="min-w-0">
-                    <p className="font-bold text-midnight text-[15px] leading-tight">
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      aria-hidden="true"
+                      className={`shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg ring-1 ${
+                        !intentDevis
+                          ? "bg-amber/20 ring-amber/45 text-amber-dark"
+                          : "bg-ivory ring-midnight/15 text-midnight/70"
+                      }`}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M13 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                    <span className="font-bold text-midnight text-[15px] leading-none">
                       Je démarre un projet
-                    </p>
-                    <p className="mt-0.5 text-[13px] text-charcoal/85 leading-snug">
-                      Diagnostic gratuit, devis sous 48 h.
-                    </p>
+                    </span>
                   </div>
+                  <p className="mt-1.5 pl-[42px] text-[12.5px] text-charcoal/75 leading-snug">
+                    Diagnostic gratuit, devis sous 48 h.
+                  </p>
                 </Link>
                 <Link
                   href="/contact/?intent=devis"
                   role="tab"
                   aria-selected={intentDevis}
-                  className={`flex items-start gap-3 rounded-xl px-4 py-3.5 border-[1.5px] transition-colors ${
+                  className={`block rounded-xl px-4 py-3 border-[1.5px] transition-colors ${
                     intentDevis
                       ? "bg-amber/10 border-amber/45 shadow-[0_1px_2px_rgba(245,158,11,0.08)]"
                       : "bg-white border-midnight/12 hover:border-amber/40"
                   }`}
                 >
-                  <span
-                    aria-hidden="true"
-                    className={`shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-lg ring-1 ${
-                      intentDevis
-                        ? "bg-amber/20 ring-amber/45 text-amber-dark"
-                        : "bg-ivory ring-midnight/15 text-midnight/70"
-                    }`}
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <path d="M14 2v6h6" />
-                    </svg>
-                  </span>
-                  <div className="min-w-0">
-                    <p className="font-bold text-midnight text-[15px] leading-tight">
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      aria-hidden="true"
+                      className={`shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg ring-1 ${
+                        intentDevis
+                          ? "bg-amber/20 ring-amber/45 text-amber-dark"
+                          : "bg-ivory ring-midnight/15 text-midnight/70"
+                      }`}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <path d="M14 2v6h6" />
+                      </svg>
+                    </span>
+                    <span className="font-bold text-midnight text-[15px] leading-none">
                       J&apos;ai déjà un devis
-                    </p>
-                    <p className="mt-0.5 text-[13px] text-charcoal/85 leading-snug">
-                      Benoît le relit sous 48 h.
-                    </p>
+                    </span>
                   </div>
+                  <p className="mt-1.5 pl-[42px] text-[12.5px] text-charcoal/75 leading-snug">
+                    Benoît le relit sous 48 h.
+                  </p>
                 </Link>
               </div>
-
-              {intentDevis && (
-                <div className="mt-6 flex items-start gap-3 bg-amber/10 border-[1.5px] border-amber/40 rounded-xl p-4 md:p-5 shadow-[0_1px_2px_rgba(245,158,11,0.08)]">
-                  <span
-                    aria-hidden="true"
-                    className="shrink-0 inline-flex items-center justify-center w-9 h-9 -my-1 rounded-lg bg-amber/20 ring-1 ring-amber/40 text-amber-dark"
-                  >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <path d="M14 2v6h6" />
-                    </svg>
-                  </span>
-                  <div className="text-[14.5px] text-charcoal leading-relaxed">
-                    <strong className="font-bold text-midnight">
-                      Analyse de devis activée.
-                    </strong>{" "}
-                    Le bloc &laquo;&nbsp;J&apos;ai déjà reçu un devis&nbsp;&raquo; est
-                    pré-coché plus bas. Joignez votre devis en pièce jointe
-                    (PDF, photo) à l&apos;étape 3.
-                  </div>
-                </div>
-              )}
 
               {/* Reassurance row + Google rating — visible BEFORE the
                   fields so the visitor knows what they're committing to. */}
