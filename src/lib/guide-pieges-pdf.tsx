@@ -563,7 +563,7 @@ export function GuidePiegesDocument({
             </Text>
           ))}
           <Link
-            src="https://be-energies.be/contact/"
+            src="https://www.be-energies.be/contact/"
             style={{
               color: COLORS.amber,
               fontSize: 10,

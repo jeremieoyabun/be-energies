@@ -7,7 +7,7 @@
  */
 export const siteConfig = {
   name: "Be'energies",
-  url: "https://be-energies.be",
+  url: "https://www.be-energies.be",
   locale: "fr-BE",
   localeNl: "nl-BE",
   tagline: "L'installateur qui a d'abord été l'inspecteur.",

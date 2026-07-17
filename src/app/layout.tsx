@@ -5,7 +5,7 @@ import { ScrollObserver } from "@/components/animations/ScrollObserver";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://be-energies.be"),
+  metadataBase: new URL("https://www.be-energies.be"),
   icons: {
     icon: "/logos/Favicon_Be-energies.webp",
     apple: "/logos/Favicon_Be-energies.webp",
