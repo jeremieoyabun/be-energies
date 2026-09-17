@@ -14,6 +14,12 @@ export interface Service {
    *  page itself stays accessible (200) so existing bookmarks don't 404 -
    *  set the route to notFound() manually if you want a hard hide. */
   hidden?: boolean;
+  /** When true, the service is taken offline: hidden from every discovery
+   *  surface AND its detail / city pages return 404 (excluded from static
+   *  params, sitemap, realizations, blog, contact form). All content stays
+   *  in the codebase so the service can be re-published by flipping the
+   *  flag. Implies `hidden`. */
+  offline?: boolean;
 }
 
 export interface City {
@@ -29,6 +35,11 @@ export interface City {
   coordinates: { lat: number; lng: number };
   grd: string;
   nearbyCities: string[]; // city slugs
+  /** When true the city is outside the 70-80 km driving radius from Riemst:
+   *  no local pages are generated (routes 404, 301 in next.config.ts), it is
+   *  dropped from sitemap / nearby links / city lists. Data is kept so
+   *  realizations and testimonials there still resolve a province label. */
+  offline?: boolean;
 }
 
 export interface Piege {
@@ -89,6 +100,9 @@ export interface BlogArticle {
   relatedServices: string[];
   /** Hero image. Falls back to a generic photo when absent. */
   image?: string;
+  /** When true the article is unpublished: excluded from index, sitemap, RSS
+   *  and static params (route 404s). MDX body and metadata are kept. */
+  offline?: boolean;
   // Body lives in /src/content/blog/{slug}.mdx and is loaded on-demand by the
   // article route via a dynamic MDX import - no body field on the metadata.
 }

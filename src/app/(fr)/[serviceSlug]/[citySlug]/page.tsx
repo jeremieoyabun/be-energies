@@ -258,12 +258,6 @@ export default async function LocalPage({ params }: LocalPageProps) {
                   href: "/guides/tarif-impact-wallonie-explication/",
                 });
               }
-              if (service.slug === "bornes-de-recharge") {
-                guides.push({
-                  label: "Prime borne de recharge en Belgique 2026",
-                  href: "/guides/prime-borne-recharge-belgique-2026/",
-                });
-              }
               if (guides.length === 0) return null;
               return (
                 <div className="mt-8 pt-6 border-t border-cloud">
@@ -292,7 +286,7 @@ export default async function LocalPage({ params }: LocalPageProps) {
 
       <CTADiagnostic
         title={`Un avis honnête sur votre projet à ${city.name}`}
-        description={`Visite technique sur place, devis détaillé sous 48 h avec les tarifs réels de ${city.grd}. Gratuit, sans engagement.`}
+        description={`Visite technique sur place, devis détaillé sous 7 jours avec les tarifs réels de ${city.grd}. Gratuit, sans engagement.`}
         ctaLabel={`Demander un diagnostic gratuit à ${city.name}`}
         variant="dark"
       />

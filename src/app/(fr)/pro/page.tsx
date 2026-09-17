@@ -23,7 +23,7 @@ import type { FAQItem } from "@/lib/types";
 export const metadata = generatePageMetadata({
   title: "Espace Pro : solutions énergétiques pour PME, entreprises et institutions",
   description:
-    "PME, grandes entreprises, syndics et institutions en Belgique et au Luxembourg : panneaux solaires, batteries, bornes de recharge, conformité électrique. Étude sur mesure par Benoît Dezso, certifié RESCERT.",
+    "PME, grandes entreprises, syndics et institutions en Limbourg et province de Liège (80 km autour de Riemst) : panneaux solaires, batteries, bornes de recharge, conformité électrique. Étude sur mesure par Benoît Dezso, certifié RESCERT.",
   path: "/pro/",
 });
 
@@ -118,7 +118,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Quel est le délai pour un projet professionnel ?",
     answer:
-      "Le délai dépend de l'ampleur du projet. Pour une installation photovoltaïque standard sur toiture existante, comptez 2 à 4 semaines entre l'audit et la mise en service. Pour un projet plus complexe (bornes de recharge, pompe à chaleur, mise en conformité), le délai peut atteindre 6 à 8 semaines. Nous établissons un planning précis dès la validation de l'étude technique.",
+      "Le délai dépend de l'ampleur du projet. Pour une installation photovoltaïque standard sur toiture existante, comptez 2 à 4 semaines entre l'audit et la mise en service. Pour un projet plus complexe (bornes de recharge, mise en conformité, rénovation électrique), le délai peut atteindre 6 à 8 semaines. Nous établissons un planning précis dès la validation de l'étude technique.",
   },
   {
     question: "Travaillez-vous avec des syndics ?",
@@ -131,9 +131,9 @@ const faqItems: FAQItem[] = [
       "Les primes varient selon la région (Wallonie, Bruxelles, Flandre), le type d'installation et la taille de votre entreprise. Nous intégrons systématiquement le calcul des primes dans l'étude technique et gérons l'ensemble du processus administratif pour vous.",
   },
   {
-    question: "Intervenez-vous au Luxembourg ?",
+    question: "Quelle est votre zone d'intervention ?",
     answer:
-      "Oui, nous intervenons sur certains projets professionnels au Grand-Duché de Luxembourg. Contactez-nous pour vérifier que votre localisation entre dans notre zone d'intervention et obtenir un devis adapté à la réglementation luxembourgeoise.",
+      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg et la province de Liège. C'est ce qui nous permet d'assurer nous-mêmes la visite technique, le chantier et le suivi. Au-delà (Namur, Brabant wallon, Bruxelles, Hainaut…), nous étudions les projets professionnels sur demande : contactez-nous pour vérifier votre localisation.",
   },
   {
     question: "Pouvez-vous intervenir sans interrompre notre activité ?",
@@ -201,8 +201,8 @@ export default function ProPage() {
                 Optimisez votre retour sur investissement énergétique
               </h1>
               <p className="mt-7 text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl">
-                PME, grandes entreprises, syndics et institutions en Belgique
-                et au Luxembourg : un seul interlocuteur technique pour des
+                PME, grandes entreprises, syndics et institutions du Limbourg
+                et de la province de Liège : un seul interlocuteur technique pour des
                 installations conformes, dimensionnées juste et rentables.
               </p>
               <div className="mt-9 flex flex-col items-start gap-4">
@@ -575,7 +575,7 @@ export default function ProPage() {
 
       <CTADiagnostic
         title="Un projet énergétique pour votre entreprise ?"
-        description="Benoît analyse votre infrastructure et vos besoins. Étude technique gratuite, sans engagement, livrée sous 48 h après visite sur site."
+        description="Benoît analyse votre infrastructure et vos besoins. Étude technique gratuite, sans engagement, livrée sous 7 jours après visite sur site."
         ctaLabel="Demander une étude sur mesure"
         ctaHref="/contact/?type=pro-etude"
         variant="dark"

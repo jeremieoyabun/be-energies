@@ -7,18 +7,42 @@
  */
 export const siteConfig = {
   name: "Be'energies",
+  /**
+   * Spellings people actually type in Google. Emitted as schema.org
+   * alternateName so the brand query "be energies" resolves to this entity
+   * rather than to homonyms (e.g. "Energie.be").
+   */
+  alternateNames: ["Be energies", "Be-energies", "BE Energies", "Be'energies SRL"],
   url: "https://www.be-energies.be",
   locale: "fr-BE",
   localeNl: "nl-BE",
   tagline: "L'installateur qui a d'abord été l'inspecteur.",
   description:
-    "Be'energies : panneaux solaires, batteries, bornes de recharge, pompes à chaleur, conformité électrique et nettoyage toiture en Belgique. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
+    "Be'energies : panneaux solaires, batteries, bornes de recharge, électricité générale et conformité en Limbourg et province de Liège (80 km autour de Riemst). Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
   founder: {
     name: "Benoît Dezso",
     role: "Fondateur, ancien inspecteur en installation électrique",
     roleNl: "Oprichter, voormalig inspecteur elektrotechnische installaties",
     credential: "certifié RESCERT",
     credentialShort: "RESCERT",
+    /** Third, distinct fact: 25 years as a self-employed electrician
+     *  (activité complémentaire) before founding Be'energies. */
+    electricianYears: 25,
+    background: "électricien à titre complémentaire pendant 25 ans",
+    backgroundNl: "25 jaar elektricien in bijberoep",
+  },
+  /**
+   * Operational service area (client rule, sept. 2026): 70-80 km max BY ROAD
+   * around the Riemst office. Used for copy and for the GeoCircle in
+   * LocalBusiness schema. Cities beyond this radius are flagged
+   * `offline` in data/cities.ts and handled "sur demande".
+   */
+  serviceArea: {
+    baseCity: "Riemst",
+    radiusKm: 80,
+    geo: { lat: 50.809, lng: 5.603 },
+    provinces: ["Limbourg", "Liège"],
+    provincesNl: ["Limburg", "Luik"],
   },
   contact: {
     // Single source of truth. First entry = primary line shown in header /
@@ -43,7 +67,7 @@ export const siteConfig = {
   },
   social: {
     googleBusinessProfileUrl:
-      "https://share.google/zUbqPHdsKhXJ2Q4CM" as string | null,
+      "https://share.google/TMiJCjSozsARwXQ9S" as string | null,
     facebookUrl: "https://www.facebook.com/Be.energies" as string | null,
     linkedinUrl: null as string | null,
   },
@@ -53,7 +77,7 @@ export const siteConfig = {
    */
   reviews: {
     googleBusinessProfileUrl:
-      "https://share.google/zUbqPHdsKhXJ2Q4CM" as string | null,
+      "https://share.google/TMiJCjSozsARwXQ9S" as string | null,
     rating: 4.9 as number | null,
     count: 54 as number | null,
   },

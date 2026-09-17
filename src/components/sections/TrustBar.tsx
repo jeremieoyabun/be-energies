@@ -15,7 +15,7 @@ interface BarStat {
 const COPY = {
   fr: {
     installationsVerified: "installations résidentielles & PME",
-    installationsCoverage: "Wallonie, Flandre & Luxembourg",
+    installationsCoverage: "Limbourg & province de Liège",
     installationsLabel: "installations résidentielles & PME",
     yearsLabelVerified: "d'expérience terrain",
     inspectionTitle: "Inspection",
@@ -26,7 +26,7 @@ const COPY = {
   },
   nl: {
     installationsVerified: "residentiële installaties & KMO",
-    installationsCoverage: "Wallonië, Vlaanderen & Luxemburg",
+    installationsCoverage: "Limburg & provincie Luik",
     installationsLabel: "residentiële installaties & KMO",
     yearsLabelVerified: "praktijkervaring",
     inspectionTitle: "Inspectie",

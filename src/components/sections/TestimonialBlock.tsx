@@ -3,7 +3,7 @@ import { SectionLabel } from "@/components/sections/SectionLabel";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { JsonLd, reviewListSchema } from "@/lib/schema";
 import { testimonials as ALL_TESTIMONIALS } from "@/data/testimonials";
-import { cities } from "@/data/cities";
+import { allCities as cities } from "@/data/cities";
 import type { Testimonial } from "@/lib/types";
 
 interface TestimonialBlockFallbackContext {
@@ -31,7 +31,7 @@ const SERVICE_LABEL: Record<string, string> = {
   "panneaux-photovoltaiques": "Panneaux solaires",
   "batteries-domestiques": "Batterie domestique",
   "bornes-de-recharge": "Borne de recharge",
-  "conformite-electrique": "Conformité électrique",
+  "conformite-electrique": "Électricité générale et conformité",
   "pompes-a-chaleur": "Pompe à chaleur",
   "nettoyage-toiture": "Nettoyage toiture",
 };

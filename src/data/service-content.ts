@@ -802,20 +802,20 @@ export const serviceContent: Record<string, ServiceContent> = {
 
   "conformite-electrique": {
     seoTitle: {
-      fr: "Conformité électrique en Belgique | Contrôle, mise en conformité et rapport",
-      nl: "Elektrische conformiteit in België | Keuring, in conformiteit brengen en rapport",
+      fr: "Électricité générale et conformité en Belgique | Tableau, rénovation, mise en conformité",
+      nl: "Algemene elektriciteit en conformiteit in België | Bord, renovatie, in conformiteit brengen",
     },
     metaDescription: {
-      fr: "Mise en conformité électrique par un ancien inspecteur en installation électrique, certifié RESCERT. Il a rédigé des rapports de non-conformité pendant des années. Diagnostic gratuit.",
-      nl: "In conformiteit brengen door een voormalig inspecteur elektrische installaties, RESCERT-gecertificeerd. Hij schreef jarenlang niet-conformiteitsrapporten. Gratis diagnose.",
+      fr: "Électricité générale (tableau, circuits, rénovation) et mise en conformité par un ancien inspecteur en installation électrique, certifié RESCERT. Il a rédigé des rapports de non-conformité pendant des années. Diagnostic gratuit.",
+      nl: "Algemene elektriciteit (bord, kringen, renovatie) en in conformiteit brengen door een voormalig inspecteur elektrische installaties, RESCERT-gecertificeerd. Hij schreef jarenlang niet-conformiteitsrapporten. Gratis diagnose.",
     },
     headline: {
-      fr: "Conformité électrique : par celui qui rédigeait les rapports de non-conformité",
-      nl: "Elektrische conformiteit: door wie de niet-conformiteitsrapporten schreef",
+      fr: "Électricité générale et conformité : par celui qui rédigeait les rapports de non-conformité",
+      nl: "Algemene elektriciteit en conformiteit: door wie de niet-conformiteitsrapporten schreef",
     },
     subheadline: {
-      fr: "Benoît Dezso a passé des années à inspecter des installations électriques pour des organismes agréés. Il sait exactement ce que le contrôleur va vérifier. Votre installation sera prête.",
-      nl: "Benoît Dezso heeft jarenlang elektrische installaties geïnspecteerd voor erkende organismen. Hij weet precies wat de keurder zal controleren. Uw installatie zal er klaar voor zijn.",
+      fr: "Tableau, circuits, rénovation complète ou mise en conformité : Benoît Dezso a été électricien pendant 25 ans et a inspecté des installations électriques pour des organismes agréés. Il sait exactement ce que le contrôleur va vérifier. Votre installation sera prête.",
+      nl: "Bord, kringen, volledige renovatie of in conformiteit brengen: Benoît Dezso was 25 jaar elektricien en heeft elektrische installaties geïnspecteerd voor erkende organismen. Hij weet precies wat de keurder zal controleren. Uw installatie zal er klaar voor zijn.",
     },
     sections: [
       {

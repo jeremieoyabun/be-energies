@@ -6,7 +6,7 @@ import { ProjectProofCard } from "@/components/sections/ProjectProofCard";
 import { SourceNote } from "@/components/sections/SourceNote";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsBadge";
 import { JsonLd, reviewListSchema } from "@/lib/schema";
-import { cities } from "@/data/cities";
+import { allCities as cities } from "@/data/cities";
 import { realizations } from "@/data/realizations";
 import type { Realization, Testimonial } from "@/lib/types";
 

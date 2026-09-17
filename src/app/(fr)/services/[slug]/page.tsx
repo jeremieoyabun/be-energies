@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { services, getServiceBySlugFr, getRelatedServices } from "@/data/services";
+import { onlineServices, getServiceBySlugFr, getRelatedServices } from "@/data/services";
 import { getPiegesForService } from "@/data/pieges";
 import { getTestimonialsForService } from "@/data/testimonials";
 import { getRealizationsForService } from "@/data/realizations";
@@ -198,13 +198,13 @@ function labelTableCellsForMobile(html: string): string {
 }
 
 export async function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return onlineServices.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: ServicePageProps) {
   const { slug } = await params;
   const service = getServiceBySlugFr(slug);
-  if (!service) return {};
+  if (!service || service.offline) return {};
   const content = getServiceContent(slug);
   return generateServiceMetadata(service, content ? {
     seoTitle: content.seoTitle,
@@ -215,7 +215,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
   const service = getServiceBySlugFr(slug);
-  if (!service) notFound();
+  if (!service || service.offline) notFound();
 
   const content = getServiceContent(slug);
   const servicePieges = getPiegesForService(slug);
@@ -268,7 +268,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   const midCta = ctaByService[slug] ?? {
     title: `Avis technique sur votre projet ${service.title.toLowerCase()}`,
-    description: "Visite sur site, dimensionnement réel, devis détaillé sous 48 h avec les tarifs 2026 de votre GRD.",
+    description: "Visite sur site, dimensionnement réel, devis détaillé sous 7 jours avec les tarifs 2026 de votre GRD.",
     label: "Parler à un expert",
   };
   const midCtaTitle = midCta.title;
@@ -649,7 +649,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 <p className="text-white/85 leading-relaxed mb-7 flex-1">
                   Envoyez-nous le devis batterie reçu d&apos;un autre
                   installateur. Benoît le lit avec son œil d&apos;ancien
-                  inspecteur et vous renvoie une analyse écrite sous 48 h
+                  inspecteur et vous renvoie une analyse écrite sous 7 jours
                   ouvrées.
                 </p>
                 <Link
@@ -808,7 +808,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 <p className="text-white/85 leading-relaxed mb-7 flex-1">
                   Un installateur vous a déjà remis une offre. Envoyez-la,
                   Benoît la lit avec son œil d&apos;ancien inspecteur et
-                  vous renvoie une analyse écrite sous 48 h ouvrées.
+                  vous renvoie une analyse écrite sous 7 jours.
                 </p>
                 <Link
                   href="/contact/?intent=devis"

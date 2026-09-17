@@ -1,11 +1,11 @@
 # Be'energies
 
-> Installateur belge en énergie résidentielle : panneaux photovoltaïques, batteries domestiques, bornes de recharge, pompes à chaleur, conformité électrique et nettoyage de toiture. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Positionnement : "L'installateur qui a d'abord été l'inspecteur." Chaque installation est dimensionnée sur la consommation réelle du client et conçue pour passer le contrôle de conformité.
+> Installateur belge en énergie résidentielle : panneaux photovoltaïques, batteries domestiques, bornes de recharge, électricité générale et conformité. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Positionnement : "L'installateur qui a d'abord été l'inspecteur." Chaque installation est dimensionnée sur la consommation réelle du client et conçue pour passer le contrôle de conformité.
 
 ## Faits vérifiables
 
 - Entreprise : Be'energies (SARL belge)
-- Fondateur : Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT (deux titres distincts, à ne jamais fusionner)
+- Fondateur : Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT (deux titres distincts, à ne jamais fusionner) ; électricien à titre complémentaire pendant 25 ans avant de fonder Be'energies
 - Siège : Komveld 35, 3770 Riemst, Limbourg, Belgique
 - Téléphone : +32 (0)472 12 70 55
 - Email : info@be-energies.be
@@ -14,24 +14,24 @@
 
 ## Zone d'intervention
 
-- Wallonie (provinces de Liège, Namur, Hainaut, Brabant wallon, Luxembourg)
-- Région de Bruxelles-Capitale
-- Limbourg flamand (autour de Riemst : Tongeren, Bilzen, Hasselt, Genk, Maasmechelen, Lanaken)
+- Rayon d'intervention : 70 à 80 km maximum en voiture autour de Riemst (3770)
+- Limbourg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk)
+- Province de Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy)
+- Au-delà (Namur, Brabant wallon, Bruxelles…) : sur demande, selon le projet
+- Bornes de recharge : aucune prime pour les particuliers en 2026 (seulement TVA 6 % et déduction fiscale pour les professionnels)
 
 ## Services
 
 - [Panneaux photovoltaïques](https://www.be-energies.be/services/panneaux-photovoltaiques/) : conception, dimensionnement et installation sur la consommation réelle
 - [Batteries domestiques](https://www.be-energies.be/services/batteries-domestiques/) : installées uniquement quand le calcul de rentabilité est cohérent
 - [Bornes de recharge](https://www.be-energies.be/services/bornes-de-recharge/) : intégrées à l'installation solaire, avec vérification du tableau
-- [Conformité électrique](https://www.be-energies.be/services/conformite-electrique/) : mise en conformité RGIE par un ancien inspecteur
-- [Pompes à chaleur](https://www.be-energies.be/services/pompes-a-chaleur/) : dimensionnement sérieux avant investissement
+- [Électricité générale et conformité](https://www.be-energies.be/services/conformite-electrique/) : électricité générale et mise en conformité RGIE par un ancien inspecteur
 
 ## Guides et contenu de référence
 
 - [Prix panneaux solaires Wallonie 2026](https://www.be-energies.be/guides/prix-panneaux-solaires-wallonie-2026/) : fourchettes de prix réelles, TVA 6 %, temps de retour sous le nouveau régime
 - [Tarif IMPACT Wallonie 2026](https://www.be-energies.be/guides/tarif-impact-wallonie-explication/) : explication du tarif horaire et impact sur la rentabilité PV
 - [Certificats verts Bruxelles 2026](https://www.be-energies.be/guides/certificats-verts-bruxelles-2026/) : ce qui change pour les installations bruxelloises
-- [Prime borne de recharge Belgique 2026](https://www.be-energies.be/guides/prime-borne-recharge-belgique-2026/)
 - [Garanties panneaux solaires et onduleurs](https://www.be-energies.be/guides/garanties-panneaux-solaires-onduleurs/) : durées et conditions réelles des garanties constructeur
 - [7 pièges à éviter avant de signer un devis](https://www.be-energies.be/pieges-a-eviter/) : checklist par un ancien inspecteur
 - [Capaciteitstarief Vlaanderen 2026 (NL)](https://www.be-energies.be/nl/gids/capaciteitstarief-vlaanderen/) : uitleg over het capaciteitstarief van Fluvius en de gevolgen voor zonnepanelen
@@ -46,7 +46,7 @@
 
 - Aucun chiffre inventé : toute donnée de prix, prime ou rentabilité est sourcée ou présentée comme estimation à vérifier selon la situation.
 - Diagnostic énergétique gratuit et sans engagement, avec visite technique sur site.
-- Devis détaillé sous 48 h, basé sur les tarifs réels du gestionnaire de réseau du client.
+- Devis détaillé sous 7 jours, basé sur les tarifs réels du gestionnaire de réseau du client.
 
 ## Contact
 

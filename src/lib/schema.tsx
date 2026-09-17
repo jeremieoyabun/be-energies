@@ -26,6 +26,28 @@ function sameAs(): string[] {
   ].filter((v): v is string => Boolean(v));
 }
 
+/**
+ * Operational service area: a 70-80 km radius around Riemst first, then the
+ * provinces it actually covers. Single source: siteConfig.serviceArea.
+ */
+function areaServed() {
+  return [
+    {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: siteConfig.serviceArea.geo.lat,
+        longitude: siteConfig.serviceArea.geo.lng,
+      },
+      geoRadius: String(siteConfig.serviceArea.radiusKm * 1000),
+    },
+    ...siteConfig.serviceArea.provinces.map((name) => ({
+      "@type": "AdministrativeArea",
+      name,
+    })),
+  ];
+}
+
 export function organizationSchema() {
   return compact({
     "@context": "https://schema.org",
@@ -33,6 +55,7 @@ export function organizationSchema() {
     "@id": `${BASE_URL}/#organization`,
     name: siteConfig.legal.companyName,
     legalName: siteConfig.legal.companyName,
+    alternateName: siteConfig.alternateNames,
     url: BASE_URL,
     logo: `${BASE_URL}/img/Logo_Be-energies-02.png`,
     vatID: siteConfig.legal.vatNumber,
@@ -41,13 +64,14 @@ export function organizationSchema() {
       "@type": "Person",
       name: siteConfig.founder.name,
       jobTitle: siteConfig.founder.role,
+      description: `${siteConfig.founder.role}, ${siteConfig.founder.credential}, ${siteConfig.founder.background}.`,
     },
     contactPoint: siteConfig.contact.phones.map((p, i) => ({
       "@type": "ContactPoint",
       telephone: p.label.replace(/\s|\(|\)/g, ""),
       contactType: i === 0 ? "customer service" : "sales",
       availableLanguage: ["French", "Dutch"],
-      areaServed: ["BE-WAL", "BE-BRU", "BE-VLG", "LU"],
+      areaServed: ["BE-WAL", "BE-VLG", "BE-BRU"],
     })),
     // Cross-link Organization ↔ LocalBusiness so Google sees them as
     // the same entity rather than two separate nodes.
@@ -81,16 +105,14 @@ export function localBusinessSchema(city?: City) {
     "@type": ["LocalBusiness", "Electrician"],
     "@id": `${BASE_URL}/#localbusiness`,
     name: siteConfig.name,
+    alternateName: siteConfig.alternateNames,
     url: BASE_URL,
+    hasMap: siteConfig.reviews.googleBusinessProfileUrl ?? undefined,
     image: `${BASE_URL}/img/Logo_Be-energies-02.png`,
     telephone: siteConfig.contact.phones[0].label.replace(/\s|\(|\)/g, ""),
     email: siteConfig.contact.email,
     address,
-    areaServed: [
-      { "@type": "AdministrativeArea", name: "Wallonie" },
-      { "@type": "AdministrativeArea", name: "Bruxelles" },
-      { "@type": "AdministrativeArea", name: "Limburg" },
-    ],
+    areaServed: areaServed(),
     geo: city
       ? {
           "@type": "GeoCoordinates",
@@ -123,11 +145,7 @@ export function serviceSchema(service: Service) {
     name: service.title,
     description: service.shortDescription,
     provider: { "@id": `${BASE_URL}/#localbusiness` },
-    areaServed: [
-      { "@type": "AdministrativeArea", name: "Wallonie" },
-      { "@type": "AdministrativeArea", name: "Bruxelles" },
-      { "@type": "AdministrativeArea", name: "Limburg" },
-    ],
+    areaServed: areaServed(),
     // Diagnostic gratuit is a documented free offer — schema-eligible as
     // an Offer with price=0 EUR. Real installation quotes vary and are
     // handled off-schema (they need visite technique first).
@@ -140,11 +158,7 @@ export function serviceSchema(service: Service) {
         "@type": "Service",
         name: `Diagnostic gratuit pour ${service.title.toLowerCase()}`,
       },
-      areaServed: [
-        { "@type": "AdministrativeArea", name: "Wallonie" },
-        { "@type": "AdministrativeArea", name: "Bruxelles" },
-        { "@type": "AdministrativeArea", name: "Limburg" },
-      ],
+      areaServed: areaServed(),
       url: `${BASE_URL}/contact/`,
     },
     url: `${BASE_URL}/services/${service.slug}/`,

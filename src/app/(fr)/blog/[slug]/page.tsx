@@ -59,7 +59,7 @@ export default async function BlogArticlePage({ params }: BlogPageProps) {
 
   const relatedServices = article.relatedServices
     .map((s) => getServiceBySlugFr(s))
-    .filter(Boolean) as NonNullable<ReturnType<typeof getServiceBySlugFr>>[];
+    .filter((s) => s && !s.offline) as NonNullable<ReturnType<typeof getServiceBySlugFr>>[];
 
   return (
     <>

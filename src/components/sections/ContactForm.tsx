@@ -15,7 +15,7 @@ import {
   BUILDING_LABELS,
   TIMELINE_LABELS,
 } from "@/lib/contact-form";
-import { services } from "@/data/services";
+import { onlineServices as services } from "@/data/services";
 import { siteConfig } from "@/lib/site-config";
 
 type Status = "idle" | "submitting" | "success" | "error";

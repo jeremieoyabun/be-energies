@@ -23,7 +23,7 @@ export const GUIDE_SUBTITLE =
 export const GUIDE_INTRO_PARAGRAPHS = [
   "Ce guide n'est pas une liste de peurs. C'est un outil de décision.",
   "Pendant des années, j'ai inspecté des installations électriques et photovoltaïques en Belgique pour le compte d'organismes agréés. J'ai rédigé des rapports : conformes ou non conformes. Et j'ai vu, à de nombreuses reprises, les mêmes erreurs revenir. Toujours les mêmes. Toujours payées par les propriétaires.",
-  "Si vous lisez ce guide et posez les questions associées à votre installateur, vous éliminerez la grande majorité des risques d'une mauvaise installation : qu'elle soit photovoltaïque, batterie, borne de recharge ou pompe à chaleur.",
+  "Si vous lisez ce guide et posez les questions associées à votre installateur, vous éliminerez la grande majorité des risques d'une mauvaise installation : qu'elle soit photovoltaïque, batterie ou borne de recharge.",
 ];
 
 export const SEVERITY_LABEL = {

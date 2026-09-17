@@ -13,7 +13,7 @@ import type { FAQItem } from "@/lib/types";
 export const metadata = generatePageMetadata({
   title: "Contact | Diagnostic énergétique gratuit",
   description:
-    "Diagnostic énergétique gratuit en Belgique et au Luxembourg : visite technique sur site, devis détaillé sous 48 h. Réponse personnelle de Benoît Dezso, certifié RESCERT. Pas de call center, pas de pression commerciale.",
+    "Diagnostic énergétique gratuit en Limbourg et province de Liège (80 km autour de Riemst) : visite technique sur site, devis détaillé sous 7 jours. Réponse personnelle de Benoît Dezso, certifié RESCERT. Pas de call center, pas de pression commerciale.",
   path: "/contact/",
   alternates: { fr: "/contact/", nl: "/nl/contact/" },
 });
@@ -32,12 +32,12 @@ const contactFAQ: FAQItem[] = [
   {
     question: "Combien de temps pour recevoir un devis ?",
     answer:
-      "Maximum 48 heures après la visite technique sur site. Votre devis sera détaillé, avec les tarifs réels, les marques et modèles recommandés, les spécifications techniques et une estimation du retour sur investissement adaptée à votre situation.",
+      "Dans les 7 jours qui suivent la visite technique sur site. Votre devis sera détaillé, avec les tarifs réels, les marques et modèles recommandés, les spécifications techniques et une estimation du retour sur investissement adaptée à votre situation.",
   },
   {
     question: "Intervenez-vous dans ma région ?",
     answer:
-      "Nous intervenons dans toute la Wallonie, à Bruxelles, et dans le Limbourg flamand : Riemst, Tongeren, Hasselt, Bilzen et les communes environnantes. Contactez-nous pour confirmer votre zone : dans la grande majorité des cas, nous couvrons votre secteur.",
+      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) et la province de Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy). Au-delà (Namur, Brabant wallon, Bruxelles…), pourquoi pas : nous étudions les demandes sur demande, selon le projet. Contactez-nous pour confirmer votre zone.",
   },
   {
     question: "Que comprend le diagnostic énergétique ?",
@@ -89,7 +89,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </h1>
               <p className="mt-5 text-[17px] md:text-lg text-charcoal leading-relaxed max-w-2xl">
                 {intentDevis
-                  ? "Joignez votre devis ci-dessous, Benoît le relit avec son œil d'ancien inspecteur et vous renvoie une analyse écrite sous 48 h. Sans engagement."
+                  ? "Joignez votre devis ci-dessous, Benoît le relit avec son œil d'ancien inspecteur et vous renvoie une analyse écrite sous 7 jours. Sans engagement."
                   : "Benoît vous répond personnellement. Diagnostic gratuit, calcul de rentabilité basé sur vos vraies données. Moins de 2 minutes pour remplir."}
               </p>
 
@@ -128,7 +128,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                     </span>
                   </div>
                   <p className="mt-1.5 pl-[42px] text-[12.5px] text-charcoal/75 leading-snug">
-                    Diagnostic gratuit, devis sous 48 h.
+                    Diagnostic gratuit, devis sous 7 jours.
                   </p>
                 </Link>
                 <Link
@@ -160,7 +160,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                     </span>
                   </div>
                   <p className="mt-1.5 pl-[42px] text-[12.5px] text-charcoal/75 leading-snug">
-                    Benoît le relit sous 48 h.
+                    Benoît le relit sous 7 jours.
                   </p>
                 </Link>
               </div>
@@ -172,7 +172,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   {[
                     "Diagnostic gratuit, sans engagement",
                     "Calcul de rentabilité réaliste, pas d'estimation marketing",
-                    "Devis détaillé sous 48 h",
+                    "Devis détaillé sous 7 jours",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <CheckIcon

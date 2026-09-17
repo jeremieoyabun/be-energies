@@ -99,7 +99,7 @@ export function QuoteCheckCTA({
                   isDark ? "text-white/75" : "text-steel"
                 }`}
               >
-                Réponse écrite sous 48 h · Pas de pression commerciale
+                Réponse écrite sous 7 jours · Pas de pression commerciale
               </span>
             </div>
           </div>

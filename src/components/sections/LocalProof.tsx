@@ -3,7 +3,7 @@ import { MapPinIcon, CheckIcon, ArrowRightIcon } from "@/lib/icons";
 import { siteConfig } from "@/lib/site-config";
 import type { City } from "@/lib/types";
 import { getRealizationsForCity, realizations } from "@/data/realizations";
-import { getCityBySlug } from "@/data/cities";
+import { getAnyCityBySlug } from "@/data/cities";
 import { getGrdTariff } from "@/data/local-content";
 
 interface LocalProofProps {
@@ -33,7 +33,7 @@ export function LocalProof({ city, locale = "fr" }: LocalProofProps) {
   let provinceEarliestYear: string | null = null;
   if (!hasRealizations) {
     const sameProvince = realizations.filter((r) => {
-      const c = getCityBySlug(r.city);
+      const c = getAnyCityBySlug(r.city);
       return c?.province === city.province;
     });
     provinceCount = sameProvince.length;

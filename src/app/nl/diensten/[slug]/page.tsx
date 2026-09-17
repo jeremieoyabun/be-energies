@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { services, getServiceBySlugNl, getRelatedServices } from "@/data/services";
+import { onlineServices, getServiceBySlugNl, getRelatedServices } from "@/data/services";
 import { getDutchCities } from "@/data/cities";
 import { faqByServiceNl } from "@/data/faq.nl";
 import { getServiceContent } from "@/data/service-content";
@@ -57,13 +57,13 @@ const CHIFFRE_SLUGS_NL = new Set([
 ]);
 
 export async function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slugNl }));
+  return onlineServices.map((s) => ({ slug: s.slugNl }));
 }
 
 export async function generateMetadata({ params }: NlServicePageProps) {
   const { slug } = await params;
   const service = getServiceBySlugNl(slug);
-  if (!service) return {};
+  if (!service || service.offline) return {};
   // Unified bilingual content is keyed on the canonical FR slug.
   const content = getServiceContent(service.slug, "nl");
   return generatePageMetadata({
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: NlServicePageProps) {
 export default async function NlServicePage({ params }: NlServicePageProps) {
   const { slug } = await params;
   const service = getServiceBySlugNl(slug);
-  if (!service) notFound();
+  if (!service || service.offline) notFound();
 
   // Unified bilingual content is keyed on the canonical FR slug.
   const content = getServiceContent(service.slug, "nl");

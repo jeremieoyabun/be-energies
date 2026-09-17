@@ -4,24 +4,27 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPinIcon } from "@/lib/icons";
-import { cities } from "@/data/cities";
+import { allCities as cities } from "@/data/cities";
+import { isServiceOnline } from "@/data/services";
 import type { Realization } from "@/lib/types";
 
+// Filter chips only for services that are online (offline ones have no
+// published projects anyway - see data/realizations.ts).
 const serviceFilters = [
   { slug: "all", label: "Tous les projets" },
   { slug: "panneaux-photovoltaiques", label: "Panneaux solaires" },
   { slug: "batteries-domestiques", label: "Batteries" },
   { slug: "bornes-de-recharge", label: "Bornes de recharge" },
-  { slug: "conformite-electrique", label: "Conformité" },
+  { slug: "conformite-electrique", label: "Électricité & conformité" },
   { slug: "pompes-a-chaleur", label: "Pompes à chaleur" },
-];
+].filter((f) => f.slug === "all" || isServiceOnline(f.slug));
 
 // Human-readable service labels - keep card chips clean (no raw slugs).
 const SERVICE_LABEL: Record<string, string> = {
   "panneaux-photovoltaiques": "Panneaux solaires",
   "batteries-domestiques": "Batterie",
   "bornes-de-recharge": "Borne de recharge",
-  "conformite-electrique": "Conformité",
+  "conformite-electrique": "Électricité & conformité",
   "pompes-a-chaleur": "Pompe à chaleur",
 };
 

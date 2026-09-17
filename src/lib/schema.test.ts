@@ -130,14 +130,17 @@ describe("localBusinessSchema", () => {
       expect(schema).not.toHaveProperty("geo");
     });
 
-    it("emits areaServed with three administrative areas", () => {
-      const areaServed = schema.areaServed as Array<{ name: string }>;
-      expect(areaServed).toHaveLength(3);
-      expect(areaServed.map((a) => a.name)).toEqual([
-        "Wallonie",
-        "Bruxelles",
-        "Limburg",
-      ]);
+    it("emits areaServed as an 80 km GeoCircle around Riemst plus the covered provinces", () => {
+      const areaServed = schema.areaServed as Array<{
+        "@type": string;
+        name?: string;
+        geoRadius?: string;
+      }>;
+      const provinces = siteConfig.serviceArea.provinces;
+      expect(areaServed).toHaveLength(1 + provinces.length);
+      expect(areaServed[0]["@type"]).toBe("GeoCircle");
+      expect(areaServed[0].geoRadius).toBe("80000");
+      expect(areaServed.slice(1).map((a) => a.name)).toEqual(provinces);
     });
 
     it("includes aggregateRating because reviews are verified in site-config", () => {
@@ -171,9 +174,9 @@ describe("localBusinessSchema", () => {
       expect(geo.longitude).toBe(sampleCity.coordinates.lng);
     });
 
-    it("still emits the three administrative areas (national service)", () => {
+    it("still emits the operational service area (radius + provinces)", () => {
       const areaServed = schema.areaServed as Array<{ name: string }>;
-      expect(areaServed).toHaveLength(3);
+      expect(areaServed).toHaveLength(1 + siteConfig.serviceArea.provinces.length);
     });
   });
 });
@@ -201,10 +204,11 @@ describe("serviceSchema", () => {
     expect(provider["@id"]).toBe(`${BASE_URL}/#localbusiness`);
   });
 
-  it("populates areaServed with the three administrative areas", () => {
+  it("populates areaServed with the operational service area", () => {
     const areaServed = schema.areaServed as Array<{ "@type": string; name: string }>;
-    expect(areaServed).toHaveLength(3);
-    expect(areaServed[0]["@type"]).toBe("AdministrativeArea");
+    expect(areaServed).toHaveLength(1 + siteConfig.serviceArea.provinces.length);
+    expect(areaServed[0]["@type"]).toBe("GeoCircle");
+    expect(areaServed[1]["@type"]).toBe("AdministrativeArea");
   });
 
   it("builds the canonical service URL with trailing slash", () => {

@@ -13,8 +13,8 @@ const STEPS = {
     {
       number: "02",
       title: "Proposition",
-      description: "Devis detaille et rentabilite calculee sous 48 h.",
-      detail: "Sous 48h",
+      description: "Devis detaille et rentabilite calculee sous 7 jours.",
+      detail: "Sous 7 jours",
       image: "/img/services/electricite.jpg",
       alt: "Travail technique d'electricite chez Be'energies",
     },
@@ -47,8 +47,8 @@ const STEPS = {
     {
       number: "02",
       title: "Voorstel",
-      description: "Gedetailleerde offerte en rendabiliteit binnen 48 u.",
-      detail: "Binnen 48 u",
+      description: "Gedetailleerde offerte en rendabiliteit binnen 7 dagen.",
+      detail: "Binnen 7 dagen",
       image: "/img/services/electricite.jpg",
       alt: "Technisch elektriciteitswerk bij Be'energies",
     },

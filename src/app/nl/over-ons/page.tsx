@@ -133,6 +133,12 @@ export default function Page() {
                 twee aparte zaken. Het eerste is mijn verleden op het terrein,
                 het tweede is mijn huidige certificatie als installateur.
               </p>
+              <p className="mt-4 text-[15.5px] text-charcoal leading-relaxed">
+                Daarnaast was ik 25 jaar lang{" "}
+                <strong className="text-midnight font-semibold">elektricien in bijberoep</strong>:
+                borden, kringen, renovaties, herstellingen. Ik ken dus beide
+                kanten van het vak: wie installeert en wie controleert.
+              </p>
             </div>
           </div>
         </div>

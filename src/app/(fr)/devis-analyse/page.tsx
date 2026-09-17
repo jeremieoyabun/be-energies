@@ -21,7 +21,7 @@ export const metadata = generatePageMetadata({
   title:
     "Faire vérifier mon devis solaire, par un ancien inspecteur",
   description:
-    "Un devis photovoltaïque, batterie ou borne de recharge sur la table ? Benoît Dezso, ancien inspecteur en installation électrique certifié RESCERT, l'analyse personnellement et vous renvoie un avis écrit sous 48 h. Sans pression commerciale. Sans engagement.",
+    "Un devis photovoltaïque, batterie ou borne de recharge sur la table ? Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT, l'analyse personnellement et vous renvoie un avis écrit sous 7 jours. Sans pression commerciale. Sans engagement.",
   path: "/devis-analyse/",
   alternates: { fr: "/devis-analyse/" },
 });
@@ -64,7 +64,7 @@ const process: { step: string; title: string; detail: string }[] = [
   },
   {
     step: "3",
-    title: "Vous recevez un avis écrit sous 48 h",
+    title: "Vous recevez un avis écrit sous 7 jours",
     detail:
       "Points solides, points à clarifier, signaux d'alerte éventuels, questions à poser à l'installateur. Vous décidez en connaissance de cause.",
   },
@@ -79,7 +79,7 @@ const deliverables = [
 ];
 
 const reassurances = [
-  "Réponse écrite sous 48 h ouvrées",
+  "Réponse écrite sous 7 jours",
   "Pas de pression commerciale, pas de relances",
   "Vos données ne sont pas revendues",
   "Avis honnête, y compris si le devis est correct",
@@ -114,7 +114,7 @@ const devisAnalyseFAQ: FAQItem[] = [
   {
     question: "Et si je suis hors de Belgique ?",
     answer:
-      "On analyse le devis quoi qu'il en soit : la lecture technique vaut partout. En revanche, on ne pourra pas commenter le cadre tarifaire ou réglementaire si vous êtes hors Wallonie, Bruxelles ou Limbourg flamand. On vous le signalera honnêtement.",
+      "On analyse le devis quoi qu'il en soit : la lecture technique vaut partout. En revanche, on ne pourra pas commenter le cadre tarifaire ou réglementaire si vous êtes hors Wallonie, Bruxelles ou Limbourg. On vous le signalera honnêtement.",
   },
 ];
 
@@ -333,7 +333,7 @@ export default function DevisAnalysePage() {
                   {[
                     "Analyse gratuite, sans engagement",
                     "Réponse de Benoît sous 24 h",
-                    "Avis écrit sous 48 h",
+                    "Avis écrit sous 7 jours",
                     "Honnête, y compris si tout va bien",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2">

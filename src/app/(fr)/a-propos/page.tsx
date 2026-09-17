@@ -63,6 +63,13 @@ export default function AboutPage() {
               </p>
 
               <p>
+                Pendant 25 ans, il a aussi exercé comme{" "}
+                <strong>électricien à titre complémentaire</strong> : tableaux,
+                circuits, rénovations, dépannages. Il connaît donc les deux
+                côtés du métier, celui qui installe et celui qui contrôle.
+              </p>
+
+              <p>
                 Chaque jour, il entrait dans des maisons, ouvrait des coffrets,
                 analysait des schémas et rédigeait des rapports :{" "}
                 <strong>conformes ou non conformes</strong>.
@@ -486,14 +493,17 @@ export default function AboutPage() {
         <div className="container-be max-w-3xl prose prose-lg text-charcoal">
           <h2>Où nous intervenons</h2>
           <p>
-            Be&apos;energies est basée à Riemst, en Limbourg flamand, et
-            intervient dans toute la Belgique francophone et dans les communes
-            flamandes limitrophes.
+            Be&apos;energies est basée à Riemst, en Limbourg, et intervient
+            dans un rayon de 70 à 80 km en voiture : assez large pour couvrir
+            toute la région, assez court pour que Benoît assure lui-même la
+            visite, le chantier et le suivi.
           </p>
           <p>
-            Nos zones d&apos;intervention principales : la Wallonie (Liège,
-            Namur, Charleroi, Mons, Wavre, Brabant wallon), Bruxelles, et le
-            Limbourg flamand (Riemst, Tongeren, Bilzen, Hasselt). Benoît se
+            Nos zones d&apos;intervention : le Limbourg (Riemst, Tongeren,
+            Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) et la province de
+            Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy).
+            Au-delà (Namur, Brabant wallon, Bruxelles…), pourquoi pas : nous
+            étudions les demandes sur demande, selon le projet. Benoît se
             déplace personnellement pour chaque diagnostic et supervise chaque
             chantier.
           </p>

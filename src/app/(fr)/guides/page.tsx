@@ -13,7 +13,7 @@ import { ArrowRightIcon } from "@/lib/icons";
 export const metadata = generatePageMetadata({
   title: "Guides longs -- Tout savoir avant d'investir",
   description:
-    "Guides longs pour décider en connaissance de cause : prix panneaux solaires en Wallonie, prime borne, tarif IMPACT, certificats verts Bruxelles 2026. Données sourcées, mises à jour.",
+    "Guides longs pour décider en connaissance de cause : prix panneaux solaires en Wallonie, tarif IMPACT, certificats verts Bruxelles 2026. Données sourcées, mises à jour.",
   path: "/guides/",
 });
 

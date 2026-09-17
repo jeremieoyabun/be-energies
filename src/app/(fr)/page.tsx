@@ -20,7 +20,7 @@ import { ComplianceBadge } from "@/components/sections/ComplianceBadge";
 export const metadata = generatePageMetadata({
   title: "Installateur photovoltaïque en Belgique | Ancien inspecteur RESCERT",
   description:
-    "Panneaux solaires, batteries, bornes de recharge, pompes à chaleur et conformité électrique en Belgique et au Luxembourg. Diagnostic gratuit, devis clair sous 48 h, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
+    "Panneaux solaires, batteries, bornes de recharge, électricité générale et conformité en Limbourg et province de Liège, à 80 km autour de Riemst. Diagnostic gratuit, devis clair sous 7 jours, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
   path: "/",
   alternates: { fr: "/", nl: "/nl/" },
 });
@@ -38,12 +38,12 @@ export default function HomePage() {
       {/* 1. HERO */}
       <HeroSection
         headline="Votre installation énergétique, conçue comme si elle devait passer le contrôle demain."
-        subheadline="Avant d'installer, on vient voir. Diagnostic gratuit, devis clair sous 48 h, sans pression commerciale."
+        subheadline="Avant d'installer, on vient voir. Diagnostic gratuit, devis clair sous 7 jours, sans pression commerciale."
         ctaLabel="Demander un diagnostic gratuit"
         ctaHref="/contact/"
         secondaryCta={{ label: "Voir les pièges à éviter", href: "/pieges-a-eviter/" }}
         badge="Ancien inspecteur en électricité · Certifié RESCERT"
-        reassurances={["Devis clair sous 48 h", "Visite technique réelle", "Un seul interlocuteur"]}
+        reassurances={["Devis clair sous 7 jours", "Visite technique réelle", "Un seul interlocuteur"]}
         video="/vds/Be-energies_video_header.optimized.webm"
       />
 

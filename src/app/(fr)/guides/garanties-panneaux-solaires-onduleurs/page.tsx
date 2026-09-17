@@ -223,7 +223,7 @@ export default function Page() {
 
       <CTADiagnostic
         title="Un devis solaire à faire vérifier ligne par ligne ?"
-        description="Envoyez votre devis : Benoît le lit avec son œil d'ancien inspecteur, vérifie les garanties annoncées contre les fiches techniques constructeur, et vous renvoie une analyse écrite sous 48 h ouvrées."
+        description="Envoyez votre devis : Benoît le lit avec son œil d'ancien inspecteur, vérifie les garanties annoncées contre les fiches techniques constructeur, et vous renvoie une analyse écrite sous 7 jours."
         ctaLabel="Faire vérifier mon devis"
         ctaHref="/devis-analyse/"
         variant="dark"

@@ -57,12 +57,12 @@ export const services: Service[] = [
   {
     slug: "conformite-electrique",
     slugNl: "elektrische-conformiteit",
-    title: "Conformité électrique",
-    titleNl: "Elektrische conformiteit",
+    title: "Électricité générale et conformité",
+    titleNl: "Algemene elektriciteit en conformiteit",
     shortDescription:
-      "Mise en conformité par un ancien inspecteur en conformité électrique, certifié RESCERT. Votre installation sera prête pour le contrôle du premier coup.",
+      "Électricité générale (tableau, circuits, rénovation) et mise en conformité par un ancien inspecteur en conformité électrique, certifié RESCERT. Votre installation sera prête pour le contrôle du premier coup.",
     shortDescriptionNl:
-      "Conformiteit door een voormalig inspecteur. Uw installatie is klaar voor de eerste keuring.",
+      "Algemene elektriciteit (bord, kringen, renovatie) en conformiteit door een voormalig inspecteur. Uw installatie is klaar voor de eerste keuring.",
     icon: "compliance",
     heroImage: "/img/guides/service-conformite-tableau.webp",
     pieges: ["devis-sans-visite", "installation-non-conforme"],
@@ -100,8 +100,21 @@ export const services: Service[] = [
       "batteries-domestiques",
       "conformite-electrique",
     ],
+    // Taken offline (client request, sept. 2026). Content is kept in full:
+    // service-content, FAQ, local content, realizations, blog, pieges chapter.
+    // Flip this flag to re-publish everything at once.
+    offline: true,
   },
 ];
+
+/** Services that are published (detail page resolves). Hidden services are
+ *  still online, just not linked from discovery surfaces. */
+export const onlineServices: Service[] = services.filter((s) => !s.offline);
+
+export function isServiceOnline(slug: string): boolean {
+  const s = services.find((x) => x.slug === slug || x.slugNl === slug);
+  return Boolean(s) && !s!.offline;
+}
 
 export function getServiceBySlug(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug || s.slugNl === slug);
@@ -121,10 +134,12 @@ export function getServiceBySlugNl(slug: string): Service | undefined {
  * are filtered out - their detail page stays accessible but no link
  * points to it.
  */
-export const visibleServices: Service[] = services.filter((s) => !s.hidden);
+export const visibleServices: Service[] = services.filter(
+  (s) => !s.hidden && !s.offline
+);
 
 export function getRelatedServices(service: Service): Service[] {
   return service.relatedServices
     .map((slug) => getServiceBySlugFr(slug))
-    .filter((s): s is Service => Boolean(s) && !s!.hidden);
+    .filter((s): s is Service => Boolean(s) && !s!.hidden && !s!.offline);
 }

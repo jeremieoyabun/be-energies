@@ -3,7 +3,7 @@ import Image from "next/image";
 import { MapPinIcon, CheckIcon } from "@/lib/icons";
 import { SectionLabel } from "@/components/sections/SectionLabel";
 import { realizations } from "@/data/realizations";
-import { cities } from "@/data/cities";
+import { allCities as cities } from "@/data/cities";
 import type { Realization } from "@/lib/types";
 
 interface RealisationsLocalesProps {
@@ -19,7 +19,7 @@ const SERVICE_LABEL_FR: Record<string, string> = {
   "panneaux-photovoltaiques": "Panneaux solaires",
   "batteries-domestiques": "Batterie",
   "bornes-de-recharge": "Borne de recharge",
-  "conformite-electrique": "Conformité",
+  "conformite-electrique": "Électricité & conformité",
   "pompes-a-chaleur": "Pompe à chaleur",
 };
 
@@ -27,7 +27,7 @@ const SERVICE_LABEL_NL: Record<string, string> = {
   "panneaux-photovoltaiques": "Zonnepanelen",
   "batteries-domestiques": "Thuisbatterij",
   "bornes-de-recharge": "Laadpaal",
-  "conformite-electrique": "Conformiteit",
+  "conformite-electrique": "Elektriciteit & conformiteit",
   "pompes-a-chaleur": "Warmtepomp",
 };
 

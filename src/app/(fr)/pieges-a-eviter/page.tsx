@@ -12,11 +12,12 @@ import { ReadingProgress } from "@/components/animations/ReadingProgress";
 import { ReadMore } from "@/components/ReadMore";
 import { AlertTriangleIcon, CheckIcon } from "@/lib/icons";
 import type { FAQItem } from "@/lib/types";
+import { isServiceOnline } from "@/data/services";
 
 export const metadata = generatePageMetadata({
   title: "7 pièges à éviter avant un devis solaire | Guide par un ancien inspecteur",
   description:
-    "Panneaux solaires, batterie, borne, pompe à chaleur : les 7 pièges à vérifier avant de signer un devis en Belgique. Checklists et 7 questions à poser. Guide par Benoît Dezso, certifié RESCERT.",
+    "Panneaux solaires, batterie, borne de recharge : les 7 pièges à vérifier avant de signer un devis en Belgique. Checklists et 7 questions à poser. Guide par Benoît Dezso, certifié RESCERT.",
   path: "/pieges-a-eviter/",
 });
 
@@ -47,7 +48,7 @@ interface Chapter {
   proofToRequest?: string;
 }
 
-const chapters: Chapter[] = [
+const allChapters: Chapter[] = [
   {
     id: "fausses-primes-wallonnes",
     number: 1,
@@ -441,6 +442,13 @@ const chapters: Chapter[] = [
 // ---------------------------------------------------------------------------
 // Data: FAQ
 // ---------------------------------------------------------------------------
+/** Published chapters: chapters tied to an offline service are dropped and
+ *  the remaining ones renumbered so the reader never sees a gap. The full
+ *  list stays in `allChapters` for re-publication. */
+const chapters: Chapter[] = allChapters
+  .filter((ch) => ch.service === "all" || isServiceOnline(ch.service))
+  .map((ch, i) => ({ ...ch, number: i + 1 }));
+
 const pillarFaq: FAQItem[] = [
   {
     question: "Comment savoir si un installateur est sérieux ?",
@@ -506,7 +514,7 @@ export default function PiegesPage() {
       {/* Schema: Article + FAQ */}
       <JsonLd
         data={articleSchema({
-          title: "Les 7 pièges à éviter avant d'installer des panneaux solaires, une borne ou une pompe à chaleur en Belgique",
+          title: "Les 7 pièges à éviter avant d'installer des panneaux solaires, une batterie ou une borne de recharge en Belgique",
           description:
             "Guide complet par un ancien inspecteur, certifié RESCERT. 7 pièges détaillés, checklists pratiques, et les vrais chiffres 2026.",
           url: "/pieges-a-eviter/",
@@ -540,7 +548,7 @@ export default function PiegesPage() {
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-heading)] text-white leading-tight">
             Les 7 pièges à éviter avant d&apos;installer des panneaux solaires,
-            une borne ou une pompe à chaleur
+            une batterie ou une borne de recharge
           </h1>
           <p className="mt-6 text-lg md:text-xl text-silver leading-relaxed max-w-3xl">
             Benoît Dezso a passé des années à inspecter des installations électriques
@@ -881,8 +889,7 @@ export default function PiegesPage() {
               { title: "Panneaux photovoltaïques", description: "Notre approche, les vrais chiffres, le calcul de rentabilité", href: "/services/panneaux-photovoltaiques/" },
               { title: "Batteries domestiques", description: "Quand c'est rentable et quand ça ne l'est pas", href: "/services/batteries-domestiques/" },
               { title: "Bornes de recharge", description: "Intégration solaire, conformité, dimensionnement", href: "/services/bornes-de-recharge/" },
-              { title: "Conformité électrique", description: "Par un ancien inspecteur : il connaît le rapport avant qu'il n'existe", href: "/services/conformite-electrique/" },
-              { title: "Pompes à chaleur", description: "Dimensionnement, intégration, tarif IMPACT", href: "/services/pompes-a-chaleur/" },
+              { title: "Électricité générale et conformité", description: "Par un ancien inspecteur : il connaît le rapport avant qu'il n'existe", href: "/services/conformite-electrique/" },
               { title: "Nos réalisations", description: "Les preuves sur le terrain", href: "/realisations/" },
             ].map((link) => (
               <Link

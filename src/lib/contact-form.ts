@@ -137,7 +137,7 @@ export const PROJECT_LABELS: Record<ProjectType, string> = {
   "batteries-domestiques": "Batterie domestique",
   "bornes-de-recharge": "Borne de recharge",
   "pompes-a-chaleur": "Pompe à chaleur / climatisation",
-  "conformite-electrique": "Conformité électrique",
+  "conformite-electrique": "Électricité générale et conformité",
   "nettoyage-toiture": "Nettoyage / peinture toiture",
   "devis-analyse": "Analyse d'un devis existant",
   autre: "Autre",

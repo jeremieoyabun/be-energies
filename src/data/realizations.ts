@@ -1,6 +1,9 @@
 import type { Realization } from "@/lib/types";
+import { isServiceOnline } from "./services";
 
-export const realizations: Realization[] = [
+/** Every project, including those attached to an offline service. Kept for
+ *  re-publication - never render this list directly. */
+export const allRealizations: Realization[] = [
   // --- Existing 4, enriched ---
   {
     slug: "riemst-32-panneaux",
@@ -393,6 +396,11 @@ export const realizations: Realization[] = [
     },
   },
 ];
+
+/** Published projects: everything whose service is online. */
+export const realizations: Realization[] = allRealizations.filter((r) =>
+  isServiceOnline(r.service)
+);
 
 export function getRealizationBySlug(slug: string): Realization | undefined {
   return realizations.find((r) => r.slug === slug);

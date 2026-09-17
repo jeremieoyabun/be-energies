@@ -546,7 +546,7 @@ export function GuidePiegesDocument({
           Vous démarrez un projet et vous voulez partir sur de bonnes bases ?
           Demandez un diagnostic énergétique gratuit. Visite sur site,
           dimensionnement basé sur votre consommation réelle, devis détaillé
-          sous 48 h avec les tarifs 2026 réels de votre gestionnaire de réseau.
+          sous 7 jours avec les tarifs 2026 réels de votre gestionnaire de réseau.
         </Text>
 
         <Text style={styles.paragraph}>{GUIDE_CONCLUSION}</Text>

@@ -25,7 +25,7 @@ const DEFAULTS = {
     badge: "Gratuit · Sans engagement",
     micro1: "Réponse sous 24 h",
     micro2: "Visite gratuite",
-    micro3: "Devis sous 48 h",
+    micro3: "Devis sous 7 jours",
   },
   nl: {
     title: "Gratis energiediagnose",
@@ -36,7 +36,7 @@ const DEFAULTS = {
     badge: "Gratis · Vrijblijvend",
     micro1: "Antwoord binnen 24 u",
     micro2: "Gratis bezoek",
-    micro3: "Offerte binnen 48 u",
+    micro3: "Offerte binnen 7 dagen",
   },
 } as const;
 

@@ -24,7 +24,7 @@ export const homepageFaqNl: FAQItem[] = [
   {
     question: "Welke diensten biedt Be'energies?",
     answer:
-      "Be'energies dekt het volledige energie-ecosysteem van uw woning: zonnepanelen, thuisbatterijen, laadpalen voor elektrische voertuigen, warmtepompen en airco, in-conformiteit-brengen van de elektrische installatie en dakreiniging. Het voordeel van één aanspreekpunt is de technische coherentie tussen elk element. Benoît ontwerpt uw installatie als een geïntegreerd systeem, niet als een optelsom van afzonderlijk verkochte producten.",
+      "Be'energies dekt het volledige energie-ecosysteem van uw woning: zonnepanelen, thuisbatterijen, laadpalen voor elektrische voertuigen, algemene elektriciteit en het in conformiteit brengen van de elektrische installatie. Het voordeel van één aanspreekpunt is de technische coherentie tussen elk element. Benoît ontwerpt uw installatie als een geïntegreerd systeem, niet als een optelsom van afzonderlijk verkochte producten.",
   },
   {
     question: "Hoe verloopt de gratis energiediagnose?",
@@ -59,7 +59,7 @@ export const pvServiceFaqNl: FAQItem[] = [
   {
     question: "Werkt Be'energies in mijn streek?",
     answer:
-      "Wij werken in heel Wallonië, in Brussel en in Vlaams-Limburg (Riemst, Tongeren, Bilzen, Hasselt). Benoît komt persoonlijk langs voor elke diagnose en superviseert elk project. Raadpleeg onze lokale pagina's om de realisaties in uw stad te zien.",
+      "Wij werken in een straal van 70 tot 80 km met de wagen rond Riemst: Limburg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) en de provincie Luik (Luik, Wezet, Herstal, Seraing, Borgworm, Verviers, Hoei). Verder weg (Namen, Waals-Brabant, Brussel…) bekijken we aanvragen op aanvraag, afhankelijk van het project. Benoît komt persoonlijk langs voor elke diagnose en superviseert elk project. Raadpleeg onze lokale pagina's om de realisaties in uw stad te zien.",
   },
   {
     question: "Welke merken panelen gebruikt u?",
@@ -152,7 +152,7 @@ export const evChargingFaqNl: FAQItem[] = [
     question:
       "Bestaan er premies voor de installatie van een laadpaal in België?",
     answer:
-      "In België is het voornaamste voordeel de verlaagde BTW van 6 % (in plaats van 21 %) voor woningen ouder dan 10 jaar, die van toepassing is op de laadpaal zoals op alle elektrische installatiewerken. Voor zelfstandigen en vennootschappen is de investering in een laadpaal fiscaal aftrekbaar. Sommige gemeenten bieden ook lokale premies, maar de bedragen blijven bescheiden. Benoît informeert u over de beschikbare hulp in uw gemeente tijdens de diagnose.",
+      "Nee. Voor een particulier bestaat er in 2026 geen premie meer voor een laadpaal thuis: de federale belastingvermindering is gestopt voor uitgaven na 31 augustus 2024, en geen enkel gewest biedt een residentiële premie. Wat blijft: de verlaagde btw van 6 % (in plaats van 21 %) voor woningen ouder dan 10 jaar, op voorwaarde dat de laadpaal door dezelfde installateur wordt geleverd en geplaatst op één factuur. Dat is geen premie, maar een standaard verlaagd tarief. Voor zelfstandigen en vennootschappen blijft de investering in een laadpaal fiscaal aftrekbaar. Belooft iemand u een premie? Vraag dan de naam van de regeling en de officiële tekst.",
   },
 ];
 

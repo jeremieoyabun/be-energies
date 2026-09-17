@@ -19,7 +19,7 @@ export const homepageFaq: FAQItem[] = [
   {
     question: "Quels services propose Be'energies ?",
     answer:
-      "Be'energies couvre l'ensemble de l'écosystème énergétique de votre habitation : panneaux photovoltaïques, batteries domestiques, bornes de recharge pour véhicules électriques, pompes à chaleur et climatisation, mise en conformité électrique, et nettoyage de toiture. L'avantage d'un interlocuteur unique, c'est la cohérence technique entre chaque élément. Benoît conçoit votre installation comme un système intégré, pas comme une addition de produits vendus séparément.",
+      "Be'energies couvre l'ensemble de l'écosystème énergétique de votre habitation : panneaux photovoltaïques, batteries domestiques, bornes de recharge pour véhicules électriques, électricité générale et mise en conformité. L'avantage d'un interlocuteur unique, c'est la cohérence technique entre chaque élément. Benoît conçoit votre installation comme un système intégré, pas comme une addition de produits vendus séparément.",
   },
   {
     question: "Comment fonctionne le diagnostic énergétique gratuit ?",
@@ -53,7 +53,7 @@ export const pvServiceFaq: FAQItem[] = [
   {
     question: "Be'energies intervient-il dans ma région ?",
     answer:
-      "Nous intervenons dans toute la Wallonie, à Bruxelles, et dans le Limbourg flamand (Riemst, Tongeren, Bilzen, Hasselt). Benoît se déplace personnellement pour chaque diagnostic et supervise chaque chantier. Consultez nos pages locales pour voir les réalisations dans votre ville.",
+      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) et la province de Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy). Au-delà (Namur, Brabant wallon, Bruxelles…), nous étudions les demandes sur demande, selon le projet. Benoît se déplace personnellement pour chaque diagnostic et supervise chaque chantier. Consultez nos pages locales pour voir les réalisations dans votre ville.",
   },
   {
     question: "Quelles marques de panneaux utilisez-vous ?",
@@ -139,7 +139,7 @@ export const evChargingFaq: FAQItem[] = [
   {
     question: "Existe-t-il des primes pour l'installation d'une borne de recharge en Belgique ?",
     answer:
-      "En Belgique, l'avantage principal est la TVA réduite à 6 % (au lieu de 21 %) pour les habitations de plus de 10 ans, ce qui s'applique à la borne comme à tous les travaux d'installation électrique. Pour les indépendants et les sociétés, l'investissement dans une borne est déductible fiscalement. Certaines communes offrent également des primes locales, mais les montants restent modestes. Benoît vous informe des aides disponibles dans votre commune lors du diagnostic.",
+      "Non. Pour un particulier, il n'existe plus de prime pour une borne de recharge à domicile en 2026 : la réduction d'impôt fédérale a pris fin pour les dépenses postérieures au 31 août 2024, et aucune Région ne propose de prime résidentielle. Ce qui reste : la TVA réduite à 6 % (au lieu de 21 %) pour les habitations de plus de 10 ans, à condition que la borne soit fournie et posée par le même installateur sur une seule facture. Ce n'est pas une prime, c'est un taux réduit standard. Pour les indépendants et les sociétés, l'investissement dans une borne reste déductible fiscalement. Si quelqu'un vous promet une prime, demandez le nom du dispositif et le texte officiel.",
   },
 ];
 

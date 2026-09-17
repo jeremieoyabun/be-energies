@@ -15,6 +15,23 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Unpublished content (sept. 2026). Service pages, city pages and the
+      // "prime borne" guide that no longer exist land on the closest live hub.
+      // Cities: beyond the 70-80 km driving radius from Riemst (see cities.ts).
+      {
+        source:
+          "/:service(panneaux-photovoltaiques|batteries-domestiques|bornes-de-recharge|conformite-electrique)/:city(namur|wavre|ottignies-louvain-la-neuve|bruxelles|charleroi|waterloo|nivelles|la-louviere|mons|arlon|tournai)/",
+        destination: "/services/:service/",
+        permanent: true,
+      },
+      { source: "/pompes-a-chaleur/:city/", destination: "/services/", permanent: true },
+      { source: "/nl/warmtepompen/:city/", destination: "/nl/diensten/", permanent: true },
+      { source: "/services/pompes-a-chaleur/", destination: "/services/", permanent: true },
+      { source: "/nl/diensten/warmtepompen/", destination: "/nl/diensten/", permanent: true },
+      { source: "/blog/pompe-chaleur-vs-chaudiere-gaz/", destination: "/blog/", permanent: true },
+      { source: "/realisations/namur-pompe-a-chaleur-pv/", destination: "/realisations/", permanent: true },
+      { source: "/guides/prime-borne-recharge-belgique-2026/", destination: "/services/bornes-de-recharge/", permanent: true },
+
       // WordPress slug migration
       { source: "/realisation/", destination: "/realisations/", permanent: true },
       { source: "/realisation/:slug/", destination: "/realisations/:slug/", permanent: true },
@@ -36,8 +53,9 @@ const nextConfig: NextConfig = {
       { source: "/bornes-de-recharge/", destination: "/services/bornes-de-recharge/", permanent: true },
       { source: "/borne-de-recharge/", destination: "/services/bornes-de-recharge/", permanent: true },
       { source: "/conformite-electrique/", destination: "/services/conformite-electrique/", permanent: true },
-      { source: "/pompe-a-chaleur/", destination: "/services/pompes-a-chaleur/", permanent: true },
-      { source: "/pompes-a-chaleur/", destination: "/services/pompes-a-chaleur/", permanent: true },
+      // Heat-pump service is offline (sept. 2026): land on the services hub.
+      { source: "/pompe-a-chaleur/", destination: "/services/", permanent: true },
+      { source: "/pompes-a-chaleur/", destination: "/services/", permanent: true },
       { source: "/nettoyage-toiture/", destination: "/services/nettoyage-toiture/", permanent: true },
       { source: "/nettoyage-de-toiture/", destination: "/services/nettoyage-toiture/", permanent: true },
       { source: "/peinture-toiture/", destination: "/services/nettoyage-toiture/", permanent: true },
@@ -73,8 +91,8 @@ const nextConfig: NextConfig = {
 
       // Old EN slugs sometimes left over from WP themes
       { source: "/solar-panels/", destination: "/services/panneaux-photovoltaiques/", permanent: true },
-      { source: "/heat-pump/", destination: "/services/pompes-a-chaleur/", permanent: true },
-      { source: "/heat-pumps/", destination: "/services/pompes-a-chaleur/", permanent: true },
+      { source: "/heat-pump/", destination: "/services/", permanent: true },
+      { source: "/heat-pumps/", destination: "/services/", permanent: true },
       { source: "/ev-charger/", destination: "/services/bornes-de-recharge/", permanent: true },
       { source: "/ev-charging/", destination: "/services/bornes-de-recharge/", permanent: true },
 

@@ -1,6 +1,9 @@
 import type { City } from "@/lib/types";
 
-export const cities: City[] = [
+/** Every city ever modelled, including those beyond the 70-80 km driving
+ *  radius (`offline: true`). Use it only for lookups that must still
+ *  resolve a province/name for an old project or testimonial. */
+export const allCities: City[] = [
   // T1 -- Launch (FR)
   {
     slug: "liege",
@@ -17,6 +20,7 @@ export const cities: City[] = [
   },
   {
     slug: "namur",
+    offline: true, // 83 km by road from Riemst (> 80 km rule)
     name: "Namur",
     province: "Namur",
     region: "wallonie",
@@ -30,6 +34,7 @@ export const cities: City[] = [
   },
   {
     slug: "bruxelles",
+    offline: true, // 107 km by road from Riemst (> 80 km rule)
     name: "Bruxelles",
     province: "Bruxelles-Capitale",
     region: "bruxelles",
@@ -43,6 +48,7 @@ export const cities: City[] = [
   },
   {
     slug: "charleroi",
+    offline: true, // 111 km by road from Riemst (> 80 km rule)
     name: "Charleroi",
     province: "Hainaut",
     region: "wallonie",
@@ -56,6 +62,7 @@ export const cities: City[] = [
   },
   {
     slug: "mons",
+    offline: true, // 151 km by road from Riemst (> 80 km rule)
     name: "Mons",
     province: "Hainaut",
     region: "wallonie",
@@ -69,6 +76,7 @@ export const cities: City[] = [
   },
   {
     slug: "wavre",
+    offline: true, // 106 km by road from Riemst (> 80 km rule)
     name: "Wavre",
     province: "Brabant wallon",
     region: "wallonie",
@@ -84,6 +92,7 @@ export const cities: City[] = [
   // T2 -- Post-Launch (FR)
   {
     slug: "nivelles",
+    offline: true, // 125 km by road from Riemst (> 80 km rule)
     name: "Nivelles",
     province: "Brabant wallon",
     region: "wallonie",
@@ -110,6 +119,7 @@ export const cities: City[] = [
   },
   {
     slug: "arlon",
+    offline: true, // 154 km by road from Riemst (> 80 km rule)
     name: "Arlon",
     province: "Luxembourg",
     region: "wallonie",
@@ -123,6 +133,7 @@ export const cities: City[] = [
   },
   {
     slug: "tournai",
+    offline: true, // 195 km by road from Riemst (> 80 km rule)
     name: "Tournai",
     province: "Hainaut",
     region: "wallonie",
@@ -136,6 +147,7 @@ export const cities: City[] = [
   },
   {
     slug: "la-louviere",
+    offline: true, // 129 km by road from Riemst (> 80 km rule)
     name: "La Louviere",
     province: "Hainaut",
     region: "wallonie",
@@ -218,6 +230,7 @@ export const cities: City[] = [
   // T2b -- Expansion Brabant wallon (ORES)
   {
     slug: "ottignies-louvain-la-neuve",
+    offline: true, // 106 km by road from Riemst (> 80 km rule)
     name: "Ottignies-Louvain-la-Neuve",
     province: "Brabant wallon",
     region: "wallonie",
@@ -231,6 +244,7 @@ export const cities: City[] = [
   },
   {
     slug: "waterloo",
+    offline: true, // 117 km by road from Riemst (> 80 km rule)
     name: "Waterloo",
     province: "Brabant wallon",
     region: "wallonie",
@@ -339,8 +353,18 @@ export const cities: City[] = [
   },
 ];
 
+/** Published cities: within the operational radius (siteConfig.serviceArea).
+ *  Drives routes, sitemap, nearby-city links and service-page city lists. */
+export const cities: City[] = allCities.filter((c) => !c.offline);
+
 export function getCityBySlug(slug: string): City | undefined {
   return cities.find((c) => c.slug === slug);
+}
+
+/** Lookup across all cities, offline ones included (labels on realization
+ *  cards, testimonials, province fallbacks). Never use it to build a link. */
+export function getAnyCityBySlug(slug: string): City | undefined {
+  return allCities.find((c) => c.slug === slug);
 }
 
 export function getCitiesByTier(tier: 1 | 2 | 3): City[] {

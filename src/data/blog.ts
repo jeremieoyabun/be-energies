@@ -17,7 +17,8 @@ import type { BlogArticle } from "@/lib/types";
 //   3. Order: newest first - the index page renders in array order.
 // ---------------------------------------------------------------------------
 
-export const blogArticles: BlogArticle[] = [
+/** Every article, including unpublished ones. Never render this directly. */
+export const allBlogArticles: BlogArticle[] = [
   {
     slug: "prix-panneaux-solaires-belgique-2026",
     title: "Prix des panneaux solaires en Belgique en 2026 : guide complet",
@@ -78,6 +79,8 @@ export const blogArticles: BlogArticle[] = [
     tags: ["pompe-à-chaleur", "chauffage", "comparatif"],
     relatedServices: ["pompes-a-chaleur", "panneaux-photovoltaiques"],
     image: "/img/pieges/06b_pompe-chaleur.webp",
+    // Heat-pump service is offline (sept. 2026); article follows it.
+    offline: true,
   },
   {
     slug: "batterie-domestique-rentable",
@@ -92,6 +95,11 @@ export const blogArticles: BlogArticle[] = [
     image: "/img/realisations/batteries-crisnee.webp",
   },
 ];
+
+/** Published articles (index, sitemap, RSS, static params). */
+export const blogArticles: BlogArticle[] = allBlogArticles.filter(
+  (a) => !a.offline
+);
 
 export function getBlogArticleBySlug(
   slug: string
