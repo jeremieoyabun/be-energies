@@ -19,7 +19,7 @@ export const homepageFaq: FAQItem[] = [
   {
     question: "Quels services propose Be'energies ?",
     answer:
-      "Be'energies couvre l'ensemble de l'écosystème énergétique de votre habitation : panneaux photovoltaïques, batteries domestiques, bornes de recharge pour véhicules électriques, électricité générale et mise en conformité. L'avantage d'un interlocuteur unique, c'est la cohérence technique entre chaque élément. Benoît conçoit votre installation comme un système intégré, pas comme une addition de produits vendus séparément.",
+      "Be'energies couvre l'ensemble de l'écosystème énergétique de votre habitation : panneaux photovoltaïques, batteries domestiques, bornes de recharge pour véhicules électriques, électricité & mise en conformité. L'avantage d'un interlocuteur unique, c'est la cohérence technique entre chaque élément. Benoît conçoit votre installation comme un système intégré, pas comme une addition de produits vendus séparément.",
   },
   {
     question: "Comment fonctionne le diagnostic énergétique gratuit ?",

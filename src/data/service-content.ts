@@ -802,16 +802,16 @@ export const serviceContent: Record<string, ServiceContent> = {
 
   "conformite-electrique": {
     seoTitle: {
-      fr: "Électricité générale et conformité en Belgique | Tableau, rénovation, mise en conformité",
-      nl: "Algemene elektriciteit en conformiteit in België | Bord, renovatie, in conformiteit brengen",
+      fr: "Électricité & conformité en Belgique | Tableau, rénovation, mise en conformité",
+      nl: "Elektriciteit & conformiteit in België | Bord, renovatie, in conformiteit brengen",
     },
     metaDescription: {
-      fr: "Électricité générale (tableau, circuits, rénovation) et mise en conformité par un ancien inspecteur en installation électrique, certifié RESCERT. Il a rédigé des rapports de non-conformité pendant des années. Diagnostic gratuit.",
-      nl: "Algemene elektriciteit (bord, kringen, renovatie) en in conformiteit brengen door een voormalig inspecteur elektrische installaties, RESCERT-gecertificeerd. Hij schreef jarenlang niet-conformiteitsrapporten. Gratis diagnose.",
+      fr: "Électricité (tableau, circuits, rénovation) et mise en conformité par un ancien inspecteur en installation électrique, certifié RESCERT. Il a rédigé des rapports de non-conformité pendant des années. Diagnostic gratuit.",
+      nl: "Elektriciteit (bord, kringen, renovatie) en in conformiteit brengen door een voormalig inspecteur elektrische installaties, RESCERT-gecertificeerd. Hij schreef jarenlang niet-conformiteitsrapporten. Gratis diagnose.",
     },
     headline: {
-      fr: "Électricité générale et conformité : par celui qui rédigeait les rapports de non-conformité",
-      nl: "Algemene elektriciteit en conformiteit: door wie de niet-conformiteitsrapporten schreef",
+      fr: "Électricité & conformité : par celui qui rédigeait les rapports de non-conformité",
+      nl: "Elektriciteit & conformiteit: door wie de niet-conformiteitsrapporten schreef",
     },
     subheadline: {
       fr: "Tableau, circuits, rénovation complète ou mise en conformité : Benoît Dezso a été électricien pendant 25 ans et a inspecté des installations électriques pour des organismes agréés. Il sait exactement ce que le contrôleur va vérifier. Votre installation sera prête.",

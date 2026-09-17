@@ -20,7 +20,7 @@ import { ComplianceBadge } from "@/components/sections/ComplianceBadge";
 export const metadata = generatePageMetadata({
   title: "Installateur photovoltaïque en Belgique | Ancien inspecteur RESCERT",
   description:
-    "Panneaux solaires, batteries, bornes de recharge, électricité générale et conformité en Limbourg et province de Liège, à 80 km autour de Riemst. Diagnostic gratuit, devis clair sous 7 jours, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
+    "Panneaux solaires, batteries, bornes de recharge, électricité & conformité en Limbourg et province de Liège, à 80 km autour de Riemst. Diagnostic gratuit, devis clair sous 7 jours, conformité pensée dès la conception par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
   path: "/",
   alternates: { fr: "/", nl: "/nl/" },
 });

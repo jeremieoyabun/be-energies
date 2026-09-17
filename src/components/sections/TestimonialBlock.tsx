@@ -31,7 +31,7 @@ const SERVICE_LABEL: Record<string, string> = {
   "panneaux-photovoltaiques": "Panneaux solaires",
   "batteries-domestiques": "Batterie domestique",
   "bornes-de-recharge": "Borne de recharge",
-  "conformite-electrique": "Électricité générale et conformité",
+  "conformite-electrique": "Électricité & conformité",
   "pompes-a-chaleur": "Pompe à chaleur",
   "nettoyage-toiture": "Nettoyage toiture",
 };

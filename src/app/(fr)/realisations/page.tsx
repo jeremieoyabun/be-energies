@@ -30,7 +30,7 @@ const documentedRealizations = realizations.filter(
 export const metadata = generatePageMetadata({
   title:
     "Nos réalisations | Installations solaires, batteries et bornes en Belgique",
-  description: `Projets réalisés en Limbourg, en province de Liège et au-delà. Panneaux photovoltaïques, batteries, bornes de recharge, électricité générale et mises en conformité. Découvrez le travail de terrain de Be'energies.`,
+  description: `Projets réalisés en Limbourg, en province de Liège et au-delà. Panneaux photovoltaïques, batteries, bornes de recharge, électricité & mises en conformité. Découvrez le travail de terrain de Be'energies.`,
   path: "/realisations/",
 });
 

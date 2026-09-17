@@ -24,7 +24,7 @@ export const homepageFaqNl: FAQItem[] = [
   {
     question: "Welke diensten biedt Be'energies?",
     answer:
-      "Be'energies dekt het volledige energie-ecosysteem van uw woning: zonnepanelen, thuisbatterijen, laadpalen voor elektrische voertuigen, algemene elektriciteit en het in conformiteit brengen van de elektrische installatie. Het voordeel van één aanspreekpunt is de technische coherentie tussen elk element. Benoît ontwerpt uw installatie als een geïntegreerd systeem, niet als een optelsom van afzonderlijk verkochte producten.",
+      "Be'energies dekt het volledige energie-ecosysteem van uw woning: zonnepanelen, thuisbatterijen, laadpalen voor elektrische voertuigen, elektriciteit & het in conformiteit brengen van de elektrische installatie. Het voordeel van één aanspreekpunt is de technische coherentie tussen elk element. Benoît ontwerpt uw installatie als een geïntegreerd systeem, niet als een optelsom van afzonderlijk verkochte producten.",
   },
   {
     question: "Hoe verloopt de gratis energiediagnose?",

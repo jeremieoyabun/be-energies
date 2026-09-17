@@ -200,9 +200,9 @@ const serviceLocalContentFr: Record<string, ServiceLocalContent> = {
     crossServiceHeading: (city) => `Vous installez une borne à ${city} ? Complétez votre système :`,
   },
   "conformite-electrique": {
-    whyTitle: (city) => `Électricité générale et conformité à ${city} : l'expertise d'un ancien inspecteur`,
+    whyTitle: (city) => `Électricité & conformité à ${city} : l'expertise d'un ancien inspecteur`,
     whyBody: (city) =>
-      `À ${city.name}, les travaux d'électricité générale (tableau, circuits, rénovation) et la mise en conformité sont réalisés par Benoît Dezso, électricien pendant 25 ans, ancien inspecteur en installation électrique, certifié RESCERT. Il connaît exactement les points que le contrôleur vérifie et conçoit chaque mise en conformité pour passer le contrôle du premier coup. Pas de surprises, pas de frais supplémentaires, pas de contre-visite.`,
+      `À ${city.name}, les travaux d'électricité (tableau, circuits, rénovation) et la mise en conformité sont réalisés par Benoît Dezso, électricien pendant 25 ans, ancien inspecteur en installation électrique, certifié RESCERT. Il connaît exactement les points que le contrôleur vérifie et conçoit chaque mise en conformité pour passer le contrôle du premier coup. Pas de surprises, pas de frais supplémentaires, pas de contre-visite.`,
     crossServiceHeading: (city) => `Votre installation à ${city} est conforme ? Optimisez-la :`,
   },
   "nettoyage-toiture": {
@@ -240,9 +240,9 @@ const serviceLocalContentNl: Record<string, ServiceLocalContent> = {
     crossServiceHeading: (city) => `Laadpaal in ${city}? Maak uw systeem compleet:`,
   },
   "elektrische-conformiteit": {
-    whyTitle: (city) => `Algemene elektriciteit en conformiteit in ${city}: expertise van een ex-inspecteur`,
+    whyTitle: (city) => `Elektriciteit & conformiteit in ${city}: expertise van een ex-inspecteur`,
     whyBody: (city) =>
-      `In ${city.name} worden algemene elektriciteitswerken (bord, kringen, renovatie) en het in conformiteit brengen uitgevoerd door Benoît Dezso, 25 jaar elektricien, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd. Hij weet exact wat de controleur nagaat en zorgt dat uw installatie in een keer slaagt voor de keuring.`,
+      `In ${city.name} worden elektriciteitswerken (bord, kringen, renovatie) en het in conformiteit brengen uitgevoerd door Benoît Dezso, 25 jaar elektricien, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd. Hij weet exact wat de controleur nagaat en zorgt dat uw installatie in een keer slaagt voor de keuring.`,
     crossServiceHeading: (city) => `Installatie conform in ${city}? Optimaliseer verder:`,
   },
   dakreiniging: {
@@ -462,7 +462,7 @@ const headlineVariantsFr: Record<string, (cityName: string) => string> = {
   "bornes-de-recharge": (city) =>
     `Borne de recharge à ${city} : installation intégrée à votre solaire`,
   "conformite-electrique": (city) =>
-    `Électricité générale et conformité à ${city} : par un ancien inspecteur`,
+    `Électricité & conformité à ${city} : par un ancien inspecteur`,
   "nettoyage-toiture": (city) =>
     `Nettoyage toiture à ${city} : protégez vos panneaux et votre toit`,
   "pompes-a-chaleur": (city) =>
@@ -477,7 +477,7 @@ const headlineVariantsNl: Record<string, (cityName: string) => string> = {
   laadpalen: (city) =>
     `Laadpaal in ${city}: geintegreerde installatie met uw zonnepanelen`,
   "elektrische-conformiteit": (city) =>
-    `Algemene elektriciteit en conformiteit in ${city}: door een voormalig inspecteur`,
+    `Elektriciteit & conformiteit in ${city}: door een voormalig inspecteur`,
   dakreiniging: (city) =>
     `Dakreiniging in ${city}: bescherm uw panelen en uw dak`,
   warmtepompen: (city) =>

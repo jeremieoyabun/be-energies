@@ -889,7 +889,7 @@ export default function PiegesPage() {
               { title: "Panneaux photovoltaïques", description: "Notre approche, les vrais chiffres, le calcul de rentabilité", href: "/services/panneaux-photovoltaiques/" },
               { title: "Batteries domestiques", description: "Quand c'est rentable et quand ça ne l'est pas", href: "/services/batteries-domestiques/" },
               { title: "Bornes de recharge", description: "Intégration solaire, conformité, dimensionnement", href: "/services/bornes-de-recharge/" },
-              { title: "Électricité générale et conformité", description: "Par un ancien inspecteur : il connaît le rapport avant qu'il n'existe", href: "/services/conformite-electrique/" },
+              { title: "Électricité & conformité", description: "Par un ancien inspecteur : il connaît le rapport avant qu'il n'existe", href: "/services/conformite-electrique/" },
               { title: "Nos réalisations", description: "Les preuves sur le terrain", href: "/realisations/" },
             ].map((link) => (
               <Link

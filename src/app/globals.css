@@ -281,13 +281,20 @@ html {
 
 /* Image reveal — clip-path sweep from left, used for featured / hero
    photos. The image is visible (no opacity transition) but masked
-   off until .is-visible, then a single 1s sweep unveils it. */
-.image-reveal {
+   off until .is-visible, then a single 1s sweep unveils it.
+
+   The clip is applied to the CHILDREN, never to the .image-reveal
+   element itself: recent Chrome applies the target's clip-path when
+   computing IntersectionObserver rects, so a fully clipped observed
+   element is reported as never intersecting and would stay hidden
+   forever (photos "disappeared" on Projets phares, sept. 2026). */
+.image-reveal > * {
   clip-path: inset(0 100% 0 0);
   transition: clip-path 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: inherit;
   will-change: clip-path;
 }
-.image-reveal.is-visible {
+.image-reveal.is-visible > * {
   clip-path: inset(0 0 0 0);
   will-change: auto;
 }
@@ -301,7 +308,8 @@ html {
     transform: none;
   }
   .reveal,
-  .image-reveal {
+  .image-reveal,
+  .image-reveal > * {
     opacity: 1;
     transform: none;
     transition: none;

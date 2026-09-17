@@ -18,7 +18,7 @@ import { homepageFaqNl } from "@/data/faq.nl";
 export const metadata = generatePageMetadata({
   title: "Be'energies -- Uw gecertificeerde installateur",
   description:
-    "Zonnepanelen, thuisbatterijen, laadpalen, algemene elektriciteit en conformiteit in Limburg. Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd.",
+    "Zonnepanelen, thuisbatterijen, laadpalen, elektriciteit & conformiteit in Limburg. Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd.",
   path: "/nl/",
   locale: "nl-BE",
   alternates: { fr: "/", nl: "/nl/" },
@@ -38,7 +38,7 @@ export default function NlHomePage() {
 
       <HeroSection
         headline="Ik heb honderden installaties geinspecteerd. Vandaag bouw ik ze."
-        subheadline="Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd. Zonnepanelen, thuisbatterijen, laadpalen, algemene elektriciteit en conformiteit."
+        subheadline="Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd. Zonnepanelen, thuisbatterijen, laadpalen, elektriciteit & conformiteit."
         ctaLabel="Gratis energiediagnose"
         ctaHref="/nl/contact/"
         secondaryCta={{ label: "Onze diensten", href: "/nl/diensten/" }}

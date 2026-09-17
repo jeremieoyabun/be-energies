@@ -1,6 +1,6 @@
 # Be'energies
 
-> Installateur belge en énergie résidentielle : panneaux photovoltaïques, batteries domestiques, bornes de recharge, électricité générale et conformité. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Positionnement : "L'installateur qui a d'abord été l'inspecteur." Chaque installation est dimensionnée sur la consommation réelle du client et conçue pour passer le contrôle de conformité.
+> Installateur belge en énergie résidentielle : panneaux photovoltaïques, batteries domestiques, bornes de recharge, électricité & conformité. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Positionnement : "L'installateur qui a d'abord été l'inspecteur." Chaque installation est dimensionnée sur la consommation réelle du client et conçue pour passer le contrôle de conformité.
 
 ## Faits vérifiables
 
@@ -25,7 +25,7 @@
 - [Panneaux photovoltaïques](https://www.be-energies.be/services/panneaux-photovoltaiques/) : conception, dimensionnement et installation sur la consommation réelle
 - [Batteries domestiques](https://www.be-energies.be/services/batteries-domestiques/) : installées uniquement quand le calcul de rentabilité est cohérent
 - [Bornes de recharge](https://www.be-energies.be/services/bornes-de-recharge/) : intégrées à l'installation solaire, avec vérification du tableau
-- [Électricité générale et conformité](https://www.be-energies.be/services/conformite-electrique/) : électricité générale et mise en conformité RGIE par un ancien inspecteur
+- [Électricité & conformité](https://www.be-energies.be/services/conformite-electrique/) : électricité & mise en conformité RGIE par un ancien inspecteur
 
 ## Guides et contenu de référence
 

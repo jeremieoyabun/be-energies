@@ -57,12 +57,12 @@ export const services: Service[] = [
   {
     slug: "conformite-electrique",
     slugNl: "elektrische-conformiteit",
-    title: "Électricité générale et conformité",
-    titleNl: "Algemene elektriciteit en conformiteit",
+    title: "Électricité & conformité",
+    titleNl: "Elektriciteit & conformiteit",
     shortDescription:
-      "Électricité générale (tableau, circuits, rénovation) et mise en conformité par un ancien inspecteur en conformité électrique, certifié RESCERT. Votre installation sera prête pour le contrôle du premier coup.",
+      "Électricité (tableau, circuits, rénovation) et mise en conformité par un ancien inspecteur en conformité électrique, certifié RESCERT. Votre installation sera prête pour le contrôle du premier coup.",
     shortDescriptionNl:
-      "Algemene elektriciteit (bord, kringen, renovatie) en conformiteit door een voormalig inspecteur. Uw installatie is klaar voor de eerste keuring.",
+      "Elektriciteit (bord, kringen, renovatie) en conformiteit door een voormalig inspecteur. Uw installatie is klaar voor de eerste keuring.",
     icon: "compliance",
     heroImage: "/img/guides/service-conformite-tableau.webp",
     pieges: ["devis-sans-visite", "installation-non-conforme"],

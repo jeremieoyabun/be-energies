@@ -18,7 +18,7 @@ export const siteConfig = {
   localeNl: "nl-BE",
   tagline: "L'installateur qui a d'abord été l'inspecteur.",
   description:
-    "Be'energies : panneaux solaires, batteries, bornes de recharge, électricité générale et conformité en Limbourg et province de Liège (80 km autour de Riemst). Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
+    "Be'energies : panneaux solaires, batteries, bornes de recharge, électricité & conformité en Limbourg et province de Liège (80 km autour de Riemst). Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
   founder: {
     name: "Benoît Dezso",
     role: "Fondateur, ancien inspecteur en installation électrique",
