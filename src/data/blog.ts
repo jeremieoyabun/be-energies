@@ -58,9 +58,9 @@ export const allBlogArticles: BlogArticle[] = [
   {
     slug: "tarif-prosumer-2026",
     title:
-      "Tarif prosumer 2026 en Wallonie : ce qui change et ce que ça coûte",
+      "Tarif prosumer 2026 : montants ORES, RESA et pourquoi ce n'est pas une taxe",
     excerpt:
-      "Les montants par GRD, les deux régimes (avant/après 2024), et comment optimiser votre installation.",
+      "Beaucoup l'appellent la taxe prosumer. Voici les montants réels par gestionnaire de réseau, les deux régimes (avant / après 2024) et comment réduire la facture.",
     date: "2026-02-15",
     author: "Benoît Dezso",
     readingTime: 6,

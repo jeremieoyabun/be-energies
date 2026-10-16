@@ -184,7 +184,8 @@ const serviceLocalContentFr: Record<string, ServiceLocalContent> = {
     crossServiceHeading: (city) => `Vous installez des panneaux à ${city} ? Pensez aussi à :`,
   },
   "batteries-domestiques": {
-    whyTitle: (city) => `Batterie domestique à ${city} : est-ce rentable ?`,
+    whyTitle: (city) =>
+      `Batteries de stockage à ${city} : est-ce rentable chez vous ?`,
     whyBody: (city, grd) => {
       const tariffContext = grd && grd.prosumerEurPerKweYear > 0
         ? `Pour les installations antérieures à 2024 sous ${grd.name} avec compensation jusqu'en 2030, le réseau fait office de batterie virtuelle gratuite. Dans ce cas, une batterie physique n'est souvent pas justifiée. Pour les installations post-2024 avec compteur communicant, la batterie augmente votre taux d'autoconsommation et optimise le tarif IMPACT.`
@@ -458,7 +459,7 @@ const headlineVariantsFr: Record<string, (cityName: string) => string> = {
   "panneaux-photovoltaiques": (city) =>
     `Panneaux photovoltaïques à ${city} : votre installateur certifié`,
   "batteries-domestiques": (city) =>
-    `Batterie domestique à ${city} : stockage intelligent par un expert`,
+    `Batteries de stockage à ${city} : rentable ou pas, on calcule avant`,
   "bornes-de-recharge": (city) =>
     `Borne de recharge à ${city} : installation intégrée à votre solaire`,
   "conformite-electrique": (city) =>

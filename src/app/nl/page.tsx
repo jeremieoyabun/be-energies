@@ -16,7 +16,7 @@ import { TestimonialBlock } from "@/components/sections/TestimonialBlock";
 import { homepageFaqNl } from "@/data/faq.nl";
 
 export const metadata = generatePageMetadata({
-  title: "Be'energies -- Uw gecertificeerde installateur",
+  title: "Be'energies — Installateur zonnepanelen in Riemst en Limburg",
   description:
     "Zonnepanelen, thuisbatterijen, laadpalen, elektriciteit & conformiteit in Limburg. Benoît Dezso, voormalig inspecteur elektrotechnische installaties, RESCERT-gecertificeerd.",
   path: "/nl/",

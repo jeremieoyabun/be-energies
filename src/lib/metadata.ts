@@ -25,7 +25,11 @@ export function generatePageMetadata({
   ogImage,
 }: PageMetadata): Metadata {
   const url = `${BASE_URL}${path}`;
-  const fullTitle = path === "/" ? `${siteConfig.name} -- ${siteConfig.tagline}` : `${title} | ${siteConfig.name}`;
+  // Homepages carry the brand inside their own `title` (they need the
+  // category + city for local search, which a bare tagline does not give).
+  // Every other page gets the brand appended.
+  const isHome = path === "/" || path === "/nl/";
+  const fullTitle = isHome ? title : `${title} | ${siteConfig.name}`;
 
   const languages: Record<string, string> = {};
   if (alternates?.fr) {
