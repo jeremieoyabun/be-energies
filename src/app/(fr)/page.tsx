@@ -20,7 +20,7 @@ import { ComplianceBadge } from "@/components/sections/ComplianceBadge";
 export const metadata = generatePageMetadata({
   title: "Be'energies — Installateur panneaux solaires à Riemst et Liège",
   description:
-    "Panneaux solaires, batteries, bornes de recharge et conformité électrique en Limbourg et province de Liège. Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Diagnostic gratuit, devis sous 7 jours.",
+    "Panneaux solaires, batteries, bornes de recharge et conformité électrique en Limbourg, province de Liège et région namuroise. Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT. Diagnostic gratuit, devis sous 7 jours.",
   path: "/",
   alternates: { fr: "/", nl: "/nl/" },
 });

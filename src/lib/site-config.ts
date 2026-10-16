@@ -18,7 +18,7 @@ export const siteConfig = {
   localeNl: "nl-BE",
   tagline: "L'installateur qui a d'abord été l'inspecteur.",
   description:
-    "Be'energies : panneaux solaires, batteries, bornes de recharge, électricité & conformité en Limbourg et province de Liège (80 km autour de Riemst). Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
+    "Be'energies : panneaux solaires, batteries, bornes de recharge, électricité & conformité en Limbourg, province de Liège et région namuroise. Fondé par Benoît Dezso, ancien inspecteur en installation électrique, certifié RESCERT.",
   founder: {
     name: "Benoît Dezso",
     role: "Fondateur, ancien inspecteur en installation électrique",
@@ -36,13 +36,16 @@ export const siteConfig = {
    * around the Riemst office. Used for copy and for the GeoCircle in
    * LocalBusiness schema. Cities beyond this radius are flagged
    * `offline` in data/cities.ts and handled "sur demande".
+   *
+   * Namur (83 km) is an approved exception: real demand in Search Console
+   * on the charging-station queries, so the radius is stated as 85 km.
    */
   serviceArea: {
     baseCity: "Riemst",
-    radiusKm: 80,
+    radiusKm: 85,
     geo: { lat: 50.809, lng: 5.603 },
-    provinces: ["Limbourg", "Liège"],
-    provincesNl: ["Limburg", "Luik"],
+    provinces: ["Limbourg", "Liège", "Namur"],
+    provincesNl: ["Limburg", "Luik", "Namen"],
   },
   contact: {
     // Single source of truth. First entry = primary line shown in header /

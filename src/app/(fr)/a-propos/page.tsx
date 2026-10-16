@@ -501,9 +501,9 @@ export default function AboutPage() {
           <p>
             Nos zones d&apos;intervention : le Limbourg (Riemst, Tongeren,
             Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) et la province de
-            Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy).
-            Au-delà (Namur, Brabant wallon, Bruxelles…), pourquoi pas : nous
-            étudions les demandes sur demande, selon le projet. Benoît se
+            Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy),
+            ainsi que Namur. Au-delà (Brabant wallon, Bruxelles…), pourquoi
+            pas : nous étudions les demandes sur demande, selon le projet. Benoît se
             déplace personnellement pour chaque diagnostic et supervise chaque
             chantier.
           </p>

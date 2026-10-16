@@ -20,7 +20,6 @@ export const allCities: City[] = [
   },
   {
     slug: "namur",
-    offline: true, // 83 km by road from Riemst (> 80 km rule)
     name: "Namur",
     province: "Namur",
     region: "wallonie",

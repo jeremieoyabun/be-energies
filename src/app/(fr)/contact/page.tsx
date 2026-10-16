@@ -13,7 +13,7 @@ import type { FAQItem } from "@/lib/types";
 export const metadata = generatePageMetadata({
   title: "Contact | Diagnostic énergétique gratuit",
   description:
-    "Diagnostic énergétique gratuit en Limbourg et province de Liège (80 km autour de Riemst) : visite technique sur site, devis détaillé sous 7 jours. Réponse personnelle de Benoît Dezso, certifié RESCERT. Pas de call center, pas de pression commerciale.",
+    "Diagnostic énergétique gratuit en Limbourg, province de Liège et région namuroise : visite technique sur site, devis détaillé sous 7 jours. Réponse personnelle de Benoît Dezso, certifié RESCERT. Pas de call center, pas de pression commerciale.",
   path: "/contact/",
   alternates: { fr: "/contact/", nl: "/nl/contact/" },
 });
@@ -37,7 +37,7 @@ const contactFAQ: FAQItem[] = [
   {
     question: "Intervenez-vous dans ma région ?",
     answer:
-      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) et la province de Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy). Au-delà (Namur, Brabant wallon, Bruxelles…), pourquoi pas : nous étudions les demandes sur demande, selon le projet. Contactez-nous pour confirmer votre zone.",
+      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) la province de Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy) et Namur. Au-delà (Brabant wallon, Bruxelles…), pourquoi pas : nous étudions les demandes sur demande, selon le projet. Contactez-nous pour confirmer votre zone.",
   },
   {
     question: "Que comprend le diagnostic énergétique ?",

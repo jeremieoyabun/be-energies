@@ -14,10 +14,11 @@
 
 ## Zone d'intervention
 
-- Rayon d'intervention : 70 à 80 km maximum en voiture autour de Riemst (3770)
+- Rayon d'intervention : 70 à 80 km en voiture autour de Riemst (3770)
 - Limbourg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk)
 - Province de Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy)
-- Au-delà (Namur, Brabant wallon, Bruxelles…) : sur demande, selon le projet
+- Namur
+- Au-delà (Brabant wallon, Bruxelles…) : sur demande, selon le projet
 - Bornes de recharge : aucune prime pour les particuliers en 2026 (seulement TVA 6 % et déduction fiscale pour les professionnels)
 
 ## Services

@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
       // Cities: beyond the 70-80 km driving radius from Riemst (see cities.ts).
       {
         source:
-          "/:service(panneaux-photovoltaiques|batteries-domestiques|bornes-de-recharge|conformite-electrique)/:city(namur|wavre|ottignies-louvain-la-neuve|bruxelles|charleroi|waterloo|nivelles|la-louviere|mons|arlon|tournai)/",
+          "/:service(panneaux-photovoltaiques|batteries-domestiques|bornes-de-recharge|conformite-electrique)/:city(wavre|ottignies-louvain-la-neuve|bruxelles|charleroi|waterloo|nivelles|la-louviere|mons|arlon|tournai)/",
         destination: "/services/:service/",
         permanent: true,
       },

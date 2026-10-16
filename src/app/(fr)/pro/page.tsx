@@ -23,7 +23,7 @@ import type { FAQItem } from "@/lib/types";
 export const metadata = generatePageMetadata({
   title: "Espace Pro : solutions énergétiques pour PME, entreprises et institutions",
   description:
-    "PME, grandes entreprises, syndics et institutions en Limbourg et province de Liège (80 km autour de Riemst) : panneaux solaires, batteries, bornes de recharge, conformité électrique. Étude sur mesure par Benoît Dezso, certifié RESCERT.",
+    "PME, grandes entreprises, syndics et institutions en Limbourg, province de Liège et région namuroise : panneaux solaires, batteries, bornes de recharge, conformité électrique. Étude sur mesure par Benoît Dezso, certifié RESCERT.",
   path: "/pro/",
 });
 
@@ -133,7 +133,7 @@ const faqItems: FAQItem[] = [
   {
     question: "Quelle est votre zone d'intervention ?",
     answer:
-      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg et la province de Liège. C'est ce qui nous permet d'assurer nous-mêmes la visite technique, le chantier et le suivi. Au-delà (Namur, Brabant wallon, Bruxelles, Hainaut…), nous étudions les projets professionnels sur demande : contactez-nous pour vérifier votre localisation.",
+      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg, la province de Liège et Namur. C'est ce qui nous permet d'assurer nous-mêmes la visite technique, le chantier et le suivi. Au-delà (Brabant wallon, Bruxelles, Hainaut…), nous étudions les projets professionnels sur demande : contactez-nous pour vérifier votre localisation.",
   },
   {
     question: "Pouvez-vous intervenir sans interrompre notre activité ?",
@@ -201,8 +201,8 @@ export default function ProPage() {
                 Optimisez votre retour sur investissement énergétique
               </h1>
               <p className="mt-7 text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl">
-                PME, grandes entreprises, syndics et institutions du Limbourg
-                et de la province de Liège : un seul interlocuteur technique pour des
+                PME, grandes entreprises, syndics et institutions du Limbourg,
+                de la province de Liège et de la région namuroise : un seul interlocuteur technique pour des
                 installations conformes, dimensionnées juste et rentables.
               </p>
               <div className="mt-9 flex flex-col items-start gap-4">

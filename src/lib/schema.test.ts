@@ -130,7 +130,7 @@ describe("localBusinessSchema", () => {
       expect(schema).not.toHaveProperty("geo");
     });
 
-    it("emits areaServed as an 80 km GeoCircle around Riemst plus the covered provinces", () => {
+    it("emits areaServed as a GeoCircle around Riemst plus the covered provinces", () => {
       const areaServed = schema.areaServed as Array<{
         "@type": string;
         name?: string;
@@ -139,7 +139,9 @@ describe("localBusinessSchema", () => {
       const provinces = siteConfig.serviceArea.provinces;
       expect(areaServed).toHaveLength(1 + provinces.length);
       expect(areaServed[0]["@type"]).toBe("GeoCircle");
-      expect(areaServed[0].geoRadius).toBe("80000");
+      expect(areaServed[0].geoRadius).toBe(
+        String(siteConfig.serviceArea.radiusKm * 1000),
+      );
       expect(areaServed.slice(1).map((a) => a.name)).toEqual(provinces);
     });
 

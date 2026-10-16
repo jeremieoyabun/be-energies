@@ -59,7 +59,7 @@ export const pvServiceFaqNl: FAQItem[] = [
   {
     question: "Werkt Be'energies in mijn streek?",
     answer:
-      "Wij werken in een straal van 70 tot 80 km met de wagen rond Riemst: Limburg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) en de provincie Luik (Luik, Wezet, Herstal, Seraing, Borgworm, Verviers, Hoei). Verder weg (Namen, Waals-Brabant, Brussel…) bekijken we aanvragen op aanvraag, afhankelijk van het project. Benoît komt persoonlijk langs voor elke diagnose en superviseert elk project. Raadpleeg onze lokale pagina's om de realisaties in uw stad te zien.",
+      "Wij werken in een straal van 70 tot 80 km met de wagen rond Riemst: Limburg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) de provincie Luik (Luik, Wezet, Herstal, Seraing, Borgworm, Verviers, Hoei) en Namen. Verder weg (Waals-Brabant, Brussel…) bekijken we aanvragen op aanvraag, afhankelijk van het project. Benoît komt persoonlijk langs voor elke diagnose en superviseert elk project. Raadpleeg onze lokale pagina's om de realisaties in uw stad te zien.",
   },
   {
     question: "Welke merken panelen gebruikt u?",

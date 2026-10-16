@@ -53,7 +53,7 @@ export const pvServiceFaq: FAQItem[] = [
   {
     question: "Be'energies intervient-il dans ma région ?",
     answer:
-      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) et la province de Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy). Au-delà (Namur, Brabant wallon, Bruxelles…), nous étudions les demandes sur demande, selon le projet. Benoît se déplace personnellement pour chaque diagnostic et supervise chaque chantier. Consultez nos pages locales pour voir les réalisations dans votre ville.",
+      "Nous intervenons dans un rayon de 70 à 80 km en voiture autour de Riemst : le Limbourg (Riemst, Tongeren, Bilzen, Lanaken, Maasmechelen, Hasselt, Genk) la province de Liège (Liège, Visé, Herstal, Seraing, Waremme, Verviers, Huy) et Namur. Au-delà (Brabant wallon, Bruxelles…), nous étudions les demandes sur demande, selon le projet. Benoît se déplace personnellement pour chaque diagnostic et supervise chaque chantier. Consultez nos pages locales pour voir les réalisations dans votre ville.",
   },
   {
     question: "Quelles marques de panneaux utilisez-vous ?",
