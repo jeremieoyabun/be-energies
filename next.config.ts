@@ -30,7 +30,6 @@ const nextConfig: NextConfig = {
       { source: "/nl/diensten/warmtepompen/", destination: "/nl/diensten/", permanent: true },
       { source: "/blog/pompe-chaleur-vs-chaudiere-gaz/", destination: "/blog/", permanent: true },
       { source: "/realisations/namur-pompe-a-chaleur-pv/", destination: "/realisations/", permanent: true },
-      { source: "/guides/prime-borne-recharge-belgique-2026/", destination: "/services/bornes-de-recharge/", permanent: true },
 
       // WordPress slug migration
       { source: "/realisation/", destination: "/realisations/", permanent: true },

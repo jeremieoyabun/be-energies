@@ -33,6 +33,7 @@
 - [Prix panneaux solaires Wallonie 2026](https://www.be-energies.be/guides/prix-panneaux-solaires-wallonie-2026/) : fourchettes de prix réelles, TVA 6 %, temps de retour sous le nouveau régime
 - [Tarif IMPACT Wallonie 2026](https://www.be-energies.be/guides/tarif-impact-wallonie-explication/) : explication du tarif horaire et impact sur la rentabilité PV
 - [Certificats verts Bruxelles 2026](https://www.be-energies.be/guides/certificats-verts-bruxelles-2026/) : ce qui change pour les installations bruxelloises
+- [Prime borne de recharge Belgique 2026](https://www.be-energies.be/guides/prime-borne-recharge-belgique-2026/) : il n'existe plus de prime pour une borne résidentielle ; seuls restent la TVA 6 % et la déduction fiscale pour les professionnels
 - [Garanties panneaux solaires et onduleurs](https://www.be-energies.be/guides/garanties-panneaux-solaires-onduleurs/) : durées et conditions réelles des garanties constructeur
 - [7 pièges à éviter avant de signer un devis](https://www.be-energies.be/pieges-a-eviter/) : checklist par un ancien inspecteur
 - [Capaciteitstarief Vlaanderen 2026 (NL)](https://www.be-energies.be/nl/gids/capaciteitstarief-vlaanderen/) : uitleg over het capaciteitstarief van Fluvius en de gevolgen voor zonnepanelen

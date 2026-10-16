@@ -258,6 +258,12 @@ export default async function LocalPage({ params }: LocalPageProps) {
                   href: "/guides/tarif-impact-wallonie-explication/",
                 });
               }
+              if (service.slug === "bornes-de-recharge") {
+                guides.push({
+                  label: "Prime borne de recharge : ce qui reste en 2026",
+                  href: "/guides/prime-borne-recharge-belgique-2026/",
+                });
+              }
               if (guides.length === 0) return null;
               return (
                 <div className="mt-8 pt-6 border-t border-cloud">

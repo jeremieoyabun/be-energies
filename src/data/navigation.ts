@@ -41,6 +41,7 @@ export const mainNavFr: NavItem[] = [
     href: "/guides/",
     children: [
       { label: "Prix panneaux solaires Wallonie 2026", href: "/guides/prix-panneaux-solaires-wallonie-2026/" },
+      { label: "Prime borne de recharge 2026", href: "/guides/prime-borne-recharge-belgique-2026/" },
       { label: "Tarif IMPACT Wallonie 2026", href: "/guides/tarif-impact-wallonie-explication/" },
       { label: "Certificats verts Bruxelles 2026", href: "/guides/certificats-verts-bruxelles-2026/" },
       { label: "Pièges à éviter", href: "/pieges-a-eviter/" },
@@ -74,6 +75,7 @@ export const mainNavNl: NavItem[] = [
       { label: "7 valstrikken om te vermijden", href: "/nl/valstrikken/" },
       { label: "Capaciteitstarief Vlaanderen 2026", href: "/nl/gids/capaciteitstarief-vlaanderen/" },
       { label: "Prix panneaux solaires Wallonie 2026", href: "/guides/prix-panneaux-solaires-wallonie-2026/" },
+      { label: "Prime borne de recharge 2026", href: "/guides/prime-borne-recharge-belgique-2026/" },
       { label: "Tarif IMPACT Wallonie 2026", href: "/guides/tarif-impact-wallonie-explication/" },
     ],
   },
